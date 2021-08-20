@@ -1,0 +1,21 @@
+@mixin centerFlex($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin customFlex($direction, $main, $cross) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $main;
+  align-items: $cross;
+}
+
+@mixin h1($color) {
+  font-size: 4rem;
+  letter-spacing: 1rem;
+  margin-top: 20px;
+  font-weight: 700;
+  color: lighten($color, 30);
+}

@@ -1,0 +1,157 @@
+@import "./config.scss";
+@import "./colors.scss";
+
+.topbar {
+  width: 100%;
+  height: 120px;
+  background-color: $moccasin_light;
+  color: $maroon;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  transition: all 1s ease;
+
+  .topbar__left-wrapper {
+    position: absolute;
+    left: 0;
+    height: inherit;
+    width: 90%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .topbar__item {
+    margin-bottom: 5px;
+    margin-left: 20px;
+  }
+
+  .topbar__logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .topbar__number-wrapper {
+    margin-bottom: 2px;
+    margin-left: 20px;
+  }
+
+  .topbar__number {
+    font-size: 0.8em;
+    margin-left: 2px;
+    font-weight: 300;
+  }
+
+  // RIGHT SIDE
+  .topbar__right__wrapper {
+    position: absolute;
+    right: 0;
+    height: inherit;
+    width: 12%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .topbar__hamburger {
+      width: 44px;
+      height: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+
+      span {
+        width: 100%;
+        height: 5px;
+        background-color: $maroon;
+        transform-origin: left;
+        transition: all 1s ease;
+      }
+    }
+  }
+
+  &.active {
+    background-color: $maroon;
+    color: #fff;
+
+    .topbar__hamburger {
+      span {
+        &:first-child {
+          background-color: #fff;
+          transform: rotate(45deg);
+          box-shadow: 0 1px 8px 0, 0 6px 20px 0 rgba(102, 140, 172, 0.8);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          background-color: #fff;
+          transform: rotate(-45deg);
+          box-shadow: 0 1px 8px 0, 0 6px 20px 0 rgba(102, 140, 172, 0.8);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 870px) and (max-width: 1150px) {
+  .topbar {
+    height: 70px;
+
+    .topbar__left-wrapper {
+      width: 65%;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .topbar__logo {
+      font-size: 2em;
+    }
+
+    .topbar__number {
+      font-size: large;
+      font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (min-width: 1151px) {
+  .topbar {
+    height: 70px;
+
+    .topbar__left-wrapper {
+      width: 55%;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .topbar__number-wrapper {
+      display: inherit;
+      align-items: center;
+    }
+
+    .topbar__number {
+      font-size: large;
+      font-weight: 500;
+    }
+
+    // RIGHT SIDE
+    .topbar__right__wrapper {
+      width: 5%;
+
+      .topbar__hamburger {
+        width: 33px;
+        height: 25px;
+
+        span {
+          height: 3px;
+        }
+      }
+    }
+  }
+}

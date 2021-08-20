@@ -1,0 +1,70 @@
+@import "./config.scss";
+@import "./colors.scss";
+
+.menu {
+  width: 70%;
+  right: -500px;
+  height: 100vh;
+  background-color: $moccasin_light;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  padding-left: 35px;
+  @include customFlex(column, flex-start, center);
+  transition: all 0.8s ease-in-out;
+
+  &.active {
+    right: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 30px;
+    font-weight: 300;
+    color: white;
+    width: 90%;
+
+    li {
+      margin-bottom: 25px;
+      .link {
+        font-size: inherit;
+        color: $maroon;
+        text-decoration: none;
+        letter-spacing: 0.2rem;
+      }
+
+      &:hover {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 650px) and (max-width: 870px) {
+  .menu {
+    width: 60%;
+    right: -870px;
+    z-index: 5;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 871px) and (max-width: 1150px) {
+  .menu {
+    width: 50%;
+    right: -1150px;
+    z-index: 5;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 1151px) {
+  .menu {
+    width: 30%;
+    right: -1151px;
+    z-index: 5;
+    align-items: center;
+  }
+}
