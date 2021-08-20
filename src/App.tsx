@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import Topbar from './components/Topbar';
-
+import './styles/app.scss';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);

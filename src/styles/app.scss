@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Typography */
+/*   ::selection {
+  background: var(--color-primary);
+   color: #fff;
+ } */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2.4rem;
+  /* 1.5 means 1.5 times the font size */
+  line-height: 1.5;
+}
