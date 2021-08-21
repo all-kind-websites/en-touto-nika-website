@@ -1,5 +1,3 @@
-import { PhoneIphone, AlternateEmail } from "@material-ui/icons";
-
 import "../styles/topbar.scss";
 
 export default function Topbar({ menuOpen, setMenuOpen }) {
