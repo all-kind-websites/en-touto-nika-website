@@ -1,6 +1,6 @@
 export interface Question {
 	accepted: boolean;
-	index: number;
+	index?: number;
 	id: string;
 	categoryIds: string;
 	ownerId: string;
