@@ -3,7 +3,6 @@ import colors from '../../constants/colors';
 import '../../styles/UI/login-card.scss';
 import Button from './Button';
 import InputMaroon from './InputMaroon';
-import TextP from './TextP';
 
 // styles
 const noSubEnterButton = {
@@ -17,9 +16,14 @@ const noSubEnterButton = {
 
 const LoginCard = (props: any) => {
   const [hover, setHover] = useState(false);
+  const [login, setLogin] = useState(false);
 
   const handleHover = () => {
     setHover(!hover)
+  }
+
+  const handleLogin = () => {
+    setLogin(!login)
   }
 
   const goToLoginButtom = {
@@ -36,18 +40,23 @@ const LoginCard = (props: any) => {
             onClick={() => { }}
             style={noSubEnterButton} />
         </div>
-        <form >
-          <InputMaroon type='text' placeholder='Όνομα παίκτη' />
+        <form className={`${login && 'userHasAccount'}`} >
+          {!login &&
+            <InputMaroon type='text' placeholder='Όνομα παίκτη' />
+          }
           <InputMaroon type='email' placeholder='Ηλεκτρονική διεύθυνση' />
           <InputMaroon type='password' placeholder='Κωδικός πρόσβασης' />
-          <InputMaroon type='password' placeholder='Eπιβεβαίωση κωδικού' />
-          <Button title='Εγγραφή' onClick={() => { }} style={{ width: '40%', }} />
+          {!login &&
+            <InputMaroon type='password' placeholder='Eπιβεβαίωση κωδικού' />
+          }
+          <Button title={!login ? 'Εγγραφή' : 'Είσοδος'} onClick={(e: any) => { e.preventDefault() }} style={{ width: '40%', }} />
+
         </form>
         <div className="bottom-container">
-          <p>Έχετε λογαρισμό?</p>
+          <p>{!login ? 'Έχετε λογαρισμό?' : 'Δεν έχετε λογαριασμό?'}</p>
           <Button
-            title='Είσοδος'
-            onClick={() => { }}
+            title={login ? 'Εγγραφή' : 'Είσοδος'}
+            onClick={handleLogin}
             style={goToLoginButtom}
             onMouseEnter={() => handleHover()}
             onMouseLeave={() => handleHover()}
