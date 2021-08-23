@@ -16,7 +16,7 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
     <div className={`menu ${menuOpen && "active"} `}>
       <ul>
         <li>
-          <NavLink className='link' onClick={menuHandler} to="/en-touto-nika">
+          <NavLink className='link' onClick={menuHandler} to="/">
             <FaHome className='menu-icon' /> <p> Αρχική </p>
           </NavLink>
         </li>

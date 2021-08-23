@@ -1,0 +1,14 @@
+@import "./colors.scss";
+@import "./config.scss";
+
+.card {
+  width: 44rem;
+  height: 44rem;
+  box-shadow: 2px 2px 8px 2px $moccasin-light;
+  background-color: $moccasin_light;
+  border-radius: 2.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
