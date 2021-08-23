@@ -34,3 +34,8 @@
   margin: 10px;
   box-shadow: 1px 1px 8px 1px lighten($maroon, 5);
 }
+
+@mixin p($size, $color) {
+  font-size: $size;
+  color: $color;
+}

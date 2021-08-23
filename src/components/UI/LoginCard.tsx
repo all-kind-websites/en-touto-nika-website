@@ -44,7 +44,7 @@ const LoginCard = (props: any) => {
           <Button title='Εγγραφή' onClick={() => { }} style={{ width: '40%', }} />
         </form>
         <div className="bottom-container">
-          <TextP text='Έχετε λογαρισμό?' />
+          <p>Έχετε λογαρισμό?</p>
           <Button
             title='Είσοδος'
             onClick={() => { }}

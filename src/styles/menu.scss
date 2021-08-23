@@ -36,6 +36,7 @@
         letter-spacing: 0.2rem;
 
         p {
+          @include p(2.5rem, $maroon);
           margin-left: 10px;
           margin-bottom: -8px;
         }
