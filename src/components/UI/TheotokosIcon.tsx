@@ -1,4 +1,4 @@
-import '../../styles/theotokos-icon.scss';
+import '../../styles/UI/theotokos-icon.scss';
 
 const TheotokosIcon = (props: any) => {
   return (

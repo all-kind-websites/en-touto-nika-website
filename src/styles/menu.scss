@@ -29,7 +29,7 @@
 
       .link {
         @include customFlex(row, flex-start, center);
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: 500;
         color: $maroon;
         text-decoration: none;

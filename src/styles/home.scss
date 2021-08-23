@@ -2,8 +2,6 @@
 @import "./colors.scss";
 
 .home {
-  // @include centerFlex(column);
-  // @include customFlex(column, end, center);
   height: 100vh;
   background: linear-gradient($moccasin_light, $chocolate, $maroon);
 }
