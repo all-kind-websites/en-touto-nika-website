@@ -1,11 +1,11 @@
 import "../styles/topbar.scss";
 
-export default function Topbar({ menuOpen, setMenuOpen }) {
+export default function Topbar(props: any) {
   const menuHandler = () => {
-    setMenuOpen(true);
+    props.setMenuOpen(true);
   };
   return (
-    <div className={`topbar ${menuOpen && "active"} `}>
+    <div className={`topbar ${props.menuOpen && "active"} `}>
       <div className="hamburger-container">
         <div className="hamburger-icon" onClick={menuHandler}>
           <span></span>
