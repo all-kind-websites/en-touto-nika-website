@@ -19,6 +19,7 @@ const colors = {
   red_true_icon: "rgba(255,255,255,.5)",
   red: "#ffffff",
   maroon: "#800000",
+  maroon_light: '#882222',
   sandybrown: "#F4A460",
   chocolate: "#D2691E",
   chocolateRGBA: "rgba(210,105,30, 0.3)",

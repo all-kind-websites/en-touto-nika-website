@@ -1,9 +1,12 @@
-import React from 'react'
+import LoginCard from '../../components/UI/LoginCard'
+import TheotokosIcon from '../../components/UI/TheotokosIcon'
+import '../../styles/register.scss';
 
 export default function Register() {
   return (
-    <div>
-      Register
+    <div className='register' >
+      <TheotokosIcon />
+      <LoginCard />
     </div>
   )
 }

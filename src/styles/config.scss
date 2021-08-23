@@ -1,3 +1,5 @@
+@import "./colors.scss";
+
 @mixin centerFlex($direction) {
   display: flex;
   justify-content: center;
@@ -18,4 +20,17 @@
   margin-top: 20px;
   font-weight: 700;
   color: lighten($color, 30);
+}
+
+@mixin element($b-color, $color) {
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  width: 250px;
+  padding: 8px;
+  font-size: 1.8rem;
+  background-color: $b-color;
+  color: lighten($color, 5);
+  margin: 10px;
+  box-shadow: 1px 1px 8px 1px lighten($maroon, 5);
 }

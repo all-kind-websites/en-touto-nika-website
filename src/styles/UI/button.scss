@@ -1,0 +1,20 @@
+@import "../colors.scss";
+@import "../config.scss";
+
+button {
+  @include element($maroon, $moccasin_light);
+  margin: 0;
+  overflow-x: visible;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  color: darken($maroon, 5);
+  background-color: lighten($moccasin_light, 5);
+}
+
+button:active {
+  background-color: lighten($maroon, 73);
+  transform: translateY(4px);
+}
