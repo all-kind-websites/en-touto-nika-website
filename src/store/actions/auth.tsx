@@ -1,5 +1,5 @@
 import asyncNames from "../../constants/asyncNames";
-import API_KEY from "../../../api_key";
+import API_KEY from "../../api_key";
 // import firebase from "../../firebase/firebase";
 
 export const AUTHENTICATE = "AUTHENTICATE";
@@ -134,6 +134,7 @@ export const login = (email: string, password: string) => {
         throw new Error(message);
       }
       const resData = await response.json(); // transforms the data from json to javascript object
+      console.log(resData);
 
       dispatch(
         authenticate(

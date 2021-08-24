@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+
 import colors from '../../constants/colors';
 import '../../styles/UI/login-card.scss';
 import Button from './Button';
-import InputMaroon from './InputMaroon';
+import Input from './Input';
 
+import * as authActions from "../../store/actions/auth";
+
+// interface State {
+//   // name: string,
+//   email: string,
+//   password: string,
+// }
 // styles
 const noSubEnterButton = {
   height: 50,
@@ -15,9 +24,14 @@ const noSubEnterButton = {
 }
 
 const LoginCard = (props: any) => {
+  const dispatch = useDispatch();
+
   const [hover, setHover] = useState(false);
   const [login, setLogin] = useState(false);
-
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState('');
+  // const [state, setState] = useState<State>({ email: '', password: '' })
   const handleHover = () => {
     setHover(!hover)
   }
@@ -25,6 +39,52 @@ const LoginCard = (props: any) => {
   const handleLogin = () => {
     setLogin(!login)
   }
+
+
+  const handleChange = (event: React.SyntheticEvent): void => {
+    const target = event.target as HTMLInputElement;
+    switch (target.name) {
+      case 'email':
+        setEmail(target.value)
+        break;
+      case 'password':
+        setPassword(target.value)
+        break;
+
+      default:
+        break;
+    }
+
+  };
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+    console.log(email, password);
+    let action;
+    if (login) {
+      action = authActions.login(email, password);
+    } else {
+      action = authActions.signup(email, password);
+
+    }
+    try {
+      await dispatch(action);
+      if (!login) {
+        await dispatch(authActions.changeUserName(name));
+        await dispatch(authActions.fetchUserName());
+      }
+    } catch (err) {
+      //Note: only if we have an error we stay in this screen...
+    }
+  };
+
+  // const isFormValid = ({ email, password }) => email && password;
+
+  // const handleInputError = (errors, input) => {
+  //   errors.some(error =>
+  //     error.message.toLowerCase().includes(input) ? input : ""
+  //   );
+  // };
 
   const goToLoginButtom = {
     width: '30%',
@@ -42,14 +102,26 @@ const LoginCard = (props: any) => {
         </div>
         <form className={`${login && 'userHasAccount'}`} >
           {!login &&
-            <InputMaroon type='text' placeholder='Όνομα παίκτη' />
+            <Input
+
+              type='text' placeholder='Όνομα παίκτη' />
           }
-          <InputMaroon type='email' placeholder='Ηλεκτρονική διεύθυνση' />
-          <InputMaroon type='password' placeholder='Κωδικός πρόσβασης' />
+          <Input
+            name="email"
+            value={email}
+            onChange={handleChange}
+            type='email'
+            placeholder='Ηλεκτρονική διεύθυνση'
+          />
+          <Input
+            name="password"
+            value={password}
+            onChange={handleChange}
+            type='password' placeholder='Κωδικός πρόσβασης' />
           {!login &&
-            <InputMaroon type='password' placeholder='Eπιβεβαίωση κωδικού' />
+            <Input type='password' placeholder='Eπιβεβαίωση κωδικού' />
           }
-          <Button title={!login ? 'Εγγραφή' : 'Είσοδος'} onClick={(e: any) => { e.preventDefault() }} style={{ width: '40%', }} />
+          <Button title={!login ? 'Εγγραφή' : 'Είσοδος'} onClick={handleSubmit} style={{ width: '40%', }} />
 
         </form>
         <div className="bottom-container">
