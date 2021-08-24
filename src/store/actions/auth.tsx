@@ -79,6 +79,7 @@ export const signup = (email: string, password: string) => {
     }
 
     const resData = await response.json(); // transforms the data from json to javascript object
+
     dispatch(
       authenticate(
         resData.idToken,

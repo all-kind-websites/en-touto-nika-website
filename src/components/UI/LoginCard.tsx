@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React, { useCallback, useState } from 'react';
+import { useDispatch } from "react-redux";
 
 import colors from '../../constants/colors';
 import '../../styles/UI/login-card.scss';
@@ -7,6 +7,7 @@ import Button from './Button';
 import Input from './Input';
 
 import * as authActions from "../../store/actions/auth";
+import Loader from './Loader';
 
 // interface State {
 //   // name: string,
@@ -30,8 +31,10 @@ const LoginCard = (props: any) => {
   const [login, setLogin] = useState(false);
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState('');
-  // const [state, setState] = useState<State>({ email: '', password: '' })
+  const [password, setPassword] = useState<string>('');
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const handleHover = () => {
     setHover(!hover)
   }
@@ -44,22 +47,27 @@ const LoginCard = (props: any) => {
   const handleChange = (event: React.SyntheticEvent): void => {
     const target = event.target as HTMLInputElement;
     switch (target.name) {
+      case 'name':
+        setName(target.value)
+        break;
       case 'email':
         setEmail(target.value)
         break;
       case 'password':
         setPassword(target.value)
         break;
-
+      case 'confirmPassword':
+        setConfirmPassword(target.value)
+        break;
       default:
         break;
     }
 
   };
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = useCallback(async (event: any) => {
     event.preventDefault();
-    console.log(email, password);
+    console.log(name, email, password, confirmPassword);
     let action;
     if (login) {
       action = authActions.login(email, password);
@@ -67,16 +75,25 @@ const LoginCard = (props: any) => {
       action = authActions.signup(email, password);
 
     }
+
+    setIsLoading(true);
     try {
       await dispatch(action);
       if (!login) {
         await dispatch(authActions.changeUserName(name));
         await dispatch(authActions.fetchUserName());
       }
+      setName('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
+      setIsLoading(false);
     } catch (err) {
+      setIsLoading(false);
       //Note: only if we have an error we stay in this screen...
     }
-  };
+
+  }, [name, email, password, confirmPassword, login, isLoading]);
 
   // const isFormValid = ({ email, password }) => email && password;
 
@@ -103,7 +120,9 @@ const LoginCard = (props: any) => {
         <form className={`${login && 'userHasAccount'}`} >
           {!login &&
             <Input
-
+              name="name"
+              value={name}
+              onChange={handleChange}
               type='text' placeholder='Όνομα παίκτη' />
           }
           <Input
@@ -119,9 +138,16 @@ const LoginCard = (props: any) => {
             onChange={handleChange}
             type='password' placeholder='Κωδικός πρόσβασης' />
           {!login &&
-            <Input type='password' placeholder='Eπιβεβαίωση κωδικού' />
+            <Input
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={handleChange}
+              type='password'
+              placeholder='Eπιβεβαίωση κωδικού' />
           }
-          <Button title={!login ? 'Εγγραφή' : 'Είσοδος'} onClick={handleSubmit} style={{ width: '40%', }} />
+          {isLoading ?
+            <Loader /> :
+            <Button title={!login ? 'Εγγραφή' : 'Είσοδος'} onClick={handleSubmit} style={{ width: '40%', }} />}
 
         </form>
         <div className="bottom-container">
