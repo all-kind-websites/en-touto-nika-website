@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Menu from "./navigation/Menu";
 import Home from "./pages/Home";
@@ -29,25 +30,26 @@ function App() {
 
 
   return (
-    <Provider store={store}>
-
-      <div className="App">
-        <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <div className="content">
-          <Switch>
-            <Route path="/winners" component={Winners} />
-            <Route path="/settings" component={Settings} />
-            <Route path="/create" component={Create} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/not-found" component={NotFound} />
-            <Route path="/" exact component={Home} />
-            <Redirect to="/not-found" />
-          </Switch>
+    <Router>
+      <Provider store={store}>
+        <div className="App">
+          <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <div className="content">
+            <Switch>
+              <Route path="/winners" component={Winners} />
+              <Route path="/settings" component={Settings} />
+              <Route path="/create" component={Create} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+              <Route path="/not-found" component={NotFound} />
+              <Route path="/" exact component={Home} />
+              <Redirect to="/not-found" />
+            </Switch>
+          </div>
         </div>
-      </div>
-    </Provider>
+      </Provider>
+    </Router>
   );
 }
 

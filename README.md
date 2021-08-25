@@ -9,3 +9,4 @@
 - refactor util `const setTimer = ( timerAnimation: any, timerOpacity: any`
 - refactor util `const startMixGame = async ( navigation: any,`
 - refactor util `const updateNumOfTotalQuestions = async ( gameType,`
+- // `--env=jsdom`
