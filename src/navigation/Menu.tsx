@@ -5,13 +5,22 @@ import { BiLogOut, BiLogIn } from 'react-icons/bi'
 import { IoIosCreate } from 'react-icons/io'
 import { NavLink } from "react-router-dom";
 import '../styles/menu.scss';
+import asyncNames from '../constants/asyncNames'
 
 
 export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, setMenuOpen: Function }) {
 
+  const userIsLoggedIn = !!localStorage.getItem(asyncNames.userData);
+
   const menuHandler = () => {
     setMenuOpen(false);
   };
+
+  const logoutHandler = () => {
+    setMenuOpen(false);
+    localStorage.getItem(asyncNames.userData);
+  };
+
   return (
     <div className={`menu ${menuOpen && "active"} `}>
       <ul>
@@ -35,16 +44,16 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
             <IoIosCreate className='menu-icon' /> <p>Δημιουργία</p>
           </NavLink>
         </li>
-        <li>
-          <NavLink className='link' onClick={menuHandler} to="/logout">
+        {userIsLoggedIn ? <li>
+          <NavLink className='link' onClick={logoutHandler} to="/register">
             <BiLogOut className='menu-icon' /> <p>Έξοδος</p>
           </NavLink>
-        </li>
-        <li>
+        </li> : null}
+        {!userIsLoggedIn ? <li>
           <NavLink className='link' onClick={menuHandler} to="/register">
             <BiLogIn className='menu-icon' /> <p>Είσοδος</p>
           </NavLink>
-        </li>
+        </li> : null}
       </ul>
     </div>
   );

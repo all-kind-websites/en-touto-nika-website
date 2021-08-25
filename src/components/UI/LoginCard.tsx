@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 import colors from '../../constants/colors';
 import '../../styles/UI/login-card.scss';
@@ -27,6 +28,7 @@ const errorsInitialState = {
   password: '',
   confirmPassword: '',
 }
+
 // styles
 const noSubEnterButton = {
   height: 50,
@@ -34,11 +36,11 @@ const noSubEnterButton = {
   borderRadius: '35px',
   boxShadow: `1px 1px 8px 3px ${colors.moccasin_light} `,
   border: `1px solid ${colors.moccasin_light} `
-
 }
 
 const LoginCard = (props: any) => {
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const [hover, setHover] = useState(false);
   const [login, setLogin] = useState(false);
@@ -103,12 +105,15 @@ const LoginCard = (props: any) => {
         setConfirmPassword('');
         setErrors(errorsInitialState);
         setIsLoading(false);
+        history.replace('/');
       } catch (err) {
         setIsLoading(false);
+        console.log(err);
+
         //Note: only if we have an error we stay in this screen...
       }
     }
-  }, [name, email, password, confirmPassword, login, dispatch]);
+  }, [name, email, password, confirmPassword, login, history, dispatch]);
 
 
   const goToLoginButtom = {
