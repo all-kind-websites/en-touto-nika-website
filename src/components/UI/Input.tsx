@@ -6,6 +6,7 @@ const Input = (props: any) =>
       name={props.name}
       value={props.value}
       onChange={props.onChange}
+      onBlur={props.onBlur}
       type={props.type}
       placeholder={props.placeholder}
       autoFocus={props.autoFocus}

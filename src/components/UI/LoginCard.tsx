@@ -9,7 +9,7 @@ import Input from './Input';
 
 import * as authActions from "../../store/actions/auth";
 import Loader from './Loader';
-import { formIsValid } from '../../utils/auth-validation';
+import { emailIsValid, formIsValid, nameIsValid, passwordIsValid, passwordNoMatch } from '../../utils/auth-validation';
 
 interface Errors {
   login: string,
@@ -65,15 +65,19 @@ const LoginCard = (props: any) => {
     switch (target.name) {
       case 'name':
         setName(target.value);
+        nameIsValid(name, setErrors);
         break;
       case 'email':
         setEmail(target.value);
+        emailIsValid(email, setErrors);
         break;
       case 'password':
         setPassword(target.value);
+        passwordIsValid(password, setErrors);
         break;
       case 'confirmPassword':
         setConfirmPassword(target.value)
+        passwordNoMatch(password, confirmPassword, setErrors);
         break;
       default:
         break;
@@ -115,6 +119,16 @@ const LoginCard = (props: any) => {
     }
   }, [name, email, password, confirmPassword, login, history, dispatch]);
 
+  const onBlur = () => {
+    // This check prevents getting error message
+    // on email input, if user's first click is outside.
+    if (nameIsValid(name, setErrors)) {
+      nameIsValid(name, setErrors);
+      emailIsValid(email, setErrors);
+      passwordIsValid(password, setErrors);
+      passwordNoMatch(password, confirmPassword, setErrors);
+    }
+  }
 
   const goToLoginButtom = {
     width: '30%',
@@ -136,6 +150,7 @@ const LoginCard = (props: any) => {
               name="name"
               value={name}
               onChange={handleChange}
+              onBlur={onBlur}
               error={errors.register || errors.name}
               type='text' placeholder='Όνομα παίκτη'
               autoFocus={true}
@@ -145,6 +160,7 @@ const LoginCard = (props: any) => {
             name="email"
             value={email}
             onChange={handleChange}
+            onBlur={onBlur}
             error={errors.register || errors.login || errors.email}
             type='email'
             placeholder='Ηλεκτρονική διεύθυνση'
@@ -153,6 +169,7 @@ const LoginCard = (props: any) => {
             name="password"
             value={password}
             onChange={handleChange}
+            onBlur={onBlur}
             error={errors.register || errors.login || errors.password}
             type='password' placeholder='Κωδικός πρόσβασης' />
           {!login &&
@@ -160,6 +177,7 @@ const LoginCard = (props: any) => {
               name="confirmPassword"
               value={confirmPassword}
               onChange={handleChange}
+              onBlur={onBlur}
               error={errors.register || errors.password}
               type='password'
               placeholder='Eπιβεβαίωση κωδικού' />
