@@ -73,8 +73,9 @@ export const signup = (email: string, password: string) => {
           "Η δυνατότητα σύνδεσης με ηλεκτρονική διεύθυνση έχει απενεργοποιηθεί!";
       } else if (errorId === "TOO_MANY_ATTEMPTS_TRY_LATER") {
         message =
-          "Έχουν μπλοκαριστεί όλες οι προσπάθειες από αυτή την συσκευή, λόγω ασυνήθηστων ενεργειών!";
+          "Πολλές αποτυχίες... δοκίμασε ξανά αργότερα!";
       }
+      alert(message);
       throw new Error(message);
     }
 
@@ -496,7 +497,7 @@ export const fetchUserName = () => {
   return async (dispatch: Function, getState: Function) => {
     try {
       const userId = getState().auth.userId;
-      const token = getState().auth.token;
+      // const token = getState().auth.token;
       const response = await fetch(
         `https://en-touto-nika.firebaseio.com//usersNames/${userId}.json`
       );
@@ -625,7 +626,7 @@ export const fetchUserProfilePictureUrl = () => {
   return async (dispatch: Function, getState: Function) => {
     try {
       const userId = getState().auth.userId;
-      const token = getState().auth.token;
+      // const token = getState().auth.token;
       const response = await fetch(
         `https://en-touto-nika.firebaseio.com//profilePictures/${userId}.json`
       );

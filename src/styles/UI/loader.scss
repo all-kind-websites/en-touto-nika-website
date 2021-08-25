@@ -1,10 +1,10 @@
 @import "../colors.scss";
 
-.container {
+.loader {
   height: 5rem;
 }
 
-.loader {
+.loader__element {
   border: 7px solid $chocolate;
   border-radius: 50%;
   border-top: 7px solid $maroon;

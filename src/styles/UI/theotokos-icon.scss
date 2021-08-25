@@ -6,16 +6,16 @@
   top: 70px;
   left: 50%;
   transform: translateX(-50%);
-  width: 15rem;
-  height: 20rem;
+  width: 12rem;
+  height: 16rem;
   border-radius: 25px;
   box-shadow: 2px 2px 8px 2px $moccasin-light;
 
   img {
-    width: 15rem;
-    height: 20rem;
+    width: 12rem;
+    height: 16rem;
     border-radius: 25px;
     border: 1px solid $maroon;
-    object-fit: fill;
+    object-fit: initial;
   }
 }

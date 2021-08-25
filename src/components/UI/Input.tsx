@@ -1,14 +1,17 @@
 import "../../styles/UI/input.scss";
 
 const Input = (props: any) =>
-  <input
-    // value={props.value}
-    name={props.name}
-    value={props.value}
-    onChange={props.onChange}
-    type={props.type}
-    placeholder={props.placeholder}
-  />;
+  <div className='input__container' >
+    <input
+      name={props.name}
+      value={props.value}
+      onChange={props.onChange}
+      type={props.type}
+      placeholder={props.placeholder}
+      autoFocus={props.autoFocus}
+    />
+    <p className="input__error">{props.error}</p>
+  </div>
 
 
 export default Input;

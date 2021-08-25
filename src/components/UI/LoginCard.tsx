@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 
 import colors from '../../constants/colors';
@@ -8,12 +8,25 @@ import Input from './Input';
 
 import * as authActions from "../../store/actions/auth";
 import Loader from './Loader';
+import { formIsValid } from '../../utils/auth-validation';
 
-// interface State {
-//   // name: string,
-//   email: string,
-//   password: string,
-// }
+interface Errors {
+  login: string,
+  register: string,
+  name: string,
+  email: string,
+  password: string,
+  confirmPassword: string,
+}
+
+const errorsInitialState = {
+  login: '',
+  register: '',
+  name: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+}
 // styles
 const noSubEnterButton = {
   height: 50,
@@ -34,6 +47,7 @@ const LoginCard = (props: any) => {
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errors, setErrors] = useState<Errors>(errorsInitialState);
 
   const handleHover = () => {
     setHover(!hover)
@@ -48,13 +62,13 @@ const LoginCard = (props: any) => {
     const target = event.target as HTMLInputElement;
     switch (target.name) {
       case 'name':
-        setName(target.value)
+        setName(target.value);
         break;
       case 'email':
-        setEmail(target.value)
+        setEmail(target.value);
         break;
       case 'password':
-        setPassword(target.value)
+        setPassword(target.value);
         break;
       case 'confirmPassword':
         setConfirmPassword(target.value)
@@ -62,46 +76,40 @@ const LoginCard = (props: any) => {
       default:
         break;
     }
-
   };
 
-  const handleSubmit = useCallback(async (event: any) => {
+
+
+  const handleSubmit = useCallback(async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log(name, email, password, confirmPassword);
+    // console.log(name, email, password, confirmPassword);
     let action;
-    if (login) {
-      action = authActions.login(email, password);
-    } else {
-      action = authActions.signup(email, password);
-
-    }
-
-    setIsLoading(true);
-    try {
-      await dispatch(action);
-      if (!login) {
-        await dispatch(authActions.changeUserName(name));
-        await dispatch(authActions.fetchUserName());
+    if (formIsValid(setErrors, login, name, email, password, confirmPassword)) {
+      if (login) {
+        action = authActions.login(email, password);
+      } else {
+        action = authActions.signup(email, password);
       }
-      setName('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
-      setIsLoading(false);
-    } catch (err) {
-      setIsLoading(false);
-      //Note: only if we have an error we stay in this screen...
+      setIsLoading(true);
+      try {
+        await dispatch(action);
+        if (!login) {
+          await dispatch(authActions.changeUserName(name));
+          await dispatch(authActions.fetchUserName());
+        }
+        setName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+        setErrors(errorsInitialState);
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
+        //Note: only if we have an error we stay in this screen...
+      }
     }
+  }, [name, email, password, confirmPassword, login, dispatch]);
 
-  }, [name, email, password, confirmPassword, login, isLoading]);
-
-  // const isFormValid = ({ email, password }) => email && password;
-
-  // const handleInputError = (errors, input) => {
-  //   errors.some(error =>
-  //     error.message.toLowerCase().includes(input) ? input : ""
-  //   );
-  // };
 
   const goToLoginButtom = {
     width: '30%',
@@ -110,7 +118,7 @@ const LoginCard = (props: any) => {
   }
   return (
     <section className='card' style={{ ...props.style }}>
-      <div className="container">
+      <div className="card__container">
         <div className="no-sub-enter-button">
           <Button
             title='Είσοδος χωρίς εγγραφή'
@@ -123,12 +131,16 @@ const LoginCard = (props: any) => {
               name="name"
               value={name}
               onChange={handleChange}
-              type='text' placeholder='Όνομα παίκτη' />
+              error={errors.register || errors.name}
+              type='text' placeholder='Όνομα παίκτη'
+              autoFocus={true}
+            />
           }
           <Input
             name="email"
             value={email}
             onChange={handleChange}
+            error={errors.register || errors.login || errors.email}
             type='email'
             placeholder='Ηλεκτρονική διεύθυνση'
           />
@@ -136,12 +148,14 @@ const LoginCard = (props: any) => {
             name="password"
             value={password}
             onChange={handleChange}
+            error={errors.register || errors.login || errors.password}
             type='password' placeholder='Κωδικός πρόσβασης' />
           {!login &&
             <Input
               name="confirmPassword"
               value={confirmPassword}
               onChange={handleChange}
+              error={errors.register || errors.password}
               type='password'
               placeholder='Eπιβεβαίωση κωδικού' />
           }
@@ -151,7 +165,7 @@ const LoginCard = (props: any) => {
 
         </form>
         <div className="bottom-container">
-          <p>{!login ? 'Έχετε λογαρισμό?' : 'Δεν έχετε λογαριασμό?'}</p>
+          <p className='question' >{!login ? 'Έχετε λογαρισμό?' : 'Δεν έχετε λογαριασμό?'}</p>
           <Button
             title={login ? 'Εγγραφή' : 'Είσοδος'}
             onClick={handleLogin}
