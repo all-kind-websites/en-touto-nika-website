@@ -20,7 +20,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const allowEntrance = useSelector((state: RootStateOrAny) => state.auth.allowEntrance)
 
-  const userLoggedIn = !!localStorage.getItem(asyncNames.userData);
+  const userLoggedIn = localStorage.getItem(asyncNames.userData);
 
   useEffect(() => {
     document.addEventListener("mousedown", () => {
@@ -28,12 +28,13 @@ function App() {
     });
   });
 
-
   return (
     <Router>
       <div className="App">
-        {userLoggedIn || allowEntrance ? <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
-        {userLoggedIn || allowEntrance ? <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
+        {!!userLoggedIn || allowEntrance ? <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
+        {/* <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
+        {!!userLoggedIn || allowEntrance ? <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
+        {/* <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
         <div className="content">
           <Switch>
             <Route path="/auth" component={Auth} />

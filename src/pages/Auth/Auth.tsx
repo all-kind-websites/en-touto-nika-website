@@ -10,9 +10,10 @@ import asyncNames from '../../constants/asyncNames';
 export default function Auth() {
   const history = useHistory();
 
-  const userIsLoggedIn = !!localStorage.getItem(asyncNames.userData);
+  const userIsLoggedIn = localStorage.getItem(asyncNames.userData);
+
   useEffect(() => {
-    if (userIsLoggedIn) history.replace('/')
+    if (!!userIsLoggedIn) history.replace('/')
   }, [userIsLoggedIn, history]);
 
   return (
