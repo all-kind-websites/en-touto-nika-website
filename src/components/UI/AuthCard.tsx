@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
 import colors from '../../constants/colors';
-import '../../styles/UI/login-card.scss';
+import '../../styles/UI/auth-card.scss';
 import Button from './Button';
 import Input from './Input';
 
@@ -39,7 +39,7 @@ const noSubEnterButton = {
   border: `1px solid ${colors.moccasin_light} `
 }
 
-const LoginCard = (props: any) => {
+const AuthCard = (props: any) => {
   const dispatch = useDispatch();
   const history = useHistory()
 
@@ -62,6 +62,11 @@ const LoginCard = (props: any) => {
 
   const handleLogin = () => {
     setLogin(!login)
+  }
+
+  const freeEntranceHandler = () => {
+    dispatch(authActions.allowEntrance(true));
+    history.push('/')
   }
 
 
@@ -147,10 +152,10 @@ const LoginCard = (props: any) => {
         <div className={`no-sub-enter-button ${login && 'no-sub-enter-button--login'}`} >
           <Button
             title='Είσοδος χωρίς εγγραφή'
-            onClick={() => { }}
+            onClick={freeEntranceHandler}
             style={noSubEnterButton} />
         </div>
-        <form className={`${login && 'userHasAccount'}`} >
+        <form className={`${login && 'login-form'}`} >
           {!login &&
             <Input
               name="name"
@@ -208,5 +213,6 @@ const LoginCard = (props: any) => {
   );
 };
 
-export default LoginCard;
+
+export default AuthCard;
 

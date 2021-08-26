@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import TheotokosIcon from '../../components/UI/TheotokosIcon'
-import LoginCard from '../../components/UI/LoginCard'
+import AuthCard from '../../components/UI/AuthCard'
 import '../../styles/auth.scss';
 import asyncNames from '../../constants/asyncNames';
 
@@ -18,7 +18,7 @@ export default function Auth() {
   return (
     <div className='auth' >
       <TheotokosIcon />
-      <LoginCard />
+      <AuthCard />
     </div>
   )
 }
