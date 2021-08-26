@@ -14,35 +14,34 @@ import Topbar from './components/Topbar';
 import './styles/app.scss';
 
 import asyncNames from './constants/asyncNames';
-
+import Donate from './pages/Donate';
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const allowEntrance = useSelector((state: RootStateOrAny) => state.auth.allowEntrance)
 
   const userLoggedIn = localStorage.getItem(asyncNames.userData);
 
-  useEffect(() => {
-    document.addEventListener("mousedown", () => {
-      setMenuOpen(false);
-    });
-  });
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", () => {
+  //     setMenuOpen(false);
+  //   });
+  // });
 
   return (
     <Router>
       <div className="App">
         {!!userLoggedIn || allowEntrance ? <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
-        {/* <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
         {!!userLoggedIn || allowEntrance ? <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
-        {/* <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
         <div className="content">
           <Switch>
             <Route path="/auth" component={Auth} />
             <Route path="/winners" component={Winners} />
             <Route path="/settings" component={Settings} />
             <Route path="/create" component={Create} />
+            <Route path="/donate" component={Donate} />
             <Route path="/not-found" component={NotFound} />
-            <Route path="/" exact component={Home} />
+            <Route path="/" exact render={() => <Home setMenuOpen={setMenuOpen} />} />
             <Redirect to="/not-found" />
           </Switch>
         </div>

@@ -4,6 +4,7 @@ const navNames = {
   settings: "settings",
   create: "create",
   auth: 'auth',
+  donate: 'donate',
   not_found: 'not-found',
   createMultiCategories: "CreateMultiCategories",
   createNavigator: "CreateNavigator",

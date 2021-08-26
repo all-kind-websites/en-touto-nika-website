@@ -8,7 +8,7 @@
   color: $maroon;
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 5;
   transition: all 1s ease;
 
   // &.active {
@@ -52,5 +52,12 @@
       text-decoration: none;
       color: inherit;
     }
+  }
+
+  .timer-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
   }
 }
