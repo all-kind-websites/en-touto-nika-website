@@ -13,6 +13,12 @@
       height: 70px;
       padding: 5px;
       margin-bottom: 10px;
+      transition: all 0.5s ease;
+    }
+
+    .no-sub-enter-button--login {
+      position: absolute;
+      transform: translateY(16rem);
     }
 
     form {
@@ -35,6 +41,7 @@
 
     .userHasAccount {
       height: 19rem;
+      top: 48rem;
     }
 
     .bottom-container {

@@ -6,16 +6,28 @@
   top: 70px;
   left: 50%;
   transform: translateX(-50%);
-  width: 12rem;
-  height: 16rem;
+  width: 24rem;
+  height: 32rem;
   border-radius: 25px;
   box-shadow: 2px 2px 8px 2px $moccasin-light;
+  transition: all 0.5s ease;
 
   img {
-    width: 12rem;
-    height: 16rem;
+    width: inherit;
+    height: inherit;
     border-radius: 25px;
     border: 1px solid $maroon;
     object-fit: initial;
+    transition: transform 1s;
+  }
+}
+
+.theotokos-icon--small {
+  width: 12rem;
+  height: 16rem;
+
+  img {
+    width: inherit;
+    height: inherit;
   }
 }

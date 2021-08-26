@@ -33,8 +33,6 @@ export const registerFormIsValid = (name: string, email: string, password: strin
 };
 
 export const nameIsValid = (name: string, setErrors: Function) => {
-  console.log('nameIsValid');
-
   if (name.trim().length <= 1) {
     errors = { ...errors, name: "Τουλάχιστον 2 γράμματα!" };
     setErrors(errors);

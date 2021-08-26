@@ -9,7 +9,6 @@ import Winners from "./pages/Winners";
 import Settings from "./pages/Settings";
 import Create from "./pages/Create";
 import NotFound from "./pages/NotFound";
-import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import Topbar from './components/Topbar';
 import './styles/app.scss';
@@ -40,7 +39,6 @@ function App() {
               <Route path="/winners" component={Winners} />
               <Route path="/settings" component={Settings} />
               <Route path="/create" component={Create} />
-              <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/not-found" component={NotFound} />
               <Route path="/" exact component={Home} />

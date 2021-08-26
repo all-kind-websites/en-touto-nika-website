@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
@@ -7,6 +7,7 @@ import '../../styles/UI/login-card.scss';
 import Button from './Button';
 import Input from './Input';
 
+import { loginMode } from '../../store/actions/general';
 import * as authActions from "../../store/actions/auth";
 import Loader from './Loader';
 import { emailIsValid, formIsValid, nameIsValid, passwordIsValid, passwordNoMatch } from '../../utils/auth-validation';
@@ -43,13 +44,17 @@ const LoginCard = (props: any) => {
   const history = useHistory()
 
   const [hover, setHover] = useState(false);
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errors, setErrors] = useState<Errors>(errorsInitialState);
+
+  useEffect(() => {
+    (async () => { await dispatch(loginMode(login)) })()
+  }, [login, dispatch]);
 
   const handleHover = () => {
     setHover(!hover)
@@ -130,6 +135,7 @@ const LoginCard = (props: any) => {
     }
   }
 
+  // style
   const goToLoginButtom = {
     width: '30%',
     color: hover ? colors.maroon : colors.moccasin_light,
@@ -137,8 +143,8 @@ const LoginCard = (props: any) => {
   }
   return (
     <section className='card' style={{ ...props.style }}>
-      <div className="card__container">
-        <div className="no-sub-enter-button">
+      <div className='card__container' >
+        <div className={`no-sub-enter-button ${login && 'no-sub-enter-button--login'}`} >
           <Button
             title='Είσοδος χωρίς εγγραφή'
             onClick={() => { }}
