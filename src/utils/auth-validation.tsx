@@ -1,7 +1,7 @@
 
 let errors = {
   login: '',
-  register: '',
+  auth: '',
   name: '',
   email: '',
   password: '',
@@ -20,13 +20,13 @@ export const loginFormIsValid = (email: string, password: string, setErrors: Fun
   return true;
 }
 
-export const registerFormIsValid = (name: string, email: string, password: string, confirmPassword: string, setErrors: Function) => {
+export const authFormIsValid = (name: string, email: string, password: string, confirmPassword: string, setErrors: Function) => {
   if (!name.trim().length || !email.trim().length || !password.trim().length || !confirmPassword.trim().length) {
-    errors = { ...errors, register: "Συμπληρώστε όλα τα πεδία!" };
+    errors = { ...errors, auth: "Συμπληρώστε όλα τα πεδία!" };
     setErrors(errors);
     return false;
   } else {
-    errors = { ...errors, register: "" };
+    errors = { ...errors, auth: "" };
     setErrors(errors);
   }
   return true;
@@ -97,7 +97,7 @@ export const formIsValid = (setErrors: Function, login: boolean, name: string, e
       return false;
     }
   } else {
-    if (!registerFormIsValid(name, email, password, confirmPassword, setErrors)) {
+    if (!authFormIsValid(name, email, password, confirmPassword, setErrors)) {
       return false;
     }
     if (!nameIsValid(name, setErrors)) {

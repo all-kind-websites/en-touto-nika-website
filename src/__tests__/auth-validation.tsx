@@ -1,4 +1,4 @@
-import { loginFormIsValid, registerFormIsValid, nameIsValid, emailIsValid, passwordIsValid, passwordNoMatch, formIsValid } from '../utils/auth-validation';
+import { loginFormIsValid, authFormIsValid, nameIsValid, emailIsValid, passwordIsValid, passwordNoMatch, formIsValid } from '../utils/auth-validation';
 
 it('Checks that login form is NOT empty', () => {
   expect(loginFormIsValid('fo@ok.com', 'asdasd', () => { })).toBeTruthy();
@@ -7,11 +7,11 @@ it('Checks that login form IS empty', () => {
   expect(loginFormIsValid('', '', () => { })).toBeFalsy();
 });
 /////
-it('Checks that register form is NOT empty', () => {
-  expect(registerFormIsValid('as', 'fo@ok.com', 'asdasd', 'asdasd', () => { })).toBeTruthy();
+it('Checks that auth form is NOT empty', () => {
+  expect(authFormIsValid('as', 'fo@ok.com', 'asdasd', 'asdasd', () => { })).toBeTruthy();
 });
-it('Checks that register form IS empty', () => {
-  expect(registerFormIsValid('', '', '', '', () => { })).toBeFalsy();
+it('Checks that auth form IS empty', () => {
+  expect(authFormIsValid('', '', '', '', () => { })).toBeFalsy();
 });
 /////
 it('Checks that name is valid', () => {
@@ -57,14 +57,14 @@ it('Checks that passwords do NOT match', () => {
 it('Checks that all validation tests pass', () => {
   expect(loginFormIsValid('fo@ok.com', 'asdasd', () => { })).toBeTruthy();
   expect(nameIsValid('foo', () => { })).toBeTruthy();
-  expect(registerFormIsValid('as', 'fo@ok.com', 'asdasd', 'asdasd', () => { })).toBeTruthy();
+  expect(authFormIsValid('as', 'fo@ok.com', 'asdasd', 'asdasd', () => { })).toBeTruthy();
   //... needless to check again all the functions!
   expect(formIsValid(() => { }, true, 'foo', 'foo@ok.com', 'asdasd', 'asdasd',)).toBeTruthy();
 });
 
 it('Checks that all validation tests do NOT pass', () => {
   // This test is truthy if you ommit the name, because
-  // it is allowed to work in login (not register)
+  // it is allowed to work in login (not auth)
   // where the name is not needed.
   // But it's falsy if you ommit the email or the password.
   expect(formIsValid(() => { }, true, 'foo', '', 'asdasd', 'asdasd',)).toBeFalsy();
@@ -72,7 +72,7 @@ it('Checks that all validation tests do NOT pass', () => {
 
 it('Checks that all validation tests do NOT pass 2', () => {
   // This test is truthy if you ommit the name, because
-  // it is allowed to work in login (not register)
+  // it is allowed to work in login (not auth)
   // where the name is not needed.
   // But it's falsy if you ommit the email.
   expect(formIsValid(() => { }, true, 'foo', 'foo@ok.com', '', 'asdasd',)).toBeFalsy();

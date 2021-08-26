@@ -1,12 +1,16 @@
+
 const navNames = {
-  auth: "Auth",
+  winners: "winners",
+  settings: "settings",
+  create: "create",
+  auth: 'auth',
+  not_found: 'not-found',
   createMultiCategories: "CreateMultiCategories",
   createNavigator: "CreateNavigator",
   createMultiOverview: "CreateMultiOverview",
   createTrueFalse: "CreateTrueFalse",
   createTrueFalseCategories: "CreateTrueFalseCategories",
   createTrueFalseOverview: "CreateTrueFalseOverview",
-  createWelcome: "CreateWelcome",
   editMultiQuestion: "EditMultiQuestion",
   editTrueFalseQuestion: "EditTrueFalseQuestion",
   forgotPassword: "ForgotPassword",
@@ -25,12 +29,11 @@ const navNames = {
   noTimerTrueFalseCategories: "NoTimerTrueFalseCategories",
   noTimerTrueFalseMixedGame: "NoTimerTrueFalseMixedGame",
   noTimerTrueFalseGame: "NoTimerTrueFalseGame",
-  settings: "Settings",
+
   settingsNavigator: "SettingsNavigator",
   trueFalseCategories: "TrueFalseCategories",
   trueFalseGame: "TrueFalseGame",
   welcome: "Welcome",
-  winners: "Winners",
   winnersNavigator: "WinnersNavigator",
 };
 

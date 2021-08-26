@@ -9,7 +9,7 @@ import Winners from "./pages/Winners";
 import Settings from "./pages/Settings";
 import Create from "./pages/Create";
 import NotFound from "./pages/NotFound";
-import Register from './pages/Auth/Register';
+import Auth from './pages/Auth/Auth';
 import Topbar from './components/Topbar';
 import './styles/app.scss';
 
@@ -39,7 +39,7 @@ function App() {
               <Route path="/winners" component={Winners} />
               <Route path="/settings" component={Settings} />
               <Route path="/create" component={Create} />
-              <Route path="/register" component={Register} />
+              <Route path="/auth" component={Auth} />
               <Route path="/not-found" component={NotFound} />
               <Route path="/" exact component={Home} />
               <Redirect to="/not-found" />

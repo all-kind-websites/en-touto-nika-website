@@ -14,7 +14,7 @@ import { emailIsValid, formIsValid, nameIsValid, passwordIsValid, passwordNoMatc
 
 interface Errors {
   login: string,
-  register: string,
+  auth: string,
   name: string,
   email: string,
   password: string,
@@ -23,7 +23,7 @@ interface Errors {
 
 const errorsInitialState = {
   login: '',
-  register: '',
+  auth: '',
   name: '',
   email: '',
   password: '',
@@ -157,7 +157,7 @@ const LoginCard = (props: any) => {
               value={name}
               onChange={handleChange}
               onBlur={onBlur}
-              error={errors.register || errors.name}
+              error={errors.auth || errors.name}
               type='text' placeholder='Όνομα παίκτη'
               autoFocus={true}
             />
@@ -167,7 +167,7 @@ const LoginCard = (props: any) => {
             value={email}
             onChange={handleChange}
             onBlur={onBlur}
-            error={errors.register || errors.login || errors.email}
+            error={errors.auth || errors.login || errors.email}
             type='email'
             placeholder='Ηλεκτρονική διεύθυνση'
           />
@@ -176,7 +176,7 @@ const LoginCard = (props: any) => {
             value={password}
             onChange={handleChange}
             onBlur={onBlur}
-            error={errors.register || errors.login || errors.password}
+            error={errors.auth || errors.login || errors.password}
             type='password' placeholder='Κωδικός πρόσβασης' />
           {!login &&
             <Input
@@ -184,7 +184,7 @@ const LoginCard = (props: any) => {
               value={confirmPassword}
               onChange={handleChange}
               onBlur={onBlur}
-              error={errors.register || errors.password}
+              error={errors.auth || errors.password}
               type='password'
               placeholder='Eπιβεβαίωση κωδικού' />
           }

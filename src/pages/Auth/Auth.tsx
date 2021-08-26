@@ -4,10 +4,10 @@ import { useHistory } from 'react-router-dom';
 
 import TheotokosIcon from '../../components/UI/TheotokosIcon'
 import LoginCard from '../../components/UI/LoginCard'
-import '../../styles/register.scss';
+import '../../styles/auth.scss';
 import asyncNames from '../../constants/asyncNames';
 
-export default function Register() {
+export default function Auth() {
   const history = useHistory();
 
   const userIsLoggedIn = !!localStorage.getItem(asyncNames.userData);
@@ -16,7 +16,7 @@ export default function Register() {
   }, [userIsLoggedIn, history]);
 
   return (
-    <div className='register' >
+    <div className='auth' >
       <TheotokosIcon />
       <LoginCard />
     </div>
