@@ -39,18 +39,18 @@ function App() {
         <div className="content">
           <Switch>
             {/* Menu */}
-            <Route path={'/' + navNames.auth} component={Auth} />
-            <Route path={'/' + navNames.winners} component={Winners} />
-            <Route path={'/' + navNames.settings} component={Settings} />
-            <Route path={'/' + navNames.create} component={Create} />
-            <Route path={'/' + navNames.donate} component={Donate} />
+            <Route path={navNames.auth} component={Auth} />
+            <Route path={navNames.winners} component={Winners} />
+            <Route path={navNames.settings} component={Settings} />
+            <Route path={navNames.create} component={Create} />
+            <Route path={navNames.donate} component={Donate} />
 
             {/* Game */}
-            <Route path={'/' + navNames.multiCategories} component={MultiCategories} />
-            <Route path={'/' + navNames.multiCategoriesNoTimer} component={MultiCategoriesNoTimer} />
-            <Route path={'/' + navNames.not_found} component={NotFound} />
+            <Route path={navNames.multiCategories} component={MultiCategories} />
+            <Route path={navNames.multiCategoriesNoTimer} component={MultiCategoriesNoTimer} />
+            <Route path={navNames.not_found} component={NotFound} />
             <Route path="/" exact render={() => <Home setMenuOpen={setMenuOpen} />} />
-            <Redirect to={'/' + navNames.not_found} />
+            <Redirect to={navNames.not_found} />
           </Switch>
         </div>
       </div>
