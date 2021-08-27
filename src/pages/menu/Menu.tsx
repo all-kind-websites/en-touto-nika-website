@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 import { FaHome } from 'react-icons/fa'
 import { AiFillSetting } from 'react-icons/ai'
 import { GiPodiumWinner } from 'react-icons/gi'
-import { BiLogOut, BiLogIn } from 'react-icons/bi'
+import { BiLogOut, BiLogIn, BiDonateBlood } from 'react-icons/bi'
 import { IoIosCreate } from 'react-icons/io'
 
-import asyncNames from '../constants/asyncNames'
-import navNames from '../constants/navNames'
-import '../styles/menu/menu.scss';
+import asyncNames from '../../constants/asyncNames'
+import navNames from '../../constants/navNames'
+import '../../styles/menu/menu.scss';
 
 
 export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, setMenuOpen: Function }) {
@@ -25,6 +25,7 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
 
   return (
     <div className={`menu ${menuOpen && "active"} `}>
+      <h1>ΕΝ ΤΟΥΤΩ ΝΙΚΑ</h1>
       <ul>
         <li>
           <NavLink className='link' onClick={menuHandler} to="/">
@@ -44,6 +45,11 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
         <li>
           <NavLink className='link' onClick={menuHandler} to={navNames.create}>
             <IoIosCreate className='menu-icon' /> <p>Δημιουργία</p>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className='link' onClick={menuHandler} to={navNames.donate}>
+            <BiDonateBlood className='menu-icon' /> <p>Δωρεά</p>
           </NavLink>
         </li>
         {userIsLoggedIn ? <li>

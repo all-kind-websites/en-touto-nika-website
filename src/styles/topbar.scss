@@ -8,13 +8,12 @@
   color: $maroon;
   position: fixed;
   top: 0;
-  z-index: 5;
-  transition: all 1s ease;
+  z-index: 2;
+  transition: all 0.5s ease;
 
-  // &.active {
-  //   background-color: $maroon;
-  //   color: #fff;
-  // }
+  &.active {
+    height: 0;
+  }
 
   .hamburger-container {
     position: absolute;
@@ -42,6 +41,14 @@
     }
   }
 
+  .donate-icon-1 {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 88px;
+    transform: scaleX(-1);
+  }
+
   .title-container {
     height: inherit;
     @include centerFlex(row);
@@ -52,6 +59,13 @@
       text-decoration: none;
       color: inherit;
     }
+  }
+
+  .donate-icon-2 {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 88px;
   }
 
   .timer-icon {

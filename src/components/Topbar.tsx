@@ -29,22 +29,25 @@ export default function Topbar(props: any) {
     props.setMenuOpen(false);
 
   }
+
   return (
     <div className={`topbar ${props.menuOpen && "active"} `}>
+      <BiDonateBlood
+        className='donate-icon-1'
+        size='34' onClick={donationHanlder} />
       <div className="hamburger-container">
-        {props.menuOpen ?
-          <BiDonateBlood
-            className='donate-icon'
-            size='34' onClick={donationHanlder} /> :
-          <div className='hamburger-icon' onClick={menuHandler}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>}
+        <div className='hamburger-icon' onClick={menuHandler}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
       <div className="title-container">
         <h1 className="title">ΕΝ ΤΟΥΤΩ ΝΙΚΑ</h1>
       </div>
+      <BiDonateBlood
+        className='donate-icon-2'
+        size='34' onClick={donationHanlder} />
       {timer ? <MdTimer className="timer-icon" size='34' onClick={toggleTimerIcon} /> : <MdTimerOff onClick={toggleTimerIcon} className="timer-icon" size='34' />}
     </div>
   );

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RootStateOrAny, useSelector } from "react-redux";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Menu from "./navigation/Menu";
+import Menu from "./pages/menu/Menu";
 import Home from "./pages/Home";
 import Winners from "./pages/menu/Winners";
 import Settings from "./pages/menu/Settings";
@@ -25,11 +25,11 @@ function App() {
 
   const userLoggedIn = localStorage.getItem(asyncNames.userData);
 
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", () => {
-  //     setMenuOpen(false);
-  //   });
-  // });
+  useEffect(() => {
+    document.addEventListener("mousedown", () => {
+      setMenuOpen(false);
+    });
+  });
 
   return (
     <Router>
