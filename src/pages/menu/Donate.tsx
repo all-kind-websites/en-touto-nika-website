@@ -1,6 +1,6 @@
-import '../styles/donate.scss'
 import { Link } from 'react-router-dom';
-import navNames from '../constants/navNames';
+import navNames from '../../constants/navNames';
+import '../../styles/menu/donate.scss';
 
 export default function Donate() {
   return (

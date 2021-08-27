@@ -7,7 +7,7 @@ import { IoIosCreate } from 'react-icons/io'
 
 import asyncNames from '../constants/asyncNames'
 import navNames from '../constants/navNames'
-import '../styles/menu.scss';
+import '../styles/menu/menu.scss';
 
 
 export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, setMenuOpen: Function }) {

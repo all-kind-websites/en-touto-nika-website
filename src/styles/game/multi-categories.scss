@@ -1,0 +1,6 @@
+@import "../config.scss";
+@import "../colors.scss";
+
+.multi-categories {
+  @include centerFlex(row);
+}

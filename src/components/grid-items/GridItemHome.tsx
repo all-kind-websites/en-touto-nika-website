@@ -19,11 +19,11 @@ const GridItemHome = (props: any) => { //{ id, playHandler, style, title }
       break;
   }
 
-  //onClick={playHandler}
+
 
 
   return (
-    <li className='grid-icon-container' >
+    <li onClick={props.onClick} className='grid-icon-container' >
       <div className="grid-icon">
         <img src={image} alt="grid item icon" />
       </div>

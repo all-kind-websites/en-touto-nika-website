@@ -1,0 +1,13 @@
+@import "../config.scss";
+@import "../colors.scss";
+
+.multi-categories-no-timer {
+  height: 100vh;
+  p {
+    z-index: 10;
+    position: relative;
+    top: 80px;
+    @include centerFlex(row);
+    color: $maroon;
+  }
+}

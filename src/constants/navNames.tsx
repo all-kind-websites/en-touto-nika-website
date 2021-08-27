@@ -6,6 +6,17 @@ const navNames = {
   auth: 'auth',
   donate: 'donate',
   not_found: 'not-found',
+  multiCategories: "multi-categories",
+  multiCategoriesNoTimer: "multi-categories-no-timer",
+  multiGameNoTimer: "multi-game-no-timer",
+  multiGameWithTimer: "multi-game-with-timer",
+  trueFalseCategories: "true-false-categories",
+  trueFalseCategoriesNoTimer: "true-false-categories-no-timer",
+  trueFalseGameNoTimer: "true-false-game-no-timer",
+  trueFalseGameWithTimer: "true-false-game-with-timer",
+
+  trueFalseMixedGameNoTimer: "true-false-fixed-game-no-timer",
+
   createMultiCategories: "CreateMultiCategories",
   createNavigator: "CreateNavigator",
   createMultiOverview: "CreateMultiOverview",
@@ -23,17 +34,9 @@ const navNames = {
   noTimerMixedGame: "NoTimerMixedGame",
   mixedMultiGame: "MixedMultiGame",
   mixedTrueFalseGame: "MixedTrueFalseGame",
-  multiCategories: "MultiCategories",
-  multiGame: "MultiGame",
-  noTimerMultiCategories: "NoTimerMultiCategories",
-  noTimerMultiGame: "NoTimerMultiGame",
-  noTimerTrueFalseCategories: "NoTimerTrueFalseCategories",
-  noTimerTrueFalseMixedGame: "NoTimerTrueFalseMixedGame",
-  noTimerTrueFalseGame: "NoTimerTrueFalseGame",
+
 
   settingsNavigator: "SettingsNavigator",
-  trueFalseCategories: "TrueFalseCategories",
-  trueFalseGame: "TrueFalseGame",
   welcome: "Welcome",
   winnersNavigator: "WinnersNavigator",
 };

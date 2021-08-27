@@ -1,4 +1,6 @@
 export const LOGIN_MODE = 'LOGIN_MODE';
+export const TIMER_STATE = 'TIMER_STATE';
+export const GAME_STATE = 'GAME_STATE';
 
 export const loginMode = (mode: boolean) => {
   return {
@@ -6,3 +8,19 @@ export const loginMode = (mode: boolean) => {
     mode
   }
 }
+
+export const timerState = (timer: boolean,) => {
+  return {
+    type: TIMER_STATE,
+    timer,
+  }
+}
+
+export const gameState = (id: string, title: string) => {
+  return {
+    type: GAME_STATE,
+    id,
+    title
+  }
+}
+

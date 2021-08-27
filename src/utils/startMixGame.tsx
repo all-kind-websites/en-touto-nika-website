@@ -35,7 +35,7 @@ const startMixGame = async (
       if (!timer) {
         await cache.set(asyncNames.useTimerTrueFalseMixed, false);
         navigation.navigate({
-          name: navNames.noTimerTrueFalseMixedGame,
+          name: navNames.trueFalseMixedGameNoTimer,
           params: { gameType, timer },
         });
       }

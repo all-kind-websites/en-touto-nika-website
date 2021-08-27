@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 import { BiDonateBlood } from 'react-icons/bi';
 import { MdTimer, MdTimerOff } from 'react-icons/md';
 
 import "../styles/topbar.scss";
 import navNames from '../constants/navNames';
+import { timerState } from '../store/actions/general';
 
 export default function Topbar(props: any) {
+  const dispatch = useDispatch();
   const history = useHistory()
-
   const [timer, setTimer] = useState(false);
+
+  useEffect(() => {
+    dispatch(timerState(timer))
+  }, [dispatch, timer])
 
   const toggleTimerIcon = () => {
     setTimer(!timer);
