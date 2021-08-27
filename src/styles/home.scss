@@ -4,18 +4,12 @@
 .home {
   height: 100vh;
   background: linear-gradient($moccasin_light, $chocolate, $maroon);
+  @include customFlex(column, space-around, center);
+  padding: 50px;
 
   .theotokos-icon {
     top: 70px;
     width: 14rem;
     height: 18rem;
-  }
-
-  .timer-icon {
-    cursor: pointer;
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    color: $maroon;
   }
 }
