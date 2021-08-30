@@ -1,10 +1,14 @@
-@import "../../config.scss";
-@import "../../colors.scss";
+@import "../config.scss";
+@import "../colors.scss";
 
-.grid-icon-container {
-  position: relative;
-  top: 20px;
-  .grid-icon {
+.categories-item {
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 10px;
+
+  @include customFlex(column, space-between, center);
+
+  .categories-item__image-container {
     @include centerFlex(column);
     width: 33rem;
     height: 24rem;
@@ -18,13 +22,12 @@
       height: inherit;
       border-radius: 25px;
       border: 1px solid $maroon;
-      object-fit: initial;
+      object-fit: cover;
       transition: transform 1s;
     }
   }
 
-  .grid-title {
-    @include centerFlex(row);
+  .categories-item__title {
     color: $moccasin-light;
     font-weight: 700;
     font-size: 3rem;

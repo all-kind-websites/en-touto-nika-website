@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { RootStateOrAny, useSelector } from "react-redux";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { BrowserRouter as Router } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 
 import Menu from "./pages/menu/Menu";
 import Home from "./pages/Home";
@@ -18,6 +19,7 @@ import Donate from './pages/menu/Donate';
 import navNames from './constants/navNames';
 import MultiCategories from './pages/game/MultiCategories';
 import MultiCategoriesNoTimer from './pages/game/MultiCategoriesNoTimer';
+export const history = createBrowserHistory()
 
 function App() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -36,7 +38,7 @@ function App() {
       <div className="App">
         {!!userLoggedIn || allowEntrance ? <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
         {!!userLoggedIn || allowEntrance ? <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
-        <div className="content">
+        <div className="app__content">
           <Switch>
             {/* Menu */}
             <Route path={navNames.auth} component={Auth} />

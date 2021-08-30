@@ -24,7 +24,7 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
   };
 
   return (
-    <div className={`menu ${menuOpen && "active"} `}>
+    <div className={`menu ${menuOpen ? "active" : ''}`}>
       <h1>ΕΝ ΤΟΥΤΩ ΝΙΚΑ</h1>
       <ul>
         <li>

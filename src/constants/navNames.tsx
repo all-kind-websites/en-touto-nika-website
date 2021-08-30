@@ -17,6 +17,10 @@ const navNames = {
 
   trueFalseMixedGameNoTimer: "/true-false-fixed-game-no-timer",
 
+
+  mixedChooseCategories: "mixed-choose-categories",
+
+  createHome: 'create-home',
   createMultiCategories: "CreateMultiCategories",
   createNavigator: "CreateNavigator",
   createMultiOverview: "CreateMultiOverview",
@@ -30,7 +34,7 @@ const navNames = {
   gameInfoNavigator: "GameInfoNavigator",
   gameNavigator: "GameNavigator",
   intro: "Intro",
-  mixedChooseCategories: "MixedChooseCategories",
+
   noTimerMixedGame: "NoTimerMixedGame",
   mixedMultiGame: "MixedMultiGame",
   mixedTrueFalseGame: "MixedTrueFalseGame",

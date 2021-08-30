@@ -40,15 +40,17 @@ export default function Home(props: any) {
   };
 
   return (
-    <ul className='home' >
-      {GAME_TYPES.map((game: { id: string, title: string }) =>
-        <GridItemHome
-          key={game.id}
-          id={game.id}
-          title={game.title}
-          onClick={playHandler.bind(null, game)}
-        />
-      )}
-    </ul>
+    <div className='home'>
+      <ul  >
+        {GAME_TYPES.map((game: { id: string, title: string }) =>
+          <GridItemHome
+            key={game.id}
+            id={game.id}
+            title={game.title}
+            onClick={playHandler.bind(null, game)}
+          />
+        )}
+      </ul>
+    </div>
   )
 }

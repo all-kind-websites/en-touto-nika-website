@@ -4,8 +4,14 @@
 .home {
   height: 100vh;
   background: linear-gradient($moccasin_light, $chocolate, $maroon);
-  @include customFlex(column, space-around, center);
-  padding: 50px;
+  @include centerFlex(column);
+
+  ul {
+    height: 100vh;
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+  }
 
   .theotokos-icon {
     top: 70px;

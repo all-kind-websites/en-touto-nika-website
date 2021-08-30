@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { BiDonateBlood } from 'react-icons/bi';
 import { MdTimer, MdTimerOff } from 'react-icons/md';
 
@@ -10,7 +10,11 @@ import { timerState } from '../store/actions/general';
 
 export default function Topbar(props: any) {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
+  const gameTitle = useSelector((state: RootStateOrAny) => state.general.title);
+  console.log('====================================');
+  console.log('gameTitle', gameTitle);
+  console.log('====================================');
   const [timer, setTimer] = useState(false);
 
   useEffect(() => {
@@ -43,7 +47,7 @@ export default function Topbar(props: any) {
         </div>
       </div>
       <div className="title-container">
-        <h1 className="title">ΕΝ ΤΟΥΤΩ ΝΙΚΑ</h1>
+        <h1 className={`title ${!!gameTitle ? 'title--game' : ''}`}>{!!gameTitle ? gameTitle : 'ΕΝ ΤΟΥΤΩ ΝΙΚΑ'}</h1>
       </div>
       <BiDonateBlood
         className='donate-icon-2'

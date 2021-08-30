@@ -1,16 +1,102 @@
-import { RootStateOrAny } from 'react-redux'
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { RootStateOrAny, useSelector, useDispatch } from 'react-redux'
+import CategoryGridTileNoTimer from '../../components/grid-items/CategoryGridTileNoTimer';
+
+// import GridItemHome from '../../components/grid-items/GridItemHome';
+// import renderGridItemHandler from '../../components/grid-items/renderGridItemHandler';
+import navNames from '../../constants/navNames';
+import { CATEGORIES } from '../../data/categories';
+import { gameState } from '../../store/actions/general';
 import '../../styles/game/multi-categories-no-timer.scss'
-import { useSelector } from 'react-redux';
+import getGameStatusMulti from '../../utils/getGameStatusMulti';
+// import { GameStatusMulti } from '../../components/grid-items/imageHandler';
 
-export default function MultiCategoriesNoTimer() {
-  const gameTitle = useSelector((state: RootStateOrAny) => state.general.title);
+// interface GameStatusMulti {
+//   questionsMultiOne: boolean,
+//   questionsMultiTwo: boolean,
+//   questionsMultiThree: boolean,
+//   questionsMultiFour: boolean,
+//   questionsMultiOneNoTimer: boolean,
+//   questionsMultiTwoNoTimer: boolean,
+//   questionsMultiThreeNoTimer: boolean,
+//   questionsMultiFourNoTimer: boolean,
+// }
 
-  console.log('====================================');
-  console.log(gameTitle);
-  console.log('====================================');
+const MultiCategoriesNoTimer = (props: any): any => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const [gamesStatus, setGamesStatus] = useState<any>({});
+  // const [gamesStatus, setGamesStatus] = useState<GameStatusMulti>({
+  //   questionsMultiOne: false,
+  //   questionsMultiTwo: false,
+  //   questionsMultiThree: false,
+  //   questionsMultiFour: false,
+  //   questionsMultiOneNoTimer: false,
+  //   questionsMultiTwoNoTimer: false,
+  //   questionsMultiThreeNoTimer: false,
+  //   questionsMultiFourNoTimer: false,
+  // });
+  const timer = useSelector((state: RootStateOrAny) => state.general.timer);
+
+  // const gameTitle = useSelector((state: RootStateOrAny) => state.general.title);
+
+  // const { renderGridItem } = renderGridItemHandler(gamesStatus, navNames.multiGameNoTimer, timer);
+
+  useEffect(() => {
+    console.log('====================================');
+    console.log(props.history.location.pathname);
+    console.log('====================================');
+    props.history.listen(() => {
+      if (props.history.location.pathname !== navNames.multiGameNoTimer) {
+        dispatch(gameState('', ''));
+        console.log('dispatch(gameState())');
+      }
+    })
+  })
+
+  useEffect(() => {
+    getGameStatusMulti(setGamesStatus);
+    // headerTimerIcon(navigation, timer, setModalVisible);
+  }, []);
+
+  // const navigationHandler = () => { }
+
   return (
-    <div className='multi-categories-no-timer' >
-      <p>{gameTitle}</p>
+    <div className='multi-categories-no-timer'>
+      <ul>
+        {CATEGORIES.map((game: { id: string, title: string }) =>
+          <CategoryGridTileNoTimer
+            gamesStatus={gamesStatus}
+            id={game.id}
+            navigationName={navNames.multiGameNoTimer}
+            timer={timer}
+            title={game.title}
+            onClick={() => {
+              console.log('......getNavName', game.id);
+
+              const getNavigationName = () =>
+                game.id === "mixed" ? navNames.mixedChooseCategories : navNames.multiGameNoTimer;
+
+              history.push(getNavigationName())
+            }
+              // () =>
+              // navigation.navigate({
+              //   name: getNavigationName(),
+              //   params: {
+              //     categoryId: game.id,
+              //     categoryTitle: game.title,
+              //     timer,
+              //     gameType,
+              //   },
+              // })
+            }
+          />
+        )}
+      </ul>
     </div>
   )
 }
+
+export default MultiCategoriesNoTimer;
