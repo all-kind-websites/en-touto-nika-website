@@ -7,7 +7,7 @@ import '../../styles/UI/auth-card.scss';
 import Button from './Button';
 import Input from './Input';
 
-import { loginMode } from '../../store/actions/general';
+import { loginMode } from '../../store/actions/game';
 import * as authActions from "../../store/actions/auth";
 import Loader from './Loader';
 import { emailIsValid, formIsValid, nameIsValid, passwordIsValid, passwordNoMatch } from '../../utils/auth-validation';

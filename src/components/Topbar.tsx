@@ -6,15 +6,12 @@ import { MdTimer, MdTimerOff } from 'react-icons/md';
 
 import "../styles/topbar.scss";
 import navNames from '../constants/navNames';
-import { timerState } from '../store/actions/general';
+import { timerState } from '../store/actions/game';
 
 export default function Topbar(props: any) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const gameTitle = useSelector((state: RootStateOrAny) => state.general.title);
-  console.log('====================================');
-  console.log('gameTitle', gameTitle);
-  console.log('====================================');
+  const gameTitle = useSelector((state: RootStateOrAny) => state.game.gameTypeTitle);
   const [timer, setTimer] = useState(false);
 
   useEffect(() => {

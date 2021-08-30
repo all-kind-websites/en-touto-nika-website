@@ -4,13 +4,13 @@ import thunk from "redux-thunk";
 import AuthReducer from "./reducers/auth";
 import DataReducer from "./reducers/data";
 import FiltersReducer from "./reducers/filters";
-import GeneralReducer from "./reducers/general";
+import GeneralReducer from "./reducers/game";
 
 const rootReducer = combineReducers({
   auth: AuthReducer,
   data: DataReducer,
   fliters: FiltersReducer,
-  general: GeneralReducer
+  game: GeneralReducer
 });
 
 

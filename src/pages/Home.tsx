@@ -7,7 +7,7 @@ import '../styles/home.scss';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import navNames from '../constants/navNames';
-import { gameState } from '../store/actions/general';
+import { gameState } from '../store/actions/game';
 
 interface Item {
   id: string,
@@ -16,7 +16,7 @@ interface Item {
 
 export default function Home(props: any) {
   const dispatch = useDispatch();
-  const timer = useSelector((state: RootStateOrAny) => state.general.timer);
+  const timer = useSelector((state: RootStateOrAny) => state.game.timer);
   const history = useHistory();
 
   const playHandler = async (item: Item) => {
