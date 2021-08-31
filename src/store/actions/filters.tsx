@@ -15,12 +15,11 @@ export interface AppliedFilters {
 };
 
 export const uploadCategoriesFilters = (gameType: string, appliedCategoriesFilters: AppliedFilters) => {
-  return async (dispatch: Function, getState: Function) => {
+  return async (dispatch: Function) => {
     try {
-      // console.log('uploadCategoriesFilters');
 
-      const token = getState().auth.token;
-      const userId = getState().auth.userId;
+      const { token, userId } = await cache.get(asyncNames.userData);
+
       const response = await fetch(
         `https://en-touto-nika.firebaseio.com//categoriesFilters${gameType}/${userId}.json?auth=${token}`,
         {
@@ -61,7 +60,7 @@ export const uploadCategoriesFilters = (gameType: string, appliedCategoriesFilte
 };
 
 export const deletePreviousCategoriesFilters = (gameType: string) => {
-  return async (dispatch: Function, getState: Function) => {
+  return async (dispatch: Function) => {
     try {
       const { token, userId } = await cache.get(asyncNames.userData);
 
@@ -88,9 +87,10 @@ export const deletePreviousCategoriesFilters = (gameType: string) => {
 };
 
 export const fetchCategoriesFilters = (gameType: string) => {
-  return async (dispatch: Function, getState: Function) => {
+  return async (dispatch: Function) => {
     try {
-      const userId = getState().auth.userId;
+      const { userId } = await cache.get(asyncNames.userData);
+
       const filtersResponse = await fetch(
         `https://en-touto-nika.firebaseio.com/categoriesFilters${gameType}/${userId}.json`
       );

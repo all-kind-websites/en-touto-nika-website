@@ -1,9 +1,10 @@
+import asyncNames from "../../../constants/asyncNames";
+import cache from "../../../utils/cache";
 
 export const saveData = (email: string, totalPoints: number) => {
-  return async (dispatch: Function, getState: Function) => {
+  return async () => {
     try {
-      const token = getState().auth.token;
-      const userId = getState().auth.userId;
+      const { token, userId } = await cache.get(asyncNames.userData);
       const date = new Date();
 
       // First get the old grade to check which one to save

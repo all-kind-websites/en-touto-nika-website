@@ -3,6 +3,7 @@ import question, { Question } from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
 import deleteQuestion from "../../../utils/deleteQuestion";
 import asyncNames from "../../../constants/asyncNames";
+import cache from "../../../utils/cache";
 
 export const createQuestionForMultiFour = (
   accepted: boolean,
@@ -19,10 +20,9 @@ export const createQuestionForMultiFour = (
   right_choice: string,
   hint: string,
 ) => {
-  return async (dispatch: Function, getState: Function) => {
+  return async () => {
     try {
-      const token = getState().auth.token;
-      const userId = getState().auth.userId;
+      const { token, userId } = await cache.get(asyncNames.userData);
 
       let questionsArray: Array<string> = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -112,11 +112,9 @@ export const updateQuestionForMultiFour = (
   hint: string,
   index: number
 ) => {
-  return async (dispatch: Function, getState: Function) => {
+  return async () => {
     try {
-      const userId = getState().auth.userId;
-      const token = getState().auth.token;
-      // console.log('index', index);
+      const { token, userId } = await cache.get(asyncNames.userData);
 
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
@@ -166,7 +164,7 @@ export const updateQuestionForMultiFour = (
 };
 
 export const fetchQuestionsForMultiFour = (maxIndex: number) => {
-  return async (dispatch: Function) => {
+  return async () => {
     try {
       // Use maxIndex (of last answered question) to load questions from according group.
       let URI = "";
@@ -251,7 +249,7 @@ export const fetchQuestionsForMultiFour = (maxIndex: number) => {
 };
 
 export const fetchQuestionsForMultiFourNoTimer = (maxIndex: number) => {
-  return async (dispatch: Function) => {
+  return async () => {
     try {
       // Use maxIndex (of last answered question) to load questions from according group.
       let URI = "";
@@ -334,7 +332,7 @@ export const fetchQuestionsForMultiFourNoTimer = (maxIndex: number) => {
   };
 };
 export const fetchQuestionsForMixedFour = (maxIndex: number) => {
-  return async (dispatch: Function) => {
+  return async () => {
     try {
       // Use maxIndex (of last answered question) to load questions from according group.
       let URI = "";
@@ -410,8 +408,8 @@ export const deleteQuestionForMultiFour = (
   questionId: string,
   index: number
 ) => {
-  return async (dispatch: Function, getState: Function) => {
-    const token = getState().auth.token;
+  return async () => {
+    const { token } = await cache.get(asyncNames.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForMultiFour/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForMultiFour.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

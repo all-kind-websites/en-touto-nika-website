@@ -3,6 +3,7 @@ import question, { Question } from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
 import deleteQuestion from "../../../utils/deleteQuestion";
 import asyncNames from "../../../constants/asyncNames";
+import cache from "../../../utils/cache";
 
 export const createQuestionForMultiTwo = (
   accepted: boolean,
@@ -19,10 +20,9 @@ export const createQuestionForMultiTwo = (
   right_choice: string,
   hint: string,
 ) => {
-  return async (getState: Function) => {
+  return async () => {
     try {
-      const token = getState().auth.token;
-      const userId = getState().auth.userId;
+      const { token, userId } = await cache.get(asyncNames.userData);
 
       let questionsArray = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -109,10 +109,9 @@ export const updateQuestionForMultiTwo = (
   hint: string,
   index: number
 ) => {
-  return async (getState: Function) => {
+  return async () => {
     try {
-      const userId = getState().auth.userId;
-      const token = getState().auth.token;
+      const { token, userId } = await cache.get(asyncNames.userData);
 
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
@@ -398,8 +397,8 @@ export const deleteQuestionForMultiTwo = (
   questionId: string,
   index: number
 ) => {
-  return async (dispatch: Function, getState: Function) => {
-    const token = getState().auth.token;
+  return async () => {
+    const { token } = await cache.get(asyncNames.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForMultiTwo/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForMultiTwo.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

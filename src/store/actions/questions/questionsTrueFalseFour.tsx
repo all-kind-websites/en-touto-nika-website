@@ -15,10 +15,9 @@ export const createQuestionForTrueFalseFour = (
   right_choice: string,
   hint: string,
 ) => {
-  return async (dispatch: Function, getState: Function) => {
+  return async () => {
     try {
-      const token = getState().auth.token;
-      const userId = getState().auth.userId;
+      const { token, userId } = await cache.get(asyncNames.userData);
 
       let questionsArray = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -96,11 +95,9 @@ export const updateQuestionForTrueFalseFour = (
   hint: string,
   index: number
 ) => {
-  return async (dispatch: Function, getState: Function) => {
+  return async () => {
     try {
-      const userId = getState().auth.userId;
-      const token = getState().auth.token;
-      // console.log('index', index);
+      const { token, userId } = await cache.get(asyncNames.userData);
 
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
@@ -237,7 +234,7 @@ export const fetchQuestionsForTrueFalseFour =
   };
 
 export const fetchQuestionsForTrueFalseFourMixed = (maxIndex: number) => {
-  return async (dispatch: Function) => {
+  return async () => {
     try {
       // Use maxIndex (of last answered question) to load questions from according group.
       let URI = "";
@@ -309,8 +306,8 @@ export const deleteQuestionForTrueFalseFour = (
   questionId: string,
   index: number
 ) => {
-  return async (dispatch: Function, getState: Function) => {
-    const token = getState().auth.token;
+  return async () => {
+    const { token } = await cache.get(asyncNames.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForTrueFalseFour/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForTrueFalseFour.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);
