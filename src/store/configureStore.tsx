@@ -7,13 +7,22 @@ import AuthReducer from "./reducers/auth";
 import DataReducer from "./reducers/data";
 import FiltersReducer from "./reducers/filters";
 import GeneralReducer from "./reducers/game";
+import { LOG_OUT } from "./actions/auth";
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
   auth: AuthReducer,
   data: DataReducer,
   fliters: FiltersReducer,
   game: GeneralReducer
 });
+
+const rootReducer = (state: any, action: any) => {
+  if (action.type === LOG_OUT) {
+    storage.removeItem('persist:root');
+    return appReducer(undefined, action);
+  }
+  return appReducer(state, action)
+}
 
 const persistConfig = {
   key: 'root',
