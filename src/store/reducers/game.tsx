@@ -1,4 +1,4 @@
-import { LOGIN_MODE, GAME_STATE, TIMER_STATE, GAME_TYPE_TITLE } from '../actions/game';
+import { LOGIN_MODE, GAME_STATE, TIMER_STATE, GAME_TYPE_TITLE, GAME_ON } from '../actions/game';
 interface Action {
   type: string,
   mode: boolean,
@@ -6,11 +6,16 @@ interface Action {
   title: string,
   gameTypeTitle: string,
   id: string,
+  gameOn: boolean
 }
 
 const initialState = {
   mode: true,
-  timer: false
+  timer: false,
+  title: '',
+  gameTypeTitle: '',
+  id: '',
+  gameOn: false
 }
 
 const game = (state = initialState, action: Action) => {
@@ -35,6 +40,11 @@ const game = (state = initialState, action: Action) => {
       return {
         ...state,
         gameTypeTitle: action.title
+      }
+    case GAME_ON:
+      return {
+        ...state,
+        gameOn: action.gameOn
       }
 
     default:

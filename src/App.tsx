@@ -21,7 +21,9 @@ import MultiCategories from './pages/game/MultiCategories';
 import MultiCategoriesNoTimer from './pages/game/MultiCategoriesNoTimer';
 import MixChooseCategories from './pages/game/mix/MixChooseCategories';
 import MultiGameNoTimer from './pages/game/multi/MultiGameNoTimer';
-export const history = createBrowserHistory()
+import MixMultiGameNoTimer from './pages/game/mix/MixMultiGameNoTimer';
+import MixMultiGameWithTimer from './pages/game/mix/MixMultiGameWithTimer';
+export const history = createBrowserHistory();
 
 function App() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -53,9 +55,14 @@ function App() {
             <Route path={navNames.multiCategories} component={MultiCategories} />
             <Route path={navNames.multiCategoriesNoTimer} component={MultiCategoriesNoTimer} />
 
+            {/* Games */}
 
-            {/* Game */}
+            {/* Mix */}
             <Route path={navNames.mixChooseCategories} component={MixChooseCategories} />
+            <Route path={navNames.mixMultiGameNoTimer} component={MixMultiGameNoTimer} />
+            <Route path={navNames.mixMultiGameWithTimer} component={MixMultiGameWithTimer} />
+
+            {/* Multi */}
             <Route path={navNames.multiGameNoTimer} component={MultiGameNoTimer} />
 
 

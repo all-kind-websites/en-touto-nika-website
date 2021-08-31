@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { RootStateOrAny, useSelector } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 import useSaveCategory from "../../../hooks/useSaveCategory";
 import navNames from "../../../constants/navNames";
 import asyncNames from "../../../constants/asyncNames";
 
 import cache from "../../../utils/cache";
-import startMixGame from "../../../utils/startMixGame";
+// import startMixGame from "../../../utils/startMixGame";
 import checkIfMixGameIsOn from "../../../utils/checkIfMixGameIsOn";
 import {
   removeAsyncMultiMixed,
@@ -15,8 +16,11 @@ import {
 import CheckBox from "../../../components/CheckBox";
 import Button from "../../../components/UI/Button";
 import '../../../styles/game/mix/categories.scss';
+import { gameOn } from "../../../store/actions/game";
 
 const Categories = () => {
+  const history = useHistory();
+  const dispatch = useDispatch()
   const [modalVisible, setModalVisible] = useState(false);
 
   const userIsLoggedIn = !!localStorage.getItem(asyncNames.userData);
@@ -47,7 +51,35 @@ const Categories = () => {
 
   useEffect(() => {
     checking();
-  }, [checking]);
+    dispatch(gameOn(false));
+
+  }, [checking, dispatch]);
+
+  const startMixGame = async (
+    gameType: string,
+    timer: boolean
+  ) => {
+    dispatch(gameOn(true));
+    if (gameType === "Multi") {
+      if (timer) {
+        await cache.set(asyncNames.useTimerMultiMixed, true);
+        history.push(navNames.mixMultiGameWithTimer)
+      } else {
+        await cache.set(asyncNames.useTimerMultiMixed, false);
+        history.push(navNames.mixMultiGameNoTimer)
+
+      }
+    } else if (gameType === "TrueFalse") {
+      if (timer) {
+        await cache.set(asyncNames.useTimerTrueFalseMixed, true);
+        history.push(navNames.mixTrueFalseGameWithTimer)
+      } else {
+        await cache.set(asyncNames.useTimerTrueFalseMixed, false);
+        history.push(navNames.mixTrueFalseGameNoTimer)
+
+      }
+    }
+  };
 
   if (!userIsLoggedIn) {
     return (
@@ -89,7 +121,7 @@ const Categories = () => {
           disabled={!categoryIsChosen}
           title="Εκκίνηση"
           onClick={() => {
-            startMixGame(categoryIsChosen, gameType, timer);
+            startMixGame(gameType, timer);
           }}
         />
       </div>

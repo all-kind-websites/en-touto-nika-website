@@ -11,8 +11,11 @@ import { timerState } from '../store/actions/game';
 export default function Topbar(props: any) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const gameTitle = useSelector((state: RootStateOrAny) => state.game.gameTypeTitle);
+
   const [timer, setTimer] = useState(false);
+
+  const gameTitle = useSelector((state: RootStateOrAny) => state.game.gameTypeTitle);
+  const gameOn = useSelector((state: RootStateOrAny) => state.game.gameOn);
 
   useEffect(() => {
     dispatch(timerState(timer))
@@ -32,10 +35,7 @@ export default function Topbar(props: any) {
   }
 
   return (
-    <div className={`topbar ${props.menuOpen && "active"} `}>
-      <BiDonateBlood
-        className='donate-icon-1'
-        size='34' onClick={donationHanlder} />
+    <div className={`topbar ${(props.menuOpen || gameOn) && "active"} `}>
       <div className="hamburger-container">
         <div className='hamburger-icon' onClick={menuHandler}>
           <span></span>
@@ -43,6 +43,9 @@ export default function Topbar(props: any) {
           <span></span>
         </div>
       </div>
+      <BiDonateBlood
+        className='donate-icon-1'
+        size='34' onClick={donationHanlder} />
       <div className="title-container">
         <h1 className={`title ${!!gameTitle ? 'title--game' : ''}`}>{!!gameTitle ? gameTitle : 'ΕΝ ΤΟΥΤΩ ΝΙΚΑ'}</h1>
       </div>
