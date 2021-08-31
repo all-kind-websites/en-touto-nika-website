@@ -19,6 +19,8 @@ import Donate from './pages/menu/Donate';
 import navNames from './constants/navNames';
 import MultiCategories from './pages/game/MultiCategories';
 import MultiCategoriesNoTimer from './pages/game/MultiCategoriesNoTimer';
+import MixChooseCategories from './pages/game/mix/MixChooseCategories';
+import MultiGameNoTimer from './pages/game/multi/MultiGameNoTimer';
 export const history = createBrowserHistory()
 
 function App() {
@@ -47,9 +49,17 @@ function App() {
             <Route path={navNames.create} component={Create} />
             <Route path={navNames.donate} component={Donate} />
 
-            {/* Game */}
+            {/* Categories */}
             <Route path={navNames.multiCategories} component={MultiCategories} />
             <Route path={navNames.multiCategoriesNoTimer} component={MultiCategoriesNoTimer} />
+
+
+            {/* Game */}
+            <Route path={navNames.mixChooseCategories} component={MixChooseCategories} />
+            <Route path={navNames.multiGameNoTimer} component={MultiGameNoTimer} />
+
+
+            {/* Basic */}
             <Route path={navNames.not_found} component={NotFound} />
             <Route path="/" exact render={() => <Home setMenuOpen={setMenuOpen} />} />
             <Redirect to={navNames.not_found} />

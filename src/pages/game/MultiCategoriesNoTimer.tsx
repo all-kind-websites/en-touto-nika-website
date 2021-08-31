@@ -7,7 +7,7 @@ import CategoryGridTileNoTimer from '../../components/grid-items/CategoryGridTil
 // import renderGridItemHandler from '../../components/grid-items/renderGridItemHandler';
 import navNames from '../../constants/navNames';
 import { CATEGORIES } from '../../data/categories';
-import { gameState, gameTypeTitle } from '../../store/actions/game';
+import { gameTypeTitle } from '../../store/actions/game';
 import '../../styles/game/multi-categories-no-timer.scss'
 import getGameStatusMulti from '../../utils/getGameStatusMulti';
 // import { GameStatusMulti } from '../../components/grid-items/imageHandler';
@@ -54,6 +54,7 @@ const MultiCategoriesNoTimer = (props: any): any => {
       <ul>
         {CATEGORIES.map((game: { id: string, title: string }) =>
           <CategoryGridTileNoTimer
+            key={game.id}
             gamesStatus={gamesStatus}
             id={game.id}
             navigationName={navNames.multiGameNoTimer}
@@ -63,21 +64,22 @@ const MultiCategoriesNoTimer = (props: any): any => {
               console.log('......getNavName', game.id);
 
               const getNavigationName = () =>
-                game.id === "mixed" ? navNames.mixedChooseCategories : navNames.multiGameNoTimer;
+                game.id === "mixed" ? navNames.mixChooseCategories : navNames.multiGameNoTimer;
 
               history.push(getNavigationName())
             }
-              // () =>
-              // navigation.navigate({
-              //   name: getNavigationName(),
-              //   params: {
-              //     categoryId: game.id,
-              //     categoryTitle: game.title,
-              //     timer,
-              //     gameType,
-              //   },
-              // })
             }
+          // () =>
+          // navigation.navigate({
+          //   name: getNavigationName(),
+          //   params: {
+          //     categoryId: game.id,
+          //     categoryTitle: game.title,
+          //     timer,
+          //     gameType,
+          //   },
+          // })
+          // }
           />
         )}
       </ul>

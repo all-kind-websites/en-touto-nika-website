@@ -14,7 +14,7 @@ const renderGridItemHandler = (
   const renderGridItem = (game: { id: string, title: string }): any => {
 
     const getNavigationName = () =>
-      game.id === "mixed" ? navNames.mixedChooseCategories : navigationName;
+      game.id === "mixed" ? navNames.mixChooseCategories : navigationName;
 
     if (timer) {
       return (

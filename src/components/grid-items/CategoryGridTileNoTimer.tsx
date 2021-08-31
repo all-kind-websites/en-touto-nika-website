@@ -39,9 +39,7 @@ const CategoryGridTileNoTimer = ({
   if (id === 'mixed') {
     const { borderColor, borderWidth, image } = imageHandlerMix();
     borderC = borderColor; borderW = borderWidth; img = image;
-  }
-
-  if (navigationName === navNames.multiGameNoTimer) {
+  } else if (navigationName === navNames.multiGameNoTimer) {
     const { borderColor, borderWidth, image } = imageHandler(gamesStatus, id, timer);
     borderC = borderColor; borderW = borderWidth; img = image;
   }
@@ -55,8 +53,6 @@ const CategoryGridTileNoTimer = ({
   //   const { borderColor, borderWidth, image } = imageHandlerCreate(id);
   //   borderC = borderColor; borderW = borderWidth; img = image;
   // }
-
-  console.log('CategoryGridTileNoTimer', img);
 
   return (
     <GridTile

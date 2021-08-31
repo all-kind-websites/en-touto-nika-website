@@ -1,4 +1,4 @@
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import GAME_TYPES from '../data/game-types';
 
@@ -7,7 +7,7 @@ import '../styles/home.scss';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import navNames from '../constants/navNames';
-import { gameState } from '../store/actions/game';
+import { gameState, gameTypeTitle } from '../store/actions/game';
 
 interface Item {
   id: string,
@@ -18,6 +18,10 @@ export default function Home(props: any) {
   const dispatch = useDispatch();
   const timer = useSelector((state: RootStateOrAny) => state.game.timer);
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch(gameTypeTitle(''))
+  }, [dispatch])
 
   const playHandler = async (item: Item) => {
     if (timer) {

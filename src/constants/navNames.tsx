@@ -18,7 +18,7 @@ const navNames = {
   trueFalseMixedGameNoTimer: "/true-false-fixed-game-no-timer",
 
 
-  mixedChooseCategories: "mixed-choose-categories",
+  mixChooseCategories: "/mix-choose-categories",
 
   createHome: 'create-home',
   createMultiCategories: "CreateMultiCategories",
