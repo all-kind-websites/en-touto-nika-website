@@ -88,7 +88,7 @@ const Categories = () => {
         <Button
           disabled={!categoryIsChosen}
           title="Εκκίνηση"
-          onPress={() => {
+          onClick={() => {
             startMixGame(categoryIsChosen, gameType, timer);
           }}
         />

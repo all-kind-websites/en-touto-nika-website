@@ -5,7 +5,6 @@ const MixChooseCategories = () => {
   return (
     <div className='mix-choose-categories'>
       <Categories />
-
     </div>
   )
 }

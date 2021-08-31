@@ -8,6 +8,7 @@ const startMixGame = async (
   gameType: string,
   timer: boolean
 ) => {
+  console.log('startMixGame', categoryIsChosen, gameType, timer);
   if (categoryIsChosen) {
     if (gameType === "Multi") {
       if (timer) {
