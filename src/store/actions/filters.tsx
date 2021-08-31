@@ -1,4 +1,5 @@
 import asyncNames from "../../constants/asyncNames";
+import cache from "../../utils/cache";
 
 export const UPLOAD_CATEGORIES_FILTERS = "UPLOAD_CATEGORIES_FILTERS";
 export const DELETE_PREVIOUS_CATEGORIES_FILTERS =
@@ -62,12 +63,11 @@ export const uploadCategoriesFilters = (gameType: string, appliedCategoriesFilte
 export const deletePreviousCategoriesFilters = (gameType: string) => {
   return async (dispatch: Function, getState: Function) => {
     try {
-      const token = getState().auth.token;
-      const userId = getState().auth.userId;
+      const { token, userId } = await cache.get(asyncNames.userData);
 
       // Delete active user's data from All_Users_Data
       const response = await fetch(
-        `https://en-touto-nika.firebaseio.com//categoriesFilters${gameType}/${userId}.json?auth=${token}`,
+        `https://en-touto-nika.firebaseio.com/categoriesFilters${gameType}/${userId}.json?auth=${token}`,
         {
           method: "DELETE",
         }
@@ -92,7 +92,7 @@ export const fetchCategoriesFilters = (gameType: string) => {
     try {
       const userId = getState().auth.userId;
       const filtersResponse = await fetch(
-        `https://en-touto-nika.firebaseio.com//categoriesFilters${gameType}/${userId}.json`
+        `https://en-touto-nika.firebaseio.com/categoriesFilters${gameType}/${userId}.json`
       );
 
       // check before unpack the filtersResponse body

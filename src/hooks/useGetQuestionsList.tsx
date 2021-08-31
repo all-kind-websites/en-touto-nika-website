@@ -20,55 +20,51 @@ const useGetQuestionsList = (
 
   const dispatch = useDispatch();
 
-  const getQuestionsFromServer = useCallback(
+  const getQuestionsFromServer = useCallback(async (category: string) => {
+    let action;
+    if (gameType === "Multi") {
+      if (category === "check_one")
+        action = questionsActions.fetchQuestionsForMixedOne(maxIndex);
+      if (category === "check_two")
+        action = questionsActions.fetchQuestionsForMixedTwo(maxIndex);
+      if (category === "check_three")
+        action = questionsActions.fetchQuestionsForMixedThree(maxIndex);
+      if (category === "check_four")
+        action = questionsActions.fetchQuestionsForMixedFour(maxIndex);
+    } else if (gameType === "TrueFalse") {
+      if (category === "check_oneTF")
+        action = questionsActions.fetchQuestionsForTrueFalseOneMixed(maxIndex);
+      if (category === "check_twoTF")
+        action = questionsActions.fetchQuestionsForTrueFalseTwoMixed(maxIndex);
+      if (category === "check_threeTF")
+        action = questionsActions.fetchQuestionsForTrueFalseThreeMixed(
+          maxIndex
+        );
+      if (category === "check_fourTF")
+        action = questionsActions.fetchQuestionsForTrueFalseFourMixed(maxIndex);
+    }
 
-    async (category: string) => {
-      let action;
-      if (gameType === "Multi") {
-        if (category === "check_one")
-          action = questionsActions.fetchQuestionsForMixedOne(maxIndex);
-        if (category === "check_two")
-          action = questionsActions.fetchQuestionsForMixedTwo(maxIndex);
-        if (category === "check_three")
-          action = questionsActions.fetchQuestionsForMixedThree(maxIndex);
-        if (category === "check_four")
-          action = questionsActions.fetchQuestionsForMixedFour(maxIndex);
-      } else if (gameType === "TrueFalse") {
-        if (category === "check_oneTF")
-          action = questionsActions.fetchQuestionsForTrueFalseOneMixed(maxIndex);
-        if (category === "check_twoTF")
-          action = questionsActions.fetchQuestionsForTrueFalseTwoMixed(maxIndex);
-        if (category === "check_threeTF")
-          action = questionsActions.fetchQuestionsForTrueFalseThreeMixed(
-            maxIndex
-          );
-        if (category === "check_fourTF")
-          action = questionsActions.fetchQuestionsForTrueFalseFourMixed(maxIndex);
-      }
-
-      setError('');
-      setIsLoading(true);
-      try {
-        await dispatch(action);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-        setIsLoading(false);
-      }
+    setError('');
+    setIsLoading(true);
+    try {
+      await dispatch(action);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
       setIsLoading(false);
     }
+    setIsLoading(false);
+  }
     , [dispatch, gameType]);
 
-  const checkHandler = useCallback(
-
-    async (category: string, localDatabase: string) => {
-      setCategoryIsChosen(true);
-      // Save status of checkbox in AsyncStorage.
-      await cache.set(category, true);
-      // Try to get questions from AsyncStorage.
-      const localDB = await cache.get(localDatabase);
-      !localDB && getQuestionsFromServer(category);
-    }, [getQuestionsFromServer])
+  const checkHandler = useCallback(async (category: string, localDatabase: string) => {
+    setCategoryIsChosen(true);
+    // Save status of checkbox in AsyncStorage.
+    await cache.set(category, true);
+    // Try to get questions from AsyncStorage.
+    const localDB = await cache.get(localDatabase);
+    !localDB && getQuestionsFromServer(category);
+  }, [getQuestionsFromServer])
 
   useEffect(() => {
     if (gameType === "Multi") {

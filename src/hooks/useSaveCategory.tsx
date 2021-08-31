@@ -76,11 +76,6 @@ const useSaveCategory = (gameType: string) => {
     gameType
   ]);
 
-  // loadFilters after focusing
-  useEffect(() => {
-    loadFilters();
-  }, [loadFilters]);
-
   // loadFilters initially...
   useEffect(() => {
     const getFilters = async () => {
