@@ -1,2 +1,8 @@
 @import "../../config.scss";
 @import "../../colors.scss";
+
+.mix-choose-categories {
+  height: 100vh;
+  background: linear-gradient($moccasin_light, $chocolate, $maroon);
+  @include centerFlex(column);
+}

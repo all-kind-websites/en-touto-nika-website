@@ -1,5 +1,6 @@
 
 const navNames = {
+  home: '/',
   winners: "/winners",
   settings: "/settings",
   create: "/create",
@@ -19,6 +20,10 @@ const navNames = {
 
 
   mixChooseCategories: "/mix-choose-categories",
+  mixMultiGameWithTimer: "/mixed-multi-game-with-timer",
+  mixMultiGameNoTimer: "/mixed-multi-game-no-timer",
+  mixTrueFalseGameWithTimer: "/mixed-true-false-game-with-timer",
+  mixTrueFalseGameNoTimer: "/mixed-true-false-game-no-timer",
 
   createHome: 'create-home',
   createMultiCategories: "CreateMultiCategories",
@@ -35,14 +40,9 @@ const navNames = {
   gameNavigator: "GameNavigator",
   intro: "Intro",
 
-  noTimerMixedGame: "NoTimerMixedGame",
-  mixedMultiGame: "MixedMultiGame",
-  mixedTrueFalseGame: "MixedTrueFalseGame",
 
 
-  settingsNavigator: "SettingsNavigator",
-  welcome: "Welcome",
-  winnersNavigator: "WinnersNavigator",
+
 };
 
 export default navNames;

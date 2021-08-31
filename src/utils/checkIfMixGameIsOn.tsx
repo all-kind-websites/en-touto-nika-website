@@ -2,11 +2,8 @@ import cache from "./cache";
 import asyncNames from "../constants/asyncNames";
 
 const checkIfMixGameIsOn = (
-  navigation: any,
-  setDisableTimerButton: Function,
-  setModalVisible: Function,
   gameType: string,
-  timer: any
+  setModalVisible: Function,
 ) => {
   let mixGameIsOn = false,
     mixGameIsOnNoTimer = false,

@@ -1,0 +1,52 @@
+@import "../../config.scss";
+@import "../../colors.scss";
+
+.mix-categories {
+  height: 100vh;
+  width: 500px;
+  // @include centerFlex(column);
+
+  .mix-categories__title {
+    position: relative;
+    top: 80px;
+    // left: 50%;
+    // transform: translateX(-22%);
+    @include centerFlex(row);
+  }
+
+  .mix-categories__checkboxes {
+    position: relative;
+    top: 170px;
+    left: 10px;
+    text-align: left;
+  }
+
+  .icon-container {
+    @include centerFlex(column);
+    width: 13rem;
+    height: 16rem;
+    margin: 10px;
+    border-radius: 25px;
+    box-shadow: 0 0 8px 2px $moccasin-light;
+    position: relative;
+    bottom: 50px;
+    left: 320px;
+
+    img {
+      width: inherit;
+      height: inherit;
+      border-radius: 25px;
+      border: 1px solid $maroon;
+      object-fit: cover;
+      transition: transform 1s;
+    }
+  }
+
+  .start-button {
+    padding: 10px;
+    position: relative;
+    top: 140px;
+    left: 250px;
+    transform: translateX(-28%);
+  }
+}

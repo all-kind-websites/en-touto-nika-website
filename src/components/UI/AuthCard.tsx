@@ -151,6 +151,7 @@ const AuthCard = (props: any) => {
       <div className='card__container' >
         <div className={`no-sub-enter-button ${login && 'no-sub-enter-button--login'}`} >
           <Button
+            disabled={false}
             title='Είσοδος χωρίς εγγραφή'
             onClick={freeEntranceHandler}
             style={noSubEnterButton} />
@@ -195,12 +196,13 @@ const AuthCard = (props: any) => {
           }
           {isLoading ?
             <Loader /> :
-            <Button title={!login ? 'Εγγραφή' : 'Είσοδος'} onClick={handleSubmit} style={{ width: '40%', }} />}
+            <Button disabled={false} title={!login ? 'Εγγραφή' : 'Είσοδος'} onClick={handleSubmit} style={{ width: '40%', }} />}
 
         </form>
         <div className="bottom-container">
           <p className='question' >{!login ? 'Έχετε λογαρισμό?' : 'Δεν έχετε λογαριασμό?'}</p>
           <Button
+            disabled={false}
             title={login ? 'Εγγραφή' : 'Είσοδος'}
             onClick={handleLogin}
             style={goToLoginButtom}

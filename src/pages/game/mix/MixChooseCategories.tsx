@@ -1,9 +1,10 @@
 import '../../../styles/game/mix/mix-choose-categories.scss';
+import Categories from './Categories';
 
 const MixChooseCategories = () => {
   return (
-    <div>
-      MixChooseCategories
+    <div className='mix-choose-categories'>
+      <Categories />
 
     </div>
   )

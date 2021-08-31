@@ -32,7 +32,7 @@ const quitGame = (
     }
 
     setNumOfTotalQuestions(0);
-    navigation.navigate(navNames.welcome); // call it here otherwise you get the finished round screen.
+    navigation.navigate(navNames.home); // call it here otherwise you get the finished round screen.
   };
   return { quit };
 };

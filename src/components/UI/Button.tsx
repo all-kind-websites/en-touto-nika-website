@@ -4,7 +4,9 @@ const Button = (props: any) => {
   return (
     <button style={props.style} onClick={props.onClick}
       onMouseEnter={props.onMouseLeave}
-      onMouseLeave={props.onMouseLeave} >
+      onMouseLeave={props.onMouseLeave}
+      disabled={props.disabled}
+    >
       {props.title}
     </button>
   );

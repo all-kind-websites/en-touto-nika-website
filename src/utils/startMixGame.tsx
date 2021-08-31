@@ -1,43 +1,34 @@
 import cache from "./cache";
 import asyncNames from "../constants/asyncNames";
 import navNames from "../constants/navNames";
+import { history } from '../App';
 
 const startMixGame = async (
-  navigation: any,
   categoryIsChosen: boolean,
-  timer: boolean,
-  gameType: string
+  gameType: string,
+  timer: boolean
 ) => {
   if (categoryIsChosen) {
     if (gameType === "Multi") {
       if (timer) {
         await cache.set(asyncNames.useTimerMultiMixed, true);
-        navigation.navigate({
-          name: navNames.mixedMultiGame,
-          params: { gameType, timer },
-        });
+        history.replace(navNames.mixMultiGameWithTimer)
       }
       if (!timer) {
         await cache.set(asyncNames.useTimerMultiMixed, false);
-        navigation.navigate({
-          name: navNames.noTimerMixedGame,
-          params: { gameType, timer },
-        });
+        history.replace(navNames.mixMultiGameNoTimer)
+
       }
     } else if (gameType === "TrueFalse") {
       if (timer) {
         await cache.set(asyncNames.useTimerTrueFalseMixed, true);
-        navigation.navigate({
-          name: navNames.mixedTrueFalseGame,
-          params: { gameType, timer },
-        });
-      }
-      if (!timer) {
-        await cache.set(asyncNames.useTimerTrueFalseMixed, false);
-        navigation.navigate({
-          name: navNames.trueFalseMixedGameNoTimer,
-          params: { gameType, timer },
-        });
+        history.replace(navNames.mixTrueFalseGameWithTimer)
+
+        if (!timer) {
+          await cache.set(asyncNames.useTimerTrueFalseMixed, false);
+          history.replace(navNames.mixTrueFalseGameNoTimer)
+
+        }
       }
     }
   }

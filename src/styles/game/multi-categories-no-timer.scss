@@ -4,10 +4,9 @@
 .multi-categories-no-timer {
   width: 100vw;
   background: linear-gradient($moccasin_light, $chocolate, $maroon);
-  // @include centerFlex(column);
-  margin-top: 60px;
 
   ul {
+    margin-top: 60px;
     list-style-type: none;
     padding: 0;
   }
