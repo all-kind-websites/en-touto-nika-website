@@ -4,16 +4,21 @@
 .choice-text {
   margin-left: 10px;
   margin-bottom: 20px;
+  width: 500px;
 
   .choice-container {
+    font-family: "MS Tahoma";
     width: 100%;
     @include customFlex(row, flex-start, flex-start);
 
     .choice-letter {
-      width: 5%;
+      color: $maroon;
+      font-family: inherit;
+      width: 7%;
     }
     .choice-question {
-      width: 95%;
+      font-family: inherit;
+      width: 90%;
     }
   }
 }

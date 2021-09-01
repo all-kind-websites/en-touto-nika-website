@@ -5,6 +5,7 @@ import TopMenu from "../UI/TopMenu";
 import ChoiceText from "../UI/ChoiceText";
 import DetailedAnswer from "../UI/DetailedAnswer";
 import { Question } from "../../models/question";
+import colors from "../../constants/colors";
 // import OptionsModalMulti from "./OptionsModalMulti";
 interface showQuestionProps {
   alfaIsTrue: boolean,
@@ -83,7 +84,7 @@ const showQuestion = (
 
         {showAnswer ? <DetailedAnswer selectedQuestion={selectedQuestion} /> : null}
         <article >
-          <h4 style={{ marginLeft: 10, marginBottom: 10 }} >
+          <h4 style={{ marginLeft: 10, marginBottom: 20, fontFamily: "MS Tahoma", color: colors.maroon, width: 500 }} >
             {selectedQuestion.title}
           </h4>
           <ChoiceText
