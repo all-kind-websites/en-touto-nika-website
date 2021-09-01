@@ -1,10 +1,11 @@
+import '../../styles/UI/top-menu.scss';
 
 interface TopMenuProps {
   categoryTitle: string,
   showAnswer: boolean,
   numOfDownloadedQuestions: number,
   numOfTotalQuestions: number,
-  onRefresh: Function,
+  // onRefresh: Function,
   setStadiumIsFinished: Function,
   totalPoints: number,
 }
@@ -13,38 +14,38 @@ const TopMenu = ({
   showAnswer,
   numOfDownloadedQuestions,
   numOfTotalQuestions,
-  onRefresh,
+  // onRefresh,
   setStadiumIsFinished,
   totalPoints,
 }: TopMenuProps) => {
   return (
-    <article >
-      <h4 >{categoryTitle}</h4>
-      <div >
-        <div style={{ flexDirection: "column" }}>
-          <h5 >Ερωτήσεις</h5>
-          <h6 >
-            {numOfTotalQuestions} / {numOfDownloadedQuestions - 1}
-          </h6>
-        </div>
-        <div >
-          <img
-            src="assets/panagia-glykofilousa.jpg"
-            alt='icon of Theotokos'
-          />
-        </div>
-        <div >
-          <h5 >Σωστές</h5>
-          <h6 >{totalPoints}</h6>
-        </div>
+    <article className='top-menu' >
+      <h3 className='category-title' >
+        {categoryTitle}
+      </h3>
+      <div className='questions-container' >
+        <h4 >Ερωτήσεις</h4>
+        <h5 >
+          {numOfTotalQuestions} / {numOfDownloadedQuestions - 1}
+        </h5>
+      </div>
+      <div className='icon-container' >
+        <img
+          src="assets/panagia-glykofilousa.jpg"
+          alt='icon of Theotokos'
+        />
+      </div>
+      <div className='right-container' >
+        <h4 >Σωστές</h4>
+        <h5 >{totalPoints}</h5>
       </div>
       <div >
         {showAnswer ? (
           <div
-            onClick={
-              +numOfDownloadedQuestions - 1 === 0
-                ? () => setStadiumIsFinished(true)
-                : () => onRefresh
+            onClick={() => { }
+              // +numOfDownloadedQuestions - 1 === 0
+              //   ? () => setStadiumIsFinished(true)
+              //   : () => onRefresh
             }
 
           >

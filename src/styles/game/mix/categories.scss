@@ -9,8 +9,6 @@
   .mix-categories__title {
     position: relative;
     top: 80px;
-    // left: 50%;
-    // transform: translateX(-22%);
     @include centerFlex(row);
   }
 

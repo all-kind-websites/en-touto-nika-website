@@ -1,0 +1,49 @@
+@import "../config.scss";
+@import "../colors.scss";
+
+.top-menu {
+  width: 500px;
+  height: 45vh;
+  position: relative;
+  // transform: translateX(-50%);
+  .category-title {
+    position: relative;
+    top: 10px;
+    left: 33%;
+  }
+
+  .questions-container {
+    @include centerFlex(column);
+    position: relative;
+    top: 100px;
+    left: -35%;
+  }
+
+  .icon-container {
+    @include centerFlex(column);
+    top: 50px;
+    position: absolute;
+    left: 35%;
+    width: 15rem;
+    height: 22rem;
+    margin: 10px;
+    border-radius: 25px;
+    box-shadow: 0 0 8px 2px $moccasin-light;
+
+    img {
+      width: inherit;
+      height: inherit;
+      border-radius: 25px;
+      border: 1px solid $maroon;
+      object-fit: cover;
+      transition: transform 1s;
+    }
+  }
+
+  .right-container {
+    @include centerFlex(column);
+    position: relative;
+    top: 33px;
+    right: -35%;
+  }
+}

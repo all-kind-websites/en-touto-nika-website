@@ -29,17 +29,11 @@ const MixMultiGameNoTimer = () => {
 
   const [choiceSave, setChoiceSave] = useState(false);
   const [correctChoice, setCorrectChoice] = useState(false);
-  const [playCorrectAnimSound, setPlayCorrectAnimSound] = useState(false);
-  const [playWrongAnimSound, setPlayWrongAnimSound] = useState(false);
 
-  const [alfaStyle, setAlfaStyle] = useState(false);
-  const [betaStyle, setBetaStyle] = useState(false);
-  const [gammaStyle, setGammaStyle] = useState(false);
-  const [deltaStyle, setDeltaStyle] = useState(false);
 
   const [stadiumCounter, setStadiumCounter] = useState(1);
 
-  const [modalVisible, setModalVisible] = useState(false);
+  // const [modalVisible, setModalVisible] = useState(false);
 
   let timer = false;
 
@@ -58,26 +52,22 @@ const MixMultiGameNoTimer = () => {
     totalPoints,
   } = useLoadQuestionsMixMulti(timer, gameType);
 
-  const onRefresh = useCallback(async () => {
-    setCorrectChoice(false);
-    setRefreshing(true);
-    setChoiceSave(false);
-    removeChoicesfromAsyncStorage();
-    setNumOfQuestions(numOfQuestions + 1);
-    // Then
-    loadQuestions();
-    setShowAnswer(false);
-    setRefreshing(false);
-    setAlfaStyle(false);
-    setBetaStyle(false);
-    setGammaStyle(false);
-    setDeltaStyle(false);
+  // const onRefresh = useCallback(async () => {
+  //   setCorrectChoice(false);
+  //   setRefreshing(true);
+  //   setChoiceSave(false);
+  //   removeChoicesfromAsyncStorage();
+  //   setNumOfQuestions(numOfQuestions + 1);
+  //   // Then
+  //   loadQuestions();
+  //   setShowAnswer(false);
+  //   setRefreshing(false);
 
-    // set num of q/s to finish stadium (100)
-    if (numOfTotalQuestions === 100) {
-      setStadiumIsFinished(true);
-    }
-  }, [setRefreshing, loadQuestions, numOfQuestions, numOfTotalQuestions, setNumOfQuestions, setStadiumIsFinished,]);
+  //   // set num of q/s to finish stadium (100)
+  //   if (numOfTotalQuestions === 100) {
+  //     setStadiumIsFinished(true);
+  //   }
+  // }, [setRefreshing, loadQuestions, numOfQuestions, numOfTotalQuestions, setNumOfQuestions, setStadiumIsFinished,]);
 
   const { quit } = quitGame(
     setNumOfTotalQuestions,
@@ -101,15 +91,13 @@ const MixMultiGameNoTimer = () => {
 
   useEffect(() => {
     loadQuestions();
-  }, [loadQuestions]);
+  }, []); // leave the dependencies there and empty
 
 
   const { saveAnswer } = checkAnswerHandlerMixMulti(
     selectedQuestion,
     setCorrectChoice,
-    setModalVisible,
-    setPlayCorrectAnimSound,
-    setPlayWrongAnimSound,
+    // setModalVisible,
     setTotalPoints,
     totalPoints
   );
@@ -142,7 +130,7 @@ const MixMultiGameNoTimer = () => {
 
   const categoryId = false;
   return (
-    <article>
+    <article className='mix-multi' >
       {showQuestion(
         asyncNames.alfaIsTrueMultiMixed,
         asyncNames.betaIsTrueMultiMixed,
@@ -152,7 +140,6 @@ const MixMultiGameNoTimer = () => {
         gameType,
         choiceSave,
         correctChoice,
-        onRefresh,
         refreshing,
         saveAnswer,
         showAnswer,
