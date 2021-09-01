@@ -121,6 +121,7 @@ export const fetchCategoriesFilters = (gameType: string) => {
     } catch (err) {
       // send to custom analytics server
       console.log(err);
+      alert("Δυστυχώς η φόρτωση της κατάστασης των κατηγοριών δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας.");
 
       throw err;
     }

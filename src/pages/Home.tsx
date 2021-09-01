@@ -7,7 +7,7 @@ import '../styles/home.scss';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import navNames from '../constants/navNames';
-import { gameState, gameTypeTitle } from '../store/actions/game';
+import { gameOn, gameState, gameTypeTitle } from '../store/actions/game';
 
 interface Item {
   id: string,
@@ -21,6 +21,8 @@ export default function Home(props: any) {
 
   useEffect(() => {
     dispatch(gameTypeTitle(''))
+    dispatch(gameOn(false)); // to reveal the Topbar
+
   }, [dispatch])
 
   const playHandler = async (item: Item) => {

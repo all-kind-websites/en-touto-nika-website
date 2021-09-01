@@ -5,8 +5,7 @@ import checkAnswerForMixed from "./checkAnswerForMixed";
 import { Question } from '../models/question';
 
 const checkAnswerHandlerMixedMulti = (
-  choiceSave: boolean,
-  selectedQuestion: Question,
+  selectedQuestion: Question | null,
   setCorrectChoice: Function,
   setModalVisible: Function,
   setPlayCorrectAnimSound: Function,

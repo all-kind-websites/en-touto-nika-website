@@ -5,15 +5,14 @@ import {
   noTimerRemoveAsync,
   trueFalseRemoveAsync,
   noTimerTrueFalseRemoveAsync,
-} from "./removeAsync.js";
+} from "./removeAsync";
 
 import navNames from "../constants/navNames";
 
 const quitGame = (
-  navigation: any,
   setNumOfTotalQuestions: Function,
   gameType: string,
-  withTimer: string,
+  timer: boolean,
   categoryId: string
 ) => {
   const quit = async () => {
@@ -21,18 +20,18 @@ const quitGame = (
       await removeAsyncMultiMixed();
     } else if (categoryId === "TrueFalseMixed") {
       await removeAsyncTrueFalseMixed();
-    } else if (gameType === "Multi" && withTimer) {
+    } else if (gameType === "Multi" && timer) {
       await multipleChoiceRemoveAsync(categoryId);
-    } else if (gameType === "Multi" && !withTimer) {
+    } else if (gameType === "Multi" && !timer) {
       await noTimerRemoveAsync(categoryId);
-    } else if (gameType === "TrueFalse" && withTimer) {
+    } else if (gameType === "TrueFalse" && timer) {
       await trueFalseRemoveAsync(categoryId);
-    } else if (gameType === "TrueFalse" && !withTimer) {
+    } else if (gameType === "TrueFalse" && !timer) {
       await noTimerTrueFalseRemoveAsync(categoryId);
     }
 
     setNumOfTotalQuestions(0);
-    navigation.navigate(navNames.home); // call it here otherwise you get the finished round screen.
+    // navigation.navigate(navNames.home); // call it here otherwise you get the finished round screen.
   };
   return { quit };
 };

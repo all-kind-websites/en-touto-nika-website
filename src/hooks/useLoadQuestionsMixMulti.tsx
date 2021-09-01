@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Animated } from "react-native";
+import { useCallback, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
-import asyncNames from "../constants/asyncNames/asyncNames";
+import asyncNames from "../constants/asyncNames";
 
 import * as questionsActions from "../store/actions/questions";
 
 import cache from "../utils/cache";
 import getTotalPointsMixed from "../utils/getTotalPointsMixed";
+import getTotalTimeLeft from "../utils/getTotalTimeLeftTrueFalse";
 import updateNumOfTotalQuestionsMixed from "../utils/updateNumOfTotalQuestionsMixed";
 
-export default useLoadQuestionsMixedMulti = (withTimer, gameType) => {
+const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
   const dispatch = useDispatch();
-  const [loadQuestionsError, setLoadQuestionsError] = useState(); // error initially is undefined!
+  const [loadQuestionsError, setLoadQuestionsError] = useState(null); // error initially is undefined!
   const [totalTimeLeft, setTotalTimeLeft] = useState(0);
   const [totalPoints, setTotalPoints] = useState(0);
   const [numOfQuestions, setNumOfQuestions] = useState(1); // for every round
@@ -22,29 +22,23 @@ export default useLoadQuestionsMixedMulti = (withTimer, gameType) => {
   const [stadiumIsFinished, setStadiumIsFinished] = useState(false);
   const [totalPointsWithTime, setTotalPointsWithTime] = useState(0);
 
-  const [fadeAnim, setFadeAnim] = useState(new Animated.Value(0));
 
-  const maxIndex = 0;
-  let getTotalTimeLeft;
-  if (withTimer) {
-    getTotalTimeLeft = async () => {
-      let totalTimeLeft = await cache.get(asyncNames.totalTimeLeftMultiMixed);
-      if (!totalTimeLeft) totalTimeLeft = 0;
-      else setTotalTimeLeft(parseInt(totalTimeLeft));
-    };
-  }
 
-  const lettersAnimation = () => {
-    return Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 800,
-      useNativeDriver: false,
-    }).start();
-  };
 
-  const loadQuestions = async () => {
+
+
+  const loadQuestions = useCallback(async () => {
+    const getTotalTimeLeft = async () => {
+      if (timer) {
+        let totalTimeLeft = await cache.get(asyncNames.totalTimeLeftMultiMixed);
+        if (!totalTimeLeft) totalTimeLeft = 0;
+        else setTotalTimeLeft(parseInt(totalTimeLeft));
+      }
+    }
+
+
     try {
-      if (withTimer) {
+      if (timer) {
         const mixGameIsOn = await cache.get(asyncNames.mixGameIsOnMulti);
         !mixGameIsOn && (await cache.set(asyncNames.mixGameIsOnMulti, true));
       } else {
@@ -63,7 +57,7 @@ export default useLoadQuestionsMixedMulti = (withTimer, gameType) => {
 
       getTotalPointsMixed(totalPoints, setTotalPoints, gameType);
 
-      withTimer && getTotalTimeLeft();
+      timer && getTotalTimeLeft();
 
       let questions = await cache.get(asyncNames.questionsMultiMixed);
 
@@ -72,13 +66,13 @@ export default useLoadQuestionsMixedMulti = (withTimer, gameType) => {
         setNumOfTotalQuestions(0);
         setNumOfQuestions(1);
         setTotalPoints(0);
-        if (withTimer) {
+        if (timer) {
           await cache.remove(asyncNames.min);
           await cache.remove(asyncNames.sec);
         }
 
         await dispatch(
-          questionsActions.fetchQuestionsMultiMixed(maxIndex, withTimer)
+          questionsActions.fetchQuestionsMultiMixed()
         );
         questions = await cache.get(asyncNames.questionsMultiMixed);
       }
@@ -93,7 +87,6 @@ export default useLoadQuestionsMixedMulti = (withTimer, gameType) => {
         // If there is a question store it...
         if (questions.length > 0 || newSelectedQuestion.length === 1) {
           await cache.set(asyncNames.questionsMultiMixed, questions);
-          lettersAnimation();
           setSelectedQuestion(newSelectedQuestion.pop());
         } else if (questions.length === 0 || newSelectedQuestion.length === 0) {
           setStadiumIsFinished(true);
@@ -103,30 +96,24 @@ export default useLoadQuestionsMixedMulti = (withTimer, gameType) => {
       }
     } catch (err) {
       console.log(err);
-      setLoadQuestionsError(" ERROR: ", err.message);
+      setLoadQuestionsError(err.message);
     }
-  };
+  }, [dispatch, gameType, getTotalTimeLeft, numOfTotalQuestions, timer, totalPoints]);
+
   return {
-    fadeAnim,
-    lettersAnimation,
     loadQuestions,
     loadQuestionsError,
     numOfDownloadedQuestions,
     numOfQuestions,
     numOfTotalQuestions,
     selectedQuestion,
-    setFadeAnim,
-    setLoadQuestionsError,
-    setNumOfDownloadedQuestions,
     setNumOfQuestions,
     setNumOfTotalQuestions,
     setStadiumIsFinished,
     setTotalPoints,
-    setTotalTimeLeft,
     stadiumIsFinished,
     totalPoints,
-    totalTimeLeft,
-    totalPointsWithTime,
-    setTotalPointsWithTime,
   };
 };
+
+export default useLoadQuestionsMixedMulti;

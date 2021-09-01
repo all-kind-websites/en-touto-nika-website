@@ -10,3 +10,4 @@
 - refactor util `const startMixGame = async ( navigation: any,`
 - refactor util `const updateNumOfTotalQuestions = async ( gameType,`
 - show a backdrop when sidebar menu is open.
+- use an alert to notify the user the error in every try/catch
