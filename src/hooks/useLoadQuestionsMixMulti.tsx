@@ -7,34 +7,30 @@ import * as questionsActions from "../store/actions/questions";
 
 import cache from "../utils/cache";
 import getTotalPointsMixed from "../utils/getTotalPointsMixed";
-import getTotalTimeLeft from "../utils/getTotalTimeLeftTrueFalse";
+// import getTotalTimeLeft from "../utils/getTotalTimeLeftTrueFalse";
 import updateNumOfTotalQuestionsMixed from "../utils/updateNumOfTotalQuestionsMixed";
 
 const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
   const dispatch = useDispatch();
   const [loadQuestionsError, setLoadQuestionsError] = useState(null); // error initially is undefined!
-  const [totalTimeLeft, setTotalTimeLeft] = useState(0);
+  // const [totalTimeLeft, setTotalTimeLeft] = useState(0);
   const [totalPoints, setTotalPoints] = useState(0);
   const [numOfQuestions, setNumOfQuestions] = useState(1); // for every round
   const [numOfTotalQuestions, setNumOfTotalQuestions] = useState(0); // for each stadium
   const [numOfDownloadedQuestions, setNumOfDownloadedQuestions] = useState(0);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [stadiumIsFinished, setStadiumIsFinished] = useState(false);
-  const [totalPointsWithTime, setTotalPointsWithTime] = useState(0);
-
-
-
-
 
 
   const loadQuestions = useCallback(async () => {
-    const getTotalTimeLeft = async () => {
-      if (timer) {
-        let totalTimeLeft = await cache.get(asyncNames.totalTimeLeftMultiMixed);
-        if (!totalTimeLeft) totalTimeLeft = 0;
-        else setTotalTimeLeft(parseInt(totalTimeLeft));
-      }
-    }
+
+    // const getTotalTimeLeft = async () => {
+    //   if (timer) {
+    //     let totalTimeLeft = await cache.get(asyncNames.totalTimeLeftMultiMixed);
+    //     if (!totalTimeLeft) totalTimeLeft = 0;
+    //     else setTotalTimeLeft(parseInt(totalTimeLeft));
+    //   }
+    // }
 
 
     try {
@@ -57,7 +53,7 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
 
       getTotalPointsMixed(totalPoints, setTotalPoints, gameType);
 
-      timer && getTotalTimeLeft();
+      // timer && getTotalTimeLeft();
 
       let questions = await cache.get(asyncNames.questionsMultiMixed);
 
@@ -98,7 +94,7 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
       console.log(err);
       setLoadQuestionsError(err.message);
     }
-  }, [dispatch, gameType, getTotalTimeLeft, numOfTotalQuestions, timer, totalPoints]);
+  }, [dispatch, gameType, numOfTotalQuestions, timer, totalPoints]);
 
   return {
     loadQuestions,

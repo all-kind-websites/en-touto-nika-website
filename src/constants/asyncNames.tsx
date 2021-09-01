@@ -126,7 +126,7 @@ const asyncNames = {
   totalPointsTrueFalseTwo: "totalPointsTrueFalseTwo",
   totalPointsTrueFalseTwoNoTimer: "totalPointsTrueFalseTwoNoTimer",
   totalTimeLeftMultiFour: "totalTimeLeftMultiFour",
-  totalTimeLeftMultiMixed: "totalTimeLeftMultiMixed",
+  // totalTimeLeftMultiMixed: "totalTimeLeftMultiMixed",
   totalTimeLeftMultiOne: "totalTimeLeftMultiOne",
   totalTimeLeftMultiThree: "totalTimeLeftMultiThree",
   totalTimeLeftMultiTwo: "totalTimeLeftMultiTwo",

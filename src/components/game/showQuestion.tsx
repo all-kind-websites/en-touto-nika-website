@@ -40,7 +40,6 @@ const showQuestion = (
   gameType: string,
   choiceSave: boolean,
   correctChoice: boolean,
-  onRefresh: Function,
   refreshing: boolean,
   saveAnswer: Function,
   showAnswer: boolean,
@@ -76,19 +75,20 @@ const showQuestion = (
           showAnswer={showAnswer}
           numOfDownloadedQuestions={numOfDownloadedQuestions}
           numOfTotalQuestions={numOfTotalQuestions}
-          onRefresh={onRefresh}
+          // onRefresh={onRefresh}
           setStadiumIsFinished={setStadiumIsFinished}
           totalPoints={totalPoints}
+
         />
 
         {showAnswer ? <DetailedAnswer selectedQuestion={selectedQuestion} /> : null}
         <article >
-          <h3>
+          <h4 style={{ marginLeft: 10, marginBottom: 10 }} >
             {selectedQuestion.title}
-          </h3>
+          </h4>
           <ChoiceText
             choice={alfaIsTrue}
-            choiceLetter={"A"}
+            choiceLetter={"'A"}
             choiceSave={choiceSave}
             choiceText={"choice_Alpha"}
             selectedQuestion={selectedQuestion}
@@ -97,7 +97,7 @@ const showQuestion = (
           />
           <ChoiceText
             choice={betaIsTrue}
-            choiceLetter={"B"}
+            choiceLetter={"'B"}
             choiceSave={choiceSave}
             choiceText={"choice_Beta"}
             selectedQuestion={selectedQuestion}
@@ -106,7 +106,7 @@ const showQuestion = (
           />
           <ChoiceText
             choice={gammaIsTrue}
-            choiceLetter={"Γ"}
+            choiceLetter={"'Γ"}
             choiceSave={choiceSave}
             choiceText={"choice_Gamma"}
             selectedQuestion={selectedQuestion}
@@ -115,7 +115,7 @@ const showQuestion = (
           />
           <ChoiceText
             choice={deltaIsTrue}
-            choiceLetter={"Δ"}
+            choiceLetter={"'Δ"}
             choiceSave={choiceSave}
             choiceText={"choice_Delta"}
             selectedQuestion={selectedQuestion}

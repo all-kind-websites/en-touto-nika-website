@@ -1,4 +1,4 @@
-
+import '../../styles/UI/choice-text.scss';
 
 import cache from "../../utils/cache";
 interface ChoiceTextProps {
@@ -24,36 +24,33 @@ const ChoiceText = ({
   let key: any;
 
   for (key in selectedQuestion) {
-    if (selectedQuestion[key] === "choice_Alpha")
+    if (key === choiceText)
       question = selectedQuestion[key]
-    else if (selectedQuestion[key] === "choice_Beta")
+    else if (key === choiceText)
       question = selectedQuestion[key]
-    else if (selectedQuestion[key] === "choice_Gamma")
+    else if (key === choiceText)
       question = selectedQuestion[key]
-    else if (selectedQuestion[key] === "choice_Delta")
+    else if (key === choiceText)
       question = selectedQuestion[key]
   }
-
   return (
-    <>
-      <section
-
-        onClick={async () => {
-          await cache.set(choice, true);
-          setChoiceSave(true);
-          setTimeout(() => {
-            saveAnswer();
-          }, 400);
-        }}
-      >
-        <div>
-          <h4 >{choiceLetter}</h4>
-          <p >
-            {question}
-          </p>
-        </div>
-      </section>
-    </>
+    <div
+      className='choice-text'
+      onClick={async () => {
+        await cache.set(choice, true);
+        setChoiceSave(true);
+        setTimeout(() => {
+          saveAnswer();
+        }, 400);
+      }}
+    >
+      <div className='choice-container' >
+        <h4 className='choice-letter' >{choiceLetter}</h4>
+        <p className='choice-question'>
+          {question}
+        </p>
+      </div>
+    </div>
   );
 };
 

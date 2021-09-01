@@ -7,9 +7,7 @@ import { Question } from '../models/question';
 const checkAnswerHandlerMixedMulti = (
   selectedQuestion: Question | null,
   setCorrectChoice: Function,
-  setModalVisible: Function,
-  setPlayCorrectAnimSound: Function,
-  setPlayWrongAnimSound: Function,
+  // setModalVisible: Function,
   setTotalPoints: Function,
   totalPoints: number
 ) => {
@@ -49,17 +47,13 @@ const checkAnswerHandlerMixedMulti = (
 
     if (corChoice) {
       setTotalPoints(totalPoints + 1);
-      setPlayCorrectAnimSound(true);
       setTimeout(() => {
-        setPlayCorrectAnimSound(false);
-        setModalVisible(true);
+        // setModalVisible(true);
       }, 2500);
     }
     if (!corChoice) {
-      setPlayWrongAnimSound(true);
       setTimeout(() => {
-        setPlayWrongAnimSound(false);
-        setModalVisible(true);
+        // setModalVisible(true);
       }, 2500);
     }
     checkAnswerForMixed(corChoice, totalPoints);

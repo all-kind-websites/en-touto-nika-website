@@ -149,7 +149,7 @@ export const removeAsyncMultiMixed = async () => {
   await localStorage.removeItem(asyncNames.noIsChosen);
   await localStorage.removeItem(asyncNames.yesIsChosen);
   await localStorage.removeItem(asyncNames.useTimerMultiMixed); // from Categories
-  await localStorage.removeItem(asyncNames.totalTimeLeftMultiMixed);
+  // await localStorage.removeItem(asyncNames.totalTimeLeftMultiMixed);
   await localStorage.removeItem(asyncNames.lastQuestionSecondsMultiMixed);
   await localStorage.removeItem(asyncNames.lastQuestionMinutesMultiMixed);
 };
