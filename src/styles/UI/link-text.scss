@@ -1,0 +1,12 @@
+@import "../config.scss";
+@import "../colors.scss";
+
+.link-text {
+  margin-top: 20px;
+  color: $maroon;
+  @include centerFlex(row);
+
+  .source {
+    margin-right: 10px;
+  }
+}

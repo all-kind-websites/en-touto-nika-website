@@ -1,0 +1,11 @@
+@import "../config.scss";
+@import "../colors.scss";
+
+.line {
+  margin: 20px;
+  border-radius: 50px;
+  border-top: 6px solid darken($maroon, 5);
+  height: 5px;
+  width: 250px;
+  box-shadow: 2px 2px 8px 3px lighten($maroon, 5);
+}

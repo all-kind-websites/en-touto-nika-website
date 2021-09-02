@@ -78,7 +78,7 @@ const showQuestion = (
 
   for (const key in selectedQuestion) {
     return (
-      <section>
+      <article>
         <TopMenu
           categoryTitle={categoryTitle}
           showAnswer={showAnswer}
@@ -90,8 +90,8 @@ const showQuestion = (
 
         />
 
-        {showAnswer ? <DetailedAnswer selectedQuestion={selectedQuestion} /> : null}
-        <article style={{ marginBottom: 20 }} >
+        {choiceSave ? <DetailedAnswer selectedQuestion={selectedQuestion} /> : null}
+        <section style={{ marginBottom: 20 }} >
           <h4 style={{ marginLeft: 10, marginBottom: 20, fontFamily: "MS Tahoma", color: colors.maroon, width: 500 }} >
             {selectedQuestion.title}
           </h4>
@@ -139,8 +139,8 @@ const showQuestion = (
             setStyle={setCheckDelta}
             setChoiceSave={setChoiceSave}
           />
-        </article>
-      </section>
+        </section>
+      </article>
     );
   }
 };

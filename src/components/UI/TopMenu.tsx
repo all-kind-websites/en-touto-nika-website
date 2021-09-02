@@ -39,25 +39,6 @@ const TopMenu = ({
         <h4 >Σωστές</h4>
         <h5 >{totalPoints}</h5>
       </div>
-      <div >
-        {showAnswer ? (
-          <div
-            onClick={() => { }
-              // +numOfDownloadedQuestions - 1 === 0
-              //   ? () => setStadiumIsFinished(true)
-              //   : () => onRefresh
-            }
-
-          >
-            {/* <MaterialIcons
-              name="queue-play-next"
-              size={Math.ceil(width * 0.09)}
-              color={Colours.maroon}
-            /> */}
-          </div>
-        ) : null}
-      </div>
-
     </article >
   );
 };

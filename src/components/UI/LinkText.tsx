@@ -1,9 +1,9 @@
-
+import '../../styles/UI/link-text.scss';
 
 const LinkText = (props: any) => {
   return (
-    <div>
-      <h5 >Πηγή: </h5>
+    <div className='link-text' >
+      <h5 className='source' >Πηγή: </h5>
       <p>
         {props.children}
       </p>

@@ -1,0 +1,24 @@
+@import "../config.scss";
+@import "../colors.scss";
+
+.detailed-answer {
+  @include customFlex(column, flex-start, center);
+  margin: 20px;
+  width: 500px;
+
+  .title {
+    font-family: "MS Tahoma";
+    margin-right: 20px;
+    text-decoration: underline;
+  }
+
+  .answer-text {
+    font-family: "MS Tahoma";
+    margin-right: 20px;
+  }
+
+  .link {
+    text-decoration: none;
+    text-align: left;
+  }
+}

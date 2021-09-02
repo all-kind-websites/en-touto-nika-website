@@ -20,10 +20,7 @@
     left: 10px;
     height: inherit;
     width: 12%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+    @include customFlex(row, space-between, center);
 
     .hamburger-icon {
       width: 33px;
