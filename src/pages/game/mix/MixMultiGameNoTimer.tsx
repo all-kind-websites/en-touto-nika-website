@@ -56,22 +56,27 @@ const MixMultiGameNoTimer = () => {
     totalPoints,
   } = useLoadQuestionsMixMulti(timer, gameType);
 
-  // const onRefresh = useCallback(async () => {
-  //   setCorrectChoice(false);
-  //   setRefreshing(true);
-  //   setChoiceSave(false);
-  //   removeChoicesfromAsyncStorage();
-  //   setNumOfQuestions(numOfQuestions + 1);
-  //   // Then
-  //   loadQuestions();
-  //   setShowAnswer(false);
-  //   setRefreshing(false);
+  const onRefresh = useCallback(async () => {
+    setCorrectChoice(false);
+    setRefreshing(true);
+    setCheckAlfa(false);
+    setCheckBeta(false);
+    setCheckGamma(false);
+    setCheckDelta(false);
+    setChoiceSave(false);
+    setChoiceSave(false);
+    await removeChoicesfromAsyncStorage();
+    setNumOfQuestions(numOfQuestions + 1);
+    // Then
+    loadQuestions();
+    setShowAnswer(false);
+    setRefreshing(false);
 
-  //   // set num of q/s to finish stadium (100)
-  //   if (numOfTotalQuestions === 100) {
-  //     setStadiumIsFinished(true);
-  //   }
-  // }, [setRefreshing, loadQuestions, numOfQuestions, numOfTotalQuestions, setNumOfQuestions, setStadiumIsFinished,]);
+    // set num of q/s to finish stadium (100)
+    if (numOfTotalQuestions === 100) {
+      setStadiumIsFinished(true);
+    }
+  }, [setRefreshing, loadQuestions, numOfQuestions, numOfTotalQuestions, setNumOfQuestions, setStadiumIsFinished,]);
 
   const { quit } = quitGame(
     setNumOfTotalQuestions,
@@ -148,12 +153,12 @@ const MixMultiGameNoTimer = () => {
         checkDelta,
         choiceSave,
         correctChoice,
-        //  onRefresh,
         refreshing,
         saveAnswer,
         showAnswer,
         numOfDownloadedQuestions,
         numOfTotalQuestions,
+        onRefresh,
         selectedQuestion,
         quit,
         setCheckAlfa,
@@ -161,7 +166,6 @@ const MixMultiGameNoTimer = () => {
         setCheckGamma,
         setCheckDelta,
         setChoiceSave,
-        //  setModalVisible,
         setNumOfTotalQuestions,
         setShowAnswer,
         setStadiumIsFinished,

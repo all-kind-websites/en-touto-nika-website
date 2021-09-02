@@ -1,6 +1,6 @@
 import '../../styles/UI/line.scss';
 
-const Line = () => <div className='line'></div>
+const Line = (props: any) => <div {...props.className} className='line'></div>
 
 
 

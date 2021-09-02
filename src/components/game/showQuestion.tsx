@@ -1,36 +1,9 @@
 
-// import Colours from "../../constants/Colours";
-
 import TopMenu from "../UI/TopMenu";
 import ChoiceText from "../UI/ChoiceText";
 import DetailedAnswer from "../UI/DetailedAnswer";
 import { Question } from "../../models/question";
 import colors from "../../constants/colors";
-// import OptionsModalMulti from "./OptionsModalMulti";
-interface showQuestionProps {
-  alfaIsTrue: boolean,
-  betaIsTrue: boolean,
-  gammaIsTrue: boolean,
-  deltaIsTrue: boolean,
-  categoryId: string,
-  gameType: string,
-  choiceSave: boolean,
-  correctChoice: boolean,
-  onRefresh: Function,
-  refreshing: number,
-  saveAnswer: Function,
-  showAnswer: Function,
-  numOfDownloadedQuestions: number,
-  numOfTotalQuestions: number,
-  selectedQuestion: Question,
-  quit: Function,
-  setChoiceSave: Function,
-  setNumOfTotalQuestions: Function,
-  setShowAnswer: Function,
-  setStadiumIsFinished: Function,
-  timer: boolean,
-  totalPoints: number
-}
 
 const showQuestion = (
   alfaIsTrue: string,
@@ -50,6 +23,7 @@ const showQuestion = (
   showAnswer: boolean,
   numOfDownloadedQuestions: number,
   numOfTotalQuestions: number,
+  onRefresh: Function,
   selectedQuestion: Question | null,
   quit: Function,
   setCheckAlfa: Function,
@@ -90,7 +64,13 @@ const showQuestion = (
 
         />
 
-        {choiceSave ? <DetailedAnswer selectedQuestion={selectedQuestion} /> : null}
+        {choiceSave ?
+          <DetailedAnswer
+            onRefresh={onRefresh}
+            selectedQuestion={selectedQuestion}
+          /> : null
+        }
+
         <section style={{ marginBottom: 20 }} >
           <h4 style={{ marginLeft: 10, marginBottom: 20, fontFamily: "MS Tahoma", color: colors.maroon, width: 500 }} >
             {selectedQuestion.title}

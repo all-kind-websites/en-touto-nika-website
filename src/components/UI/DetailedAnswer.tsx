@@ -1,14 +1,20 @@
-import '../../styles/UI/detailed-answer.scss';
+import { MdQueuePlayNext } from 'react-icons/md'
 
 import Line from "../../components/UI/Line";
 import LinkText from "./LinkText";
 
-const DetailedAnswer = ({ selectedQuestion }: any) => {
+import '../../styles/UI/detailed-answer.scss';
+
+const DetailedAnswer = ({ selectedQuestion, onRefresh }: any) => {
+
   return (
     <section className='detailed-answer' >
       <h5 className='title' >Απάντηση:</h5>
-      <p className='answer-text' >{selectedQuestion.answer}</p>
-      {/* Put here a Link */}
+      <div className='answer-text'
+        style={{ whiteSpace: 'pre-wrap' }}
+      >
+        {selectedQuestion.answer}
+      </div>
       <a
         className='link'
         href={selectedQuestion.source}
@@ -23,7 +29,10 @@ const DetailedAnswer = ({ selectedQuestion }: any) => {
           null
         }
       </a>
-      <Line />
+      <Line className='line' />
+      <div onClick={() => onRefresh()} >
+        <MdQueuePlayNext className='icon-show-next' />
+      </div>
     </section >
   );
 };

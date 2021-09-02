@@ -11,3 +11,4 @@
 - refactor util `const updateNumOfTotalQuestions = async ( gameType,`
 - show a backdrop when sidebar menu is open.
 - use an alert to notify the user the error in every try/catch
+- mark the chosen option in a multi game with greenish color if right and redish if wrong. In case of wrong mark the right also ...

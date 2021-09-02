@@ -21,4 +21,15 @@
     text-decoration: none;
     text-align: left;
   }
+
+  .line {
+    margin-right: 20px;
+  }
+
+  .icon-show-next {
+    cursor: pointer;
+    font-size: 4rem;
+    color: $maroon;
+    margin-right: 20px;
+  }
 }
