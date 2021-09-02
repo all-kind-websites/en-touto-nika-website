@@ -2,6 +2,7 @@
 @import "../colors.scss";
 
 .choice-text {
+  cursor: pointer;
   margin-left: 10px;
   margin-bottom: 20px;
   width: 500px;
@@ -20,5 +21,14 @@
       font-family: inherit;
       width: 90%;
     }
+
+    .choice-made {
+      background-color: #fff;
+    }
   }
+}
+
+.choice-text.disabled {
+  pointer-events: none;
+  opacity: 0.8;
 }

@@ -30,6 +30,10 @@ const MixMultiGameNoTimer = () => {
   const [choiceSave, setChoiceSave] = useState(false);
   const [correctChoice, setCorrectChoice] = useState(false);
 
+  const [checkAlfa, setCheckAlfa] = useState(false);
+  const [checkBeta, setCheckBeta] = useState(false);
+  const [checkGamma, setCheckGamma] = useState(false);
+  const [checkDelta, setCheckDelta] = useState(false);
 
   const [stadiumCounter, setStadiumCounter] = useState(1);
 
@@ -136,10 +140,15 @@ const MixMultiGameNoTimer = () => {
         asyncNames.betaIsTrueMultiMixed,
         asyncNames.gammaIsTrueMultiMixed,
         asyncNames.deltaIsTrueMultiMixed,
+        checkAlfa,
+        checkBeta,
         categoryId,
         gameType,
+        checkGamma,
+        checkDelta,
         choiceSave,
         correctChoice,
+        //  onRefresh,
         refreshing,
         saveAnswer,
         showAnswer,
@@ -147,7 +156,12 @@ const MixMultiGameNoTimer = () => {
         numOfTotalQuestions,
         selectedQuestion,
         quit,
+        setCheckAlfa,
+        setCheckBeta,
+        setCheckGamma,
+        setCheckDelta,
         setChoiceSave,
+        //  setModalVisible,
         setNumOfTotalQuestions,
         setShowAnswer,
         setStadiumIsFinished,
