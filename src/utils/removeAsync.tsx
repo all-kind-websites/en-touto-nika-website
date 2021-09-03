@@ -141,7 +141,7 @@ export const noTimerTrueFalseRemoveAsync = async (categoryId: string) => {
 // adjust strings like the above format
 export const removeAsyncMultiMixed = async () => {
   console.log("removeAsyncMultiMixed");
-  await localStorage.removeItem(asyncNames.totalPointsMultiMixed);
+  await localStorage.removeItem(asyncNames.pointsTypeMultiMixed);
   await localStorage.removeItem(asyncNames.questionsMultiMixed);
   await localStorage.removeItem(asyncNames.mixGameIsOnMulti);
   await localStorage.removeItem(asyncNames.mixGameIsOnMultiNoTimer);
@@ -157,7 +157,7 @@ export const removeAsyncMultiMixed = async () => {
 // adjust strings like the above format
 export const removeAsyncTrueFalseMixed = async () => {
   console.log("removeAsyncTrueFalseMixed");
-  await localStorage.removeItem(asyncNames.totalPointsTrueFalseMixed);
+  await localStorage.removeItem(asyncNames.pointsTypeTrueFalseMixed);
   await localStorage.removeItem(asyncNames.questionsTrueFalseMixed);
   await localStorage.removeItem(asyncNames.mixGameIsOnTrueFalse);
   await localStorage.removeItem(asyncNames.mixGameIsOnTrueFalseNoTimer);

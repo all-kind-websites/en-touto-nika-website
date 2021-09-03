@@ -1,7 +1,7 @@
 import '../../../styles/game/mix/mix-multi-game-no-timer.scss'
 
 import { useState, useEffect, useCallback } from "react";
-import { RootStateOrAny, useSelector } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 
 import asyncNames from "../../../constants/asyncNames";
 
@@ -17,8 +17,11 @@ import checkAnswerHandlerMixMulti from "../../../utils/checkAnswerHandlerMixMult
 import GameOverScreen from "../../extras/GameOverScreen";
 import DownloadErrorScreen from "../../extras/DownloadErrorScreen";
 import NoQuestionsHereScreen from '../../extras/NoQuestionsHereScreen';
+import { savePoints } from '../../../store/actions/game';
 
 const MixMultiGameNoTimer = () => {
+  const dispatch = useDispatch();
+  const pointsMultiMixed = useSelector((state: RootStateOrAny) => state.game.pointsMultiMixed);
   const userIsLogedIn = useSelector((state: RootStateOrAny) => state.auth.userId);
   const email = useSelector((state: RootStateOrAny) => state.auth.email);
   const gameType = useSelector((state: RootStateOrAny) => state.game.id);
@@ -40,6 +43,11 @@ const MixMultiGameNoTimer = () => {
   // const [modalVisible, setModalVisible] = useState(false);
 
   let timer = false;
+
+  // By this we know in TopMenu, which points to display.
+  useEffect(() => {
+    dispatch(savePoints(pointsMultiMixed, asyncNames.pointsTypeMultiMixed))
+  }, [dispatch, pointsMultiMixed])
 
   const {
     loadQuestions,
@@ -106,7 +114,6 @@ const MixMultiGameNoTimer = () => {
   const { saveAnswer } = checkAnswerHandlerMixMulti(
     selectedQuestion,
     setCorrectChoice,
-    // setModalVisible,
     setTotalPoints,
     totalPoints
   );
@@ -153,7 +160,6 @@ const MixMultiGameNoTimer = () => {
         checkDelta,
         choiceSave,
         correctChoice,
-        refreshing,
         saveAnswer,
         showAnswer,
         numOfDownloadedQuestions,

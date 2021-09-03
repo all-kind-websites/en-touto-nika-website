@@ -55,7 +55,7 @@ export default useCheckAnswerHandlerTrueFalse = (
 
     if (corChoice) {
       setTotalPoints(totalPoints + 1);
-      cache.set(asyncNames.totalPointsTrueFalseMixed, String(totalPoints + 1));
+      cache.set(asyncNames.pointsTypeTrueFalseMixed, String(totalPoints + 1));
       setPlayCorrectAnimSound(true);
       setTimeout(() => {
         setModalVisible(true);

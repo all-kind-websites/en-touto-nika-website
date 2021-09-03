@@ -61,8 +61,6 @@ const MultiCategoriesNoTimer = (props: any): any => {
             timer={timer}
             title={game.title}
             onClick={() => {
-              console.log('......getNavName', game.id);
-
               const getNavigationName = () =>
                 game.id === "mixed" ? navNames.mixChooseCategories : navNames.multiGameNoTimer;
 

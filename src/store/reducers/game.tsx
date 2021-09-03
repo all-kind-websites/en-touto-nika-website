@@ -1,4 +1,5 @@
-import { LOGIN_MODE, GAME_STATE, TIMER_STATE, GAME_TYPE_TITLE, GAME_ON } from '../actions/game';
+import asyncNames from '../../constants/asyncNames';
+import { LOGIN_MODE, GAME_STATE, TIMER_STATE, GAME_TYPE_TITLE, GAME_ON, SAVE_POINTS, SAVE_POINTS_TYPE } from '../actions/game';
 interface Action {
   type: string,
   mode: boolean,
@@ -6,7 +7,9 @@ interface Action {
   title: string,
   gameTypeTitle: string,
   id: string,
-  gameOn: boolean
+  gameOn: boolean,
+  points: number,
+  pointsType: string,
 }
 
 const initialState = {
@@ -15,7 +18,10 @@ const initialState = {
   title: '',
   gameTypeTitle: '',
   id: '',
-  gameOn: false
+  gameOn: false,
+  pointsMultiMixed: 0,
+  pointsTrueFalseMixed: 0,
+  pointsType: '',
 }
 
 const game = (state = initialState, action: Action) => {
@@ -45,6 +51,27 @@ const game = (state = initialState, action: Action) => {
       return {
         ...state,
         gameOn: action.gameOn
+      }
+    case SAVE_POINTS:
+      if (action.pointsType === asyncNames.pointsTypeMultiMixed) {
+        return {
+          ...state,
+          pointsMultiMixed: action.points,
+          pointsType: asyncNames.pointsTypeMultiMixed
+        }
+      }
+      if (action.pointsType === asyncNames.pointsTypeTrueFalseMixed) {
+        return {
+          ...state,
+          pointsTrueFalseMixed: action.points,
+          pointsType: asyncNames.pointsTypeTrueFalseMixed
+        }
+      }
+      return { ...state }
+    case SAVE_POINTS_TYPE:
+      return {
+        ...state,
+        pointsType: action.pointsType
       }
 
     default:

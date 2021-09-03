@@ -7,7 +7,6 @@ import { Question } from '../models/question';
 const checkAnswerHandlerMixedMulti = (
   selectedQuestion: Question | null,
   setCorrectChoice: Function,
-  // setModalVisible: Function,
   setTotalPoints: Function,
   totalPoints: number
 ) => {
@@ -31,20 +30,19 @@ const checkAnswerHandlerMixedMulti = (
     );
 
     let corChoice = false; // For checking the answer when dispatching the checkAnswerFor...
-    if (alfaIsTrueMixed && rightChoice === 1) {
+    if (alfaIsTrueMixed && +rightChoice === 1) {
       setCorrectChoice(true);
       corChoice = true;
-    } else if (betaIsTrueMixed && rightChoice === 2) {
+    } if (betaIsTrueMixed && +rightChoice === 2) {
       setCorrectChoice(true);
       corChoice = true;
-    } else if (gammaIsTrueMixed && rightChoice === 3) {
+    } if (gammaIsTrueMixed && +rightChoice === 3) {
       setCorrectChoice(true);
       corChoice = true;
-    } else if (deltaIsTrueMixed && rightChoice === 4) {
+    } if (deltaIsTrueMixed && +rightChoice === 4) {
       setCorrectChoice(true);
       corChoice = true;
     }
-
     if (corChoice) {
       setTotalPoints(totalPoints + 1);
       setTimeout(() => {

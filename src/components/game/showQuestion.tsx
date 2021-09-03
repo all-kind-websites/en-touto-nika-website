@@ -18,7 +18,6 @@ const showQuestion = (
   checkDelta: boolean,
   choiceSave: boolean,
   correctChoice: boolean,
-  refreshing: boolean,
   saveAnswer: Function,
   showAnswer: boolean,
   numOfDownloadedQuestions: number,
@@ -55,13 +54,8 @@ const showQuestion = (
       <article>
         <TopMenu
           categoryTitle={categoryTitle}
-          showAnswer={showAnswer}
           numOfDownloadedQuestions={numOfDownloadedQuestions}
           numOfTotalQuestions={numOfTotalQuestions}
-          // onRefresh={onRefresh}
-          setStadiumIsFinished={setStadiumIsFinished}
-          totalPoints={totalPoints}
-
         />
 
         {choiceSave ?

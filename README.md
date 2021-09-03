@@ -12,3 +12,7 @@
 - show a backdrop when sidebar menu is open.
 - use an alert to notify the user the error in every try/catch
 - mark the chosen option in a multi game with greenish color if right and redish if wrong. In case of wrong mark the right also ...
+- Do NOT save userData in client side!!! Instead create a userIsLoggedIn value ... and each time you need to use token or userId to get data from server, first ... oops I need a token to get the token !?
+  - https://stackoverflow.com/questions/45538963/is-redux-secure
+  - https://dev.to/rdegges/please-stop-using-local-storage-1i04
+  - what is this: index.js:1 Warning: Invalid attribute name: `0`

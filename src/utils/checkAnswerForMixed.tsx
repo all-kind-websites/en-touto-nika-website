@@ -1,5 +1,6 @@
-import cache from "./cache";
 import asynNames from "../constants/asyncNames";
+import { store } from "../index";
+import { savePoints } from "../store/actions/game";
 
 const checkAnswerForMixed = async (answerIsCorrect: boolean, totalPoints: number) => {
   try {
@@ -7,10 +8,7 @@ const checkAnswerForMixed = async (answerIsCorrect: boolean, totalPoints: number
     if (answerIsCorrect) {
       newTotalPoints += 1;
     }
-    if (newTotalPoints > 0) {
-      await cache.remove(asynNames.totalPointsMultiMixed);
-    }
-    await cache.set(asynNames.totalPointsMultiMixed, newTotalPoints);
+    store.dispatch(savePoints(newTotalPoints, asynNames.pointsTypeMultiMixed))
   } catch (err) {
     // send to custom analytics server
     throw err;

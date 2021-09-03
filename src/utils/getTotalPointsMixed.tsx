@@ -1,3 +1,5 @@
+import { store } from '../index';
+
 import cache from "./cache";
 import asyncNames from "../constants/asyncNames";
 
@@ -7,14 +9,13 @@ const getTotalPointsMixed = async (
   gameType: string
 ) => {
   let storedTotalPoints = 0;
+
   gameType === "Multi"
-    ? (storedTotalPoints = await cache.get(asyncNames.totalPointsMultiMixed))
-    : (storedTotalPoints = await cache.get(
-      asyncNames.totalPointsTrueFalseMixed
-    ));
+    ? (storedTotalPoints = store.getState().game.pointsMultiMixed)
+    : (storedTotalPoints = store.getState().game.pointsTrueFalseMixed);
 
   if (storedTotalPoints) {
-    setTotalPoints(+storedTotalPoints);
+    setTotalPoints(storedTotalPoints);
   } else {
     setTotalPoints(totalPoints);
   }

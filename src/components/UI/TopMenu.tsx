@@ -1,23 +1,28 @@
+import { RootStateOrAny, useSelector } from 'react-redux';
+import asyncNames from '../../constants/asyncNames';
+import { store } from '../../index';
 import '../../styles/UI/top-menu.scss';
 
 interface TopMenuProps {
   categoryTitle: string,
-  showAnswer: boolean,
   numOfDownloadedQuestions: number,
   numOfTotalQuestions: number,
-  // onRefresh: Function,
-  setStadiumIsFinished: Function,
-  totalPoints: number,
 }
 const TopMenu = ({
   categoryTitle,
-  showAnswer,
   numOfDownloadedQuestions,
   numOfTotalQuestions,
-  // onRefresh,
-  setStadiumIsFinished,
-  totalPoints,
 }: TopMenuProps) => {
+  const pointsType = useSelector((state: RootStateOrAny) => state.game.pointsType);
+  const pointsMultiMixed = useSelector((state: RootStateOrAny) => state.game.pointsMultiMixed);
+  const pointsTrueFalseMixed = useSelector((state: RootStateOrAny) => state.game.pointsTrueFalseMixed);
+  let totalPoints = 0
+
+  if (pointsType === asyncNames.pointsTypeMultiMixed)
+    totalPoints = pointsMultiMixed;
+  if (pointsType === asyncNames.pointsTypeTrueFalseMixed)
+    totalPoints = pointsTrueFalseMixed;
+
   return (
     <article className='top-menu' >
       <h3 className='category-title' >

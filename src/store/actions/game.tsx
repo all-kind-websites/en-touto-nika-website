@@ -3,6 +3,8 @@ export const TIMER_STATE = 'TIMER_STATE';
 export const GAME_STATE = 'GAME_STATE';
 export const GAME_TYPE_TITLE = 'GAME_TYPE_TITLE';
 export const GAME_ON = 'GAME_ON';
+export const SAVE_POINTS = 'SAVE_POINTS';
+export const SAVE_POINTS_TYPE = 'SAVE_POINTS_TYPE';
 
 export const loginMode = (mode: boolean) => {
   return {
@@ -39,4 +41,20 @@ export const gameOn = (gameOn: boolean) => {
     gameOn
   }
 }
+
+export const savePoints = (points: number, pointsType: string) => {
+  return {
+    type: SAVE_POINTS,
+    points,
+    pointsType
+  }
+}
+
+export const savePointsType = (pointsType: string) => {
+  return {
+    type: SAVE_POINTS_TYPE,
+    pointsType
+  }
+}
+
 
