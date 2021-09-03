@@ -3,7 +3,7 @@
 
 .home {
   height: 100vh;
-  background: linear-gradient($moccasin_light, $chocolate, $maroon);
+  background: $linear_gradient;
   @include centerFlex(column);
 
   ul {

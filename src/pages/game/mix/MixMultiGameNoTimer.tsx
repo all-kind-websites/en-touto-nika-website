@@ -14,7 +14,7 @@ import quitGame from "../../../utils/quitGame";
 import { removeChoicesfromAsyncStorage } from "../../../utils/removeAsync";
 import checkAnswerHandlerMixMulti from "../../../utils/checkAnswerHandlerMixMulti";
 
-import GameOverScreen from "../../extras/GameOverScreen";
+import GameOverPage from "../../extras/GameOverPage";
 import DownloadErrorScreen from "../../extras/DownloadErrorScreen";
 import NoQuestionsHereScreen from '../../extras/NoQuestionsHereScreen';
 import { savePoints } from '../../../store/actions/game';
@@ -132,9 +132,10 @@ const MixMultiGameNoTimer = () => {
     );
   }
 
-  if (stadiumIsFinished) {
+  // if (stadiumIsFinished) {
+  if (true) {
     return (
-      <GameOverScreen
+      <GameOverPage
         timer={timer}
         isUpLoading={isUpLoading}
         saveStadiumResult={saveStadiumResult}

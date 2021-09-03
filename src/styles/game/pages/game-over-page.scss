@@ -1,0 +1,26 @@
+@import "../../config.scss";
+@import "../../colors.scss";
+
+.game-over {
+  height: 100vh;
+  @include customFlex(column, space-around, center);
+  background: $linear_gradient;
+
+  .epilogue {
+    font-family: $font2;
+    color: $maroon;
+  }
+
+  .stadium {
+    color: lighten($maroon, 5);
+  }
+
+  .grade {
+    color: $moccasin_light;
+  }
+
+  .instruction-text {
+    color: lighten($moccasin_light, 25);
+    @include centerFlex(column);
+  }
+}

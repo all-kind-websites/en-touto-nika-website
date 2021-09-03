@@ -1,12 +1,15 @@
 
+import { useState } from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Button from "../../components/UI/Button";
 import Loader from "../../components/UI/Loader";
 import navNames from "../../constants/navNames";
 
+import '../../styles/game/pages/game-over-page.scss';
+
 // import Colours from "../../constants/Colours";
-interface GameOverScreenProps {
+interface GameOverPageProps {
   isUpLoading: boolean,
   minutesLeft?: number,
   saveStadiumResult: Function,
@@ -15,7 +18,7 @@ interface GameOverScreenProps {
   totalPoints: number,
   timer: boolean,
 }
-const GameOverScreen = ({
+const GameOverPage = ({
   isUpLoading,
   minutesLeft,
   saveStadiumResult,
@@ -23,14 +26,22 @@ const GameOverScreen = ({
   stadiumCounter,
   totalPoints,
   timer,
-}: GameOverScreenProps) => {
+}: GameOverPageProps) => {
+  const history = useHistory();
+
+  const [hover, setHover] = useState(false);
+
   const userIsLogedIn = useSelector((state: RootStateOrAny) => state.auth.userId);
 
+  const handleHover = () => {
+    setHover(!hover)
+  }
+
   return (
-    <section>
-      <h2>Τέλος καὶ τῷ Θεῷ Δόξα!</h2>
-      <h3>Στάδιο: {stadiumCounter}ο</h3>
-      <h4>Τελική βαθμολογία: {totalPoints} </h4>
+    <section className='game-over' >
+      <h2 className='epilogue' >Τέλος καὶ τῷ Θεῷ Δόξα!</h2>
+      <h3 className='stadium' >Στάδιο: {stadiumCounter}ο</h3>
+      <h4 className='grade' >Τελική βαθμολογία: {totalPoints} </h4>
       {timer && (
         <>
           <div onClick={() => {
@@ -51,9 +62,14 @@ const GameOverScreen = ({
         </>
       )}
       {userIsLogedIn ? (
-        <h6>
-          Αποθήκευση αποτελέσματος και επιστροφή στην αρχική οθόνη:
-        </h6>
+        <div className='instruction-text' >
+          <h5>
+            Αποθήκευση αποτελέσματος
+          </h5>
+          <h5>
+            και επιστροφή στην αρχική οθόνη
+          </h5>
+        </div>
       ) : (
         <span>Eπιστροφή στην αρχική οθόνη:</span>
       )}
@@ -61,12 +77,16 @@ const GameOverScreen = ({
         // <ActivityIndicator size="small" color={Colours.moccasin_light} />
         <Loader />
       ) : (
-        <Link to={navNames.home} >
-          Επιστροφή...
-        </Link>
+        <Button
+          disabled={false}
+          title='Επιστροφή'
+          onClick={() => history.replace(navNames.home)}
+          onMouseEnter={() => handleHover()}
+          onMouseLeave={() => handleHover()}
+        />
       )}
     </section>
   );
 };
 
-export default GameOverScreen;
+export default GameOverPage;

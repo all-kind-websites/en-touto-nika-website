@@ -1,5 +1,8 @@
 @import "./colors.scss";
 
+$font2: "MS Tahoma";
+$linear_gradient: linear-gradient($moccasin_light, $chocolate, $maroon);
+
 @mixin centerFlex($direction) {
   display: flex;
   justify-content: center;
