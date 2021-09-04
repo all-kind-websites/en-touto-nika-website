@@ -84,6 +84,7 @@ const showQuestion = (
           </h4>
           <ChoiceText
             choiceIsMade={checkAlfa}
+            correctChoice={correctChoice}
             choice={alfaIsTrue}
             choiceLetter={"A"}
             disabled={choiceSave}
@@ -95,6 +96,7 @@ const showQuestion = (
           />
           <ChoiceText
             choiceIsMade={checkBeta}
+            correctChoice={correctChoice}
             choice={betaIsTrue}
             choiceLetter={"B"}
             disabled={choiceSave}
@@ -106,6 +108,7 @@ const showQuestion = (
           />
           <ChoiceText
             choiceIsMade={checkGamma}
+            correctChoice={correctChoice}
             choice={gammaIsTrue}
             choiceLetter={"Γ"}
             disabled={choiceSave}
@@ -117,6 +120,7 @@ const showQuestion = (
           />
           <ChoiceText
             choiceIsMade={checkDelta}
+            correctChoice={correctChoice}
             choice={deltaIsTrue}
             choiceLetter={"Δ"}
             disabled={choiceSave}

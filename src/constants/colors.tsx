@@ -7,6 +7,7 @@ const colors = {
   en_touto_nika_red: "#921718",
   en_touto_nika_y: "#f0da45",
   lightcyan: "#E0FFFF",
+  limegreen: "#32CD32",
   cyan: "#00FFFF",
   silver: "#C0C0C0",
   dimgray: "#696969",
@@ -37,6 +38,7 @@ const colors = {
   ola1: "#25689C",
   ola2: "#F0F393",
   ola3: "#7FE8EE",
+  salmon: '#FA8072'
 };
 
 export default colors;

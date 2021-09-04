@@ -18,20 +18,22 @@ const DetailedAnswer = ({ selectedQuestion, onRefresh }: any) => {
       >
         {selectedQuestion.answer}
       </div>
-      <a
-        className='link'
-        href={selectedQuestion.source}
-        rel="noreferrer"
-        target='_blank'
-      >
-        {!!selectedQuestion.source ?
-          <LinkText>
-            {selectedQuestion.source.match(/(?<=www.|\.).*(?=\/|\.)/g)}
-            ...
-          </LinkText> :
-          null
-        }
-      </a>
+      <div className='link' >
+        <a
+          className='link__anchor'
+          href={selectedQuestion.source}
+          rel="noreferrer"
+          target='_blank'
+        >
+          {!!selectedQuestion.source ?
+            <LinkText>
+              {selectedQuestion.source.match(/(?<=www.|\.).*(?=\.)/g)}
+              ...
+            </LinkText> :
+            null
+          }
+        </a>
+      </div>
       <Line className='line' />
 
     </section >

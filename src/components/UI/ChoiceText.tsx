@@ -4,6 +4,7 @@ import '../../styles/UI/choice-text.scss';
 import cache from "../../utils/cache";
 interface ChoiceTextProps {
   choiceIsMade: boolean,
+  correctChoice: boolean,
   choice: string,
   choiceLetter: string,
   disabled: boolean,
@@ -16,6 +17,7 @@ interface ChoiceTextProps {
 
 const ChoiceText = ({
   choiceIsMade,
+  correctChoice,
   choice,
   choiceLetter,
   disabled,
@@ -47,7 +49,6 @@ const ChoiceText = ({
       textAlign: "left",
     },
     choiceIsMade: {
-      // flex: 1,
       padding: 10,
       marginVertical: 2,
       marginHorizontal: 2,
@@ -56,7 +57,7 @@ const ChoiceText = ({
       shadowOpacity: 0.6,
       shadowOffset: { width: 0, height: 2 },
       shadowRadius: 10,
-      backgroundColor: "rgba(210,105,30, 0.5)", // if choice correct green color
+      backgroundColor: correctChoice ? colors.limegreen : colors.salmon,
     },
     none: {}
   }
