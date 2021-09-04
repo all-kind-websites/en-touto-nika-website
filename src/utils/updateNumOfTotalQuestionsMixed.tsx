@@ -12,7 +12,6 @@ const updateNumOfTotalQuestionsMixed = async (
   gameType === "Multi"
     ? (numOfTotQ = await cache.get(asyncNames.numOfTotQuestionsMultiMixed))
     : (numOfTotQ = await cache.get(asyncNames.numOfTotQuestionsTrueFalseMixed));
-  console.log("updateNumOfTotalQuestionsMixed", numOfTotalQuestions, numOfTotQ);
   if (!!numOfTotQ) {
     newValue = +numOfTotQ + 1;
     setNumOfTotalQuestions(newValue);
@@ -25,7 +24,6 @@ const updateNumOfTotalQuestionsMixed = async (
 };
 
 const saveMulti = async (value: number) => {
-  console.log("saveMulti ", value);
   await cache.remove(asyncNames.numOfTotQuestionsMultiMixed);
   await cache.set(asyncNames.numOfTotQuestionsMultiMixed, String(value));
 };

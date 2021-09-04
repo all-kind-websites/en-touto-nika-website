@@ -98,7 +98,6 @@ const AuthCard = (props: any) => {
 
   const handleSubmit = useCallback(async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    // console.log(name, email, password, confirmPassword);
     let action;
     if (formIsValid(setErrors, login, name, email, password, confirmPassword)) {
       if (login) {

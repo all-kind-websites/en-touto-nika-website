@@ -76,7 +76,7 @@ const showQuestion = (
         <section style={{ marginBottom: 20 }} >
           <h4
             style={{
-              marginLeft: 10, marginBottom: 20, fontFamily: "MS Tahoma", color: colors.maroon,
+              marginBottom: 20, fontFamily: "MS Tahoma", color: colors.maroon,
               padding: 10, width: 500
             }}
           >

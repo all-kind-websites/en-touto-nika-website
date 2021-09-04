@@ -5,9 +5,7 @@ export const saveData = (email: string, totalPoints: number) => {
       const userId = getState().auth.userId;
       const token = getState().auth.token;
       const date = new Date();
-      console.log('====================================');
-      console.log('token, userId', !!token, !!userId);
-      console.log('====================================');
+
       // First get the old grade to check which one to save
       const response = await fetch(
         `https://en-touto-nika.firebaseio.com/All_Users_Data/${userId}.json`

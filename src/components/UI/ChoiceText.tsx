@@ -65,7 +65,6 @@ const ChoiceText = ({
     <div
       className={`choice-text ${disabled ? 'disabled' : ''}`}
       onClick={async () => {
-        console.log('click');
         await cache.set(choice, true);
         setStyle(true);
         setChoiceSave(true);
