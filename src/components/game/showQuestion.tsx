@@ -55,7 +55,7 @@ const showQuestion = (
 
   for (const key in selectedQuestion) {
     return (
-      <article>
+      <article style={{ width: 500 }} >
         <Prompt
           when={!choiceSave}
           message='Αν δεν απαντήσετε την ερώτηση θα την χάσετε! Θέλετε να εγκαταλείψετε το παιχνίδι;'
@@ -74,7 +74,12 @@ const showQuestion = (
         }
 
         <section style={{ marginBottom: 20 }} >
-          <h4 style={{ marginLeft: 10, marginBottom: 20, fontFamily: "MS Tahoma", color: colors.maroon, width: 500 }} >
+          <h4
+            style={{
+              marginLeft: 10, marginBottom: 20, fontFamily: "MS Tahoma", color: colors.maroon,
+              padding: 10, width: 500
+            }}
+          >
             {selectedQuestion.title}
           </h4>
           <ChoiceText

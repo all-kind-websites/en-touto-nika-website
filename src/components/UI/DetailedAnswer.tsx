@@ -9,6 +9,9 @@ const DetailedAnswer = ({ selectedQuestion, onRefresh }: any) => {
 
   return (
     <section className='detailed-answer' >
+      <div onClick={() => onRefresh()} >
+        <MdQueuePlayNext className='icon-show-next' />
+      </div>
       <h5 className='title' >Απάντηση:</h5>
       <div className='answer-text'
         style={{ whiteSpace: 'pre-wrap' }}
@@ -30,9 +33,7 @@ const DetailedAnswer = ({ selectedQuestion, onRefresh }: any) => {
         }
       </a>
       <Line className='line' />
-      <div onClick={() => onRefresh()} >
-        <MdQueuePlayNext className='icon-show-next' />
-      </div>
+
     </section >
   );
 };

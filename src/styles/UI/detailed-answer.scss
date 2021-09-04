@@ -3,18 +3,25 @@
 
 .detailed-answer {
   @include customFlex(column, flex-start, center);
-  margin: 20px;
+  margin-left: 10px;
   width: 500px;
+
+  .icon-show-next {
+    cursor: pointer;
+    font-size: 4rem;
+    color: $maroon;
+    margin-right: 10px;
+  }
 
   .title {
     font-family: "MS Tahoma";
-    margin-right: 20px;
+    margin-right: 10px;
     text-decoration: underline;
   }
 
   .answer-text {
     font-family: "MS Tahoma";
-    margin-right: 20px;
+    margin-right: 10px;
   }
 
   .link {
@@ -23,13 +30,6 @@
   }
 
   .line {
-    margin-right: 20px;
-  }
-
-  .icon-show-next {
-    cursor: pointer;
-    font-size: 4rem;
-    color: $maroon;
-    margin-right: 20px;
+    margin-right: 10px;
   }
 }

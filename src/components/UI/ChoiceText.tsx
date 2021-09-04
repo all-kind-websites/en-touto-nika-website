@@ -47,7 +47,7 @@ const ChoiceText = ({
       textAlign: "left",
     },
     choiceIsMade: {
-      flex: 1,
+      // flex: 1,
       padding: 10,
       marginVertical: 2,
       marginHorizontal: 2,
@@ -76,7 +76,10 @@ const ChoiceText = ({
     >
       <div className='choice-container' >
         <h4 className='choice-letter' >{choiceLetter}</h4>
-        <p className='choice-question' style={choiceIsMade ? styles.choiceIsMade : styles.none}>
+        <p
+          className='choice-question'
+          style={choiceIsMade ? styles.choiceIsMade : styles.none}
+        >
           {question}
         </p>
       </div>
