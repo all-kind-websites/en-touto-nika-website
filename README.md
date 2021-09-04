@@ -1,14 +1,6 @@
 - fix `(trueFalse_useTimer === "created")`
 - find a way to get image from pc, and set the type of img in `saveImage = (img, prevImg)`. And then store the url in Firebase.
-- remove `choiceSave` from `checkAnswerHandlerMixedMulti = ( choiceSave,`.
-- remove `navigation` and `timer` from ` checkIfMixGameIsOn(navigation, ... timer`
-- fix the type of `state` in util `formReducer` at `const formReducer = (state: any, action: Action) => `
-- modify util `getPointsOnConnection`. Notes: You may not use hooks in functions. Check if user is online the web way.
-- refactor util `openLink` to the web way.
-- refactor util `quitGame`
-- refactor util `const setTimer = ( timerAnimation: any, timerOpacity: any`
-- refactor util `const startMixGame = async ( navigation: any,`
-- refactor util `const updateNumOfTotalQuestions = async ( gameType,`
+
 - show a backdrop when sidebar menu is open.
 - use an alert to notify the user the error in every try/catch
 - mark the chosen option in a multi game with greenish color if right and redish if wrong. In case of wrong mark the right also ...
@@ -17,3 +9,4 @@
   - https://dev.to/rdegges/please-stop-using-local-storage-1i04
 - what is this: index.js:1 Warning: Invalid attribute name: `0`
 - If user takes a brake, save the points to server.
+- Note

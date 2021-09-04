@@ -80,7 +80,8 @@ const GameOverPage = ({
         <Button
           disabled={false}
           title='Επιστροφή'
-          onClick={() => history.replace(navNames.home)}
+          onClick={saveStadiumResult}
+          // onClick={() => history.replace(navNames.home)}
           onMouseEnter={() => handleHover()}
           onMouseLeave={() => handleHover()}
         />

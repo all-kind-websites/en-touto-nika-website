@@ -1,3 +1,4 @@
+import { Prompt } from 'react-router-dom'
 
 import TopMenu from "../UI/TopMenu";
 import ChoiceText from "../UI/ChoiceText";
@@ -34,7 +35,9 @@ const showQuestion = (
   setShowAnswer: Function,
   setStadiumIsFinished: Function,
   timer: boolean,
-  totalPoints: number
+  totalPoints: number,
+  modalVisible: boolean,
+
 ) => {
   let categoryTitle = "";
   if (!!selectedQuestion) {
@@ -49,9 +52,14 @@ const showQuestion = (
     }
   }
 
+
   for (const key in selectedQuestion) {
     return (
       <article>
+        <Prompt
+          when={!choiceSave}
+          message='Αν δεν απαντήσετε την ερώτηση θα την χάσετε! Θέλετε να εγκαταλείψετε το παιχνίδι;'
+        />
         <TopMenu
           categoryTitle={categoryTitle}
           numOfDownloadedQuestions={numOfDownloadedQuestions}

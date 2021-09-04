@@ -2,7 +2,6 @@ import '../../../styles/game/mix/mix-multi-game-no-timer.scss'
 
 import { useState, useEffect, useCallback } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-
 import asyncNames from "../../../constants/asyncNames";
 
 import useLoadQuestionsMixMulti from "../../../hooks/useLoadQuestionsMixMulti";
@@ -18,9 +17,15 @@ import GameOverPage from "../../extras/GameOverPage";
 import DownloadErrorScreen from "../../extras/DownloadErrorScreen";
 import NoQuestionsHereScreen from '../../extras/NoQuestionsHereScreen';
 import { savePoints } from '../../../store/actions/game';
+import { useHistory } from 'react-router-dom';
+import navNames from '../../../constants/navNames';
 
 const MixMultiGameNoTimer = () => {
   const dispatch = useDispatch();
+  const history: any = useHistory();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   const pointsMultiMixed = useSelector((state: RootStateOrAny) => state.game.pointsMultiMixed);
   const userIsLogedIn = useSelector((state: RootStateOrAny) => state.auth.userId);
   const email = useSelector((state: RootStateOrAny) => state.auth.email);
@@ -39,8 +44,6 @@ const MixMultiGameNoTimer = () => {
   const [checkDelta, setCheckDelta] = useState(false);
 
   const [stadiumCounter, setStadiumCounter] = useState(1);
-
-  // const [modalVisible, setModalVisible] = useState(false);
 
   let timer = false;
 
@@ -132,8 +135,7 @@ const MixMultiGameNoTimer = () => {
     );
   }
 
-  // if (stadiumIsFinished) {
-  if (true) {
+  if (stadiumIsFinished) {
     return (
       <GameOverPage
         timer={timer}
@@ -177,7 +179,8 @@ const MixMultiGameNoTimer = () => {
         setShowAnswer,
         setStadiumIsFinished,
         timer,
-        totalPoints
+        totalPoints,
+        modalVisible,
       )}
     </article>
   );

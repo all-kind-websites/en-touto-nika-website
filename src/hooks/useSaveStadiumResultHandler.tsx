@@ -11,6 +11,8 @@ import {
   trueFalseRemoveAsync,
   noTimerTrueFalseRemoveAsync,
 } from "../utils/removeAsync";
+import { savePoints } from "../store/actions/game";
+import asyncNames from "../constants/asyncNames";
 
 const useSaveStadiumResultHandler = (
   totalPoints: number,
@@ -35,6 +37,8 @@ const useSaveStadiumResultHandler = (
     }
     quit();
     setIsUpLoading(false);
+
+    dispatch(savePoints(0, asyncNames.pointsTypeMultiMixed))
 
     if (categoryId === "MultiMixed") {
       await removeAsyncMultiMixed();
