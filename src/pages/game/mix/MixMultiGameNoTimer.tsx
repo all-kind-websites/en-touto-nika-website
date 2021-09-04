@@ -31,7 +31,6 @@ const MixMultiGameNoTimer = () => {
   const email = useSelector((state: RootStateOrAny) => state.auth.email);
   const gameType = useSelector((state: RootStateOrAny) => state.game.id);
 
-  const [isUpLoading, setIsUpLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
 
@@ -90,6 +89,7 @@ const MixMultiGameNoTimer = () => {
   }, [setRefreshing, loadQuestions, numOfQuestions, numOfTotalQuestions, setNumOfQuestions, setStadiumIsFinished,]);
 
   const { quit } = quitGame(
+    history,
     setNumOfTotalQuestions,
     gameType,
     timer,
@@ -99,7 +99,7 @@ const MixMultiGameNoTimer = () => {
   /* In games that are not mixed, we use categoryId at the end.
       Here we hardcode MultiMixed.  */
 
-  const { saveStadiumResult } = useSaveStadiumResultHandler(
+  const { isUpLoading, saveStadiumResult } = useSaveStadiumResultHandler(
     totalPoints,
     email,
     userIsLogedIn,

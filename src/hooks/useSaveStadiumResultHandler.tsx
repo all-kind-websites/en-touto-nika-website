@@ -13,6 +13,8 @@ import {
 } from "../utils/removeAsync";
 import { savePoints } from "../store/actions/game";
 import asyncNames from "../constants/asyncNames";
+import { history } from "../App";
+import navNames from "../constants/navNames";
 
 const useSaveStadiumResultHandler = (
   totalPoints: number,
@@ -25,19 +27,23 @@ const useSaveStadiumResultHandler = (
 ) => {
   const dispatch = useDispatch();
   const [isUpLoading, setIsUpLoading] = useState(false);
+  const onLine = navigator.onLine;
 
   const saveStadiumResult = async () => {
     setIsUpLoading(true);
     if (userIsLogedIn) {
-      if (true) {
+      if (onLine) {
         await dispatch(dataActions.saveData(email, totalPoints));
       } else {
         alert("Η βαθμολογία σας θα αποθηκευθεί στη συσκευή σας και όταν θα συνδεθείτε θα αποθηκευθεί και στη βάση δεδομένων του παιχνιδιού.");
+        //TODO: save points to redux
+        saveGradeToCache(totalPoints);
       }
     }
     quit();
     setIsUpLoading(false);
 
+    history.push(navNames.home);
     dispatch(savePoints(0, asyncNames.pointsTypeMultiMixed))
 
     if (categoryId === "MultiMixed") {

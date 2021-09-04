@@ -1,12 +1,13 @@
-import asyncNames from "../../../constants/asyncNames";
-import cache from "../../../utils/cache";
 
 export const saveData = (email: string, totalPoints: number) => {
-  return async () => {
+  return async (dispatch: Function, getState: Function) => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const userId = getState().auth.userId;
+      const token = getState().auth.token;
       const date = new Date();
-
+      console.log('====================================');
+      console.log('token, userId', !!token, !!userId);
+      console.log('====================================');
       // First get the old grade to check which one to save
       const response = await fetch(
         `https://en-touto-nika.firebaseio.com/All_Users_Data/${userId}.json`
@@ -18,9 +19,9 @@ export const saveData = (email: string, totalPoints: number) => {
           "Δυστυχώς η ανάκτηση των δεδομένων δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
         );
 
-        throw new Error(
-          "Δυστυχώς η ανάκτηση των δεδομένων δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
-        );
+        // throw new Error(
+        //   "Δυστυχώς η ανάκτηση των δεδομένων δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
+        // );
 
       }
 
@@ -39,22 +40,22 @@ export const saveData = (email: string, totalPoints: number) => {
           }
         }
       }
+      if (resData) {
+        const deleteAllUsersData = await fetch(
+          `https://en-touto-nika.firebaseio.com/All_Users_Data/${userId}.json?auth=${token}`,
+          {
+            method: "DELETE",
+          }
+        );
+        if (!deleteAllUsersData.ok) {
+          alert(
+            "Δυστυχώς η διαγραφή της βαθμολογίας δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
+          );
 
-      const deleteAllUsersData = await fetch(
-        `https://en-touto-nika.firebaseio.com/All_Users_Data/${userId}.json?auth=${token}`,
-        {
-          method: "DELETE",
+          // throw new Error(
+          //   "Δυστυχώς η διαγραφή της βαθμολογίας δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
+          // );
         }
-      );
-      if (!deleteAllUsersData.ok) {
-        alert(
-          "Δυστυχώς η διαγραφή της βαθμολογίας δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
-        );
-
-        throw new Error(
-          "Δυστυχώς η διαγραφή της βαθμολογίας δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
-        );
-
       }
 
       const firstPostResponse = await fetch(
@@ -76,16 +77,16 @@ export const saveData = (email: string, totalPoints: number) => {
         alert(
           "Δυστυχώς η αποθήκευση των δεδομένων δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
         );
-        throw new Error(
-          "Δυστυχώς η αποθήκευση των δεδομένων δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
-        );
+        // throw new Error(
+        //   "Δυστυχώς η αποθήκευση των δεδομένων δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
+        // );
 
       }
     } catch (err) {
       // send to custom analytics server
-      alert(
-        "Δυστυχώς η αποθήκευση των δεδομένων δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
-      );
+      // alert(
+      //   "Δυστυχώς η αποθήκευση των δεδομένων δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
+      // );
       throw err;
     }
   };

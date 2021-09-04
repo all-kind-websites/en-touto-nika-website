@@ -10,6 +10,7 @@ import {
 import navNames from "../constants/navNames";
 
 const quitGame = (
+  history: any,
   setNumOfTotalQuestions: Function,
   gameType: string,
   timer: boolean,
@@ -31,7 +32,7 @@ const quitGame = (
     }
 
     setNumOfTotalQuestions(0);
-    // navigation.navigate(navNames.home); // call it here otherwise you get the finished round screen.
+    history.push(navNames.home); // call it here otherwise you get the finished round screen.
   };
   return { quit };
 };
