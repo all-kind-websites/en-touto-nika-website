@@ -1,0 +1,14 @@
+@import "../config.scss";
+@import "../colors.scss";
+
+.custom-modal {
+  position: relative;
+  top: 200px;
+  height: 200px;
+  width: 300px;
+  z-index: 10;
+
+  &__container {
+    @include centerFlex(column);
+  }
+}
