@@ -1,3 +1,4 @@
+import asyncNames from '../../constants/asyncNames';
 import colors from '../../constants/colors';
 import '../../styles/UI/choice-text.scss';
 
@@ -6,6 +7,7 @@ interface ChoiceTextProps {
   choiceIsMade: boolean,
   correctChoice: boolean,
   choice: string,
+  choiceColor: any,
   choiceLetter: string,
   disabled: boolean,
   choiceText: string,
@@ -19,6 +21,7 @@ const ChoiceText = ({
   choiceIsMade,
   correctChoice,
   choice,
+  choiceColor,
   choiceLetter,
   disabled,
   choiceText,
@@ -57,7 +60,7 @@ const ChoiceText = ({
       shadowOpacity: 0.6,
       shadowOffset: { width: 0, height: 2 },
       shadowRadius: 10,
-      backgroundColor: correctChoice ? colors.limegreen : colors.salmon,
+      backgroundColor: choiceColor,
     },
     none: {}
   }

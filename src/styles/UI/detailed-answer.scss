@@ -5,6 +5,11 @@
   @include customFlex(column, flex-start, center);
   margin-left: 10px;
   width: 500px;
+  margin-bottom: 20px;
+
+  .line {
+    margin-right: 10px;
+  }
 
   .icon-show-next {
     cursor: pointer;
@@ -17,6 +22,8 @@
     font-family: "MS Tahoma";
     margin-right: 10px;
     text-decoration: underline;
+    color: $maroon;
+    margin-bottom: 10px;
   }
 
   .answer-text {
@@ -30,9 +37,5 @@
       text-decoration: none;
       text-align: left;
     }
-  }
-
-  .line {
-    margin-right: 10px;
   }
 }

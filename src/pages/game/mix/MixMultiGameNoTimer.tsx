@@ -36,6 +36,7 @@ const MixMultiGameNoTimer = () => {
 
   const [choiceSave, setChoiceSave] = useState(false);
   const [correctChoice, setCorrectChoice] = useState(false);
+  const [choiceColor, setChoiceColor] = useState(asyncNames.defaultChoiceColor);
 
   const [checkAlfa, setCheckAlfa] = useState(false);
   const [checkBeta, setCheckBeta] = useState(false);
@@ -68,6 +69,7 @@ const MixMultiGameNoTimer = () => {
 
   const onRefresh = useCallback(async () => {
     setCorrectChoice(false);
+    setChoiceColor(asyncNames.defaultChoiceColor)
     setRefreshing(true);
     setCheckAlfa(false);
     setCheckBeta(false);
@@ -116,6 +118,7 @@ const MixMultiGameNoTimer = () => {
 
   const { saveAnswer } = checkAnswerHandlerMixMulti(
     selectedQuestion,
+    setChoiceColor,
     setCorrectChoice,
     setTotalPoints,
     totalPoints
@@ -161,6 +164,7 @@ const MixMultiGameNoTimer = () => {
         gameType,
         checkGamma,
         checkDelta,
+        choiceColor,
         choiceSave,
         correctChoice,
         saveAnswer,

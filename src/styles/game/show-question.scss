@@ -1,0 +1,11 @@
+@import "../config.scss";
+@import "../colors.scss";
+
+.show-question {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.show-question::-webkit-scrollbar {
+  display: none;
+}

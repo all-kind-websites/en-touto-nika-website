@@ -5,6 +5,7 @@ import ChoiceText from "../UI/ChoiceText";
 import DetailedAnswer from "../UI/DetailedAnswer";
 import { Question } from "../../models/question";
 import colors from "../../constants/colors";
+import '../../styles/game/show-question.scss'
 
 const showQuestion = (
   alfaIsTrue: string,
@@ -17,6 +18,7 @@ const showQuestion = (
   gameType: string,
   checkGamma: boolean,
   checkDelta: boolean,
+  choiceColor: string,
   choiceSave: boolean,
   correctChoice: boolean,
   saveAnswer: Function,
@@ -55,7 +57,7 @@ const showQuestion = (
 
   for (const key in selectedQuestion) {
     return (
-      <article style={{ width: 500 }} >
+      <article className='show-question' style={{ width: 500 }} >
         <Prompt
           when={!choiceSave}
           message='Αν δεν απαντήσετε την ερώτηση θα την χάσετε! Θέλετε να εγκαταλείψετε το παιχνίδι;'
@@ -65,14 +67,6 @@ const showQuestion = (
           numOfDownloadedQuestions={numOfDownloadedQuestions}
           numOfTotalQuestions={numOfTotalQuestions}
         />
-
-        {choiceSave ?
-          <DetailedAnswer
-            onRefresh={onRefresh}
-            selectedQuestion={selectedQuestion}
-          /> : null
-        }
-
         <section style={{ marginBottom: 20 }} >
           <h4
             style={{
@@ -84,8 +78,8 @@ const showQuestion = (
           </h4>
           <ChoiceText
             choiceIsMade={checkAlfa}
-            correctChoice={correctChoice}
             choice={alfaIsTrue}
+            choiceColor={choiceColor}
             choiceLetter={"A"}
             disabled={choiceSave}
             choiceText={"choice_Alpha"}
@@ -96,8 +90,8 @@ const showQuestion = (
           />
           <ChoiceText
             choiceIsMade={checkBeta}
-            correctChoice={correctChoice}
             choice={betaIsTrue}
+            choiceColor={choiceColor}
             choiceLetter={"B"}
             disabled={choiceSave}
             choiceText={"choice_Beta"}
@@ -108,7 +102,7 @@ const showQuestion = (
           />
           <ChoiceText
             choiceIsMade={checkGamma}
-            correctChoice={correctChoice}
+            choiceColor={choiceColor}
             choice={gammaIsTrue}
             choiceLetter={"Γ"}
             disabled={choiceSave}
@@ -120,7 +114,7 @@ const showQuestion = (
           />
           <ChoiceText
             choiceIsMade={checkDelta}
-            correctChoice={correctChoice}
+            choiceColor={choiceColor}
             choice={deltaIsTrue}
             choiceLetter={"Δ"}
             disabled={choiceSave}
@@ -131,6 +125,13 @@ const showQuestion = (
             setChoiceSave={setChoiceSave}
           />
         </section>
+
+        {choiceSave ?
+          <DetailedAnswer
+            onRefresh={onRefresh}
+            selectedQuestion={selectedQuestion}
+          /> : null
+        }
       </article>
     );
   }

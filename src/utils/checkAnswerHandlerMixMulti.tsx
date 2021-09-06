@@ -6,6 +6,7 @@ import { Question } from '../models/question';
 
 const checkAnswerHandlerMixedMulti = (
   selectedQuestion: Question | null,
+  setChoiceColor: Function,
   setCorrectChoice: Function,
   setTotalPoints: Function,
   totalPoints: number
@@ -32,27 +33,27 @@ const checkAnswerHandlerMixedMulti = (
     let corChoice = false; // For checking the answer when dispatching the checkAnswerFor...
     if (alfaIsTrueMixed && +rightChoice === 1) {
       setCorrectChoice(true);
+      setChoiceColor(asyncNames.correctChoiceColor);
       corChoice = true;
     } if (betaIsTrueMixed && +rightChoice === 2) {
       setCorrectChoice(true);
+      setChoiceColor(asyncNames.correctChoiceColor);
       corChoice = true;
     } if (gammaIsTrueMixed && +rightChoice === 3) {
       setCorrectChoice(true);
+      setChoiceColor(asyncNames.correctChoiceColor);
       corChoice = true;
     } if (deltaIsTrueMixed && +rightChoice === 4) {
       setCorrectChoice(true);
+      setChoiceColor(asyncNames.correctChoiceColor);
       corChoice = true;
     }
     if (corChoice) {
       setTotalPoints(totalPoints + 1);
-      setTimeout(() => {
-        // setModalVisible(true);
-      }, 2500);
+
     }
     if (!corChoice) {
-      setTimeout(() => {
-        // setModalVisible(true);
-      }, 2500);
+      setChoiceColor(asyncNames.wrongChoiceColor);
     }
     checkAnswerForMixed(corChoice, totalPoints);
   };

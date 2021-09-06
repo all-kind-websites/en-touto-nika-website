@@ -1,4 +1,9 @@
+import colors from "./colors";
+
 const asyncNames = {
+  defaultChoiceColor: colors.moccasin_light,
+  correctChoiceColor: colors.limegreen,
+  wrongChoiceColor: colors.salmon,
   alfaIsTrueMulti: "alfaIsTrueMulti",
   alfaIsTrueMultiMixed: "alfaIsTrueMultiMixed",
   betaIsTrueMulti: "betaIsTrueMulti",
