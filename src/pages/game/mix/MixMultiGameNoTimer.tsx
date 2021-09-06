@@ -20,7 +20,7 @@ import { savePoints } from '../../../store/actions/game';
 import { useHistory } from 'react-router-dom';
 import navNames from '../../../constants/navNames';
 
-const MixMultiGameNoTimer = () => {
+const MixMultiGameNoTimer = (props: any) => {
   const dispatch = useDispatch();
   const history: any = useHistory();
 
@@ -134,7 +134,7 @@ const MixMultiGameNoTimer = () => {
 
   if (numOfQuestions === 1 && selectedQuestion === null) {
     return (
-      <NoQuestionsHereScreen />
+      <NoQuestionsHereScreen history={props.history} />
     );
   }
 

@@ -2,12 +2,10 @@ import { Prompt } from 'react-router-dom'
 
 import { useState } from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import Button from "../../components/UI/Button";
 import Loader from "../../components/UI/Loader";
-import navNames from "../../constants/navNames";
 
-import '../../styles/game/pages/game-over-page.scss';
+import '../../styles/game/pages/game-over.scss';
 
 // import Colours from "../../constants/Colours";
 interface GameOverPageProps {

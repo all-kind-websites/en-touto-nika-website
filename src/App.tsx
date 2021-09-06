@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RootStateOrAny, useSelector } from "react-redux";
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, useHistory, } from 'react-router-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 
@@ -26,6 +26,7 @@ import MixMultiGameWithTimer from './pages/game/mix/MixMultiGameWithTimer';
 export const history = createBrowserHistory();
 
 function App() {
+  const history = useHistory();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const allowEntrance = useSelector((state: RootStateOrAny) => state.auth.allowEntrance)
 
@@ -38,7 +39,7 @@ function App() {
   });
 
   return (
-    <Router>
+    <Router  >
       <div className="App">
         {!!userLoggedIn || allowEntrance ? <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
         {!!userLoggedIn || allowEntrance ? <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
@@ -53,7 +54,10 @@ function App() {
 
             {/* Categories */}
             <Route path={navNames.multiCategories} component={MultiCategories} />
-            <Route path={navNames.multiCategoriesNoTimer} component={MultiCategoriesNoTimer} />
+            <Route
+              path={navNames.multiCategoriesNoTimer}
+              render={() => <MultiCategoriesNoTimer history={history} />}
+            />
 
             {/* Games */}
 

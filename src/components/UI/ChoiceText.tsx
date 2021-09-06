@@ -5,7 +5,6 @@ import '../../styles/UI/choice-text.scss';
 import cache from "../../utils/cache";
 interface ChoiceTextProps {
   choiceIsMade: boolean,
-  correctChoice: boolean,
   choice: string,
   choiceColor: any,
   choiceLetter: string,
@@ -19,7 +18,6 @@ interface ChoiceTextProps {
 
 const ChoiceText = ({
   choiceIsMade,
-  correctChoice,
   choice,
   choiceColor,
   choiceLetter,

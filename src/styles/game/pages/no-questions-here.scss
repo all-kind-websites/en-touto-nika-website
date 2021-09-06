@@ -1,0 +1,13 @@
+@import "../../config.scss";
+@import "../../colors.scss";
+
+.no-questions-here {
+  height: 100vh;
+  @include centerFlex(column);
+  background: $linear_gradient;
+
+  .text {
+    color: $moccasin_light;
+    margin-bottom: 20px;
+  }
+}
