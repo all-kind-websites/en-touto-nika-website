@@ -66,7 +66,10 @@ const showQuestion = (
 
   for (const key in selectedQuestion) {
     return (
-      <article className='show-question' style={{ width: 500 }} >
+      <article
+        className={`show-question ${!choiceSave ? 'fade-in' : ''} `}
+        style={{ width: 500 }}
+      >
         <Prompt
           when={!choiceSave}
           message='Αν δεν απαντήσετε την ερώτηση θα την χάσετε! Θέλετε να εγκαταλείψετε το παιχνίδι;'
@@ -89,7 +92,7 @@ const showQuestion = (
             choiceIsMade={checkAlfa}
             choice={alfaIsTrue}
             choiceColor={choiceColor}
-            choiceLetter={"A"}
+            choiceLetter={"α΄. "}
             disabled={choiceSave}
             choiceText={"choice_Alpha"}
             selectedQuestion={selectedQuestion}
@@ -101,7 +104,7 @@ const showQuestion = (
             choiceIsMade={checkBeta}
             choice={betaIsTrue}
             choiceColor={choiceColor}
-            choiceLetter={"B"}
+            choiceLetter={"β΄. "}
             disabled={choiceSave}
             choiceText={"choice_Beta"}
             selectedQuestion={selectedQuestion}
@@ -113,7 +116,7 @@ const showQuestion = (
             choiceIsMade={checkGamma}
             choiceColor={choiceColor}
             choice={gammaIsTrue}
-            choiceLetter={"Γ"}
+            choiceLetter={"γ΄. "}
             disabled={choiceSave}
             choiceText={"choice_Gamma"}
             selectedQuestion={selectedQuestion}
@@ -125,7 +128,7 @@ const showQuestion = (
             choiceIsMade={checkDelta}
             choiceColor={choiceColor}
             choice={deltaIsTrue}
-            choiceLetter={"Δ"}
+            choiceLetter={"δ΄. "}
             disabled={choiceSave}
             choiceText={"choice_Delta"}
             selectedQuestion={selectedQuestion}

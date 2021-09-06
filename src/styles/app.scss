@@ -19,20 +19,34 @@ html {
 }
 
 body {
+  height: 100vh;
   font-size: 2.4rem;
   /* 1.5 means 1.5 times the font size */
   line-height: 1.5;
-  overflow: hidden;
-}
-
-.app {
-  @include centerFlex(column);
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  background: $linear_gradient;
 }
 
 body::-webkit-scrollbar {
-  display: none;
+  width: 0px;
+}
+
+.app {
+  &__content {
+    .fade-enter {
+      opacity: 0.5;
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transition: opacity 400ms linear;
+    }
+    .fade-exit {
+      opacity: 1;
+    }
+    .fade-exit-active {
+      opacity: 0.5;
+      transition: opacity 400ms linear;
+    }
+  }
 }
 
 //////////////////////////////////////////////

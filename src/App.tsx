@@ -3,6 +3,7 @@ import { RootStateOrAny, useSelector } from "react-redux";
 import { Route, Switch, Redirect, useHistory, } from 'react-router-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 import { createBrowserHistory } from 'history';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import Menu from "./pages/menu/Menu";
 import Home from "./pages/Home";
@@ -40,41 +41,56 @@ function App() {
 
   return (
     <Router  >
-      <div className="App">
+      <div className="app">
         {!!userLoggedIn || allowEntrance ? <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
         {!!userLoggedIn || allowEntrance ? <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
         <div className="app__content">
-          <Switch>
-            {/* Menu */}
-            <Route path={nav.auth} component={Auth} />
-            <Route path={nav.winners} component={Winners} />
-            <Route path={nav.settings} component={Settings} />
-            <Route path={nav.create} component={Create} />
-            <Route path={nav.donate} component={Donate} />
+          <Route render={({ location }) =>
+          (
+            <TransitionGroup>
+              <CSSTransition
+                key={location.key}
+                // in={inProp} 
+                timeout={400}
+                classNames="fade"
+                mountOnEnter={true}
+                unmountOnExit={true}
+              >
+                <Switch location={location} >
+                  {/* Menu */}
+                  <Route path={nav.auth} component={Auth} />
+                  <Route path={nav.winners} component={Winners} />
+                  <Route path={nav.settings} component={Settings} />
+                  <Route path={nav.create} component={Create} />
+                  <Route path={nav.donate} component={Donate} />
 
-            {/* Categories */}
-            <Route path={nav.multiCategories} component={MultiCategories} />
-            <Route
-              path={nav.multiCategoriesNoTimer}
-              render={() => <MultiCategoriesNoTimer history={history} />}
-            />
+                  {/* Categories */}
+                  <Route path={nav.multiCategories} component={MultiCategories} />
+                  <Route
+                    path={nav.multiCategoriesNoTimer}
+                    render={() => <MultiCategoriesNoTimer history={history} />}
+                  />
 
-            {/* Games */}
+                  {/* Games */}
 
-            {/* Mix */}
-            <Route path={nav.mixChooseCategories} component={MixChooseCategories} />
-            <Route path={nav.mixMultiGameNoTimer} component={MixMultiGameNoTimer} />
-            <Route path={nav.mixMultiGameWithTimer} component={MixMultiGameWithTimer} />
+                  {/* Mix */}
+                  <Route path={nav.mixChooseCategories} component={MixChooseCategories} />
+                  <Route path={nav.mixMultiGameNoTimer} component={MixMultiGameNoTimer} />
+                  <Route path={nav.mixMultiGameWithTimer} component={MixMultiGameWithTimer} />
 
-            {/* Multi */}
-            <Route path={nav.multiGameNoTimer} component={MultiGameNoTimer} />
+                  {/* Multi */}
+                  <Route path={nav.multiGameNoTimer} component={MultiGameNoTimer} />
 
 
-            {/* Basic */}
-            <Route path={nav.not_found} component={NotFound} />
-            <Route path={nav.home} exact render={() => <Home setMenuOpen={setMenuOpen} />} />
-            <Redirect to={nav.not_found} />
-          </Switch>
+                  {/* Basic */}
+                  <Route path={nav.not_found} component={NotFound} />
+                  <Route path={nav.home} exact render={() => <Home setMenuOpen={setMenuOpen} />} />
+                  <Redirect to={nav.not_found} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          )} />
+
         </div>
       </div>
     </Router>

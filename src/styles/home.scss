@@ -4,6 +4,7 @@
 .home {
   height: 100vh;
   background: $linear_gradient;
+  overflow: hidden;
   @include centerFlex(column);
 
   .home-loader {
@@ -11,13 +12,17 @@
     position: relative;
     top: 80px;
   }
-  ul {
+
+  .ul {
     height: 100vh;
     margin: 0;
     list-style-type: none;
     padding: 0;
   }
-
+  ul::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
   .theotokos-icon {
     top: 70px;
     width: 14rem;
