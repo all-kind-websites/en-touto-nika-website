@@ -10,3 +10,4 @@
 - what is this: index.js:1 Warning: Invalid attribute name: `0`
 - If user takes a brake, save the points to server.
 - In categories for mixed game, if user does not have internet and fails to download filters, so an alert message and do not download filters. If user activates internet then ...
+- save points to redux => saveGradeToCache(totalPoints);

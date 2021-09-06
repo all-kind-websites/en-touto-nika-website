@@ -43,7 +43,6 @@ const useSaveStadiumResultHandler = (
     quit();
     setIsUpLoading(false);
 
-    history.push(nav.home);
     dispatch(savePoints(0, strings.pointsTypeMultiMixed))
 
     if (categoryId === "MultiMixed") {
@@ -59,6 +58,8 @@ const useSaveStadiumResultHandler = (
     } else if (gameType === "TrueFalse" && !timer) {
       noTimerTrueFalseRemoveAsync(categoryId);
     }
+    history.push(nav.home);
+
   };
 
   return { isUpLoading, saveStadiumResult };

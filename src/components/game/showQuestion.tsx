@@ -54,6 +54,15 @@ const showQuestion = (
     }
   }
 
+  /* 
+    Alerts user not to reload page while playing.
+    Eventhough if user already answered the question, 
+    it doesn't matter, user just moves to next question.
+   */
+  if (!choiceSave)
+    window.onbeforeunload = function () {
+      return 'Αν δεν απαντήσετε την ερώτηση θα την χάσετε! Θέλετε να εγκαταλείψετε το παιχνίδι;';
+    }
 
   for (const key in selectedQuestion) {
     return (
