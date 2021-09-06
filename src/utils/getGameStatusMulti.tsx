@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const getGameStatusMulti = (setGamesStatus: Function) => {
 
@@ -13,21 +13,21 @@ const getGameStatusMulti = (setGamesStatus: Function) => {
   let questionsMultiFourNoTimer: Array<object> = [];
 
   const checkCategories = async () => {
-    questionsMultiOne = await cache.get(asyncNames.questionsMultiOne);
-    questionsMultiTwo = await cache.get(asyncNames.questionsMultiTwo);
-    questionsMultiThree = await cache.get(asyncNames.questionsMultiThree);
-    questionsMultiFour = await cache.get(asyncNames.questionsMultiFour);
+    questionsMultiOne = await cache.get(strings.questionsMultiOne);
+    questionsMultiTwo = await cache.get(strings.questionsMultiTwo);
+    questionsMultiThree = await cache.get(strings.questionsMultiThree);
+    questionsMultiFour = await cache.get(strings.questionsMultiFour);
     questionsMultiOneNoTimer = await cache.get(
-      asyncNames.questionsMultiOneNoTimer
+      strings.questionsMultiOneNoTimer
     );
     questionsMultiTwoNoTimer = await cache.get(
-      asyncNames.questionsMultiTwoNoTimer
+      strings.questionsMultiTwoNoTimer
     );
     questionsMultiThreeNoTimer = await cache.get(
-      asyncNames.questionsMultiThreeNoTimer
+      strings.questionsMultiThreeNoTimer
     );
     questionsMultiFourNoTimer = await cache.get(
-      asyncNames.questionsMultiFourNoTimer
+      strings.questionsMultiFourNoTimer
     );
   };
 

@@ -5,14 +5,14 @@ import { GiPodiumWinner } from 'react-icons/gi'
 import { BiLogOut, BiLogIn, BiDonateBlood } from 'react-icons/bi'
 import { IoIosCreate } from 'react-icons/io'
 
-import asyncNames from '../../constants/asyncNames'
-import navNames from '../../constants/navNames'
+import strings from '../../constants/strings'
+import nav from '../../constants/nav'
 import '../../styles/menu/menu.scss';
 
 
 export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, setMenuOpen: Function }) {
 
-  const userIsLoggedIn = !!localStorage.getItem(asyncNames.userData);
+  const userIsLoggedIn = !!localStorage.getItem(strings.userData);
 
   const menuHandler = () => {
     setMenuOpen(false);
@@ -20,7 +20,7 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
 
   const logoutHandler = () => {
     setMenuOpen(false);
-    localStorage.removeItem(asyncNames.userData);
+    localStorage.removeItem(strings.userData);
   };
 
   return (
@@ -33,32 +33,32 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
           </NavLink>
         </li>
         <li>
-          <NavLink className='link' onClick={menuHandler} to={navNames.winners}>
+          <NavLink className='link' onClick={menuHandler} to={nav.winners}>
             <GiPodiumWinner className='menu-icon' /> <p> Νικητές </p>
           </NavLink>
         </li>
         <li>
-          <NavLink className='link' onClick={menuHandler} to={navNames.settings}>
+          <NavLink className='link' onClick={menuHandler} to={nav.settings}>
             <AiFillSetting className='menu-icon' /> <p>Ρυθμίσεις</p>
           </NavLink>
         </li>
         <li>
-          <NavLink className='link' onClick={menuHandler} to={navNames.create}>
+          <NavLink className='link' onClick={menuHandler} to={nav.create}>
             <IoIosCreate className='menu-icon' /> <p>Δημιουργία</p>
           </NavLink>
         </li>
         <li>
-          <NavLink className='link' onClick={menuHandler} to={navNames.donate}>
+          <NavLink className='link' onClick={menuHandler} to={nav.donate}>
             <BiDonateBlood className='menu-icon' /> <p>Δωρεά</p>
           </NavLink>
         </li>
         {userIsLoggedIn ? <li>
-          <NavLink className='link' onClick={logoutHandler} to={navNames.auth}>
+          <NavLink className='link' onClick={logoutHandler} to={nav.auth}>
             <BiLogOut className='menu-icon' /> <p>Έξοδος</p>
           </NavLink>
         </li> : null}
         {!userIsLoggedIn ? <li>
-          <NavLink className='link' onClick={menuHandler} to={navNames.auth}>
+          <NavLink className='link' onClick={menuHandler} to={nav.auth}>
             <BiLogIn className='menu-icon' /> <p>Είσοδος</p>
           </NavLink>
         </li> : null}

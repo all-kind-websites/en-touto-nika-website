@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 
-import asynNames from "../constants/asyncNames";
+import asynNames from "../constants/strings";
 import * as dataActions from "../store/actions/data";
 
 const getPointsOnConnection = () => {

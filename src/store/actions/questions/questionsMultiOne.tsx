@@ -1,7 +1,7 @@
 import cache from "../../../utils/cache";
 import question, { Question } from "../../../models/question";
 import deleteQuestion from "../../../utils/deleteQuestion";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 
 export const createQuestionForMultiOne = (
   accepted: boolean,
@@ -20,7 +20,7 @@ export const createQuestionForMultiOne = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       let questionsArray = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -110,7 +110,7 @@ export const updateQuestionForMultiOne = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
@@ -211,18 +211,18 @@ export const fetchQuestionsForMultiOne = (maxIndex: number) => {
       });
 
       const localDataBaseMultiOne = await cache.get(
-        asyncNames.localDataBaseMultiOne
+        strings.localDataBaseMultiOne
       );
 
       if (!localDataBaseMultiOne) {
-        await cache.set(asyncNames.localDataBaseMultiOne, acceptedQuestions);
+        await cache.set(strings.localDataBaseMultiOne, acceptedQuestions);
       }
 
       // download the questions the user created
-      await cache.set(asyncNames.createdQuestionsMultiOne, loadedQuestions);
+      await cache.set(strings.createdQuestionsMultiOne, loadedQuestions);
 
       // const shuffledQuestions = shuffle(acceptedQuestions);
-      await cache.set(asyncNames.questionsMultiOne, acceptedQuestions);
+      await cache.set(strings.questionsMultiOne, acceptedQuestions);
     } catch (err) {
       // send to custom analytics server
       throw err;
@@ -285,18 +285,18 @@ export const fetchQuestionsForMultiOneNoTimer = (maxIndex: number) => {
       });
 
       const localDataBaseMultiOne = await cache.get(
-        asyncNames.localDataBaseMultiOne
+        strings.localDataBaseMultiOne
       );
 
       if (!localDataBaseMultiOne) {
-        await cache.set(asyncNames.localDataBaseMultiOne, acceptedQuestions);
+        await cache.set(strings.localDataBaseMultiOne, acceptedQuestions);
       }
 
       // download the questions the user created
-      await cache.set(asyncNames.createdQuestionsMultiOne, loadedQuestions);
+      await cache.set(strings.createdQuestionsMultiOne, loadedQuestions);
 
       // const shuffledQuestions = shuffle(acceptedQuestions);
-      await cache.set(asyncNames.questionsMultiOneNoTimer, acceptedQuestions);
+      await cache.set(strings.questionsMultiOneNoTimer, acceptedQuestions);
     } catch (err) {
       // send to custom analytics server
       throw err;
@@ -357,11 +357,11 @@ export const fetchQuestionsForMixedOne = (maxIndex: number) => {
       });
 
       const alfaOneDataBaseMixed = await cache.get(
-        asyncNames.localDataBaseMultiMixedOne
+        strings.localDataBaseMultiMixedOne
       );
       if (!alfaOneDataBaseMixed) {
         await cache.set(
-          asyncNames.localDataBaseMultiMixedOne,
+          strings.localDataBaseMultiMixedOne,
           acceptedQuestions
         );
       }
@@ -378,7 +378,7 @@ export const deleteQuestionForMultiOne = (
   index: number
 ) => {
   return async () => {
-    const { token } = await cache.get(asyncNames.userData);
+    const { token } = await cache.get(strings.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForMultiOne/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForMultiOne.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

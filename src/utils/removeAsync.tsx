@@ -1,187 +1,187 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 export const multipleChoiceRemoveAsync = async (categoryId: string) => {
   if (categoryId === "c1") {
-    await localStorage.removeItem(asyncNames.questionsMultiOne);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsMultiOne);
-    await localStorage.removeItem(asyncNames.totalPointsMultiOne);
-    await localStorage.removeItem(asyncNames.totalTimeLeftMultiOne);
+    await localStorage.removeItem(strings.questionsMultiOne);
+    await localStorage.removeItem(strings.numOfTotQuestionsMultiOne);
+    await localStorage.removeItem(strings.totalPointsMultiOne);
+    await localStorage.removeItem(strings.totalTimeLeftMultiOne);
   } else if (categoryId === "c2") {
-    await localStorage.removeItem(asyncNames.questionsMultiTwo);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsMultiTwo);
-    await localStorage.removeItem(asyncNames.totalPointsMultiTwo);
-    await localStorage.removeItem(asyncNames.totalTimeLeftMultiTwo);
+    await localStorage.removeItem(strings.questionsMultiTwo);
+    await localStorage.removeItem(strings.numOfTotQuestionsMultiTwo);
+    await localStorage.removeItem(strings.totalPointsMultiTwo);
+    await localStorage.removeItem(strings.totalTimeLeftMultiTwo);
   } else if (categoryId === "c3") {
-    await localStorage.removeItem(asyncNames.questionsMultiThree);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsMultiThree);
-    await localStorage.removeItem(asyncNames.totalPointsMultiThree);
-    await localStorage.removeItem(asyncNames.totalTimeLeftMultiThree);
+    await localStorage.removeItem(strings.questionsMultiThree);
+    await localStorage.removeItem(strings.numOfTotQuestionsMultiThree);
+    await localStorage.removeItem(strings.totalPointsMultiThree);
+    await localStorage.removeItem(strings.totalTimeLeftMultiThree);
   } else if (categoryId === "c4") {
-    await localStorage.removeItem(asyncNames.questionsMultiFour);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsMultiFour);
-    await localStorage.removeItem(asyncNames.totalPointsMultiFour);
-    await localStorage.removeItem(asyncNames.totalTimeLeftMultiFour);
+    await localStorage.removeItem(strings.questionsMultiFour);
+    await localStorage.removeItem(strings.numOfTotQuestionsMultiFour);
+    await localStorage.removeItem(strings.totalPointsMultiFour);
+    await localStorage.removeItem(strings.totalTimeLeftMultiFour);
   }
-  await localStorage.removeItem(asyncNames.alfaIsTrueMulti);
-  await localStorage.removeItem(asyncNames.betaIsTrueMulti);
-  await localStorage.removeItem(asyncNames.gammaIsTrueMulti);
-  await localStorage.removeItem(asyncNames.deltaIsTrueMulti);
-  await localStorage.removeItem(asyncNames.lastQuestionSecondsMulti);
-  await localStorage.removeItem(asyncNames.lastQuestionMinutesMulti);
+  await localStorage.removeItem(strings.alfaIsTrueMulti);
+  await localStorage.removeItem(strings.betaIsTrueMulti);
+  await localStorage.removeItem(strings.gammaIsTrueMulti);
+  await localStorage.removeItem(strings.deltaIsTrueMulti);
+  await localStorage.removeItem(strings.lastQuestionSecondsMulti);
+  await localStorage.removeItem(strings.lastQuestionMinutesMulti);
 };
 
 export const noTimerRemoveAsync = async (categoryId: string) => {
   if (categoryId === "c1") {
-    await localStorage.removeItem(asyncNames.questionsMultiOneNoTimer);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsMultiOneNoTimer);
-    await localStorage.removeItem(asyncNames.totalPointsMultiOneNoTimer);
+    await localStorage.removeItem(strings.questionsMultiOneNoTimer);
+    await localStorage.removeItem(strings.numOfTotQuestionsMultiOneNoTimer);
+    await localStorage.removeItem(strings.totalPointsMultiOneNoTimer);
   } else if (categoryId === "c2") {
-    await localStorage.removeItem(asyncNames.questionsMultiTwoNoTimer);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsMultiTwoNoTimer);
-    await localStorage.removeItem(asyncNames.totalPointsMultiTwoNoTimer);
+    await localStorage.removeItem(strings.questionsMultiTwoNoTimer);
+    await localStorage.removeItem(strings.numOfTotQuestionsMultiTwoNoTimer);
+    await localStorage.removeItem(strings.totalPointsMultiTwoNoTimer);
   } else if (categoryId === "c3") {
-    await localStorage.removeItem(asyncNames.questionsMultiThreeNoTimer);
+    await localStorage.removeItem(strings.questionsMultiThreeNoTimer);
     await localStorage.removeItem(
-      asyncNames.numOfTotQuestionsMultiThreeNoTimer
+      strings.numOfTotQuestionsMultiThreeNoTimer
     );
-    await localStorage.removeItem(asyncNames.totalPointsMultiThreeNoTimer);
+    await localStorage.removeItem(strings.totalPointsMultiThreeNoTimer);
   } else if (categoryId === "c4") {
-    await localStorage.removeItem(asyncNames.questionsMultiFourNoTimer);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsMultiFourNoTimer);
-    await localStorage.removeItem(asyncNames.totalPointsMultiFourNoTimer);
+    await localStorage.removeItem(strings.questionsMultiFourNoTimer);
+    await localStorage.removeItem(strings.numOfTotQuestionsMultiFourNoTimer);
+    await localStorage.removeItem(strings.totalPointsMultiFourNoTimer);
   }
-  await localStorage.removeItem(asyncNames.alfaIsTrueMulti);
-  await localStorage.removeItem(asyncNames.betaIsTrueMulti);
-  await localStorage.removeItem(asyncNames.gammaIsTrueMulti);
-  await localStorage.removeItem(asyncNames.deltaIsTrueMulti);
+  await localStorage.removeItem(strings.alfaIsTrueMulti);
+  await localStorage.removeItem(strings.betaIsTrueMulti);
+  await localStorage.removeItem(strings.gammaIsTrueMulti);
+  await localStorage.removeItem(strings.deltaIsTrueMulti);
 };
 
 export const trueFalseRemoveAsync = async (categoryId: string) => {
   if (categoryId === "c1") {
-    await localStorage.removeItem(asyncNames.questionsTrueFalseOne);
-    await localStorage.removeItem(asyncNames.numOfRemainQuestionsTrueFalseOne);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsTrueFalseOne);
-    await localStorage.removeItem(asyncNames.totalPointsTrueFalseOne);
-    await localStorage.removeItem(asyncNames.totalTimeLeftTrueFalseOne);
+    await localStorage.removeItem(strings.questionsTrueFalseOne);
+    await localStorage.removeItem(strings.numOfRemainQuestionsTrueFalseOne);
+    await localStorage.removeItem(strings.numOfTotQuestionsTrueFalseOne);
+    await localStorage.removeItem(strings.totalPointsTrueFalseOne);
+    await localStorage.removeItem(strings.totalTimeLeftTrueFalseOne);
   } else if (categoryId === "c2") {
-    await localStorage.removeItem(asyncNames.questionsTrueFalseTwo);
-    await localStorage.removeItem(asyncNames.numOfRemainQuestionsTrueFalseTwo);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsTrueFalseTwo);
-    await localStorage.removeItem(asyncNames.totalPointsTrueFalseTwo);
-    await localStorage.removeItem(asyncNames.totalTimeLeftTrueFalseTwo);
+    await localStorage.removeItem(strings.questionsTrueFalseTwo);
+    await localStorage.removeItem(strings.numOfRemainQuestionsTrueFalseTwo);
+    await localStorage.removeItem(strings.numOfTotQuestionsTrueFalseTwo);
+    await localStorage.removeItem(strings.totalPointsTrueFalseTwo);
+    await localStorage.removeItem(strings.totalTimeLeftTrueFalseTwo);
   } else if (categoryId === "c3") {
-    await localStorage.removeItem(asyncNames.questionsTrueFalseThree);
+    await localStorage.removeItem(strings.questionsTrueFalseThree);
     await localStorage.removeItem(
-      asyncNames.numOfRemainQuestionsTrueFalseThree
+      strings.numOfRemainQuestionsTrueFalseThree
     );
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsTrueFalseThree);
-    await localStorage.removeItem(asyncNames.totalPointsTrueFalseThree);
-    await localStorage.removeItem(asyncNames.totalTimeLeftTrueFalseThree);
+    await localStorage.removeItem(strings.numOfTotQuestionsTrueFalseThree);
+    await localStorage.removeItem(strings.totalPointsTrueFalseThree);
+    await localStorage.removeItem(strings.totalTimeLeftTrueFalseThree);
   } else if (categoryId === "c4") {
-    await localStorage.removeItem(asyncNames.questionsTrueFalseFour);
-    await localStorage.removeItem(asyncNames.numOfRemainQuestionsTrueFalseFour);
-    await localStorage.removeItem(asyncNames.numOfTotQuestionsTrueFalseFour);
-    await localStorage.removeItem(asyncNames.totalPointsTrueFalseFour);
-    await localStorage.removeItem(asyncNames.totalTimeLeftTrueFalseFour);
+    await localStorage.removeItem(strings.questionsTrueFalseFour);
+    await localStorage.removeItem(strings.numOfRemainQuestionsTrueFalseFour);
+    await localStorage.removeItem(strings.numOfTotQuestionsTrueFalseFour);
+    await localStorage.removeItem(strings.totalPointsTrueFalseFour);
+    await localStorage.removeItem(strings.totalTimeLeftTrueFalseFour);
   }
-  await localStorage.removeItem(asyncNames.noIsChosen);
-  await localStorage.removeItem(asyncNames.yesIsChosen);
-  await localStorage.removeItem(asyncNames.questionsRightChoices);
-  await localStorage.removeItem(asyncNames.indexTrueFalse);
-  await localStorage.removeItem(asyncNames.lastQuestionSecondsTrueFalse);
-  await localStorage.removeItem(asyncNames.lastQuestionMinutesTrueFalse);
+  await localStorage.removeItem(strings.noIsChosen);
+  await localStorage.removeItem(strings.yesIsChosen);
+  await localStorage.removeItem(strings.questionsRightChoices);
+  await localStorage.removeItem(strings.indexTrueFalse);
+  await localStorage.removeItem(strings.lastQuestionSecondsTrueFalse);
+  await localStorage.removeItem(strings.lastQuestionMinutesTrueFalse);
 };
 
 export const noTimerTrueFalseRemoveAsync = async (categoryId: string) => {
   console.log("noTimerTrueFalseRemoveAsync");
   if (categoryId === "c1") {
-    await localStorage.removeItem(asyncNames.questionsTrueFalseOneNoTimer);
+    await localStorage.removeItem(strings.questionsTrueFalseOneNoTimer);
     await localStorage.removeItem(
-      asyncNames.numOfTotQuestionsTrueFalseOneNoTimer
+      strings.numOfTotQuestionsTrueFalseOneNoTimer
     );
     await localStorage.removeItem(
-      asyncNames.numOfRemainQuestionsTrueFalseOneNoTimer
+      strings.numOfRemainQuestionsTrueFalseOneNoTimer
     );
-    await localStorage.removeItem(asyncNames.totalPointsTrueFalseOneNoTimer);
+    await localStorage.removeItem(strings.totalPointsTrueFalseOneNoTimer);
   } else if (categoryId === "c2") {
-    await localStorage.removeItem(asyncNames.questionsTrueFalseTwoNoTimer);
+    await localStorage.removeItem(strings.questionsTrueFalseTwoNoTimer);
     await localStorage.removeItem(
-      asyncNames.numOfRemainQuestionsTrueFalseTwoNoTimer
+      strings.numOfRemainQuestionsTrueFalseTwoNoTimer
     );
     await localStorage.removeItem(
-      asyncNames.numOfTotQuestionsTrueFalseTwoNoTimer
+      strings.numOfTotQuestionsTrueFalseTwoNoTimer
     );
-    await localStorage.removeItem(asyncNames.totalPointsTrueFalseTwoNoTimer);
+    await localStorage.removeItem(strings.totalPointsTrueFalseTwoNoTimer);
   } else if (categoryId === "c3") {
-    await localStorage.removeItem(asyncNames.questionsTrueFalseThreeNoTimer);
+    await localStorage.removeItem(strings.questionsTrueFalseThreeNoTimer);
     await localStorage.removeItem(
-      asyncNames.numOfRemainQuestionsTrueFalseThreeNoTimer
+      strings.numOfRemainQuestionsTrueFalseThreeNoTimer
     );
     await localStorage.removeItem(
-      asyncNames.numOfTotQuestionsTrueFalseThreeNoTimer
+      strings.numOfTotQuestionsTrueFalseThreeNoTimer
     );
-    await localStorage.removeItem(asyncNames.totalPointsTrueFalseThreeNoTimer);
+    await localStorage.removeItem(strings.totalPointsTrueFalseThreeNoTimer);
   } else if (categoryId === "c4") {
-    await localStorage.removeItem(asyncNames.questionsTrueFalseFourNoTimer);
+    await localStorage.removeItem(strings.questionsTrueFalseFourNoTimer);
     await localStorage.removeItem(
-      asyncNames.numOfRemainQuestionsTrueFalseFourNoTimer
+      strings.numOfRemainQuestionsTrueFalseFourNoTimer
     );
     await localStorage.removeItem(
-      asyncNames.numOfTotQuestionsTrueFalseFourNoTimer
+      strings.numOfTotQuestionsTrueFalseFourNoTimer
     );
-    await localStorage.removeItem(asyncNames.totalPointsTrueFalseFourNoTimer);
+    await localStorage.removeItem(strings.totalPointsTrueFalseFourNoTimer);
   }
-  await localStorage.removeItem(asyncNames.noIsChosen);
-  await localStorage.removeItem(asyncNames.yesIsChosen);
-  await localStorage.removeItem(asyncNames.questionsRightChoicesNoTimer);
-  await localStorage.removeItem(asyncNames.indexTrueFalseNoTimer);
+  await localStorage.removeItem(strings.noIsChosen);
+  await localStorage.removeItem(strings.yesIsChosen);
+  await localStorage.removeItem(strings.questionsRightChoicesNoTimer);
+  await localStorage.removeItem(strings.indexTrueFalseNoTimer);
 };
 
 // adjust strings like the above format
 export const removeAsyncMultiMixed = async () => {
   console.log("removeAsyncMultiMixed");
-  await localStorage.removeItem(asyncNames.pointsTypeMultiMixed);
-  await localStorage.removeItem(asyncNames.questionsMultiMixed);
-  await localStorage.removeItem(asyncNames.mixGameIsOnMulti);
-  await localStorage.removeItem(asyncNames.mixGameIsOnMultiNoTimer);
-  await localStorage.removeItem(asyncNames.numOfTotQuestionsMultiMixed);
-  await localStorage.removeItem(asyncNames.noIsChosen);
-  await localStorage.removeItem(asyncNames.yesIsChosen);
-  await localStorage.removeItem(asyncNames.useTimerMultiMixed); // from Categories
-  // await localStorage.removeItem(asyncNames.totalTimeLeftMultiMixed);
-  await localStorage.removeItem(asyncNames.lastQuestionSecondsMultiMixed);
-  await localStorage.removeItem(asyncNames.lastQuestionMinutesMultiMixed);
+  await localStorage.removeItem(strings.pointsTypeMultiMixed);
+  await localStorage.removeItem(strings.questionsMultiMixed);
+  await localStorage.removeItem(strings.mixGameIsOnMulti);
+  await localStorage.removeItem(strings.mixGameIsOnMultiNoTimer);
+  await localStorage.removeItem(strings.numOfTotQuestionsMultiMixed);
+  await localStorage.removeItem(strings.noIsChosen);
+  await localStorage.removeItem(strings.yesIsChosen);
+  await localStorage.removeItem(strings.useTimerMultiMixed); // from Categories
+  // await localStorage.removeItem(strings.totalTimeLeftMultiMixed);
+  await localStorage.removeItem(strings.lastQuestionSecondsMultiMixed);
+  await localStorage.removeItem(strings.lastQuestionMinutesMultiMixed);
 };
 
 // adjust strings like the above format
 export const removeAsyncTrueFalseMixed = async () => {
   console.log("removeAsyncTrueFalseMixed");
-  await localStorage.removeItem(asyncNames.pointsTypeTrueFalseMixed);
-  await localStorage.removeItem(asyncNames.questionsTrueFalseMixed);
-  await localStorage.removeItem(asyncNames.mixGameIsOnTrueFalse);
-  await localStorage.removeItem(asyncNames.mixGameIsOnTrueFalseNoTimer);
-  await localStorage.removeItem(asyncNames.mixedQuestionsAreOnTrueFalse);
-  await localStorage.removeItem(asyncNames.numOfRemainQuestionsTrueFalseMixed);
-  await localStorage.removeItem(asyncNames.numOfTotQuestionsTrueFalseMixed);
-  await localStorage.removeItem(asyncNames.noIsChosen);
-  await localStorage.removeItem(asyncNames.yesIsChosen);
-  await localStorage.removeItem(asyncNames.useTimerTrueFalseMixed); // from Categories
-  await localStorage.removeItem(asyncNames.totalTimeLeftTrueFalseMixed);
-  await localStorage.removeItem(asyncNames.lastQuestionSecondsTrueFalseMixed);
-  await localStorage.removeItem(asyncNames.lastQuestionMinutesTrueFalseMixed);
-  await localStorage.removeItem(asyncNames.indexTrueFalseMixed);
+  await localStorage.removeItem(strings.pointsTypeTrueFalseMixed);
+  await localStorage.removeItem(strings.questionsTrueFalseMixed);
+  await localStorage.removeItem(strings.mixGameIsOnTrueFalse);
+  await localStorage.removeItem(strings.mixGameIsOnTrueFalseNoTimer);
+  await localStorage.removeItem(strings.mixedQuestionsAreOnTrueFalse);
+  await localStorage.removeItem(strings.numOfRemainQuestionsTrueFalseMixed);
+  await localStorage.removeItem(strings.numOfTotQuestionsTrueFalseMixed);
+  await localStorage.removeItem(strings.noIsChosen);
+  await localStorage.removeItem(strings.yesIsChosen);
+  await localStorage.removeItem(strings.useTimerTrueFalseMixed); // from Categories
+  await localStorage.removeItem(strings.totalTimeLeftTrueFalseMixed);
+  await localStorage.removeItem(strings.lastQuestionSecondsTrueFalseMixed);
+  await localStorage.removeItem(strings.lastQuestionMinutesTrueFalseMixed);
+  await localStorage.removeItem(strings.indexTrueFalseMixed);
 };
 
 export const removeChoicesfromAsyncStorage = async () => {
   // Here we remove all choices.
-  await cache.remove(asyncNames.alfaIsTrueMultiMixed);
-  await cache.remove(asyncNames.betaIsTrueMultiMixed);
-  await cache.remove(asyncNames.gammaIsTrueMultiMixed);
-  await cache.remove(asyncNames.deltaIsTrueMultiMixed);
+  await cache.remove(strings.alfaIsTrueMultiMixed);
+  await cache.remove(strings.betaIsTrueMultiMixed);
+  await cache.remove(strings.gammaIsTrueMultiMixed);
+  await cache.remove(strings.deltaIsTrueMultiMixed);
 
-  await cache.remove(asyncNames.alfaIsTrueMulti);
-  await cache.remove(asyncNames.betaIsTrueMulti);
-  await cache.remove(asyncNames.gammaIsTrueMulti);
-  await cache.remove(asyncNames.deltaIsTrueMulti);
+  await cache.remove(strings.alfaIsTrueMulti);
+  await cache.remove(strings.betaIsTrueMulti);
+  await cache.remove(strings.gammaIsTrueMulti);
+  await cache.remove(strings.deltaIsTrueMulti);
 };

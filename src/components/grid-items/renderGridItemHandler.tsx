@@ -1,6 +1,6 @@
 import CategoryGridTile from "./CategoryGridTile";
 import CategoryGridTileNoTimer from "./CategoryGridTileNoTimer";
-import navNames from "../../constants/navNames";
+import nav from "../../constants/nav";
 import { history } from '../../App';
 
 // import { GameStatusMulti } from "./imageHandler";
@@ -14,7 +14,7 @@ const renderGridItemHandler = (
   const renderGridItem = (game: { id: string, title: string }): any => {
 
     const getNavigationName = () =>
-      game.id === "mixed" ? navNames.mixChooseCategories : navigationName;
+      game.id === "mixed" ? nav.mixChooseCategories : navigationName;
 
     if (timer) {
       return (

@@ -2,7 +2,7 @@ import question, { Question } from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
 import deleteQuestion from "../../../utils/deleteQuestion";
 import cache from "../../../utils/cache";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 
 export const createQuestionForTrueFalseThree = (
   accepted: boolean,
@@ -17,7 +17,7 @@ export const createQuestionForTrueFalseThree = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
       let questionsArray = [];
       // First fetch the first group and check if it's full, i.e. 100
       const res = await fetch(
@@ -96,7 +96,7 @@ export const updateQuestionForTrueFalseThree = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
@@ -193,11 +193,11 @@ export const fetchQuestionsForTrueFalseThree = (maxIndex: number,
       });
 
       const localDatabaseTrueFalseThree = await cache.get(
-        asyncNames.localDatabaseTrueFalseThree
+        strings.localDatabaseTrueFalseThree
       );
       if (!localDatabaseTrueFalseThree) {
         await cache.set(
-          asyncNames.localDatabaseTrueFalseThree,
+          strings.localDatabaseTrueFalseThree,
           acceptedQuestions
         );
       }
@@ -205,17 +205,17 @@ export const fetchQuestionsForTrueFalseThree = (maxIndex: number,
       const shuffledQuestions = shuffle(acceptedQuestions);
 
       // if (trueFalse_useTimer && trueFalse_useTimer !== "created") {
-      await cache.set(asyncNames.questionsTrueFalseThree, shuffledQuestions);
+      await cache.set(strings.questionsTrueFalseThree, shuffledQuestions);
       // }
       if (!trueFalse_useTimer) {
         await cache.set(
-          asyncNames.questionsTrueFalseThreeNoTimer,
+          strings.questionsTrueFalseThreeNoTimer,
           shuffledQuestions
         );
       }
       // if (trueFalse_useTimer === "created") {
       await cache.set(
-        asyncNames.createdQuestionsTrueFalseThree,
+        strings.createdQuestionsTrueFalseThree,
         loadedQuestions
       );
       // }
@@ -278,11 +278,11 @@ export const fetchQuestionsForTrueFalseThreeMixed = (maxIndex: number) => {
       const shuffledQuestions = shuffle(acceptedQuestions);
 
       const alfaThreeDataBaseMixed = await cache.get(
-        asyncNames.localDatabaseTrueFalseMixedThree
+        strings.localDatabaseTrueFalseMixedThree
       );
       if (!alfaThreeDataBaseMixed) {
         await cache.set(
-          asyncNames.localDatabaseTrueFalseMixedThree,
+          strings.localDatabaseTrueFalseMixedThree,
           shuffledQuestions
         );
       }
@@ -299,7 +299,7 @@ export const deleteQuestionForTrueFalseThree = (
   index: number
 ) => {
   return async () => {
-    const { token } = await cache.get(asyncNames.userData);
+    const { token } = await cache.get(strings.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForTrueFalseThree/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForTrueFalseThree.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

@@ -2,7 +2,7 @@ import question, { Question } from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
 import deleteQuestion from "../../../utils/deleteQuestion";
 import cache from "../../../utils/cache";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 
 export const createQuestionForTrueFalseFour = (
   accepted: boolean,
@@ -17,7 +17,7 @@ export const createQuestionForTrueFalseFour = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       let questionsArray = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -97,7 +97,7 @@ export const updateQuestionForTrueFalseFour = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
@@ -194,17 +194,17 @@ export const fetchQuestionsForTrueFalseFour =
         });
 
         const localDatabaseTrueFalseFour = await cache.get(
-          asyncNames.localDatabaseTrueFalseFour
+          strings.localDatabaseTrueFalseFour
         );
         if (!localDatabaseTrueFalseFour) {
           await cache.set(
-            asyncNames.localDatabaseTrueFalseFour,
+            strings.localDatabaseTrueFalseFour,
             acceptedQuestions
           );
         }
 
         await cache.set(
-          asyncNames.createdQuestionsTrueFalseFour,
+          strings.createdQuestionsTrueFalseFour,
           loadedQuestions
         );
 
@@ -212,17 +212,17 @@ export const fetchQuestionsForTrueFalseFour =
 
         // if (trueFalse_useTimer && trueFalse_useTimer !== "created") {
         // For checking in ...QuestionDetails if alfaQuestions are fetched and saved in cache.
-        await cache.set(asyncNames.questionsTrueFalseFour, shuffledQuestions);
+        await cache.set(strings.questionsTrueFalseFour, shuffledQuestions);
         // }
         if (!trueFalse_useTimer) {
           await cache.set(
-            asyncNames.questionsTrueFalseFourNoTimer,
+            strings.questionsTrueFalseFourNoTimer,
             shuffledQuestions
           );
         }
         // if (trueFalse_useTimer === "created") {
         await cache.set(
-          asyncNames.createdQuestionsTrueFalseFour,
+          strings.createdQuestionsTrueFalseFour,
           loadedQuestions
         );
         // }
@@ -285,12 +285,12 @@ export const fetchQuestionsForTrueFalseFourMixed = (maxIndex: number) => {
       const shuffledQuestions = shuffle(acceptedQuestions);
 
       const alfaFourDataBaseMixed = await cache.get(
-        asyncNames.localDatabaseTrueFalseMixedFour
+        strings.localDatabaseTrueFalseMixedFour
       );
 
       if (!alfaFourDataBaseMixed) {
         await cache.set(
-          asyncNames.localDatabaseTrueFalseMixedFour,
+          strings.localDatabaseTrueFalseMixedFour,
           shuffledQuestions
         );
       }
@@ -307,7 +307,7 @@ export const deleteQuestionForTrueFalseFour = (
   index: number
 ) => {
   return async () => {
-    const { token } = await cache.get(asyncNames.userData);
+    const { token } = await cache.get(strings.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForTrueFalseFour/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForTrueFalseFour.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

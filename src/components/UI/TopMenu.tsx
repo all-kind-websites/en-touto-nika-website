@@ -1,5 +1,5 @@
 import { RootStateOrAny, useSelector } from 'react-redux';
-import asyncNames from '../../constants/asyncNames';
+import strings from '../../constants/strings';
 import { store } from '../../index';
 import '../../styles/UI/top-menu.scss';
 
@@ -18,9 +18,9 @@ const TopMenu = ({
   const pointsTrueFalseMixed = useSelector((state: RootStateOrAny) => state.game.pointsTrueFalseMixed);
   let totalPoints = 0
 
-  if (pointsType === asyncNames.pointsTypeMultiMixed)
+  if (pointsType === strings.pointsTypeMultiMixed)
     totalPoints = pointsMultiMixed;
-  if (pointsType === asyncNames.pointsTypeTrueFalseMixed)
+  if (pointsType === strings.pointsTypeTrueFalseMixed)
     totalPoints = pointsTrueFalseMixed;
 
   return (

@@ -2,13 +2,13 @@ import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Alert, Animated } from "react-native";
 
-import asyncNames from "../constants/asyncNames/asyncNames";
+import strings from "../constants/strings/strings";
 
 import * as questionsActions from "../store/actions/questions";
 
 import cache from "../utils/cache";
 import getTotalPointsMulti from "../utils/getTotalPointsMulti";
-import navNames from "../constants/navNames/navNames";
+import nav from "../constants/nav/nav";
 
 export default useLoadQuestionsMultiple = (
   categoryId,
@@ -45,13 +45,13 @@ export default useLoadQuestionsMultiple = (
   const getTotalTimeLeft = async () => {
     let totalTimeLeft_Str = "";
     if (categoryId == "c1") {
-      totalTimeLeft_Str = await cache.get(asyncNames.totalTimeLeftMultiOne);
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftMultiOne);
     } else if (categoryId == "c2") {
-      totalTimeLeft_Str = await cache.get(asyncNames.totalTimeLeftMultiTwo);
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftMultiTwo);
     } else if (categoryId == "c3") {
-      totalTimeLeft_Str = await cache.get(asyncNames.totalTimeLeftMultiThree);
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftMultiThree);
     } else if (categoryId == "c4") {
-      totalTimeLeft_Str = await cache.get(asyncNames.totalTimeLeftMultiFour);
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftMultiFour);
     }
     let totalTimeLeft_Int = totalTimeLeft_Str;
     if (isNaN(totalTimeLeft_Int)) {
@@ -97,7 +97,7 @@ export default useLoadQuestionsMultiple = (
         [
           {
             text: "Εντάξει",
-            onPress: () => navigation.navigate(navNames.welcome),
+            onPress: () => navigation.navigate(nav.welcome),
           },
         ]
       );
@@ -125,23 +125,23 @@ export default useLoadQuestionsMultiple = (
           await cache.remove(NumberQuestions);
           if (withTimer) {
             if (categoryId == "c1") {
-              await cache.remove(asyncNames.numOfTotQuestionsMultiOne);
+              await cache.remove(strings.numOfTotQuestionsMultiOne);
             } else if (categoryId == "c2") {
-              await cache.remove(asyncNames.numOfTotQuestionsMultiTwo);
+              await cache.remove(strings.numOfTotQuestionsMultiTwo);
             } else if (categoryId == "c3") {
-              await cache.remove(asyncNames.numOfTotQuestionsMultiThree);
+              await cache.remove(strings.numOfTotQuestionsMultiThree);
             } else if (categoryId == "c4") {
-              await cache.remove(asyncNames.numOfTotQuestionsMultiFour);
+              await cache.remove(strings.numOfTotQuestionsMultiFour);
             }
           } else {
             if (categoryId == "c1") {
-              await cache.remove(asyncNames.numOfTotQuestionsMultiOneNoTimer);
+              await cache.remove(strings.numOfTotQuestionsMultiOneNoTimer);
             } else if (categoryId == "c2") {
-              await cache.remove(asyncNames.numOfTotQuestionsMultiTwoNoTimer);
+              await cache.remove(strings.numOfTotQuestionsMultiTwoNoTimer);
             } else if (categoryId == "c3") {
-              await cache.remove(asyncNames.numOfTotQuestionsMultiThreeNoTimer);
+              await cache.remove(strings.numOfTotQuestionsMultiThreeNoTimer);
             } else if (categoryId == "c4") {
-              await cache.remove(asyncNames.numOfTotQuestionsMultiFourNoTimer);
+              await cache.remove(strings.numOfTotQuestionsMultiFourNoTimer);
             }
           }
         }
@@ -156,37 +156,37 @@ export default useLoadQuestionsMultiple = (
     if (withTimer) {
       if (categoryId == "c1") {
         savedNumOfTotQuestions = await cache.get(
-          asyncNames.numOfTotQuestionsMultiOne
+          strings.numOfTotQuestionsMultiOne
         );
       } else if (categoryId == "c2") {
         savedNumOfTotQuestions = await cache.get(
-          asyncNames.numOfTotQuestionsMultiTwo
+          strings.numOfTotQuestionsMultiTwo
         );
       } else if (categoryId == "c3") {
         savedNumOfTotQuestions = await cache.get(
-          asyncNames.numOfTotQuestionsMultiThree
+          strings.numOfTotQuestionsMultiThree
         );
       } else if (categoryId == "c4") {
         savedNumOfTotQuestions = await cache.get(
-          asyncNames.numOfTotQuestionsMultiFour
+          strings.numOfTotQuestionsMultiFour
         );
       }
     } else {
       if (categoryId == "c1") {
         savedNumOfTotQuestions = await cache.get(
-          asyncNames.numOfTotQuestionsMultiOneNoTimer
+          strings.numOfTotQuestionsMultiOneNoTimer
         );
       } else if (categoryId == "c2") {
         savedNumOfTotQuestions = await cache.get(
-          asyncNames.numOfTotQuestionsMultiTwoNoTimer
+          strings.numOfTotQuestionsMultiTwoNoTimer
         );
       } else if (categoryId == "c3") {
         savedNumOfTotQuestions = await cache.get(
-          asyncNames.numOfTotQuestionsMultiThreeNoTimer
+          strings.numOfTotQuestionsMultiThreeNoTimer
         );
       } else if (categoryId == "c4") {
         savedNumOfTotQuestions = await cache.get(
-          asyncNames.numOfTotQuestionsMultiFourNoTimer
+          strings.numOfTotQuestionsMultiFourNoTimer
         );
       }
     }
@@ -208,24 +208,24 @@ export default useLoadQuestionsMultiple = (
     try {
       if (categoryId == "c1") {
         setQuestion(
-          (NumberDataBase = asyncNames.localDataBaseMultiOne),
-          (NumberQuestions = asyncNames.questionsMultiOne + noTimer),
+          (NumberDataBase = strings.localDataBaseMultiOne),
+          (NumberQuestions = strings.questionsMultiOne + noTimer),
           (fetchQuestionsForNumber = withTimer
             ? questionsActions.fetchQuestionsForMultiOne(maxIndexForOne)
             : questionsActions.fetchQuestionsForMultiOneNoTimer(maxIndexForOne))
         );
       } else if (categoryId == "c2") {
         setQuestion(
-          (NumberDataBase = asyncNames.localDataBaseMultiTwo),
-          (NumberQuestions = asyncNames.questionsMultiTwo + noTimer),
+          (NumberDataBase = strings.localDataBaseMultiTwo),
+          (NumberQuestions = strings.questionsMultiTwo + noTimer),
           (fetchQuestionsForNumber = withTimer
             ? questionsActions.fetchQuestionsForMultiTwo(maxIndexForTwo)
             : questionsActions.fetchQuestionsForMultiTwoNoTimer(maxIndexForTwo))
         );
       } else if (categoryId == "c3") {
         setQuestion(
-          (NumberDataBase = asyncNames.localDataBaseMultiThree),
-          (NumberQuestions = asyncNames.questionsMultiThree + noTimer),
+          (NumberDataBase = strings.localDataBaseMultiThree),
+          (NumberQuestions = strings.questionsMultiThree + noTimer),
           (fetchQuestionsForNumber = withTimer
             ? questionsActions.fetchQuestionsForMultiThree(maxIndexForThree)
             : questionsActions.fetchQuestionsForMultiThreeNoTimer(
@@ -234,8 +234,8 @@ export default useLoadQuestionsMultiple = (
         );
       } else if (categoryId == "c4") {
         setQuestion(
-          (NumberDataBase = asyncNames.localDataBaseMultiFour),
-          (NumberQuestions = asyncNames.questionsMultiFour + noTimer),
+          (NumberDataBase = strings.localDataBaseMultiFour),
+          (NumberQuestions = strings.questionsMultiFour + noTimer),
           (fetchQuestionsForNumber = withTimer
             ? questionsActions.fetchQuestionsForMultiFour(maxIndexForThree)
             : questionsActions.fetchQuestionsForMultiFourNoTimer(

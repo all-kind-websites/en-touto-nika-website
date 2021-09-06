@@ -7,7 +7,7 @@ import {
   noTimerTrueFalseRemoveAsync,
 } from "./removeAsync";
 
-import navNames from "../constants/navNames";
+import nav from "../constants/nav";
 
 const quitGame = (
   history: any,
@@ -32,7 +32,7 @@ const quitGame = (
     }
 
     setNumOfTotalQuestions(0);
-    history.push(navNames.home); // call it here otherwise you get the finished round screen.
+    history.push(nav.home); // call it here otherwise you get the finished round screen.
   };
   return { quit };
 };

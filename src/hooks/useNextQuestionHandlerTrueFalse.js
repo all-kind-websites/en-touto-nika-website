@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import asyncNames from "../constants/asyncNames/asyncNames";
+import strings from "../constants/strings/strings";
 
 import cache from "../utils/cache";
 import getTotalPointsMulti from "../utils/getTotalPointsMulti";
@@ -33,21 +33,15 @@ export default useNextQuestionHandlerTrueFalse = (
     let totalTimeLeft_Str = "";
     // a mixed game is on => categoryId === undefined
     if (!categoryId) {
-      totalTimeLeft_Str = await cache.get(
-        asyncNames.totalTimeLeftTrueFalseMixed
-      );
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftTrueFalseMixed);
     } else if (categoryId == "c1") {
-      totalTimeLeft_Str = await cache.get(asyncNames.totalTimeLeftTrueFalseOne);
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftTrueFalseOne);
     } else if (categoryId == "c2") {
-      totalTimeLeft_Str = await cache.get(asyncNames.totalTimeLeftTrueFalseTwo);
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftTrueFalseTwo);
     } else if (categoryId == "c3") {
-      totalTimeLeft_Str = await cache.get(
-        asyncNames.totalTimeLeftTrueFalseThree
-      );
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftTrueFalseThree);
     } else if (categoryId == "c4") {
-      totalTimeLeft_Str = await cache.get(
-        asyncNames.totalTimeLeftTrueFalseFour
-      );
+      totalTimeLeft_Str = await cache.get(strings.totalTimeLeftTrueFalseFour);
     }
     let totalTimeLeft_Int = totalTimeLeft_Str;
     if (isNaN(totalTimeLeft_Int)) {
@@ -90,8 +84,8 @@ export default useNextQuestionHandlerTrueFalse = (
     setChoiceSave(false);
     setPlayCorrectAnimSound(false);
     setPlayWrongAnimSound(false);
-    await cache.remove(asyncNames.noIsChosen);
-    await cache.remove(asyncNames.yesIsChosen);
+    await cache.remove(strings.noIsChosen);
+    await cache.remove(strings.yesIsChosen);
 
     // set num of q/s to finish stadium (100)
     if (numOfTotalQuestions === 100) {

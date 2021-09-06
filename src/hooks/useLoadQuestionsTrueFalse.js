@@ -2,8 +2,8 @@ import { useCallback, useState } from "react";
 import { Alert, Animated } from "react-native";
 import { useDispatch } from "react-redux";
 
-import navNames from "../constants/navNames/navNames";
-import asyncNames from "../constants/asyncNames/asyncNames";
+import nav from "../constants/nav/nav";
+import strings from "../constants/strings/strings";
 
 import * as questionsActions from "../store/actions/questions";
 
@@ -89,7 +89,7 @@ export default useLoadQuestionsTrueFalse = (
         [
           {
             text: "Εντάξει",
-            onPress: () => navigation.navigate(navNames.welcome),
+            onPress: () => navigation.navigate(nav.welcome),
           },
         ]
       );
@@ -103,22 +103,22 @@ export default useLoadQuestionsTrueFalse = (
       let strOfRemainQuestions = 0;
       if (categoryId == "c1") {
         strOfRemainQuestions = await cache.get(
-          `${asyncNames.numOfRemainQuestionsTrueFalseOne}${withOrWithoutTimer}`
+          `${strings.numOfRemainQuestionsTrueFalseOne}${withOrWithoutTimer}`
         );
       }
       if (categoryId == "c2") {
         strOfRemainQuestions = await cache.get(
-          `${asyncNames.numOfRemainQuestionsTrueFalseTwo}${withOrWithoutTimer}`
+          `${strings.numOfRemainQuestionsTrueFalseTwo}${withOrWithoutTimer}`
         );
       }
       if (categoryId == "c3") {
         strOfRemainQuestions = await cache.get(
-          `${asyncNames.numOfRemainQuestionsTrueFalseThree}${withOrWithoutTimer}`
+          `${strings.numOfRemainQuestionsTrueFalseThree}${withOrWithoutTimer}`
         );
       }
       if (categoryId == "c4") {
         strOfRemainQuestions = await cache.get(
-          `${asyncNames.numOfRemainQuestionsTrueFalseFour}${withOrWithoutTimer}`
+          `${strings.numOfRemainQuestionsTrueFalseFour}${withOrWithoutTimer}`
         );
       }
 
@@ -147,7 +147,7 @@ export default useLoadQuestionsTrueFalse = (
       );
 
       await cache.set(
-        `${asyncNames.questionsRightChoices}${withOrWithoutTimer}`,
+        `${strings.questionsRightChoices}${withOrWithoutTimer}`,
         questionsRightChoices
       );
 
@@ -187,7 +187,7 @@ export default useLoadQuestionsTrueFalse = (
       if (categoryId == "c1") {
         setQuestion(
           (NumberQuestions = `questionsTrueFalseOne${withOrWithoutTimer}`),
-          (NumberDataBase = asyncNames.localDatabaseTrueFalseOne),
+          (NumberDataBase = strings.localDatabaseTrueFalseOne),
           (fetchQuestionsForNumber = questionsActions.fetchQuestionsForTrueFalseOne(
             maxIndexForOne,
             timer
@@ -196,7 +196,7 @@ export default useLoadQuestionsTrueFalse = (
       } else if (categoryId == "c2") {
         setQuestion(
           (NumberQuestions = `questionsTrueFalseTwo${withOrWithoutTimer}`),
-          (NumberDataBase = asyncNames.localDatabaseTrueFalseTwo),
+          (NumberDataBase = strings.localDatabaseTrueFalseTwo),
           (fetchQuestionsForNumber = questionsActions.fetchQuestionsForTrueFalseTwo(
             maxIndexForTwo,
             timer
@@ -205,7 +205,7 @@ export default useLoadQuestionsTrueFalse = (
       } else if (categoryId == "c3") {
         setQuestion(
           (NumberQuestions = `questionsTrueFalseThree${withOrWithoutTimer}`),
-          (NumberDataBase = asyncNames.localDatabaseTrueFalseThree),
+          (NumberDataBase = strings.localDatabaseTrueFalseThree),
           (fetchQuestionsForNumber = questionsActions.fetchQuestionsForTrueFalseThree(
             maxIndexForThree,
             timer
@@ -214,7 +214,7 @@ export default useLoadQuestionsTrueFalse = (
       } else if (categoryId == "c4") {
         setQuestion(
           (NumberQuestions = `questionsTrueFalseFour${withOrWithoutTimer}`),
-          (NumberDataBase = asyncNames.localDatabaseTrueFalseFour),
+          (NumberDataBase = strings.localDatabaseTrueFalseFour),
           (fetchQuestionsForNumber = questionsActions.fetchQuestionsForTrueFalseFour(
             maxIndexForFour,
             timer

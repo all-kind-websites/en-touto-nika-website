@@ -2,7 +2,7 @@ import '../../../styles/game/mix/mix-multi-game-no-timer.scss'
 
 import { useState, useEffect, useCallback } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 
 import useLoadQuestionsMixMulti from "../../../hooks/useLoadQuestionsMixMulti";
 import useSaveStadiumResultHandler from "../../../hooks/useSaveStadiumResultHandler";
@@ -18,7 +18,7 @@ import DownloadErrorScreen from "../../extras/DownloadErrorScreen";
 import NoQuestionsHereScreen from '../../extras/NoQuestionsHereScreen';
 import { savePoints } from '../../../store/actions/game';
 import { useHistory } from 'react-router-dom';
-import navNames from '../../../constants/navNames';
+import nav from '../../../constants/nav';
 
 const MixMultiGameNoTimer = (props: any) => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const MixMultiGameNoTimer = (props: any) => {
 
   const [choiceSave, setChoiceSave] = useState(false);
   const [correctChoice, setCorrectChoice] = useState(false);
-  const [choiceColor, setChoiceColor] = useState(asyncNames.defaultChoiceColor);
+  const [choiceColor, setChoiceColor] = useState(strings.defaultChoiceColor);
 
   const [checkAlfa, setCheckAlfa] = useState(false);
   const [checkBeta, setCheckBeta] = useState(false);
@@ -49,7 +49,7 @@ const MixMultiGameNoTimer = (props: any) => {
 
   // By this we know in TopMenu, which points to display.
   useEffect(() => {
-    dispatch(savePoints(pointsMultiMixed, asyncNames.pointsTypeMultiMixed))
+    dispatch(savePoints(pointsMultiMixed, strings.pointsTypeMultiMixed))
   }, [dispatch, pointsMultiMixed])
 
   const {
@@ -69,7 +69,7 @@ const MixMultiGameNoTimer = (props: any) => {
 
   const onRefresh = useCallback(async () => {
     setCorrectChoice(false);
-    setChoiceColor(asyncNames.defaultChoiceColor)
+    setChoiceColor(strings.defaultChoiceColor)
     setRefreshing(true);
     setCheckAlfa(false);
     setCheckBeta(false);
@@ -124,8 +124,7 @@ const MixMultiGameNoTimer = (props: any) => {
     totalPoints
   );
 
-  // if (loadQuestionsError) {
-  if (true) {
+  if (loadQuestionsError) {
     return (
       <DownloadErrorScreen
         loadQuestions={loadQuestions}
@@ -156,10 +155,10 @@ const MixMultiGameNoTimer = (props: any) => {
   return (
     <article className='mix-multi' >
       {showQuestion(
-        asyncNames.alfaIsTrueMultiMixed,
-        asyncNames.betaIsTrueMultiMixed,
-        asyncNames.gammaIsTrueMultiMixed,
-        asyncNames.deltaIsTrueMultiMixed,
+        strings.alfaIsTrueMultiMixed,
+        strings.betaIsTrueMultiMixed,
+        strings.gammaIsTrueMultiMixed,
+        strings.deltaIsTrueMultiMixed,
         checkAlfa,
         checkBeta,
         categoryId,

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 import * as questionsActions from "../store/actions/questions";
 
@@ -25,7 +25,7 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
   const loadQuestions = useCallback(async () => {
     // const getTotalTimeLeft = async () => {
     //   if (timer) {
-    //     let totalTimeLeft = await cache.get(asyncNames.totalTimeLeftMultiMixed);
+    //     let totalTimeLeft = await cache.get(strings.totalTimeLeftMultiMixed);
     //     if (!totalTimeLeft) totalTimeLeft = 0;
     //     else setTotalTimeLeft(parseInt(totalTimeLeft));
     //   }
@@ -34,12 +34,12 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
 
     try {
       if (timer) {
-        const mixGameIsOn = await cache.get(asyncNames.mixGameIsOnMulti);
-        !mixGameIsOn && (await cache.set(asyncNames.mixGameIsOnMulti, true));
+        const mixGameIsOn = await cache.get(strings.mixGameIsOnMulti);
+        !mixGameIsOn && (await cache.set(strings.mixGameIsOnMulti, true));
       } else {
-        const mixGameIsOn = await cache.get(asyncNames.mixGameIsOnMultiNoTimer);
+        const mixGameIsOn = await cache.get(strings.mixGameIsOnMultiNoTimer);
         !mixGameIsOn &&
-          (await cache.set(asyncNames.mixGameIsOnMultiNoTimer, true));
+          (await cache.set(strings.mixGameIsOnMultiNoTimer, true));
       }
 
       setLoadQuestionsError(null);
@@ -54,7 +54,7 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
 
       // timer && getTotalTimeLeft();
 
-      let questions = await cache.get(asyncNames.questionsMultiMixed);
+      let questions = await cache.get(strings.questionsMultiMixed);
 
       // In case game just starts we fetch the questions and store them to AsyncStorage
       if (!questions) {
@@ -62,14 +62,14 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
         setNumOfQuestions(1);
         setTotalPoints(0);
         if (timer) {
-          await cache.remove(asyncNames.min);
-          await cache.remove(asyncNames.sec);
+          await cache.remove(strings.min);
+          await cache.remove(strings.sec);
         }
 
         await dispatch(
           questionsActions.fetchQuestionsMultiMixed()
         );
-        questions = await cache.get(asyncNames.questionsMultiMixed);
+        questions = await cache.get(strings.questionsMultiMixed);
       }
 
       if (questions) {
@@ -77,16 +77,16 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
 
         // Remove the old set and save the new one with one less question
         const newSelectedQuestion = questions.splice(0, 1);
-        await cache.remove(asyncNames.questionsMultiMixed);
+        await cache.remove(strings.questionsMultiMixed);
 
         // If there is a question store it...
         if (questions.length > 0 || newSelectedQuestion.length === 1) {
-          await cache.set(asyncNames.questionsMultiMixed, questions);
+          await cache.set(strings.questionsMultiMixed, questions);
           setSelectedQuestion(newSelectedQuestion.pop());
         } else if (questions.length === 0 || newSelectedQuestion.length === 0) {
           setStadiumIsFinished(true);
-          await cache.remove(asyncNames.numOfTotQuestionsMultiMixed);
-          await cache.remove(asyncNames.questionsMultiMixed);
+          await cache.remove(strings.numOfTotQuestionsMultiMixed);
+          await cache.remove(strings.questionsMultiMixed);
         }
       }
     } catch (err) {

@@ -1,7 +1,7 @@
 import { store } from '../index';
 
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const getTotalPointsMixed = async (
   totalPoints: number,

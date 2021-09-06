@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import asyncNames from "../constants/asyncNames/asyncNames";
+import strings from "../constants/strings/strings";
 import cache from "../utils/cache";
 
 export default useCheckLocalDatabases = () => {
@@ -25,25 +25,25 @@ export default useCheckLocalDatabases = () => {
 
   const checkLocalDatabases = async () => {
     const localDataBaseMultiOne = await cache.get(
-      asyncNames.localDataBaseMultiOne
+      strings.localDataBaseMultiOne
     );
     if (!!localDataBaseMultiOne) {
       setMultiOne(true);
     }
     const localDataBaseMultiTwo = await cache.get(
-      asyncNames.localDataBaseMultiTwo
+      strings.localDataBaseMultiTwo
     );
     if (!!localDataBaseMultiTwo) {
       setMultiTwo(true);
     }
     const localDataBaseMultiThree = await cache.get(
-      asyncNames.localDataBaseMultiThree
+      strings.localDataBaseMultiThree
     );
     if (!!localDataBaseMultiThree) {
       setMultiThree(true);
     }
     const localDataBaseMultiFour = await cache.get(
-      asyncNames.localDataBaseMultiFour
+      strings.localDataBaseMultiFour
     );
     if (!!localDataBaseMultiFour) {
       setMultiFour(true);
@@ -51,52 +51,52 @@ export default useCheckLocalDatabases = () => {
 
     // For True/false
     const localDatabaseTrueFalseOne = await cache.get(
-      asyncNames.localDatabaseTrueFalseOne
+      strings.localDatabaseTrueFalseOne
     );
     if (!!localDatabaseTrueFalseOne) {
       setTrueFalseOne(true);
     }
     const localDatabaseTrueFalseTwo = await cache.get(
-      asyncNames.localDatabaseTrueFalseTwo
+      strings.localDatabaseTrueFalseTwo
     );
     if (!!localDatabaseTrueFalseTwo) {
       setTrueFalseTwo(true);
     }
     const localDatabaseTrueFalseThree = await cache.get(
-      asyncNames.localDatabaseTrueFalseThree
+      strings.localDatabaseTrueFalseThree
     );
     if (!!localDatabaseTrueFalseThree) {
       setTrueFalseThree(true);
     }
     const localDatabaseTrueFalseFour = await cache.get(
-      asyncNames.localDatabaseTrueFalseFour
+      strings.localDatabaseTrueFalseFour
     );
     if (!!localDatabaseTrueFalseFour) {
       setTrueFalseFour(true);
     }
     // For Apanthisma - mixed
     const localDataBaseMultiMixedOne = await cache.get(
-      asyncNames.localDataBaseMultiMixedOne
+      strings.localDataBaseMultiMixedOne
     );
 
     if (!!localDataBaseMultiMixedOne) {
       setMultiMixedOne(true);
     }
     const localDataBaseMultiMixedTwo = await cache.get(
-      asyncNames.localDataBaseMultiMixedTwo
+      strings.localDataBaseMultiMixedTwo
     );
     if (!!localDataBaseMultiMixedTwo) {
       setMultiMixedTwo(true);
     }
     const localDataBaseMultiMixedThree = await cache.get(
-      asyncNames.localDataBaseMultiMixedThree
+      strings.localDataBaseMultiMixedThree
     );
     if (!!localDataBaseMultiMixedThree) {
       setMultiMixedThree(true);
     }
 
     const localDataBaseMultiMixedFour = await cache.get(
-      asyncNames.localDataBaseMultiMixedFour
+      strings.localDataBaseMultiMixedFour
     );
     if (!!localDataBaseMultiMixedFour) {
       setMultiMixedFour(true);
@@ -104,27 +104,27 @@ export default useCheckLocalDatabases = () => {
 
     // For Apanthisma - true false
     const localDatabaseTrueFalseMixedOne = await cache.get(
-      asyncNames.localDatabaseTrueFalseMixedOne
+      strings.localDatabaseTrueFalseMixedOne
     );
 
     if (!!localDatabaseTrueFalseMixedOne) {
       setMixedTrueFalseOne(true);
     }
     const localDatabaseTrueFalseMixedTwo = await cache.get(
-      asyncNames.localDatabaseTrueFalseMixedTwo
+      strings.localDatabaseTrueFalseMixedTwo
     );
     if (!!localDatabaseTrueFalseMixedTwo) {
       setMixedTrueFalseTwo(true);
     }
     const localDatabaseTrueFalseMixedThree = await cache.get(
-      asyncNames.localDatabaseTrueFalseMixedThree
+      strings.localDatabaseTrueFalseMixedThree
     );
     if (!!localDatabaseTrueFalseMixedThree) {
       setMixedTrueFalseThree(true);
     }
 
     const localDatabaseTrueFalseMixedFour = await cache.get(
-      asyncNames.localDatabaseTrueFalseMixedFour
+      strings.localDatabaseTrueFalseMixedFour
     );
     if (!!localDatabaseTrueFalseMixedFour) {
       setMixedTrueFalseFour(true);

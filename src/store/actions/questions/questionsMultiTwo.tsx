@@ -2,7 +2,7 @@
 import question, { Question } from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
 import deleteQuestion from "../../../utils/deleteQuestion";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 import cache from "../../../utils/cache";
 
 export const createQuestionForMultiTwo = (
@@ -22,7 +22,7 @@ export const createQuestionForMultiTwo = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       let questionsArray = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -111,7 +111,7 @@ export const updateQuestionForMultiTwo = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
@@ -213,26 +213,26 @@ export const fetchQuestionsForMultiTwo = (maxIndex: number) => {
       });
 
       const localDataBaseMultiTwo = await localStorage.getItem(
-        asyncNames.localDataBaseMultiTwo
+        strings.localDataBaseMultiTwo
       );
 
       if (!localDataBaseMultiTwo) {
         await localStorage.setItem(
-          asyncNames.localDataBaseMultiTwo,
+          strings.localDataBaseMultiTwo,
           JSON.stringify(acceptedQuestions)
         );
       }
 
       // set here if user is ther creator of the question
       await localStorage.setItem(
-        asyncNames.createdQuestionsMultiTwo,
+        strings.createdQuestionsMultiTwo,
         JSON.stringify(loadedQuestions)
       );
 
       const shuffledQuestions = shuffle(acceptedQuestions);
 
       await localStorage.setItem(
-        asyncNames.questionsMultiTwo,
+        strings.questionsMultiTwo,
         JSON.stringify(shuffledQuestions)
       );
     } catch (err) {
@@ -295,26 +295,26 @@ export const fetchQuestionsForMultiTwoNoTimer = (maxIndex: number) => {
       });
 
       const localDataBaseMultiTwo = await localStorage.getItem(
-        asyncNames.localDataBaseMultiTwo
+        strings.localDataBaseMultiTwo
       );
 
       if (!localDataBaseMultiTwo) {
         await localStorage.setItem(
-          asyncNames.localDataBaseMultiTwo,
+          strings.localDataBaseMultiTwo,
           JSON.stringify(acceptedQuestions)
         );
       }
 
       // set here if user is ther creator of the question
       await localStorage.setItem(
-        asyncNames.createdQuestionsMultiTwo,
+        strings.createdQuestionsMultiTwo,
         JSON.stringify(loadedQuestions)
       );
 
       const shuffledQuestions = shuffle(acceptedQuestions);
 
       await localStorage.setItem(
-        asyncNames.questionsMultiTwoNoTimer,
+        strings.questionsMultiTwoNoTimer,
         JSON.stringify(shuffledQuestions)
       );
     } catch (err) {
@@ -377,11 +377,11 @@ export const fetchQuestionsForMixedTwo = (maxIndex: number) => {
       });
 
       const alfaTwoDataBaseMixed = await localStorage.getItem(
-        asyncNames.localDataBaseMultiMixedTwo
+        strings.localDataBaseMultiMixedTwo
       );
       if (!alfaTwoDataBaseMixed) {
         await localStorage.setItem(
-          asyncNames.localDataBaseMultiMixedTwo,
+          strings.localDataBaseMultiMixedTwo,
           JSON.stringify(acceptedQuestions)
         );
       }
@@ -398,7 +398,7 @@ export const deleteQuestionForMultiTwo = (
   index: number
 ) => {
   return async () => {
-    const { token } = await cache.get(asyncNames.userData);
+    const { token } = await cache.get(strings.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForMultiTwo/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForMultiTwo.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

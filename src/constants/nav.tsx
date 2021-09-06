@@ -1,5 +1,5 @@
 
-const navNames = {
+const nav = {
   home: '/',
   winners: "/winners",
   settings: "/settings",
@@ -45,4 +45,4 @@ const navNames = {
 
 };
 
-export default navNames;
+export default nav;

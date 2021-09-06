@@ -2,7 +2,7 @@ import question, { Question } from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
 import deleteQuestion from "../../../utils/deleteQuestion";
 import cache from "../../../utils/cache";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 
 export const createQuestionForTrueFalseOne = (
   accepted: boolean,
@@ -17,7 +17,7 @@ export const createQuestionForTrueFalseOne = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       let questionsArray = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -98,7 +98,7 @@ export const updateQuestionForTrueFalseOne = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
       if (index <= 99) {
@@ -195,31 +195,31 @@ export const fetchQuestionsForTrueFalseOne = (maxIndex: number,
       const shuffledQuestions = shuffle(acceptedQuestions);
 
       const oneTrueFalseDataBase = await cache.get(
-        asyncNames.localDatabaseTrueFalseOne
+        strings.localDatabaseTrueFalseOne
       );
 
       if (!oneTrueFalseDataBase) {
         await cache.set(
-          asyncNames.localDatabaseTrueFalseOne,
+          strings.localDatabaseTrueFalseOne,
           shuffledQuestions
         );
       }
 
       // if (trueFalse_useTimer && trueFalse_useTimer !== "created") {
-      await cache.set(asyncNames.questionsTrueFalseOne, shuffledQuestions);
+      await cache.set(strings.questionsTrueFalseOne, shuffledQuestions);
       // }
 
       if (!trueFalse_useTimer) {
         await cache.set(
-          asyncNames.questionsTrueFalseOneNoTimer,
+          strings.questionsTrueFalseOneNoTimer,
           shuffledQuestions
         );
       }
 
       // if (trueFalse_useTimer == "created") {
-      // await cache.remove(asyncNames.createdQuestionsTrueFalseOne);
+      // await cache.remove(strings.createdQuestionsTrueFalseOne);
       await cache.set(
-        asyncNames.createdQuestionsTrueFalseOne,
+        strings.createdQuestionsTrueFalseOne,
         loadedQuestions
       );
       // }
@@ -282,11 +282,11 @@ export const fetchQuestionsForTrueFalseOneMixed = (maxIndex: number) => {
 
       const shuffledQuestions = shuffle(acceptedQuestions);
       const alfaOneDataBaseMixed = await cache.get(
-        asyncNames.localDatabaseTrueFalseMixedOne
+        strings.localDatabaseTrueFalseMixedOne
       );
       if (!alfaOneDataBaseMixed) {
         await cache.set(
-          asyncNames.localDatabaseTrueFalseMixedOne,
+          strings.localDatabaseTrueFalseMixedOne,
           shuffledQuestions
         );
       }
@@ -303,7 +303,7 @@ export const deleteQuestionForTrueFalseOne = (
   index: number
 ) => {
   return async () => {
-    const { token } = await cache.get(asyncNames.userData);
+    const { token } = await cache.get(strings.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForTrueFalseOne/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForTrueFalseOne.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

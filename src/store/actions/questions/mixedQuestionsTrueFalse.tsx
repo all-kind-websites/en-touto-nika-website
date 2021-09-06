@@ -1,36 +1,36 @@
 import cache from "../../../utils/cache";
 import question from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 
 export const fetchQuestionsTrueFalseMixed = () => {
   return async () => {
     try {
       const mixedQuestions = [];
       const trueFalseOneDataBaseMixed = await cache.get(
-        asyncNames.localDatabaseTrueFalseMixedOne
+        strings.localDatabaseTrueFalseMixedOne
       );
       const check_oneTF = await cache.get("check_oneTF");
 
       const trueFalseTwoDataBaseMixed = await cache.get(
-        asyncNames.localDatabaseTrueFalseMixedTwo
+        strings.localDatabaseTrueFalseMixedTwo
       );
       const check_twoTF = await cache.get("check_twoTF");
 
       const trueFalseThreeDataBaseMixed = await cache.get(
-        asyncNames.localDatabaseTrueFalseMixedThree
+        strings.localDatabaseTrueFalseMixedThree
       );
       const check_threeTF = await cache.get("check_threeTF");
 
       const trueFalseFourDataBaseMixed = await cache.get(
-        asyncNames.localDatabaseTrueFalseMixedFour
+        strings.localDatabaseTrueFalseMixedFour
       );
       const check_fourTF = await cache.get("check_fourTF");
 
       ///////////////////////
       if (!!trueFalseOneDataBaseMixed && check_oneTF) {
         const categoryAlfa = await cache.get(
-          asyncNames.localDatabaseTrueFalseMixedOne
+          strings.localDatabaseTrueFalseMixedOne
         );
         for (const key in categoryAlfa) {
           mixedQuestions.push(
@@ -57,7 +57,7 @@ export const fetchQuestionsTrueFalseMixed = () => {
       }
       if (!!trueFalseTwoDataBaseMixed && check_twoTF) {
         const categoryBeta = await cache.get(
-          asyncNames.localDatabaseTrueFalseMixedTwo
+          strings.localDatabaseTrueFalseMixedTwo
         );
 
         for (const key in categoryBeta) {
@@ -86,7 +86,7 @@ export const fetchQuestionsTrueFalseMixed = () => {
 
       if (trueFalseThreeDataBaseMixed && check_threeTF) {
         const categoryGamma = await cache.get(
-          asyncNames.localDatabaseTrueFalseMixedThree
+          strings.localDatabaseTrueFalseMixedThree
         );
 
         for (const key in categoryGamma) {
@@ -114,7 +114,7 @@ export const fetchQuestionsTrueFalseMixed = () => {
       }
       if (!!trueFalseFourDataBaseMixed && check_fourTF) {
         const categoryDelta = await cache.get(
-          asyncNames.localDatabaseTrueFalseMixedFour
+          strings.localDatabaseTrueFalseMixedFour
         );
 
         for (const key in categoryDelta) {
@@ -143,7 +143,7 @@ export const fetchQuestionsTrueFalseMixed = () => {
 
       const shuffledQuestions = shuffle(mixedQuestions);
       // const array = shuffledQuestions.splice(0, 1);
-      await cache.set(asyncNames.questionsTrueFalseMixed, shuffledQuestions);
+      await cache.set(strings.questionsTrueFalseMixed, shuffledQuestions);
     } catch (err) {
       // send to custom analytics server
       throw err;

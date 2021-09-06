@@ -1,4 +1,4 @@
-import asyncNames from '../../constants/asyncNames';
+import strings from '../../constants/strings';
 import { LOGIN_MODE, GAME_STATE, TIMER_STATE, GAME_TYPE_TITLE, GAME_ON, SAVE_POINTS, SAVE_POINTS_TYPE } from '../actions/game';
 interface Action {
   type: string,
@@ -53,18 +53,18 @@ const game = (state = initialState, action: Action) => {
         gameOn: action.gameOn
       }
     case SAVE_POINTS:
-      if (action.pointsType === asyncNames.pointsTypeMultiMixed) {
+      if (action.pointsType === strings.pointsTypeMultiMixed) {
         return {
           ...state,
           pointsMultiMixed: action.points,
-          pointsType: asyncNames.pointsTypeMultiMixed
+          pointsType: strings.pointsTypeMultiMixed
         }
       }
-      if (action.pointsType === asyncNames.pointsTypeTrueFalseMixed) {
+      if (action.pointsType === strings.pointsTypeTrueFalseMixed) {
         return {
           ...state,
           pointsTrueFalseMixed: action.points,
-          pointsType: asyncNames.pointsTypeTrueFalseMixed
+          pointsType: strings.pointsTypeTrueFalseMixed
         }
       }
       return { ...state }

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import cache from "../utils/cache";
 import * as questionsActions from "../store/actions/questions";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const maxIndex = 0;
 
@@ -69,34 +69,34 @@ const useGetQuestionsList = (
   useEffect(() => {
     if (gameType === "Multi") {
       if (oneIsTrue)
-        checkHandler("check_one", asyncNames.localDataBaseMultiMixedOne);
+        checkHandler("check_one", strings.localDataBaseMultiMixedOne);
       if (!oneIsTrue) (async () => await cache.remove("check_one"))();
       if (twoIsTrue)
-        checkHandler("check_two", asyncNames.localDataBaseMultiMixedTwo);
+        checkHandler("check_two", strings.localDataBaseMultiMixedTwo);
       if (!twoIsTrue) (async () => await cache.remove("check_two"))();
       if (threeIsTrue)
-        checkHandler("check_three", asyncNames.localDataBaseMultiMixedThree);
+        checkHandler("check_three", strings.localDataBaseMultiMixedThree);
       if (!threeIsTrue) (async () => await cache.remove("check_three"))();
       if (fourIsTrue)
-        checkHandler("check_four", asyncNames.localDataBaseMultiMixedFour);
+        checkHandler("check_four", strings.localDataBaseMultiMixedFour);
       if (!fourIsTrue) (async () => await cache.remove("check_four"))();
     } else if (gameType === "TrueFalse") {
       if (oneIsTrue)
-        checkHandler("check_oneTF", asyncNames.localDatabaseTrueFalseMixedOne);
+        checkHandler("check_oneTF", strings.localDatabaseTrueFalseMixedOne);
       if (!oneIsTrue) (async () => await cache.remove("check_oneTF"))();
       if (twoIsTrue)
-        checkHandler("check_twoTF", asyncNames.localDatabaseTrueFalseMixedTwo);
+        checkHandler("check_twoTF", strings.localDatabaseTrueFalseMixedTwo);
       if (!twoIsTrue) (async () => await cache.remove("check_twoTF"))();
       if (threeIsTrue)
         checkHandler(
           "check_threeTF",
-          asyncNames.localDatabaseTrueFalseMixedThree
+          strings.localDatabaseTrueFalseMixedThree
         );
       if (!threeIsTrue) (async () => await cache.remove("check_threeTF"))();
       if (fourIsTrue)
         checkHandler(
           "check_fourTF",
-          asyncNames.localDatabaseTrueFalseMixedFour
+          strings.localDatabaseTrueFalseMixedFour
         );
       if (!fourIsTrue) (async () => await cache.remove("check_fourTF"))();
     }

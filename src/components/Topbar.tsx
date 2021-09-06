@@ -5,7 +5,7 @@ import { BiDonateBlood } from 'react-icons/bi';
 import { MdTimer, MdTimerOff } from 'react-icons/md';
 
 import "../styles/topbar.scss";
-import navNames from '../constants/navNames';
+import nav from '../constants/nav';
 import { timerState } from '../store/actions/game';
 
 export default function Topbar(props: any) {
@@ -29,7 +29,7 @@ export default function Topbar(props: any) {
   };
 
   const donationHanlder = () => {
-    history.push(navNames.donate);
+    history.push(nav.donate);
     props.setMenuOpen(false);
 
   }

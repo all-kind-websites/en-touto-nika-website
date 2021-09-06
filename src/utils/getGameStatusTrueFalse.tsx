@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const getGameStatusTrueFalse = (setGamesStatus: Function) => {
   let questionsTrueFalseOne: Array<object> = [],
@@ -12,23 +12,23 @@ const getGameStatusTrueFalse = (setGamesStatus: Function) => {
     questionsTrueFalseFourNoTimer: Array<object> = [];
 
   const checkCategories = async () => {
-    questionsTrueFalseOne = await cache.get(asyncNames.questionsTrueFalseOne);
-    questionsTrueFalseTwo = await cache.get(asyncNames.questionsTrueFalseTwo);
+    questionsTrueFalseOne = await cache.get(strings.questionsTrueFalseOne);
+    questionsTrueFalseTwo = await cache.get(strings.questionsTrueFalseTwo);
     questionsTrueFalseThree = await cache.get(
-      asyncNames.questionsTrueFalseThree
+      strings.questionsTrueFalseThree
     );
-    questionsTrueFalseFour = await cache.get(asyncNames.questionsTrueFalseFour);
+    questionsTrueFalseFour = await cache.get(strings.questionsTrueFalseFour);
     questionsTrueFalseOneNoTimer = await cache.get(
-      asyncNames.questionsTrueFalseOneNoTimer
+      strings.questionsTrueFalseOneNoTimer
     );
     questionsTrueFalseTwoNoTimer = await cache.get(
-      asyncNames.questionsTrueFalseTwoNoTimer
+      strings.questionsTrueFalseTwoNoTimer
     );
     questionsTrueFalseThreeNoTimer = await cache.get(
-      asyncNames.questionsTrueFalseThreeNoTimer
+      strings.questionsTrueFalseThreeNoTimer
     );
     questionsTrueFalseFourNoTimer = await cache.get(
-      asyncNames.questionsTrueFalseFourNoTimer
+      strings.questionsTrueFalseFourNoTimer
     );
   };
 

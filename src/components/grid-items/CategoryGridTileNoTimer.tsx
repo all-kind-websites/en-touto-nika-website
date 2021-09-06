@@ -1,4 +1,4 @@
-import navNames from "../../constants/navNames";
+import nav from "../../constants/nav";
 
 import GridTile from "./GridTile";
 import imageHandler from "./imageHandler";
@@ -39,17 +39,17 @@ const CategoryGridTileNoTimer = ({
   if (id === 'mixed') {
     const { borderColor, borderWidth, image } = imageHandlerMix();
     borderC = borderColor; borderW = borderWidth; img = image;
-  } else if (navigationName === navNames.multiGameNoTimer) {
+  } else if (navigationName === nav.multiGameNoTimer) {
     const { borderColor, borderWidth, image } = imageHandler(gamesStatus, id, timer);
     borderC = borderColor; borderW = borderWidth; img = image;
   }
 
-  // if (navigationName === navNames.trueFalseGameNoTimer) {
+  // if (navigationName === nav.trueFalseGameNoTimer) {
   //   const { borderColor, borderWidth, image } = imageHandlerTrueFalse(gamesStatus, id, timer);
   //   borderC = borderColor; borderW = borderWidth; img = image;
 
   // }
-  // if (navigationName === navNames.createHome) {
+  // if (navigationName === nav.createHome) {
   //   const { borderColor, borderWidth, image } = imageHandlerCreate(id);
   //   borderC = borderColor; borderW = borderWidth; img = image;
   // }

@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const getFinalGradeWithTime = async (
   type: string,
@@ -15,26 +15,26 @@ const getFinalGradeWithTime = async (
     lastQuestionMinutesLeftMixed_str = "";
   if (type === "Mixed") {
     lastQuestionSecondsLeftMixed_str = await cache.get(
-      asyncNames.lastQuestionSecondsMultiMixed
+      strings.lastQuestionSecondsMultiMixed
     );
     lastQuestionMinutesLeftMixed_str = await cache.get(
-      asyncNames.lastQuestionMinutesMultiMixed
+      strings.lastQuestionMinutesMultiMixed
     );
   }
   if (type === "MultiChoice") {
     lastQuestionSecondsLeftMixed_str = await cache.get(
-      asyncNames.lastQuestionSecondsMulti
+      strings.lastQuestionSecondsMulti
     );
     lastQuestionMinutesLeftMixed_str = await cache.get(
-      asyncNames.lastQuestionMinutesMulti
+      strings.lastQuestionMinutesMulti
     );
   }
   if (type === "TrueFalse") {
     lastQuestionSecondsLeftMixed_str = await cache.get(
-      asyncNames.lastQuestionSecondsTrueFalse
+      strings.lastQuestionSecondsTrueFalse
     );
     lastQuestionMinutesLeftMixed_str = await cache.get(
-      asyncNames.lastQuestionMinutesTrueFalse
+      strings.lastQuestionMinutesTrueFalse
     );
   }
 

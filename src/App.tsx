@@ -14,9 +14,9 @@ import Auth from './pages/Auth/Auth';
 import Topbar from './components/Topbar';
 import './styles/app.scss';
 
-import asyncNames from './constants/asyncNames';
+import strings from './constants/strings';
 import Donate from './pages/menu/Donate';
-import navNames from './constants/navNames';
+import nav from './constants/nav';
 import MultiCategories from './pages/game/MultiCategories';
 import MultiCategoriesNoTimer from './pages/game/MultiCategoriesNoTimer';
 import MixChooseCategories from './pages/game/mix/MixChooseCategories';
@@ -30,7 +30,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const allowEntrance = useSelector((state: RootStateOrAny) => state.auth.allowEntrance)
 
-  const userLoggedIn = localStorage.getItem(asyncNames.userData);
+  const userLoggedIn = localStorage.getItem(strings.userData);
 
   useEffect(() => {
     document.addEventListener("mousedown", () => {
@@ -46,34 +46,34 @@ function App() {
         <div className="app__content">
           <Switch>
             {/* Menu */}
-            <Route path={navNames.auth} component={Auth} />
-            <Route path={navNames.winners} component={Winners} />
-            <Route path={navNames.settings} component={Settings} />
-            <Route path={navNames.create} component={Create} />
-            <Route path={navNames.donate} component={Donate} />
+            <Route path={nav.auth} component={Auth} />
+            <Route path={nav.winners} component={Winners} />
+            <Route path={nav.settings} component={Settings} />
+            <Route path={nav.create} component={Create} />
+            <Route path={nav.donate} component={Donate} />
 
             {/* Categories */}
-            <Route path={navNames.multiCategories} component={MultiCategories} />
+            <Route path={nav.multiCategories} component={MultiCategories} />
             <Route
-              path={navNames.multiCategoriesNoTimer}
+              path={nav.multiCategoriesNoTimer}
               render={() => <MultiCategoriesNoTimer history={history} />}
             />
 
             {/* Games */}
 
             {/* Mix */}
-            <Route path={navNames.mixChooseCategories} component={MixChooseCategories} />
-            <Route path={navNames.mixMultiGameNoTimer} component={MixMultiGameNoTimer} />
-            <Route path={navNames.mixMultiGameWithTimer} component={MixMultiGameWithTimer} />
+            <Route path={nav.mixChooseCategories} component={MixChooseCategories} />
+            <Route path={nav.mixMultiGameNoTimer} component={MixMultiGameNoTimer} />
+            <Route path={nav.mixMultiGameWithTimer} component={MixMultiGameWithTimer} />
 
             {/* Multi */}
-            <Route path={navNames.multiGameNoTimer} component={MultiGameNoTimer} />
+            <Route path={nav.multiGameNoTimer} component={MultiGameNoTimer} />
 
 
             {/* Basic */}
-            <Route path={navNames.not_found} component={NotFound} />
-            <Route path={navNames.home} exact render={() => <Home setMenuOpen={setMenuOpen} />} />
-            <Redirect to={navNames.not_found} />
+            <Route path={nav.not_found} component={NotFound} />
+            <Route path={nav.home} exact render={() => <Home setMenuOpen={setMenuOpen} />} />
+            <Redirect to={nav.not_found} />
           </Switch>
         </div>
       </div>

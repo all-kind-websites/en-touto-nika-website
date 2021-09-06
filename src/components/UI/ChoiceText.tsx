@@ -1,4 +1,4 @@
-import asyncNames from '../../constants/asyncNames';
+import strings from '../../constants/strings';
 import colors from '../../constants/colors';
 import '../../styles/UI/choice-text.scss';
 

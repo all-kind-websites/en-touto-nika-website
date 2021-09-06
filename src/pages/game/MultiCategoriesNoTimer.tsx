@@ -5,7 +5,7 @@ import CategoryGridTileNoTimer from '../../components/grid-items/CategoryGridTil
 
 // import GridItemHome from '../../components/grid-items/GridItemHome';
 // import renderGridItemHandler from '../../components/grid-items/renderGridItemHandler';
-import navNames from '../../constants/navNames';
+import nav from '../../constants/nav';
 import { CATEGORIES } from '../../data/categories';
 import { gameTypeTitle } from '../../store/actions/game';
 import '../../styles/game/multi-categories-no-timer.scss'
@@ -57,12 +57,12 @@ const MultiCategoriesNoTimer = (props: any): any => {
             key={game.id}
             gamesStatus={gamesStatus}
             id={game.id}
-            navigationName={navNames.multiGameNoTimer}
+            navigationName={nav.multiGameNoTimer}
             timer={timer}
             title={game.title}
             onClick={() => {
               const getNavigationName = () =>
-                game.id === "mixed" ? navNames.mixChooseCategories : navNames.multiGameNoTimer;
+                game.id === "mixed" ? nav.mixChooseCategories : nav.multiGameNoTimer;
 
               history.push(getNavigationName())
             }

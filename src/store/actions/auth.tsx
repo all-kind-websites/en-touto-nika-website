@@ -1,4 +1,4 @@
-import asyncNames from "../../constants/asyncNames";
+import strings from "../../constants/strings";
 import API_KEY from "../../api_key";
 // import firebase from "../../firebase/firebase";
 
@@ -167,8 +167,8 @@ export const login = (email: string, password: string) => {
 
 export const logout = () => {
   return async (dispatch: Function) => {
-    await localStorage.removeItem(asyncNames.userData);
-    await localStorage.removeItem(asyncNames.refreshToken);
+    await localStorage.removeItem(strings.userData);
+    await localStorage.removeItem(strings.refreshToken);
 
     // await localStorage.removeItem('dataIsLoaded');
     // clearLogoutTimer();
@@ -204,7 +204,7 @@ const saveDataToStorage = (
       // email is undefined if we come here from refreshData.
       // So we get it from localStorage
       if (email === undefined) {
-        const userData = await localStorage.getItem(asyncNames.userData);
+        const userData = await localStorage.getItem(strings.userData);
         let oldEmail = "";
         if (userData) {
           // parse converts a string to an object or array
@@ -212,9 +212,9 @@ const saveDataToStorage = (
           const { userEmail } = transformedData;
           oldEmail = userEmail;
         }
-        await localStorage.removeItem(asyncNames.userData);
+        await localStorage.removeItem(strings.userData);
         await localStorage.setItem(
-          asyncNames.userData,
+          strings.userData,
           // stringify converts an object to a string
           JSON.stringify({
             token: token,
@@ -224,10 +224,10 @@ const saveDataToStorage = (
           })
         );
       } else {
-        await localStorage.removeItem(asyncNames.userData);
+        await localStorage.removeItem(strings.userData);
         // data must be in string format!
         await localStorage.setItem(
-          asyncNames.userData,
+          strings.userData,
           // stringify converts an object to a string
           JSON.stringify({
             token: token,
@@ -238,7 +238,7 @@ const saveDataToStorage = (
         );
       }
 
-      await localStorage.setItem(asyncNames.refreshToken, refreshToken);
+      await localStorage.setItem(strings.refreshToken, refreshToken);
     } catch (error) {
       // Error saving data
     }
@@ -482,11 +482,11 @@ export const changeUserName = (userName: string) => {
 
       // Get the userName on the screen.
       await dispatch(fetchUserName());
-      const oldUserName = await localStorage.getItem(asyncNames.userName);
+      const oldUserName = await localStorage.getItem(strings.userName);
       if (!!oldUserName) {
-        await localStorage.removeItem(asyncNames.userName);
+        await localStorage.removeItem(strings.userName);
       }
-      await localStorage.setItem(asyncNames.userName, userName);
+      await localStorage.setItem(strings.userName, userName);
     } catch (err) {
       console.log(err);
     }
@@ -514,11 +514,11 @@ export const fetchUserName = () => {
         userName = resData[key].userName;
       }
 
-      const oldUserName = await localStorage.getItem(asyncNames.userName);
+      const oldUserName = await localStorage.getItem(strings.userName);
       if (!!oldUserName) {
-        await localStorage.removeItem(asyncNames.userName);
+        await localStorage.removeItem(strings.userName);
       }
-      await localStorage.setItem(asyncNames.userName, JSON.stringify(userName));
+      await localStorage.setItem(strings.userName, JSON.stringify(userName));
     } catch (err) {
       console.log(err);
     }

@@ -2,7 +2,7 @@ import cache from "../../../utils/cache";
 import question, { Question } from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
 import deleteQuestion from "../../../utils/deleteQuestion";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 
 export const createQuestionForMultiThree = (
   accepted: boolean,
@@ -21,7 +21,7 @@ export const createQuestionForMultiThree = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       let questionsArray = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -110,7 +110,7 @@ export const updateQuestionForMultiThree = (
   return async () => {
     try {
 
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
       if (index <= 99) {
@@ -214,18 +214,18 @@ export const fetchQuestionsForMultiThree = (maxIndex: number) => {
       });
 
       const localDataBaseMultiThree = await cache.get(
-        asyncNames.localDataBaseMultiThree
+        strings.localDataBaseMultiThree
       );
 
       if (!localDataBaseMultiThree) {
-        await cache.set(asyncNames.localDataBaseMultiThree, acceptedQuestions);
+        await cache.set(strings.localDataBaseMultiThree, acceptedQuestions);
       }
 
-      await cache.set(asyncNames.createdQuestionsMultiThree, loadedQuestions);
+      await cache.set(strings.createdQuestionsMultiThree, loadedQuestions);
 
       const shuffledQuestions = shuffle(acceptedQuestions);
 
-      await cache.set(asyncNames.questionsMultiThree, shuffledQuestions);
+      await cache.set(strings.questionsMultiThree, shuffledQuestions);
 
       // console.log('loadedQuestions', loadedQuestions);
     } catch (err) {
@@ -289,18 +289,18 @@ export const fetchQuestionsForMultiThreeNoTimer = (maxIndex: number) => {
       });
 
       const localDataBaseMultiThree = await cache.get(
-        asyncNames.localDataBaseMultiThree
+        strings.localDataBaseMultiThree
       );
 
       if (!localDataBaseMultiThree) {
-        await cache.set(asyncNames.localDataBaseMultiThree, acceptedQuestions);
+        await cache.set(strings.localDataBaseMultiThree, acceptedQuestions);
       }
 
-      await cache.set(asyncNames.createdQuestionsMultiThree, loadedQuestions);
+      await cache.set(strings.createdQuestionsMultiThree, loadedQuestions);
 
       const shuffledQuestions = shuffle(acceptedQuestions);
 
-      await cache.set(asyncNames.questionsMultiThreeNoTimer, shuffledQuestions);
+      await cache.set(strings.questionsMultiThreeNoTimer, shuffledQuestions);
 
       // console.log('loadedQuestions', loadedQuestions);
     } catch (err) {
@@ -365,12 +365,12 @@ export const fetchQuestionsForMixedThree = (maxIndex: number) => {
       });
 
       const alfaThreeDataBaseMixed = await cache.get(
-        asyncNames.localDataBaseMultiMixedThree
+        strings.localDataBaseMultiMixedThree
       );
 
       if (!alfaThreeDataBaseMixed) {
         await cache.set(
-          asyncNames.localDataBaseMultiMixedThree,
+          strings.localDataBaseMultiMixedThree,
           acceptedQuestions
         );
       }
@@ -387,7 +387,7 @@ export const deleteQuestionForMultiThree = (
   index: number
 ) => {
   return async () => {
-    const { token } = await cache.get(asyncNames.userData);
+    const { token } = await cache.get(strings.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForMultiThree/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForMultiThree.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

@@ -1,4 +1,4 @@
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 import cache from "../../../utils/cache";
 
 export const FETCH_All_USERS_DATA = "FETCH_All_USERS_DATA";
@@ -6,7 +6,7 @@ export const FETCH_All_USERS_DATA = "FETCH_All_USERS_DATA";
 export const saveDataToAllUsersData = (email: string, totalPoints: number) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
       const date = new Date();
 
       // Fist post the data

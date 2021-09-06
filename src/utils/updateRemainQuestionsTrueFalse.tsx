@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const updateRemainQuestionsTrueFalse = async (
   categoryId: string,
@@ -11,28 +11,28 @@ const updateRemainQuestionsTrueFalse = async (
   let strOfRemainQuestions = "";
   if (gameType === "TrueFalse" && !categoryId) {
     strOfRemainQuestions = await cache.get(
-      asyncNames.numOfRemainQuestionsTrueFalseMixed
+      strings.numOfRemainQuestionsTrueFalseMixed
     );
   }
 
   if (categoryId === "c1") {
     strOfRemainQuestions = await cache.get(
-      `${asyncNames.numOfRemainQuestionsTrueFalseOne}${timer}`
+      `${strings.numOfRemainQuestionsTrueFalseOne}${timer}`
     );
   }
   if (categoryId === "c2") {
     strOfRemainQuestions = await cache.get(
-      `${asyncNames.numOfRemainQuestionsTrueFalseTwo}${timer}`
+      `${strings.numOfRemainQuestionsTrueFalseTwo}${timer}`
     );
   }
   if (categoryId === "c3") {
     strOfRemainQuestions = await cache.get(
-      `${asyncNames.numOfRemainQuestionsTrueFalseThree}${timer}`
+      `${strings.numOfRemainQuestionsTrueFalseThree}${timer}`
     );
   }
   if (categoryId === "c4") {
     strOfRemainQuestions = await cache.get(
-      `${asyncNames.numOfRemainQuestionsTrueFalseFour}${timer}`
+      `${strings.numOfRemainQuestionsTrueFalseFour}${timer}`
     );
   }
 
@@ -48,43 +48,43 @@ const updateRemainQuestionsTrueFalse = async (
   // Remove old value and set new one in cache
   const value = String(newValue);
   if (gameType === "TrueFalse" && !categoryId) {
-    await cache.remove(asyncNames.numOfRemainQuestionsTrueFalseMixed);
-    await cache.set(asyncNames.numOfRemainQuestionsTrueFalseMixed, value);
+    await cache.remove(strings.numOfRemainQuestionsTrueFalseMixed);
+    await cache.set(strings.numOfRemainQuestionsTrueFalseMixed, value);
   }
 
   if (categoryId === "c1") {
     await cache.remove(
-      `${asyncNames.numOfRemainQuestionsTrueFalseOne}${timer}`
+      `${strings.numOfRemainQuestionsTrueFalseOne}${timer}`
     );
     await cache.set(
-      `${asyncNames.numOfRemainQuestionsTrueFalseOne}${timer}`,
+      `${strings.numOfRemainQuestionsTrueFalseOne}${timer}`,
       newValue
     );
   }
   if (categoryId === "c2") {
     await cache.remove(
-      `${asyncNames.numOfRemainQuestionsTrueFalseTwo}${timer}`
+      `${strings.numOfRemainQuestionsTrueFalseTwo}${timer}`
     );
     await cache.set(
-      `${asyncNames.numOfRemainQuestionsTrueFalseTwo}${timer}`,
+      `${strings.numOfRemainQuestionsTrueFalseTwo}${timer}`,
       newValue
     );
   }
   if (categoryId === "c3") {
     await cache.remove(
-      `${asyncNames.numOfRemainQuestionsTrueFalseThree}${timer}`
+      `${strings.numOfRemainQuestionsTrueFalseThree}${timer}`
     );
     await cache.set(
-      `${asyncNames.numOfRemainQuestionsTrueFalseThree}${timer}`,
+      `${strings.numOfRemainQuestionsTrueFalseThree}${timer}`,
       newValue
     );
   }
   if (categoryId === "c4") {
     await cache.remove(
-      `${asyncNames.numOfRemainQuestionsTrueFalseFour}${timer}`
+      `${strings.numOfRemainQuestionsTrueFalseFour}${timer}`
     );
     await cache.set(
-      `${asyncNames.numOfRemainQuestionsTrueFalseFour}${timer}`,
+      `${strings.numOfRemainQuestionsTrueFalseFour}${timer}`,
       newValue
     );
   }

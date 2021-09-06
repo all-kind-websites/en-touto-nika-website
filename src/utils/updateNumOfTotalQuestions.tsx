@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const updateNumOfTotalQuestions = async (
   numOfTotalQuestions: number,
@@ -12,31 +12,31 @@ const updateNumOfTotalQuestions = async (
   const numOfTot = numOfTotalQuestions.toString();
   if (timer) {
     if (categoryId === "c1") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiOne);
-      await cache.set(asyncNames.numOfTotQuestionsMultiOne, numOfTot);
+      await cache.remove(strings.numOfTotQuestionsMultiOne);
+      await cache.set(strings.numOfTotQuestionsMultiOne, numOfTot);
     } else if (categoryId === "c2") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiTwo);
-      await cache.set(asyncNames.numOfTotQuestionsMultiTwo, numOfTot);
+      await cache.remove(strings.numOfTotQuestionsMultiTwo);
+      await cache.set(strings.numOfTotQuestionsMultiTwo, numOfTot);
     } else if (categoryId === "c3") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiThree);
-      await cache.set(asyncNames.numOfTotQuestionsMultiThree, numOfTot);
+      await cache.remove(strings.numOfTotQuestionsMultiThree);
+      await cache.set(strings.numOfTotQuestionsMultiThree, numOfTot);
     } else if (categoryId === "c4") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiFour);
-      await cache.set(asyncNames.numOfTotQuestionsMultiFour, numOfTot);
+      await cache.remove(strings.numOfTotQuestionsMultiFour);
+      await cache.set(strings.numOfTotQuestionsMultiFour, numOfTot);
     }
   } else {
     if (categoryId === "c1") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiOneNoTimer);
-      await cache.set(asyncNames.numOfTotQuestionsMultiOneNoTimer, numOfTot);
+      await cache.remove(strings.numOfTotQuestionsMultiOneNoTimer);
+      await cache.set(strings.numOfTotQuestionsMultiOneNoTimer, numOfTot);
     } else if (categoryId === "c2") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiTwoNoTimer);
-      await cache.set(asyncNames.numOfTotQuestionsMultiTwoNoTimer, numOfTot);
+      await cache.remove(strings.numOfTotQuestionsMultiTwoNoTimer);
+      await cache.set(strings.numOfTotQuestionsMultiTwoNoTimer, numOfTot);
     } else if (categoryId === "c3") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiThreeNoTimer);
-      await cache.set(asyncNames.numOfTotQuestionsMultiThreeNoTimer, numOfTot);
+      await cache.remove(strings.numOfTotQuestionsMultiThreeNoTimer);
+      await cache.set(strings.numOfTotQuestionsMultiThreeNoTimer, numOfTot);
     } else if (categoryId === "c4") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiFourNoTimer);
-      await cache.set(asyncNames.numOfTotQuestionsMultiFourNoTimer, numOfTot);
+      await cache.remove(strings.numOfTotQuestionsMultiFourNoTimer);
+      await cache.set(strings.numOfTotQuestionsMultiFourNoTimer, numOfTot);
     }
   }
 };

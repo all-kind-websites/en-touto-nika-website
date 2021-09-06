@@ -1,4 +1,4 @@
-import asynNames from "../constants/asyncNames";
+import asynNames from "../constants/strings";
 import { store } from "../index";
 import { savePoints } from "../store/actions/game";
 

@@ -1,4 +1,4 @@
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 import cache from "./cache";
 import checkAnswerForMixed from "./checkAnswerForMixed";
@@ -12,10 +12,10 @@ const checkAnswerHandlerMixedMulti = (
   totalPoints: number
 ) => {
   const saveAnswer = async () => {
-    const alfaIsTrueMixed = await cache.get(asyncNames.alfaIsTrueMultiMixed);
-    const betaIsTrueMixed = await cache.get(asyncNames.betaIsTrueMultiMixed);
-    const gammaIsTrueMixed = await cache.get(asyncNames.gammaIsTrueMultiMixed);
-    const deltaIsTrueMixed = await cache.get(asyncNames.deltaIsTrueMultiMixed);
+    const alfaIsTrueMixed = await cache.get(strings.alfaIsTrueMultiMixed);
+    const betaIsTrueMixed = await cache.get(strings.betaIsTrueMultiMixed);
+    const gammaIsTrueMixed = await cache.get(strings.gammaIsTrueMultiMixed);
+    const deltaIsTrueMixed = await cache.get(strings.deltaIsTrueMultiMixed);
 
     let rightChoice = 0;
     if (!!selectedQuestion) {
@@ -33,19 +33,19 @@ const checkAnswerHandlerMixedMulti = (
     let corChoice = false; // For checking the answer when dispatching the checkAnswerFor...
     if (alfaIsTrueMixed && +rightChoice === 1) {
       setCorrectChoice(true);
-      setChoiceColor(asyncNames.correctChoiceColor);
+      setChoiceColor(strings.correctChoiceColor);
       corChoice = true;
     } if (betaIsTrueMixed && +rightChoice === 2) {
       setCorrectChoice(true);
-      setChoiceColor(asyncNames.correctChoiceColor);
+      setChoiceColor(strings.correctChoiceColor);
       corChoice = true;
     } if (gammaIsTrueMixed && +rightChoice === 3) {
       setCorrectChoice(true);
-      setChoiceColor(asyncNames.correctChoiceColor);
+      setChoiceColor(strings.correctChoiceColor);
       corChoice = true;
     } if (deltaIsTrueMixed && +rightChoice === 4) {
       setCorrectChoice(true);
-      setChoiceColor(asyncNames.correctChoiceColor);
+      setChoiceColor(strings.correctChoiceColor);
       corChoice = true;
     }
     if (corChoice) {
@@ -53,7 +53,7 @@ const checkAnswerHandlerMixedMulti = (
 
     }
     if (!corChoice) {
-      setChoiceColor(asyncNames.wrongChoiceColor);
+      setChoiceColor(strings.wrongChoiceColor);
     }
     checkAnswerForMixed(corChoice, totalPoints);
   };

@@ -1,5 +1,5 @@
 import Button from "../../components/UI/Button";
-import navNames from "../../constants/navNames";
+import nav from "../../constants/nav";
 import '../../styles/game/pages/no-questions-here.scss';
 
 const NoQuestionsHereScreen = (props: any) => {
@@ -9,7 +9,7 @@ const NoQuestionsHereScreen = (props: any) => {
       <Button
 
         title="Επιστροφή"
-        onClick={() => props.history.push(navNames.home)}
+        onClick={() => props.history.push(nav.home)}
       />
     </div>
   );

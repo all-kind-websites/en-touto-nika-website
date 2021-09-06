@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const checkIfMixGameIsOn = (
   gameType: string,
@@ -12,14 +12,14 @@ const checkIfMixGameIsOn = (
 
   const checking = async () => {
     if (gameType === "Multi") {
-      mixGameIsOn = await cache.get(asyncNames.mixGameIsOnMulti);
-      mixGameIsOnNoTimer = await cache.get(asyncNames.mixGameIsOnMultiNoTimer);
+      mixGameIsOn = await cache.get(strings.mixGameIsOnMulti);
+      mixGameIsOnNoTimer = await cache.get(strings.mixGameIsOnMultiNoTimer);
 
       if (mixGameIsOn || mixGameIsOnNoTimer) setModalVisible(true);
     } else if (gameType === "TrueFalse") {
-      mixGameIsOnTF = await cache.get(asyncNames.mixGameIsOnTrueFalse);
+      mixGameIsOnTF = await cache.get(strings.mixGameIsOnTrueFalse);
       mixGameIsOnNoTimerTF = await cache.get(
-        asyncNames.mixGameIsOnTrueFalseNoTimer
+        strings.mixGameIsOnTrueFalseNoTimer
       );
 
       if (mixGameIsOnTF || mixGameIsOnNoTimerTF) setModalVisible(true);

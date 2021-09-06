@@ -1,29 +1,29 @@
 import cache from "../../../utils/cache";
 import question from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 
 export const fetchQuestionsMultiMixed = () => {
   return async () => {
     try {
       const mixedQuestions = [];
       const localDataBaseMultiMixedOne = await cache.get(
-        asyncNames.localDataBaseMultiMixedOne
+        strings.localDataBaseMultiMixedOne
       );
       const check_one = await cache.get("check_one");
 
       const localDataBaseMultiMixedTwo = await cache.get(
-        asyncNames.localDataBaseMultiMixedTwo
+        strings.localDataBaseMultiMixedTwo
       );
       const check_two = await cache.get("check_two");
 
       const localDataBaseMultiMixedThree = await cache.get(
-        asyncNames.localDataBaseMultiMixedThree
+        strings.localDataBaseMultiMixedThree
       );
       const check_three = await cache.get("check_three");
 
       const localDataBaseMultiMixedFour = await cache.get(
-        asyncNames.localDataBaseMultiMixedFour
+        strings.localDataBaseMultiMixedFour
       );
       const check_four = await cache.get("check_four");
 
@@ -32,7 +32,7 @@ export const fetchQuestionsMultiMixed = () => {
       ///////////////////////
       if (!!localDataBaseMultiMixedOne && check_one) {
         const questions = await cache.get(
-          asyncNames.localDataBaseMultiMixedOne
+          strings.localDataBaseMultiMixedOne
         );
 
         for (const key in questions) {
@@ -60,7 +60,7 @@ export const fetchQuestionsMultiMixed = () => {
       }
       if (!!localDataBaseMultiMixedTwo && check_two) {
         const questions = await cache.get(
-          asyncNames.localDataBaseMultiMixedTwo
+          strings.localDataBaseMultiMixedTwo
         );
 
         for (const key in questions) {
@@ -89,7 +89,7 @@ export const fetchQuestionsMultiMixed = () => {
 
       if (localDataBaseMultiMixedThree && check_three) {
         const questions = await cache.get(
-          asyncNames.localDataBaseMultiMixedThree
+          strings.localDataBaseMultiMixedThree
         );
 
         for (const key in questions) {
@@ -117,7 +117,7 @@ export const fetchQuestionsMultiMixed = () => {
       }
       if (!!localDataBaseMultiMixedFour && check_four) {
         const questions = await cache.get(
-          asyncNames.localDataBaseMultiMixedFour
+          strings.localDataBaseMultiMixedFour
         );
 
         for (const key in questions) {
@@ -146,7 +146,7 @@ export const fetchQuestionsMultiMixed = () => {
 
       const shuffledQuestions = shuffle(mixedQuestions);
       // const array = shuffledQuestions.splice(0, 1);
-      await cache.set(asyncNames.questionsMultiMixed, shuffledQuestions);
+      await cache.set(strings.questionsMultiMixed, shuffledQuestions);
     } catch (err) {
       // send to custom analytics server
       alert(

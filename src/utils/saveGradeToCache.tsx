@@ -1,15 +1,15 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const saveGradeToCache = async (totalPoints: number) => {
   let sum = 0;
-  let points = await cache.get(asyncNames.savedPoints);
+  let points = await cache.get(strings.savedPoints);
   if (!points) {
-    await cache.set(asyncNames.savedPoints, +totalPoints);
+    await cache.set(strings.savedPoints, +totalPoints);
   } else if (!!points) {
     sum = +points + +totalPoints;
-    await cache.remove(asyncNames.savedPoints);
-    cache.set(asyncNames.savedPoints, +sum);
+    await cache.remove(strings.savedPoints);
+    cache.set(strings.savedPoints, +sum);
   }
 };
 

@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const getTimeToAnswer = (
   minutes: number,
@@ -20,16 +20,16 @@ const getTimeToAnswer = (
 
     const getTime = async (totalTimeLeft: string) => {
       if (type === "Mixed") {
-        await cache.set(asyncNames.lastQuestionSecondsMultiMixed, seconds);
-        await cache.set(asyncNames.lastQuestionMinutesMultiMixed, minutes);
+        await cache.set(strings.lastQuestionSecondsMultiMixed, seconds);
+        await cache.set(strings.lastQuestionMinutesMultiMixed, minutes);
       }
       if (type === "MultiChoice") {
-        await cache.set(asyncNames.lastQuestionSecondsMulti, seconds);
-        await cache.set(asyncNames.lastQuestionMinutesMulti, minutes);
+        await cache.set(strings.lastQuestionSecondsMulti, seconds);
+        await cache.set(strings.lastQuestionMinutesMulti, minutes);
       }
       if (type === "TrueFalse") {
-        await cache.set(asyncNames.lastQuestionSecondsTrueFalse, seconds);
-        await cache.set(asyncNames.lastQuestionMinutesTrueFalse, minutes);
+        await cache.set(strings.lastQuestionSecondsTrueFalse, seconds);
+        await cache.set(strings.lastQuestionMinutesTrueFalse, minutes);
       }
 
       const totalTimeLeft_Str = await cache.get(totalTimeLeft);

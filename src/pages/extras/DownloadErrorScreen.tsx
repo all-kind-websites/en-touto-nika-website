@@ -1,7 +1,7 @@
 
 // import Colours from "../../constants/Colours";
 import Button from "../../components/UI/Button";
-import navNames from "../../constants//navNames";
+import nav from "../../constants//nav";
 import '../../styles/game/pages/download-error.scss';
 
 const DownloadErrorScreen = ({
@@ -19,7 +19,7 @@ const DownloadErrorScreen = ({
       <Button
         disabled={false}
         title="Επιστροφή"
-        onClick={() => history.push(navNames.home)} />
+        onClick={() => history.push(nav.home)} />
     </section>
   );
 };

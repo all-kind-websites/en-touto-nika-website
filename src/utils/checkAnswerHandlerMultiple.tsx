@@ -1,4 +1,4 @@
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 import cache from "./cache";
 import checkAnswer from "./checkAnswer";
@@ -18,10 +18,10 @@ const checkAnswerHandlerMultiple = (
   let corChoice = false; // For checking the answer when dispatching the checkAnswerFor...
   const saveAnswer = async () => {
     // For triggering the alert messages
-    const alfaIsTrueMulti = await cache.get(asyncNames.alfaIsTrueMulti);
-    const betaIsTrueMulti = await cache.get(asyncNames.betaIsTrueMulti);
-    const gammaIsTrueMulti = await cache.get(asyncNames.gammaIsTrueMulti);
-    const deltaIsTrueMulti = await cache.get(asyncNames.deltaIsTrueMulti);
+    const alfaIsTrueMulti = await cache.get(strings.alfaIsTrueMulti);
+    const betaIsTrueMulti = await cache.get(strings.betaIsTrueMulti);
+    const gammaIsTrueMulti = await cache.get(strings.gammaIsTrueMulti);
+    const deltaIsTrueMulti = await cache.get(strings.deltaIsTrueMulti);
     let rightChoice = 0;
     if (!!selectedQuestion) {
       rightChoice = selectedQuestion.right_choice; // for checking choice;
@@ -63,10 +63,10 @@ const checkAnswerHandlerMultiple = (
         setModalVisible(true);
       }, 2500);
     }
-    await cache.remove(asyncNames.alfaIsTrueMulti);
-    await cache.remove(asyncNames.betaIsTrueMulti);
-    await cache.remove(asyncNames.gammaIsTrueMulti);
-    await cache.remove(asyncNames.deltaIsTrueMulti);
+    await cache.remove(strings.alfaIsTrueMulti);
+    await cache.remove(strings.betaIsTrueMulti);
+    await cache.remove(strings.gammaIsTrueMulti);
+    await cache.remove(strings.deltaIsTrueMulti);
 
     await checkAnswer(corChoice, totalPoints, categoryId, "Multi", timer);
   };

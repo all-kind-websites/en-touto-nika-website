@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const saveCacheNumOfTotalQuestionsMulti = async (
   categoryId: string,
@@ -10,37 +10,37 @@ const saveCacheNumOfTotalQuestionsMulti = async (
   if (timer) {
     if (categoryId === "c1") {
       savedNumOfTotQuestions = await cache.get(
-        asyncNames.numOfTotQuestionsMultiOne
+        strings.numOfTotQuestionsMultiOne
       );
     } else if (categoryId === "c2") {
       savedNumOfTotQuestions = await cache.get(
-        asyncNames.numOfTotQuestionsMultiTwo
+        strings.numOfTotQuestionsMultiTwo
       );
     } else if (categoryId === "c3") {
       savedNumOfTotQuestions = await cache.get(
-        asyncNames.numOfTotQuestionsMultiThree
+        strings.numOfTotQuestionsMultiThree
       );
     } else if (categoryId === "c4") {
       savedNumOfTotQuestions = await cache.get(
-        asyncNames.numOfTotQuestionsMultiFour
+        strings.numOfTotQuestionsMultiFour
       );
     }
   } else {
     if (categoryId === "c1") {
       savedNumOfTotQuestions = await cache.get(
-        asyncNames.numOfTotQuestionsMultiOneNoTimer
+        strings.numOfTotQuestionsMultiOneNoTimer
       );
     } else if (categoryId === "c2") {
       savedNumOfTotQuestions = await cache.get(
-        asyncNames.numOfTotQuestionsMultiTwoNoTimer
+        strings.numOfTotQuestionsMultiTwoNoTimer
       );
     } else if (categoryId === "c3") {
       savedNumOfTotQuestions = await cache.get(
-        asyncNames.numOfTotQuestionsMultiThreeNoTimer
+        strings.numOfTotQuestionsMultiThreeNoTimer
       );
     } else if (categoryId === "c4") {
       savedNumOfTotQuestions = await cache.get(
-        asyncNames.numOfTotQuestionsMultiFourNoTimer
+        strings.numOfTotQuestionsMultiFourNoTimer
       );
     }
   }
@@ -57,31 +57,31 @@ const saveCacheNumOfTotalQuestionsMulti = async (
 const saveToCache = async (timer: boolean, categoryId: string, value: string) => {
   if (timer) {
     if (categoryId === "c1") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiOne);
-      await cache.set(asyncNames.numOfTotQuestionsMultiOne, value);
+      await cache.remove(strings.numOfTotQuestionsMultiOne);
+      await cache.set(strings.numOfTotQuestionsMultiOne, value);
     } else if (categoryId === "c2") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiTwo);
-      await cache.set(asyncNames.numOfTotQuestionsMultiTwo, value);
+      await cache.remove(strings.numOfTotQuestionsMultiTwo);
+      await cache.set(strings.numOfTotQuestionsMultiTwo, value);
     } else if (categoryId === "c3") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiThree);
-      await cache.set(asyncNames.numOfTotQuestionsMultiThree, value);
+      await cache.remove(strings.numOfTotQuestionsMultiThree);
+      await cache.set(strings.numOfTotQuestionsMultiThree, value);
     } else if (categoryId === "c4") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiFour);
-      await cache.set(asyncNames.numOfTotQuestionsMultiFour, value);
+      await cache.remove(strings.numOfTotQuestionsMultiFour);
+      await cache.set(strings.numOfTotQuestionsMultiFour, value);
     }
   } else {
     if (categoryId === "c1") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiOneNoTimer);
-      await cache.set(asyncNames.numOfTotQuestionsMultiOneNoTimer, value);
+      await cache.remove(strings.numOfTotQuestionsMultiOneNoTimer);
+      await cache.set(strings.numOfTotQuestionsMultiOneNoTimer, value);
     } else if (categoryId === "c2") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiTwoNoTimer);
-      await cache.set(asyncNames.numOfTotQuestionsMultiTwoNoTimer, value);
+      await cache.remove(strings.numOfTotQuestionsMultiTwoNoTimer);
+      await cache.set(strings.numOfTotQuestionsMultiTwoNoTimer, value);
     } else if (categoryId === "c3") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiThreeNoTimer);
-      await cache.set(asyncNames.numOfTotQuestionsMultiThreeNoTimer, value);
+      await cache.remove(strings.numOfTotQuestionsMultiThreeNoTimer);
+      await cache.set(strings.numOfTotQuestionsMultiThreeNoTimer, value);
     } else if (categoryId === "c4") {
-      await cache.remove(asyncNames.numOfTotQuestionsMultiFourNoTimer);
-      await cache.set(asyncNames.numOfTotQuestionsMultiFourNoTimer, value);
+      await cache.remove(strings.numOfTotQuestionsMultiFourNoTimer);
+      await cache.set(strings.numOfTotQuestionsMultiFourNoTimer, value);
     }
   }
 };

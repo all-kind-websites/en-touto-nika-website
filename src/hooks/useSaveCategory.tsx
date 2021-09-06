@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import * as filtersActions from "../store/actions/filters";
 import useGetQuestionsList from "./useGetQuestionsList";
 import cache from "../utils/cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const useSaveCategory = (gameType: string) => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const useSaveCategory = (gameType: string) => {
 
   const loadFilters = useCallback(async () => {
     // We set 'categoriesFilters' in store/actions in uploadCategoriesFilters function
-    const savedFilters = await cache.get(asyncNames.categoriesFilters);
+    const savedFilters = await cache.get(strings.categoriesFilters);
     // const savedFilters = JSON.parse(categoriesFilters);
 
     let applySavedFilters = false;

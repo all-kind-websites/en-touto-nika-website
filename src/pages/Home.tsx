@@ -6,7 +6,7 @@ import GridItemHome from '../components/grid-items/GridItemHome';
 import '../styles/home.scss';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import navNames from '../constants/navNames';
+import nav from '../constants/nav';
 import { gameOn, gameState, gameTypeTitle, savePointsType } from '../store/actions/game';
 
 interface Item {
@@ -30,18 +30,18 @@ export default function Home(props: any) {
     if (timer) {
       if (item.id === "Multi") {
         await dispatch(gameState(item.id, item.title));
-        history.push(navNames.multiCategories);
+        history.push(nav.multiCategories);
       } else if (item.id === "TrueFalse") {
         await dispatch(gameState(item.id, item.title));
-        history.push(navNames.trueFalseCategories);
+        history.push(nav.trueFalseCategories);
       }
     } else {
       if (item.id === "Multi") {
         await dispatch(gameState(item.id, item.title));
-        history.push(navNames.multiCategoriesNoTimer);
+        history.push(nav.multiCategoriesNoTimer);
       } else if (item.id === "TrueFalse") {
         await dispatch(gameState(item.id, item.title));
-        history.push(navNames.trueFalseCategoriesNoTimer);
+        history.push(nav.trueFalseCategoriesNoTimer);
       }
     }
   };

@@ -1,5 +1,5 @@
 import cache from "./cache";
-import asyncNames from "../constants/asyncNames";
+import strings from "../constants/strings";
 
 const updateNumOfTotalQuestionsMixed = async (
   gameType: string,
@@ -10,8 +10,8 @@ const updateNumOfTotalQuestionsMixed = async (
   let newValue = 0;
 
   gameType === "Multi"
-    ? (numOfTotQ = await cache.get(asyncNames.numOfTotQuestionsMultiMixed))
-    : (numOfTotQ = await cache.get(asyncNames.numOfTotQuestionsTrueFalseMixed));
+    ? (numOfTotQ = await cache.get(strings.numOfTotQuestionsMultiMixed))
+    : (numOfTotQ = await cache.get(strings.numOfTotQuestionsTrueFalseMixed));
   if (!!numOfTotQ) {
     newValue = +numOfTotQ + 1;
     setNumOfTotalQuestions(newValue);
@@ -24,13 +24,13 @@ const updateNumOfTotalQuestionsMixed = async (
 };
 
 const saveMulti = async (value: number) => {
-  await cache.remove(asyncNames.numOfTotQuestionsMultiMixed);
-  await cache.set(asyncNames.numOfTotQuestionsMultiMixed, String(value));
+  await cache.remove(strings.numOfTotQuestionsMultiMixed);
+  await cache.set(strings.numOfTotQuestionsMultiMixed, String(value));
 };
 
 const saveTrueFalse = async (newValue: number) => {
-  await cache.remove(asyncNames.numOfTotQuestionsTrueFalseMixed);
-  await cache.set(asyncNames.numOfTotQuestionsTrueFalseMixed, String(newValue));
+  await cache.remove(strings.numOfTotQuestionsTrueFalseMixed);
+  await cache.set(strings.numOfTotQuestionsTrueFalseMixed, String(newValue));
 };
 
 const saveCache = async (gameType: string, value: number) => {

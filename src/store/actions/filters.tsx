@@ -1,4 +1,4 @@
-import asyncNames from "../../constants/asyncNames";
+import strings from "../../constants/strings";
 import cache from "../../utils/cache";
 
 export const UPLOAD_CATEGORIES_FILTERS = "UPLOAD_CATEGORIES_FILTERS";
@@ -18,7 +18,7 @@ export const uploadCategoriesFilters = (gameType: string, appliedCategoriesFilte
   return async (dispatch: Function) => {
     try {
 
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       const response = await fetch(
         `https://en-touto-nika.firebaseio.com//categoriesFilters${gameType}/${userId}.json?auth=${token}`,
@@ -36,7 +36,7 @@ export const uploadCategoriesFilters = (gameType: string, appliedCategoriesFilte
       // Set the filters to get them in ApanthismaScreen to initialize
       // Categories with previous chosen - saved filters.
       await localStorage.setItem(
-        asyncNames.categoriesFilters,
+        strings.categoriesFilters,
         JSON.stringify({
           appliedCategoriesFilters,
         })
@@ -62,7 +62,7 @@ export const uploadCategoriesFilters = (gameType: string, appliedCategoriesFilte
 export const deletePreviousCategoriesFilters = (gameType: string) => {
   return async (dispatch: Function) => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       // Delete active user's data from All_Users_Data
       const response = await fetch(
@@ -89,7 +89,7 @@ export const deletePreviousCategoriesFilters = (gameType: string) => {
 export const fetchCategoriesFilters = (gameType: string) => {
   return async (dispatch: Function) => {
     try {
-      const { userId } = await cache.get(asyncNames.userData);
+      const { userId } = await cache.get(strings.userData);
 
       const filtersResponse = await fetch(
         `https://en-touto-nika.firebaseio.com/categoriesFilters${gameType}/${userId}.json`
@@ -111,7 +111,7 @@ export const fetchCategoriesFilters = (gameType: string) => {
         }
       }
       await localStorage.setItem(
-        asyncNames.categoriesFilters,
+        strings.categoriesFilters,
         JSON.stringify({ appliedCategoriesFilters })
       );
       dispatch({

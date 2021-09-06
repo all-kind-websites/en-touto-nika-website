@@ -1,6 +1,6 @@
 import colors from "./colors";
 
-const asyncNames = {
+const strings = {
   defaultChoiceColor: colors.moccasin_light,
   correctChoiceColor: colors.limegreen,
   wrongChoiceColor: colors.salmon,
@@ -149,4 +149,4 @@ const asyncNames = {
   yesIsChosen: "yesIsChosen",
 };
 
-export default asyncNames;
+export default strings;

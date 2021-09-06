@@ -2,8 +2,8 @@ import { useCallback, useState } from "react";
 import { Alert, Animated } from "react-native";
 import { useDispatch } from "react-redux";
 
-import navNames from "../constants/navNames/navNames";
-import asyncNames from "../constants/asyncNames/asyncNames";
+import nav from "../constants/nav/nav";
+import strings from "../constants/strings/strings";
 
 import * as questionsActions from "../store/actions/questions";
 
@@ -78,7 +78,7 @@ export default useLoadQuestionsMixedTrueFalse = (timer, gameType) => {
         [
           {
             text: "Εντάξει",
-            onPress: () => navigation.navigate(navNames.welcome),
+            onPress: () => navigation.navigate(nav.welcome),
           },
         ]
       );
@@ -87,10 +87,10 @@ export default useLoadQuestionsMixedTrueFalse = (timer, gameType) => {
     if (questionsToPlay.length === 0) {
       setStadiumIsFinished(true);
     } else if (questionsToPlay.length > 0) {
-      const savedIndex = await cache.get(asyncNames.indexTrueFalseMixed);
+      const savedIndex = await cache.get(strings.indexTrueFalseMixed);
 
       const strOfRemainQuestions = await cache.get(
-        asyncNames.numOfRemainQuestionsTrueFalseMixed
+        strings.numOfRemainQuestionsTrueFalseMixed
       );
 
       if (strOfRemainQuestions !== null) {
@@ -118,7 +118,7 @@ export default useLoadQuestionsMixedTrueFalse = (timer, gameType) => {
       );
 
       await cache.set(
-        `${asyncNames.questionsRightChoices}${withOrWithoutTimer}`,
+        `${strings.questionsRightChoices}${withOrWithoutTimer}`,
         questionsRightChoices
       );
 
@@ -134,15 +134,14 @@ export default useLoadQuestionsMixedTrueFalse = (timer, gameType) => {
     try {
       // Check if a game is on!
       if (timer) {
-        const mixGameIsOn = await cache.get(asyncNames.mixGameIsOnTrueFalse);
-        !mixGameIsOn &&
-          (await cache.set(asyncNames.mixGameIsOnTrueFalse, true));
+        const mixGameIsOn = await cache.get(strings.mixGameIsOnTrueFalse);
+        !mixGameIsOn && (await cache.set(strings.mixGameIsOnTrueFalse, true));
       } else {
         const mixGameIsOn = await cache.get(
-          asyncNames.mixGameIsOnTrueFalseNoTimer
+          strings.mixGameIsOnTrueFalseNoTimer
         );
         !mixGameIsOn &&
-          (await cache.set(asyncNames.mixGameIsOnTrueFalseNoTimer, true));
+          (await cache.set(strings.mixGameIsOnTrueFalseNoTimer, true));
       }
 
       setLoadQuestionsError(null);
@@ -160,9 +159,8 @@ export default useLoadQuestionsMixedTrueFalse = (timer, gameType) => {
         fetchQuestions = null;
 
       setQuestion(
-        (mixedQuestionsTrueFalseAreOn =
-          asyncNames.mixedQuestionsAreOnTrueFalse),
-        (mixedQuestionsTrueFalse = asyncNames.questionsTrueFalseMixed),
+        (mixedQuestionsTrueFalseAreOn = strings.mixedQuestionsAreOnTrueFalse),
+        (mixedQuestionsTrueFalse = strings.questionsTrueFalseMixed),
         (fetchQuestions = questionsActions.fetchQuestionsTrueFalseMixed(
           maxIndex
         ))

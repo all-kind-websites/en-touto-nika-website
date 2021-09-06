@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import asyncNames from "../constants/asyncNames/asyncNames";
+import strings from "../constants/strings/strings";
 
 import cache from "../utils/cache";
 import checkAnswer from "../utils/checkAnswer";
@@ -23,20 +23,18 @@ export default useCheckAnswerHandlerTrueFalse = (
   let corChoice = false;
   const saveAnswer = async () => {
     const questionsRightChoices = await cache.get(
-      `${asyncNames.questionsRightChoices}${withOrWithoutTimer}`
+      `${strings.questionsRightChoices}${withOrWithoutTimer}`
     );
 
     const questionRightChoice = questionsRightChoices.shift();
 
-    await cache.remove(
-      `${asyncNames.questionsRightChoices}${withOrWithoutTimer}`
-    );
+    await cache.remove(`${strings.questionsRightChoices}${withOrWithoutTimer}`);
     await cache.set(
-      `${asyncNames.questionsRightChoices}${withOrWithoutTimer}`,
+      `${strings.questionsRightChoices}${withOrWithoutTimer}`,
       questionsRightChoices
     );
-    const noIsChosen = await cache.get(asyncNames.noIsChosen);
-    const yesIsChosen = await cache.get(asyncNames.yesIsChosen);
+    const noIsChosen = await cache.get(strings.noIsChosen);
+    const yesIsChosen = await cache.get(strings.yesIsChosen);
 
     if (noIsChosen && +questionRightChoice == 0 && yesIsChosen === null) {
       setCorrectChoice(true);
@@ -55,7 +53,7 @@ export default useCheckAnswerHandlerTrueFalse = (
 
     if (corChoice) {
       setTotalPoints(totalPoints + 1);
-      cache.set(asyncNames.pointsTypeTrueFalseMixed, String(totalPoints + 1));
+      cache.set(strings.pointsTypeTrueFalseMixed, String(totalPoints + 1));
       setPlayCorrectAnimSound(true);
       setTimeout(() => {
         setModalVisible(true);
@@ -71,8 +69,8 @@ export default useCheckAnswerHandlerTrueFalse = (
     }
     await checkAnswer(corChoice, totalPoints, categoryId, "TrueFalse", timer);
 
-    await cache.remove(asyncNames.noIsChosen);
-    await cache.remove(asyncNames.yesIsChosen);
+    await cache.remove(strings.noIsChosen);
+    await cache.remove(strings.yesIsChosen);
 
     if (index + 1 === questionTitle.length) {
       setLastQuestion(true);

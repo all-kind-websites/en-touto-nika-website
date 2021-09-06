@@ -2,7 +2,7 @@
 import question, { Question } from "../../../models/question";
 import shuffle from "../../../utils/shuffle";
 import deleteQuestion from "../../../utils/deleteQuestion";
-import asyncNames from "../../../constants/asyncNames";
+import strings from "../../../constants/strings";
 import cache from "../../../utils/cache";
 
 export const createQuestionForMultiFour = (
@@ -22,7 +22,7 @@ export const createQuestionForMultiFour = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       let questionsArray: Array<string> = [];
       // First fetch the first group and check if it's full, i.e. 100
@@ -114,7 +114,7 @@ export const updateQuestionForMultiFour = (
 ) => {
   return async () => {
     try {
-      const { token, userId } = await cache.get(asyncNames.userData);
+      const { token, userId } = await cache.get(strings.userData);
 
       // Use index to find edited question in the according group.
       let URI_forPatching = ``;
@@ -217,12 +217,12 @@ export const fetchQuestionsForMultiFour = (maxIndex: number) => {
       });
 
       const localDataBaseMultiFour = await localStorage.getItem(
-        asyncNames.localDataBaseMultiFour
+        strings.localDataBaseMultiFour
       );
 
       if (!localDataBaseMultiFour) {
         localStorage.setItem(
-          asyncNames.localDataBaseMultiFour,
+          strings.localDataBaseMultiFour,
           JSON.stringify(acceptedQuestions)
         );
       }
@@ -230,14 +230,14 @@ export const fetchQuestionsForMultiFour = (maxIndex: number) => {
       const shuffledQuestions = shuffle(acceptedQuestions);
 
       localStorage.setItem(
-        asyncNames.questionsMultiFour,
+        strings.questionsMultiFour,
         JSON.stringify(shuffledQuestions)
       );
 
       // ...
       if (true) {
         localStorage.setItem(
-          asyncNames.createdQuestionsMultiFour,
+          strings.createdQuestionsMultiFour,
           JSON.stringify(loadedQuestions)
         );
       }
@@ -302,12 +302,12 @@ export const fetchQuestionsForMultiFourNoTimer = (maxIndex: number) => {
       });
 
       const localDataBaseMultiFour = localStorage.getItem(
-        asyncNames.localDataBaseMultiFour
+        strings.localDataBaseMultiFour
       );
 
       if (!localDataBaseMultiFour) {
         localStorage.setItem(
-          asyncNames.localDataBaseMultiFour,
+          strings.localDataBaseMultiFour,
           JSON.stringify(acceptedQuestions)
         );
       }
@@ -315,13 +315,13 @@ export const fetchQuestionsForMultiFourNoTimer = (maxIndex: number) => {
       const shuffledQuestions = shuffle(acceptedQuestions);
 
       localStorage.setItem(
-        asyncNames.questionsMultiFourNoTimer,
+        strings.questionsMultiFourNoTimer,
         JSON.stringify(shuffledQuestions)
       );
       // ...
       if (true) {
         localStorage.setItem(
-          asyncNames.createdQuestionsMultiFour,
+          strings.createdQuestionsMultiFour,
           JSON.stringify(loadedQuestions)
         );
       }
@@ -387,12 +387,12 @@ export const fetchQuestionsForMixedFour = (maxIndex: number) => {
       });
 
       const alfaFourDataBaseMixed = localStorage.getItem(
-        asyncNames.localDataBaseMultiMixedFour
+        strings.localDataBaseMultiMixedFour
       );
 
       if (!alfaFourDataBaseMixed) {
         localStorage.setItem(
-          asyncNames.localDataBaseMultiMixedFour,
+          strings.localDataBaseMultiMixedFour,
           JSON.stringify(acceptedQuestions)
         );
       }
@@ -409,7 +409,7 @@ export const deleteQuestionForMultiFour = (
   index: number
 ) => {
   return async () => {
-    const { token } = await cache.get(asyncNames.userData);
+    const { token } = await cache.get(strings.userData);
     const uri99 = `https://en-touto-nika.firebaseio.com//questionsForMultiFour/${questionId}.json?auth=${token}`;
     const uri_199 = `https://en-touto-nika.firebaseio.com//questionsForMultiFour.100-199/${questionId}.json?auth=${token}`;
     await deleteQuestion(createCategoryId, index, uri99, uri_199);

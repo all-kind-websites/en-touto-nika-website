@@ -3,8 +3,8 @@ import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
 import useSaveCategory from "../../../hooks/useSaveCategory";
-import navNames from "../../../constants/navNames";
-import asyncNames from "../../../constants/asyncNames";
+import nav from "../../../constants/nav";
+import strings from "../../../constants/strings";
 
 import cache from "../../../utils/cache";
 // import startMixGame from "../../../utils/startMixGame";
@@ -23,7 +23,7 @@ const Categories = () => {
   const dispatch = useDispatch()
   const [modalVisible, setModalVisible] = useState(false);
 
-  const userIsLoggedIn = !!localStorage.getItem(asyncNames.userData);
+  const userIsLoggedIn = !!localStorage.getItem(strings.userData);
   const gameType = useSelector((state: RootStateOrAny) => state.game.id);
   const timer = useSelector((state: RootStateOrAny) => state.game.timer);
 
@@ -62,20 +62,20 @@ const Categories = () => {
     dispatch(gameOn(true));
     if (gameType === "Multi") {
       if (timer) {
-        await cache.set(asyncNames.useTimerMultiMixed, true);
-        history.push(navNames.mixMultiGameWithTimer)
+        await cache.set(strings.useTimerMultiMixed, true);
+        history.push(nav.mixMultiGameWithTimer)
       } else {
-        await cache.set(asyncNames.useTimerMultiMixed, false);
-        history.push(navNames.mixMultiGameNoTimer)
+        await cache.set(strings.useTimerMultiMixed, false);
+        history.push(nav.mixMultiGameNoTimer)
 
       }
     } else if (gameType === "TrueFalse") {
       if (timer) {
-        await cache.set(asyncNames.useTimerTrueFalseMixed, true);
-        history.push(navNames.mixTrueFalseGameWithTimer)
+        await cache.set(strings.useTimerTrueFalseMixed, true);
+        history.push(nav.mixTrueFalseGameWithTimer)
       } else {
-        await cache.set(asyncNames.useTimerTrueFalseMixed, false);
-        history.push(navNames.mixTrueFalseGameNoTimer)
+        await cache.set(strings.useTimerTrueFalseMixed, false);
+        history.push(nav.mixTrueFalseGameNoTimer)
 
       }
     }
@@ -147,29 +147,29 @@ ${mixGameIsOn || mixGameIsOnTF ? "(με χρόνο)" : "(χωρίς χρόνο)"
 
             if (gameType === "Multi") {
               if (mixGameIsOn) {
-                await cache.set(asyncNames.useTimerMultiMixed, true);
+                await cache.set(strings.useTimerMultiMixed, true);
                 navigation.navigate({
-                  name: navNames.mixedMultiGame,
+                  name: nav.mixedMultiGame,
                   params: { gameType, timer },
                 });
               } else {
-                await cache.set(asyncNames.useTimerMultiMixed, false);
+                await cache.set(strings.useTimerMultiMixed, false);
                 navigation.navigate({
-                  name: navNames.noTimerMixedGame,
+                  name: nav.noTimerMixedGame,
                   params: { gameType, timer },
                 });
               }
             } else if (gameType === "TrueFalse") {
               if (mixGameIsOnTF) {
-                await cache.set(asyncNames.useTimerTrueFalseMixed, true);
+                await cache.set(strings.useTimerTrueFalseMixed, true);
                 navigation.navigate({
-                  name: navNames.mixedTrueFalseGame,
+                  name: nav.mixedTrueFalseGame,
                   params: { gameType, timer },
                 });
               } else {
-                await cache.set(asyncNames.useTimerTrueFalseMixed, false);
+                await cache.set(strings.useTimerTrueFalseMixed, false);
                 navigation.navigate({
-                  name: navNames.noTimerTrueFalseMixedGame,
+                  name: nav.noTimerTrueFalseMixedGame,
                   params: { gameType, timer },
                 });
               }

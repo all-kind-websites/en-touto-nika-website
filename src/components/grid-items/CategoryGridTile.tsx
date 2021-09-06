@@ -1,4 +1,4 @@
-import navNames from "../../constants/navNames";
+import nav from "../../constants/nav";
 
 import GridTile from "./GridTile";
 import imageHandler from "./imageHandler";
@@ -36,16 +36,16 @@ const CategoryGridTile = ({
 
   let borderC: string = '', borderW: number = 0, img: string = '';
 
-  if (navigationName === navNames.multiGameWithTimer) {
+  if (navigationName === nav.multiGameWithTimer) {
     const { borderColor, borderWidth, image } = imageHandler(gamesStatus, id, timer);
     borderC = borderColor; borderW = borderWidth; img = image;
   }
-  if (navigationName === navNames.trueFalseGameWithTimer) {
+  if (navigationName === nav.trueFalseGameWithTimer) {
     const { borderColor, borderWidth, image } = imageHandlerTrueFalse(gamesStatus, id, timer);
     borderC = borderColor; borderW = borderWidth; img = image;
 
   }
-  if (navigationName === navNames.createHome) {
+  if (navigationName === nav.createHome) {
     const { borderColor, borderWidth, image } = imageHandlerCreate(id);
     borderC = borderColor; borderW = borderWidth; img = image;
   }
