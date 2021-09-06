@@ -6,6 +6,11 @@
   background: $linear_gradient;
   @include centerFlex(column);
 
+  .home-loader {
+    height: 70px;
+    position: relative;
+    top: 80px;
+  }
   ul {
     height: 100vh;
     margin: 0;

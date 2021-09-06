@@ -1,6 +1,5 @@
 import { RootStateOrAny, useSelector } from 'react-redux';
 import strings from '../../constants/strings';
-import { store } from '../../index';
 import '../../styles/UI/top-menu.scss';
 
 interface TopMenuProps {

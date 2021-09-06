@@ -283,6 +283,8 @@ export const refreshData = (refreshToken: string) => {
       const expirationDate = new Date(
         new Date().getTime() + parseInt(resData.expires_in) * 1000
       );
+
+      // For testing:
       // const expirationDate = new Date(new Date().getTime() + 20 * 1000);
       // console.log('resData refreshData', resData.refresh_token);
 

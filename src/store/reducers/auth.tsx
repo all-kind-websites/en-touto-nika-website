@@ -11,31 +11,32 @@ import {
 } from "../actions/auth";
 
 const initialState = {
-  token: null,
-  userId: null,
-  email: "",
-  triedAutoLogin: false,
   allowEntrance: false,
+  email: "",
   forgotPassword: false,
-  userProfilePictureUrl: null,
-  usersProfilePictureUrls: null,
-  usersNames: null,
+  set: false,
+  token: '',
+  triedAutoLogin: false,
+  userId: '',
+  userProfilePictureUrl: '',
+  usersNames: '',
+  usersProfilePictureUrls: '',
 };
 
 
 const auth = (state = initialState, action: {
-  type: string,
-  token?: string,
-  userId?: string,
-  email?: string,
-  userEmail?: string,
-  triedAutoLogin?: boolean,
   allowEntrance?: boolean,
+  email?: string,
   forgotPassword?: boolean,
-  usersProfilePictureUrls?: string,
-  usersNames?: Array<string>,
   set?: boolean,
+  token?: string,
+  triedAutoLogin?: boolean,
+  type: string,
+  userEmail?: string,
+  userId?: string,
   userProfilePictureUrl?: string
+  usersNames?: Array<string>,
+  usersProfilePictureUrls?: string,
 }) => {
   switch (action.type) {
     case AUTHENTICATE:
