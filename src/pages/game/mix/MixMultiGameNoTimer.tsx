@@ -124,10 +124,12 @@ const MixMultiGameNoTimer = (props: any) => {
     totalPoints
   );
 
-  if (loadQuestionsError) {
+  // if (loadQuestionsError) {
+  if (true) {
     return (
       <DownloadErrorScreen
         loadQuestions={loadQuestions}
+        history={props.history}
       />
     );
   }

@@ -23,7 +23,6 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
 
 
   const loadQuestions = useCallback(async () => {
-
     // const getTotalTimeLeft = async () => {
     //   if (timer) {
     //     let totalTimeLeft = await cache.get(asyncNames.totalTimeLeftMultiMixed);

@@ -1,0 +1,16 @@
+@import "../../config.scss";
+@import "../../colors.scss";
+
+.download-error {
+  height: 100vh;
+  @include customFlex(column, space-around, center);
+  background: $linear_gradient;
+
+  .text1 {
+    color: $maroon;
+  }
+
+  .text2 {
+    color: $moccasin_light;
+  }
+}
