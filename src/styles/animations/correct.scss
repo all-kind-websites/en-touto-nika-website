@@ -1,0 +1,18 @@
+.animation {
+  position: absolute;
+  top: 10;
+  left: 280px;
+  z-index: 10;
+
+  &.fade-out {
+    animation: fadeout 1000ms;
+  }
+  @keyframes fadeout {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

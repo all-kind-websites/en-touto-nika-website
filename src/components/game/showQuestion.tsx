@@ -7,7 +7,7 @@ import { Question } from "../../models/question";
 import colors from "../../constants/colors";
 import '../../styles/game/show-question.scss'
 import FakeSuspense from './FakeSuspense';
-import Loader from '../UI/Loader';
+import CorrectAnimation from '../../animations/CorrectAnimation';
 
 const showQuestion = (
   alfaIsTrue: string,
@@ -43,6 +43,7 @@ const showQuestion = (
   modalVisible: boolean,
 
 ) => {
+
   let categoryTitle = "";
   if (!!selectedQuestion) {
     if (selectedQuestion.categoryIds === "c1") {
@@ -81,6 +82,15 @@ const showQuestion = (
           numOfDownloadedQuestions={numOfDownloadedQuestions}
           numOfTotalQuestions={numOfTotalQuestions}
         />
+        {choiceSave ?
+          <FakeSuspense delay={3900} fallback={correctChoice ? <CorrectAnimation /> : null} >
+            <DetailedAnswer
+              onRefresh={onRefresh}
+              selectedQuestion={selectedQuestion}
+            />
+          </FakeSuspense>
+          : null
+        }
         <section style={{ marginBottom: 20 }} >
           <h4
             style={{
@@ -140,15 +150,6 @@ const showQuestion = (
           />
         </section>
 
-        {choiceSave ?
-          <FakeSuspense delay={1000} fallback={<Loader />} >
-            <DetailedAnswer
-              onRefresh={onRefresh}
-              selectedQuestion={selectedQuestion}
-            />
-          </FakeSuspense>
-          : null
-        }
       </article>
     );
   }

@@ -36,6 +36,7 @@ const MixMultiGameNoTimer = (props: any) => {
 
   const [choiceSave, setChoiceSave] = useState(false);
   const [correctChoice, setCorrectChoice] = useState(false);
+
   const [choiceColor, setChoiceColor] = useState(strings.defaultChoiceColor);
 
   const [checkAlfa, setCheckAlfa] = useState(false);

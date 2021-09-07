@@ -2476,6 +2476,13 @@
     "require-from-string" "^2.0.2"
     "uri-js" "^4.2.2"
 
+"alert-sound-notify@^0.0.8":
+  "integrity" "sha512-jTPMPyS6uU0LYQjZ45Rw0RCslvCtvf/LUvDkfnOK1iTO6flPSbtDRxYzIUd2wuZWASvWn8dwyhhZ3ZdUFSR5lw=="
+  "resolved" "https://registry.npmjs.org/alert-sound-notify/-/alert-sound-notify-0.0.8.tgz"
+  "version" "0.0.8"
+  dependencies:
+    "play-audio-notify" "~0.0.3"
+
 "alphanum-sort@^1.0.0":
   "integrity" "sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM="
   "resolved" "https://registry.npmjs.org/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
@@ -4670,6 +4677,11 @@
   "version" "2.4.2"
   dependencies:
     "domelementtype" "1"
+
+"domify@~1.0.0":
+  "integrity" "sha1-m9BAEZo6VtvhL0BqAaO9G2n+pcM="
+  "resolved" "https://registry.npmjs.org/domify/-/domify-1.0.0.tgz"
+  "version" "1.0.0"
 
 "domutils@^1.5.1", "domutils@^1.7.0":
   "integrity" "sha512-Lgd2XcJ/NjEw+7tFvfKxOzCYKZsdct5lczQ2ZaQY8Djz7pfAD3Gbp8ySJWtreII/vDlMVmxwa6pHmdxIYgttDg=="
@@ -7829,6 +7841,11 @@
   dependencies:
     "js-tokens" "^3.0.0 || ^4.0.0"
 
+"lottie-web@^5.7.13":
+  "integrity" "sha512-6iy93BGPkdk39b0jRgJ8Zosxi8QqcMP5XcDvg1f0XAvEkke6EMCl6BUO4Lu78dpgvfG2tzut4QJ+0vCrfbrldQ=="
+  "resolved" "https://registry.npmjs.org/lottie-web/-/lottie-web-5.7.13.tgz"
+  "version" "5.7.13"
+
 "lower-case@^2.0.1":
   "integrity" "sha512-LiWgfDLLb1dwbFQZsSglpRj+1ctGnayXz3Uv0/WO8n558JycT5fg6zkNcnW0G68Nn0aEldTFeEfmjCfmqry/rQ=="
   "resolved" "https://registry.npmjs.org/lower-case/-/lower-case-2.0.1.tgz"
@@ -8333,6 +8350,11 @@
   "integrity" "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw=="
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
+
+"new-chain-notify@~0.0.1":
+  "integrity" "sha512-awXwhUwftHIYOEg5zCelTAWdAqVsNv1uRuik8CiYSXS1fM3+7Tmnpk57PCHhBCk7lhpVDhmtq3qHrLhlEILxcQ=="
+  "resolved" "https://registry.npmjs.org/new-chain-notify/-/new-chain-notify-0.0.1.tgz"
+  "version" "0.0.1"
 
 "next-tick@~1.0.0":
   "integrity" "sha1-yobR/ogoFpsBICCOPchCS524NCw="
@@ -9133,6 +9155,14 @@
   "version" "3.1.0"
   dependencies:
     "find-up" "^3.0.0"
+
+"play-audio-notify@~0.0.3":
+  "integrity" "sha512-FZXVp6NcOVJXEsyXWhxyow1cOKtmufODt8ijDfhbKjFTgOlQxCLcKulq8D+2fbnCqsyA/H3CEY+QEcOHK2nfFg=="
+  "resolved" "https://registry.npmjs.org/play-audio-notify/-/play-audio-notify-0.0.3.tgz"
+  "version" "0.0.3"
+  dependencies:
+    "domify" "~1.0.0"
+    "new-chain-notify" "~0.0.1"
 
 "pnp-webpack-plugin@1.6.4":
   "integrity" "sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg=="
