@@ -51,7 +51,7 @@ function App() {
               <CSSTransition
                 key={location.key}
                 // in={inProp} 
-                timeout={400}
+                timeout={1000}
                 classNames="fade"
                 mountOnEnter={true}
                 unmountOnExit={true}

@@ -6,6 +6,8 @@ import DetailedAnswer from "../UI/DetailedAnswer";
 import { Question } from "../../models/question";
 import colors from "../../constants/colors";
 import '../../styles/game/show-question.scss'
+import FakeSuspense from './FakeSuspense';
+import Loader from '../UI/Loader';
 
 const showQuestion = (
   alfaIsTrue: string,
@@ -139,10 +141,13 @@ const showQuestion = (
         </section>
 
         {choiceSave ?
-          <DetailedAnswer
-            onRefresh={onRefresh}
-            selectedQuestion={selectedQuestion}
-          /> : null
+          <FakeSuspense delay={1000} fallback={<Loader />} >
+            <DetailedAnswer
+              onRefresh={onRefresh}
+              selectedQuestion={selectedQuestion}
+            />
+          </FakeSuspense>
+          : null
         }
       </article>
     );

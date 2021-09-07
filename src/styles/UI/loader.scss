@@ -1,6 +1,8 @@
+@import "../config.scss";
 @import "../colors.scss";
 
 .loader {
+  @include centerFlex(row);
   height: 5rem;
 }
 

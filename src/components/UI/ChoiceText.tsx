@@ -43,12 +43,12 @@ const ChoiceText = ({
   }
 
   const styles = {
-    choice: {
-      color: colors.maroon,
-      marginTop: 10,
-      marginBottom: 4,
-      textAlign: "left",
-    },
+    // choice: {
+    //   color: colors.maroon,
+    //   marginTop: 10,
+    //   marginBottom: 4,
+    //   textAlign: "left",
+    // },
     choiceIsMade: {
       padding: 10,
       marginVertical: 2,
@@ -59,6 +59,7 @@ const ChoiceText = ({
       shadowOffset: { width: 0, height: 2 },
       shadowRadius: 10,
       backgroundColor: choiceColor,
+      transition: 'all 1s'
     },
     none: {}
   }

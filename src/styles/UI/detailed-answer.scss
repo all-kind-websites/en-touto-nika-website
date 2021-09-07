@@ -7,6 +7,17 @@
   width: 500px;
   margin-bottom: 20px;
 
+  animation: fadeIn 2000ms;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .line {
     margin-right: 10px;
   }
