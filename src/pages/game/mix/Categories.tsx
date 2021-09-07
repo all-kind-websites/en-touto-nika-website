@@ -51,9 +51,13 @@ const Categories = () => {
 
   useEffect(() => {
     checking();
-    dispatch(gameOn(false));
+  }, [checking,]);
 
-  }, [checking, dispatch]);
+  useEffect(() => {
+    dispatch(gameOn(false));
+  }, [dispatch]);
+
+
 
   const startMixGame = async (
     gameType: string,
