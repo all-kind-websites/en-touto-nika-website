@@ -9,7 +9,7 @@ const DetailedAnswer = ({ selectedQuestion, onRefresh }: any) => {
 
   return (
     <section className='detailed-answer' >
-      <Line className='line' />
+
       <div onClick={() => onRefresh()} >
         <MdQueuePlayNext className='icon-show-next' />
       </div>
@@ -35,6 +35,10 @@ const DetailedAnswer = ({ selectedQuestion, onRefresh }: any) => {
           }
         </a>
       </div>
+      <div onClick={() => onRefresh()} >
+        <MdQueuePlayNext className='icon-show-next' />
+      </div>
+      <Line className='line' />
     </section >
   );
 };
