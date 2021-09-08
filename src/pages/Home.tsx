@@ -113,7 +113,7 @@ export default function Home(props: any) {
           <Loader />
         </div>
         : null}
-      <ul>
+      <ul className='home__list' >
         {GAME_TYPES.map((game: { id: string, title: string }) =>
           <GridItemHome
             key={game.id}

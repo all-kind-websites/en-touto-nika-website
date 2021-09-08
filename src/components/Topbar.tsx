@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
-import { BiDonateBlood } from 'react-icons/bi';
 import { MdTimer, MdTimerOff } from 'react-icons/md';
 
 import "../styles/topbar.scss";
@@ -28,12 +27,6 @@ export default function Topbar(props: any) {
     props.setMenuOpen(true);
   };
 
-  const donationHanlder = () => {
-    history.push(nav.donate);
-    props.setMenuOpen(false);
-
-  }
-
   return (
     <div className={`topbar ${(props.menuOpen || gameOn) && "active"} `}>
       <div className="hamburger-container">
@@ -43,16 +36,19 @@ export default function Topbar(props: any) {
           <span></span>
         </div>
       </div>
-      <BiDonateBlood
-        className='donate-icon-1'
-        size='34' onClick={donationHanlder} />
-      <div className="title-container">
-        <h1 className={`title ${!!gameTitle ? 'title--game' : ''}`}>{!!gameTitle ? gameTitle : 'ΕΝ ΤΟΥΤΩ ΝΙΚΑ'}</h1>
+      <div
+        className="title-container"
+        onClick={() => history.push(nav.home)}
+      >
+        <h1
+          className={`title ${!!gameTitle ? 'title--game' : ''}`}>
+          {!!gameTitle ? gameTitle : 'ΕΝ ΤΟΥΤΩ ΝΙΚΑ'}
+        </h1>
       </div>
-      <BiDonateBlood
-        className='donate-icon-2'
-        size='34' onClick={donationHanlder} />
-      {timer ? <MdTimer className="timer-icon" size='34' onClick={toggleTimerIcon} /> : <MdTimerOff onClick={toggleTimerIcon} className="timer-icon" size='34' />}
+      {timer ?
+        <MdTimer className="timer-icon" size='34' onClick={toggleTimerIcon} /> :
+        <MdTimerOff onClick={toggleTimerIcon} className="timer-icon" size='34' />
+      }
     </div>
   );
 }

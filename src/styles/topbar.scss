@@ -47,8 +47,10 @@
   }
 
   .title-container {
+    cursor: pointer;
     height: inherit;
     @include centerFlex(row);
+    // margin-left: 40px;
 
     .title {
       font-size: 3rem;

@@ -13,13 +13,13 @@
     top: 80px;
   }
 
-  .ul {
+  .home__list {
     height: 100vh;
     margin: 0;
     list-style-type: none;
     padding: 0;
   }
-  ul::-webkit-scrollbar {
+  .home__list::-webkit-scrollbar {
     width: 0px;
     background: transparent;
   }
