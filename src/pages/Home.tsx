@@ -8,9 +8,9 @@ import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import nav from '../constants/nav';
 import { gameOn, gameState, gameTypeTitle, savePointsType } from '../store/actions/game';
-import * as authActions from "../store/actions/auth";
-import strings from '../constants/strings';
+
 import Loader from '../components/UI/Loader';
+import tryLogin from '../utils/tryLogin';
 
 interface Item {
   id: string,
@@ -36,37 +36,10 @@ export default function Home(props: any) {
   }, [dispatch])
 
   useEffect(() => {
-    const tryLogin = async () => {
-      try {
-        const userData = await localStorage.getItem(strings.userData);
-
-        if (!userData) {
-          dispatch(authActions.triedAutoLogin(true));
-          return;
-        }
-
-        const transformedData = JSON.parse(userData);
-        const { token, userId, userEmail, expiryDate } = transformedData;
-        const expirationDate = new Date(expiryDate); // expiryDate is string in ISO format...
-        // console.log("user ID", userId);
-
-        if (expirationDate <= new Date() || !token || !userId) {
-          // if (true) {
-          const refreshToken = await localStorage.getItem(strings.refreshToken);
-          if (!!refreshToken)
-            dispatch(authActions.refreshData(refreshToken));
-        } else {
-          dispatch(
-            authActions.authenticate(token, userId, expiryDate, userEmail)
-          );
-        }
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
-    tryLogin();
-  }, [dispatch]);
+    // tryLogin checks if users token is valid
+    // and if not it gets a new one
+    tryLogin(setError);
+  }, []);
 
   const playHandler = async (item: Item) => {
     if (timer) {
@@ -96,11 +69,6 @@ export default function Home(props: any) {
             Σφάλμα στη διαδικασία εκκινήσεως του παιχνιδιού. Παρακαλούμε ελέγξτε
             τη σύνδεσή σας.
           </h3>
-          {/* <IOSButton
-            title="Προσπάθησε ξανά"
-            color={Colours.moccasin_light}
-            onPress={() => Updates.reload()}
-          /> */}
         </div>
       </div>
     );

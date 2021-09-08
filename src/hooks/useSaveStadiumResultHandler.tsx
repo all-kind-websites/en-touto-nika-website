@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import saveGradeToCache from "../utils/saveGradeToCache";
@@ -15,6 +15,7 @@ import { savePoints } from "../store/actions/game";
 import strings from "../constants/strings";
 import { history } from "../App";
 import nav from "../constants/nav";
+import tryLogin from "../utils/tryLogin";
 
 const useSaveStadiumResultHandler = (
   totalPoints: number,
@@ -27,7 +28,22 @@ const useSaveStadiumResultHandler = (
 ) => {
   const dispatch = useDispatch();
   const [isUpLoading, setIsUpLoading] = useState(false);
+  const [error, setError] = useState(); // error initially is undefined!
+
   const onLine = navigator.onLine;
+
+  useEffect(() => {
+    // tryLogin checks if users token is valid
+    // and if not it gets a new one
+    tryLogin(setError);
+  }, []);
+
+  if (error) {
+    alert(`
+    Σφάλμα στη διαδικασία ταυτοποίησης των στοιχείων σας.
+    Παρακαλούμε ελέγξτε τη σύνδεσή σας.
+    `)
+  }
 
   const saveStadiumResult = async () => {
     setIsUpLoading(true);
