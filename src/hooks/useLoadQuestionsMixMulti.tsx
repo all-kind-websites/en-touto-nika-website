@@ -38,8 +38,7 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
         !mixGameIsOn && (await cache.set(strings.mixGameIsOnMulti, true));
       } else {
         const mixGameIsOn = await cache.get(strings.mixGameIsOnMultiNoTimer);
-        !mixGameIsOn &&
-          (await cache.set(strings.mixGameIsOnMultiNoTimer, true));
+        !mixGameIsOn && (await cache.set(strings.mixGameIsOnMultiNoTimer, true));
       }
 
       setLoadQuestionsError(null);

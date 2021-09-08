@@ -12,6 +12,15 @@
     @include centerFlex(row);
   }
 
+  .mix-categories__container {
+    height: 100vh;
+  }
+
+  .mix-categories__container.not-clickable {
+    height: 100vh;
+    pointer-events: none;
+  }
+
   .mix-categories__checkboxes {
     position: relative;
     top: 170px;
@@ -36,14 +45,13 @@
       border-radius: 25px;
       border: 1px solid $maroon;
       object-fit: cover;
-      transition: transform 1s;
     }
   }
 
   .start-button {
     padding: 10px;
     position: relative;
-    top: 140px;
+    top: 120px;
     left: 250px;
     transform: translateX(-28%);
   }

@@ -24,6 +24,7 @@ import MixChooseCategories from './pages/game/mix/MixChooseCategories';
 import MultiGameNoTimer from './pages/game/multi/MultiGameNoTimer';
 import MixMultiGameNoTimer from './pages/game/mix/MixMultiGameNoTimer';
 import MixMultiGameWithTimer from './pages/game/mix/MixMultiGameWithTimer';
+import MixGameIsOn from './pages/game/mix/MixGameIsOn';
 export const history = createBrowserHistory();
 
 function App() {
@@ -77,6 +78,8 @@ function App() {
                   <Route path={nav.mixChooseCategories} component={MixChooseCategories} />
                   <Route path={nav.mixMultiGameNoTimer} component={MixMultiGameNoTimer} />
                   <Route path={nav.mixMultiGameWithTimer} component={MixMultiGameWithTimer} />
+
+                  <Route path={nav.mixGameIsOn} render={() => <MixGameIsOn history={history} />} />
 
                   {/* Multi */}
                   <Route path={nav.multiGameNoTimer} component={MultiGameNoTimer} />

@@ -8,6 +8,8 @@ button {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.8s ease;
+  border: 1px solid $moccasin_light;
+  color: $moccasin_light;
 }
 
 button:hover {

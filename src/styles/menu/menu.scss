@@ -9,7 +9,7 @@
   background-color: $moccasin_light;
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 10;
   padding-left: 30px;
   @include customFlex(column, flex-start, center);
   transition: all 0.8s ease-in-out;

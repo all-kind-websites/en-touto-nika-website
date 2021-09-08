@@ -18,7 +18,7 @@ const nav = {
 
   trueFalseMixedGameNoTimer: "/true-false-fixed-game-no-timer",
 
-
+  mixGameIsOn: '/mix-game-is-on',
   mixChooseCategories: "/mix-choose-categories",
   mixMultiGameWithTimer: "/mixed-multi-game-with-timer",
   mixMultiGameNoTimer: "/mixed-multi-game-no-timer",

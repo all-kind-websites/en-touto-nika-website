@@ -10,6 +10,8 @@ import { CATEGORIES } from '../../data/categories';
 import { gameTypeTitle } from '../../store/actions/game';
 import '../../styles/game/multi-categories-no-timer.scss'
 import getGameStatusMulti from '../../utils/getGameStatusMulti';
+import cache from '../../utils/cache';
+import strings from '../../constants/strings';
 // import { GameStatusMulti } from '../../components/grid-items/imageHandler';
 
 // interface GameStatusMulti {
@@ -27,6 +29,10 @@ const MultiCategoriesNoTimer = (props: any): any => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const [mixGameIsOn, setMixGameIsOn] = useState(false);
+  const [mixGameIsOnNoTimer, setMixGameIsOnNoTimer] = useState(false);
+  const [mixGameIsOnTF, setMixGameIsOnTF] = useState(false);
+  const [mixGameIsOnTFNoTimer, setMixGameIsOnTFNoTimer] = useState(false);
   const [gamesStatus, setGamesStatus] = useState<any>({});
   // const [gamesStatus, setGamesStatus] = useState<GameStatusMulti>({
   //   questionsMultiOne: false,
@@ -39,6 +45,31 @@ const MultiCategoriesNoTimer = (props: any): any => {
   //   questionsMultiFourNoTimer: false,
   // });
   const timer = useSelector((state: RootStateOrAny) => state.game.timer);
+  const gameType = useSelector((state: RootStateOrAny) => state.game.id);
+
+  const checking = async () => {
+    if (gameType === "Multi") {
+      if (timer) {
+        const isOn = await cache.get(strings.mixGameIsOnMulti);
+        setMixGameIsOn(isOn)
+      } else {
+        const isOn = await cache.get(strings.mixGameIsOnMultiNoTimer);
+        setMixGameIsOnNoTimer(isOn)
+      }
+    } else if (gameType === "TrueFalse") {
+      if (timer) {
+        const isOn = await cache.get(strings.mixGameIsOnTrueFalse);
+        setMixGameIsOnTF(isOn)
+      } else {
+        const isOn = await cache.get(strings.mixGameIsOnTrueFalseNoTimer);
+        setMixGameIsOnTFNoTimer(isOn)
+      }
+    }
+  }
+
+  useEffect(() => {
+    checking();
+  });
 
   useEffect(() => {
     dispatch(gameTypeTitle('Πολλαπλών Επιλογών'))
@@ -61,23 +92,25 @@ const MultiCategoriesNoTimer = (props: any): any => {
             timer={timer}
             title={game.title}
             onClick={() => {
-              const getNavigationName = () =>
-                game.id === "mixed" ? nav.mixChooseCategories : nav.multiGameNoTimer;
-
+              const getNavigationName = () => {
+                if (mixGameIsOn ||
+                  mixGameIsOnNoTimer ||
+                  mixGameIsOnTF ||
+                  mixGameIsOnTFNoTimer) return {
+                    pathname: nav.mixGameIsOn,
+                    state: {
+                      mixGameIsOn,
+                      mixGameIsOnNoTimer,
+                      mixGameIsOnTF,
+                      mixGameIsOnTFNoTimer
+                    }
+                  }
+                if (game.id === "mixed") return nav.mixChooseCategories
+                else return nav.multiGameNoTimer;
+              }
               history.push(getNavigationName())
             }
             }
-          // () =>
-          // navigation.navigate({
-          //   name: getNavigationName(),
-          //   params: {
-          //     categoryId: game.id,
-          //     categoryTitle: game.title,
-          //     timer,
-          //     gameType,
-          //   },
-          // })
-          // }
           />
         )}
       </ul>

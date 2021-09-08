@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../../styles/UI/button.scss';
+import '../../styles/UI/custom-modal.scss';
 
 import Button from "./Button";
 
@@ -11,6 +11,7 @@ interface CustomModalProps {
   buttonTwoTitle: string,
   onClickOne: Function,
   onClickTwo: Function,
+  style: any
 }
 
 const CustomModal = ({
@@ -20,6 +21,7 @@ const CustomModal = ({
   buttonTwoTitle,
   onClickOne,
   onClickTwo,
+  style,
 }: CustomModalProps) => {
   const [hover, setHover] = useState(false);
 
@@ -27,24 +29,24 @@ const CustomModal = ({
     setHover(!hover)
   }
   return (
-    <article className='custom-modal'>
+    <article className='custom-modal' style={style}>
       <section className='custom-modal__container' >
         <p className='custom-modal__text' >{textOne}</p>
         <p className='custom-modal__text' >{textTwo}</p>
         <div className='custom-modal__buttons-container' >
           <Button
+            style={{ width: 120, margin: 30 }}
             disabled={false}
             title={buttonOneTitle}
             onClick={onClickOne}
-            // style={goToLoginButtom}
             onMouseEnter={() => handleHover()}
             onMouseLeave={() => handleHover()}
           />
           <Button
+            style={{ width: 120, margin: 30 }}
             disabled={false}
             title={buttonTwoTitle}
             onClick={onClickTwo}
-            // style={goToLoginButtom}
             onMouseEnter={() => handleHover()}
             onMouseLeave={() => handleHover()}
           />

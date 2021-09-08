@@ -1,0 +1,21 @@
+@import "../../config.scss";
+@import "../../colors.scss";
+
+.game-is-on {
+  &__container {
+    height: 100vh;
+    @include customFlex(column, space-around, center);
+  }
+
+  &__text1 {
+    color: $maroon;
+    font-weight: 700;
+    padding: 20px;
+    text-align: center;
+  }
+
+  &__text2 {
+    color: $moccasin_light;
+    @extend .game-is-on__text1;
+  }
+}
