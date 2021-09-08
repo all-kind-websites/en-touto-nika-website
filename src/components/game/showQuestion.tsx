@@ -8,6 +8,7 @@ import colors from "../../constants/colors";
 import '../../styles/game/show-question.scss'
 import FakeSuspense from './FakeSuspense';
 import CorrectAnimation from '../../animations/CorrectAnimation';
+import WrongAnimation from '../../animations/WrongAnimation';
 
 const showQuestion = (
   alfaIsTrue: string,
@@ -83,7 +84,7 @@ const showQuestion = (
           numOfTotalQuestions={numOfTotalQuestions}
         />
         {choiceSave ?
-          <FakeSuspense delay={3900} fallback={correctChoice ? <CorrectAnimation /> : null} >
+          <FakeSuspense delay={3900} fallback={correctChoice ? <CorrectAnimation /> : <WrongAnimation />} >
             <DetailedAnswer
               onRefresh={onRefresh}
               selectedQuestion={selectedQuestion}

@@ -70,9 +70,11 @@ const ChoiceText = ({
       onClick={async () => {
         await cache.set(choice, true);
         setStyle(true);
-        setChoiceSave(true);
         setTimeout(() => {
+          // leave setChoiceSave inside the timeout
+          // otherwise you get problems with FakeSuspense in showQuestion
           saveAnswer();
+          setChoiceSave(true);
         }, 400);
       }}
     >
