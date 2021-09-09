@@ -41,18 +41,18 @@ const MixGameIsOn = (props: any) => {
     if (gameType === "Multi") {
       if (timer) {
         await cache.set(strings.useTimerMultiMixed, true);
-        history.push(nav.mixMultiGameWithTimer);
+        history.replace(nav.mixMultiGameWithTimer);
       } else {
         await cache.set(strings.useTimerMultiMixed, false);
-        history.push(nav.mixMultiGameNoTimer);
+        history.replace(nav.mixMultiGameNoTimer);
       }
     } else if (gameType === "TrueFalse") {
       if (timer) {
         await cache.set(strings.useTimerTrueFalseMixed, true);
-        history.push(nav.mixTrueFalseGameWithTimer);
+        history.replace(nav.mixTrueFalseGameWithTimer);
       } else {
         await cache.set(strings.useTimerTrueFalseMixed, false);
-        history.push(nav.mixTrueFalseGameNoTimer);
+        history.replace(nav.mixTrueFalseGameNoTimer);
       }
     }
   }
@@ -61,7 +61,7 @@ const MixGameIsOn = (props: any) => {
     if (gameType === "TrueFalse") await removeAsyncTrueFalseMixed();
     else await removeAsyncMultiMixed();
 
-    history.push(nav.mixChooseCategories);
+    history.replace(nav.mixChooseCategories);
   }
 
   return (
