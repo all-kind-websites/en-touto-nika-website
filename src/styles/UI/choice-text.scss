@@ -8,9 +8,10 @@
   width: 500px;
 
   .choice-container {
-    font-family: "MS Tahoma";
-    width: 100%;
     @include customFlex(row, flex-start, flex-start);
+    font-family: $font2;
+    width: inherit;
+    padding-left: 25px;
 
     .choice-letter {
       color: $maroon;

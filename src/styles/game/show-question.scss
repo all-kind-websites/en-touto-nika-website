@@ -9,6 +9,18 @@
     animation: fadeIn 2000ms;
   }
 
+  &__container {
+    @include centerFlex(column);
+    width: 500px;
+
+    .question-title {
+      width: inherit;
+      margin-bottom: 20px;
+      font-family: $font2;
+      color: $maroon;
+      padding-left: 25px;
+    }
+  }
   @keyframes fadeIn {
     0% {
       opacity: 0;

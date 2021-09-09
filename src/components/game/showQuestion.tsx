@@ -92,13 +92,8 @@ const showQuestion = (
           </FakeSuspense>
           : null
         }
-        <section style={{ marginBottom: 20 }} >
-          <h4
-            style={{
-              marginBottom: 20, fontFamily: "MS Tahoma", color: colors.maroon,
-              padding: 10, width: 500
-            }}
-          >
+        <section className='show-question__container'>
+          <h4 className='question-title'>
             {selectedQuestion.title}
           </h4>
           <ChoiceText

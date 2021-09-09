@@ -24,24 +24,27 @@ const TopMenu = ({
 
   return (
     <article className='top-menu' >
-      <h3 className='category-title' >
-        {categoryTitle}
-      </h3>
-      <div className='questions-container' >
-        <h4 >Ερωτήσεις</h4>
-        <h5 >
-          {numOfTotalQuestions} / {numOfDownloadedQuestions - 1}
-        </h5>
-      </div>
-      <div className='icon-container' >
-        <img
-          src="assets/panagia-glykofilousa.jpg"
-          alt='icon of Theotokos'
-        />
-      </div>
-      <div className='right-container' >
-        <h4 >Σωστές</h4>
-        <h5 >{totalPoints}</h5>
+
+      <div className='top-menu__container' >
+        <div className='questions-container' >
+          <h4 >Ερωτήσεις</h4>
+          <h5 >
+            {numOfTotalQuestions} / {numOfDownloadedQuestions - 1}
+          </h5>
+        </div>
+        <div>
+          <h3 className='category-title' >{categoryTitle}</h3>
+          <div className='icon-container' >
+            <img
+              src="assets/panagia-glykofilousa.jpg"
+              alt='icon of Theotokos'
+            />
+          </div>
+        </div>
+        <div className='right-container' >
+          <h4 >Σωστές</h4>
+          <h5 >{totalPoints}</h5>
+        </div>
       </div>
     </article >
   );
