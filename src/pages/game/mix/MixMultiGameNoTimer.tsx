@@ -57,10 +57,8 @@ const MixMultiGameNoTimer = (props: any) => {
     loadQuestions,
     loadQuestionsError,
     numOfDownloadedQuestions,
-    numOfQuestions,
     numOfTotalQuestions,
     selectedQuestion,
-    setNumOfQuestions,
     setNumOfTotalQuestions,
     setStadiumIsFinished,
     setTotalPoints,
@@ -79,7 +77,6 @@ const MixMultiGameNoTimer = (props: any) => {
     setChoiceSave(false);
     setChoiceSave(false);
     await removeChoicesfromAsyncStorage();
-    setNumOfQuestions(numOfQuestions + 1);
     // Then
     loadQuestions();
     setShowAnswer(false);
@@ -89,18 +86,17 @@ const MixMultiGameNoTimer = (props: any) => {
     if (numOfTotalQuestions === 100) {
       setStadiumIsFinished(true);
     }
-  }, [setRefreshing, loadQuestions, numOfQuestions, numOfTotalQuestions, setNumOfQuestions, setStadiumIsFinished,]);
+  }, [setRefreshing, loadQuestions, numOfTotalQuestions, setStadiumIsFinished,]);
 
   const { quit } = quitGame(
     history,
-    setNumOfTotalQuestions,
     gameType,
     timer,
-    // * check below
+    /* In games that are not mixed, we use categoryId at the end.
+     Here we hardcode MultiMixed.  */
     "MultiMixed"
   );
-  /* In games that are not mixed, we use categoryId at the end.
-      Here we hardcode MultiMixed.  */
+
 
   const { isUpLoading, saveStadiumResult } = useSaveStadiumResultHandler(
     totalPoints,
@@ -114,7 +110,7 @@ const MixMultiGameNoTimer = (props: any) => {
 
   useEffect(() => {
     loadQuestions();
-  }, []); // leave the dependencies there and empty
+  }, []); // !!! leave the dependencies there and empty !!! 
 
 
   const { saveAnswer } = checkAnswerHandlerMixMulti(
@@ -134,7 +130,7 @@ const MixMultiGameNoTimer = (props: any) => {
     );
   }
 
-  if (numOfQuestions === 1 && selectedQuestion === null) {
+  if (numOfTotalQuestions === 1 && selectedQuestion === null) {
     return (
       <NoQuestionsHereScreen history={props.history} />
     );
@@ -164,6 +160,7 @@ const MixMultiGameNoTimer = (props: any) => {
         checkBeta,
         categoryId,
         gameType,
+        history,
         checkGamma,
         checkDelta,
         choiceColor,

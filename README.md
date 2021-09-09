@@ -9,8 +9,7 @@
   - https://dev.to/rdegges/please-stop-using-local-storage-1i04
 - what is this: index.js:1 Warning: Invalid attribute name: `0`
 - If user takes a brake, save the points to server.
-- In categories for mixed game, if user does not have internet and fails to download filters, so an alert message and do not download filters. If user activates internet then ...
+- In categories for mixed game, if user does not have internet and fails to download filters, show an alert message and do not download filters. If user activates internet then ...
 - save points to redux => saveGradeToCache(totalPoints);
-- if user clicks the back button after answering a question, clean the choice made in localstorage. Maybe don't push to game but replace, so user will not be able to go back.
-- delete export history from App
-- if user navigates back from a mix game, take him to multi categories accordingly
+- if user clicks the back button after answering a question, clean the choice made in localstorage.
+- bugfix: If user is at last question: If he presses the back button before answering the question and desides to lose the last question, or If he takes a brake with back button ... and then wants to continue the same game, he goes to GameOverPage. It's ok, but it would be better to avoid that!

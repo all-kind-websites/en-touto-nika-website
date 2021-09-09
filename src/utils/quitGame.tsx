@@ -11,7 +11,6 @@ import nav from "../constants/nav";
 
 const quitGame = (
   history: any,
-  setNumOfTotalQuestions: Function,
   gameType: string,
   timer: boolean,
   categoryId: string
@@ -31,7 +30,6 @@ const quitGame = (
       await noTimerTrueFalseRemoveAsync(categoryId);
     }
 
-    setNumOfTotalQuestions(0);
     history.push(nav.home); // call it here otherwise you get the finished round screen.
   };
   return { quit };

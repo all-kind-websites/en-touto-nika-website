@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import strings from "../constants/strings";
@@ -15,7 +15,6 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
   const [loadQuestionsError, setLoadQuestionsError] = useState(null); // error initially is undefined!
   // const [totalTimeLeft, setTotalTimeLeft] = useState(0);
   const [totalPoints, setTotalPoints] = useState(0);
-  const [numOfQuestions, setNumOfQuestions] = useState(1); // for every round
   const [numOfTotalQuestions, setNumOfTotalQuestions] = useState(0); // for each stadium
   const [numOfDownloadedQuestions, setNumOfDownloadedQuestions] = useState(0);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
@@ -57,8 +56,7 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
 
       // In case game just starts we fetch the questions and store them to AsyncStorage
       if (!questions) {
-        setNumOfTotalQuestions(0);
-        setNumOfQuestions(1);
+        setNumOfTotalQuestions(1);
         setTotalPoints(0);
         if (timer) {
           await cache.remove(strings.min);
@@ -98,10 +96,8 @@ const useLoadQuestionsMixedMulti = (timer: boolean, gameType: string) => {
     loadQuestions,
     loadQuestionsError,
     numOfDownloadedQuestions,
-    numOfQuestions,
     numOfTotalQuestions,
     selectedQuestion,
-    setNumOfQuestions,
     setNumOfTotalQuestions,
     setStadiumIsFinished,
     setTotalPoints,

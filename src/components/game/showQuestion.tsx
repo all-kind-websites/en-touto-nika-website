@@ -4,11 +4,10 @@ import TopMenu from "../UI/TopMenu";
 import ChoiceText from "../UI/ChoiceText";
 import DetailedAnswer from "../UI/DetailedAnswer";
 import { Question } from "../../models/question";
-import colors from "../../constants/colors";
-import '../../styles/game/show-question.scss'
 import FakeSuspense from './FakeSuspense';
 import CorrectAnimation from '../../animations/CorrectAnimation';
 import WrongAnimation from '../../animations/WrongAnimation';
+import '../../styles/game/show-question.scss'
 
 const showQuestion = (
   alfaIsTrue: string,
@@ -19,6 +18,7 @@ const showQuestion = (
   checkBeta: boolean,
   categoryId: boolean,
   gameType: string,
+  history: any,
   checkGamma: boolean,
   checkDelta: boolean,
   choiceColor: string,
@@ -60,7 +60,7 @@ const showQuestion = (
 
   /* 
     Alerts user not to reload page while playing.
-    Eventhough if user already answered the question, 
+    If user already answered the question, 
     it doesn't matter, user just moves to next question.
    */
   if (!choiceSave)
@@ -145,7 +145,6 @@ const showQuestion = (
             setChoiceSave={setChoiceSave}
           />
         </section>
-
       </article>
     );
   }
