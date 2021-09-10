@@ -145,6 +145,7 @@ export const removeAsyncMultiMixed = async () => {
   await localStorage.removeItem(strings.questionsMultiMixed);
   await localStorage.removeItem(strings.mixGameIsOnMulti);
   await localStorage.removeItem(strings.mixGameIsOnMultiNoTimer);
+  await localStorage.removeItem(strings.mixGameIsOnMultiNoTimer);
   await localStorage.removeItem(strings.numOfTotQuestionsMultiMixed);
   await localStorage.removeItem(strings.noIsChosen);
   await localStorage.removeItem(strings.yesIsChosen);
