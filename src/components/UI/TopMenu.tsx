@@ -1,4 +1,5 @@
 import { RootStateOrAny, useSelector } from 'react-redux';
+
 import strings from '../../constants/strings';
 import '../../styles/UI/top-menu.scss';
 
@@ -24,7 +25,6 @@ const TopMenu = ({
 
   return (
     <article className='top-menu' >
-
       <div className='top-menu__container' >
         <div className='questions-container' >
           <h4 >Ερωτήσεις</h4>

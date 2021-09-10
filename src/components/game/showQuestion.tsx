@@ -86,6 +86,7 @@ const showQuestion = (
         {choiceSave ?
           <FakeSuspense delay={3900} fallback={correctChoice ? <CorrectAnimation /> : <WrongAnimation />} >
             <DetailedAnswer
+              history={history}
               onRefresh={onRefresh}
               selectedQuestion={selectedQuestion}
             />

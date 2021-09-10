@@ -3,7 +3,7 @@
 
 .top-menu {
   width: 500px;
-  height: 42vh;
+  height: 40vh;
 
   &__container {
     @include customFlex(row, space-around, center);

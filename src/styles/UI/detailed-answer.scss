@@ -2,41 +2,36 @@
 @import "../colors.scss";
 
 .detailed-answer {
-  @include customFlex(column, flex-start, center);
-  margin-left: 10px;
+  @include centerFlex(column);
   width: 500px;
   margin-bottom: 20px;
-
   animation: fadeIn 2000ms;
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  .icons-container {
+    @include centerFlex(row);
 
-  .line {
-    margin-right: 10px;
-  }
+    .icon-show-next {
+      cursor: pointer;
+      font-size: 4rem;
+      margin-left: 10px;
+      color: $maroon;
+    }
 
-  .icon-show-next {
-    cursor: pointer;
-    font-size: 4rem;
-    color: $maroon;
-    margin-right: 10px;
+    .break-icon {
+      cursor: pointer;
+      color: $maroon;
+      font-size: 5rem;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
   }
 
   .title {
-    font-family: "MS Tahoma";
-    margin-right: 10px;
+    font-family: $font2;
     text-decoration: underline;
     color: $maroon;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
-
   .answer-text {
     font-family: "MS Tahoma";
     margin-right: 10px;
@@ -48,5 +43,18 @@
       text-decoration: none;
       text-align: left;
     }
+  }
+
+  .line {
+    @include centerFlex(column);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
