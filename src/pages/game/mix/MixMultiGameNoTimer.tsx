@@ -18,7 +18,6 @@ import DownloadErrorScreen from "../../extras/DownloadErrorScreen";
 import NoQuestionsHereScreen from '../../extras/NoQuestionsHereScreen';
 import { savePoints } from '../../../store/actions/game';
 import { useHistory } from 'react-router-dom';
-import nav from '../../../constants/nav';
 
 const MixMultiGameNoTimer = (props: any) => {
   const dispatch = useDispatch();
@@ -52,6 +51,7 @@ const MixMultiGameNoTimer = (props: any) => {
   useEffect(() => {
     dispatch(savePoints(pointsMultiMixed, strings.pointsTypeMultiMixed))
   }, [dispatch, pointsMultiMixed])
+
 
   const {
     loadQuestions,

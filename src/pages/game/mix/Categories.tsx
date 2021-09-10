@@ -83,7 +83,6 @@ const Categories = () => {
     <section className='mix-categories' >
       <h4 className='mix-categories__title' > ΕΠΙΛΟΓΗ ΚΑΤΗΓΟΡΙΩΝ</h4>
       <div className={`mix-categories__container`} >
-        {/* <div className={`mix-categories__container ${modalVisible ? 'not-clickable' : ''}`} > */}
         <div className='checkboxes-icon-container' >
           <section className='mix-categories__checkboxes'>
             <CheckBox checked={oneIsTrue} onChange={saveOne} text="Καινή Διαθήκη" />

@@ -38,6 +38,7 @@ const MixGameIsOn = (props: any) => {
 
   async function continueSameGameHanlder() {
     store.dispatch(gameOn(true));
+
     if (gameType === "Multi") {
       if (timer) {
         await cache.set(strings.useTimerMultiMixed, true);
