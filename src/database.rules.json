@@ -1,0 +1,62 @@
+{
+  "rules": {
+    ".read": true,
+    "All_Users_Data": {
+      "$userID": {
+        ".write": "$userID === auth.uid"
+      }
+    },
+    "categoriesFiltersMulti": {
+      "$userID": {
+        ".write": "$userID === auth.uid"
+      }
+    },
+    "categoriesFiltersTrueFalse": {
+      "$userID": {
+        ".write": "$userID === auth.uid"
+      }
+    },
+    "profilePictures": {
+      "$userID": {
+        ".write": "$userID === auth.uid"
+      }
+    },
+    "usersNames": {
+      "$userID": {
+        ".write": "$userID === auth.uid"
+      }
+    },
+    "questionsForMultiOne": {
+      ".read": true,
+      ".write": "auth.uid === '5E5hc3oOCJRYM4RByLf7ORTIP103'|| auth.uid === '9SifCjAK1rOIbHyX9P0NEzm43jp1'"
+    },
+    "questionsForMultiTwo": {
+      ".read": true,
+      ".write": "auth.uid === '5E5hc3oOCJRYM4RByLf7ORTIP103'|| auth.uid === '9SifCjAK1rOIbHyX9P0NEzm43jp1'"
+    },
+    "questionsForMultiThree": {
+      ".read": true,
+      ".write": "auth.uid === '5E5hc3oOCJRYM4RByLf7ORTIP103'|| auth.uid === '9SifCjAK1rOIbHyX9P0NEzm43jp1'"
+    },
+    "questionsForMultiFour": {
+      ".read": true,
+      ".write": "auth.uid === '5E5hc3oOCJRYM4RByLf7ORTIP103'|| auth.uid === '9SifCjAK1rOIbHyX9P0NEzm43jp1'"
+    },
+    "questionsForTrueFalseOne": {
+      ".read": true,
+      ".write": "auth.uid === '5E5hc3oOCJRYM4RByLf7ORTIP103'|| auth.uid === '9SifCjAK1rOIbHyX9P0NEzm43jp1'"
+    },
+    "questionsForTrueFalseTwo": {
+      ".read": true,
+      ".write": "auth.uid === '5E5hc3oOCJRYM4RByLf7ORTIP103'|| auth.uid === '9SifCjAK1rOIbHyX9P0NEzm43jp1'"
+    },
+    "questionsForTrueFalseThree": {
+      ".read": true,
+      ".write": "auth.uid === '5E5hc3oOCJRYM4RByLf7ORTIP103'|| auth.uid === '9SifCjAK1rOIbHyX9P0NEzm43jp1'"
+    },
+    "questionsForTrueFalseFour": {
+      ".read": true,
+      ".write": "auth.uid === '5E5hc3oOCJRYM4RByLf7ORTIP103'|| auth.uid === '9SifCjAK1rOIbHyX9P0NEzm43jp1'"
+    }
+  }
+}
