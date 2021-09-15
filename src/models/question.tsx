@@ -5,7 +5,6 @@ export interface Question {
 	categoryIds: string;
 	ownerId: string;
 	title: string;
-	difficultyLevel: string;
 	answer: string;
 	source: string;
 	choice_Alpha?: string;
@@ -23,7 +22,6 @@ function question(this: Question, info: Question) {
 	this.categoryIds = info.categoryIds;
 	this.ownerId = info.ownerId;
 	this.title = info.title;
-	this.difficultyLevel = info.difficultyLevel;
 	this.answer = info.answer;
 	this.source = info.source;
 	this.choice_Alpha = info.choice_Alpha;
@@ -32,7 +30,6 @@ function question(this: Question, info: Question) {
 	this.choice_Delta = info.choice_Delta;
 	this.right_choice = info.right_choice;
 	this.index = info.index;
-	this.hint = info.hint;
 }
 
 export default question;
