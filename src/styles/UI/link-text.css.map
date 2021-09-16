@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,UAAU,CAAC;EACT,UAAU,EAAE,IAAI;EAChB,KAAK,EEiBE,OAAO;EFhBd,aAAa,EAAE,IAAI;CAIpB;;AAPD,AAIE,UAJQ,CAIR,OAAO,CAAC;EACN,YAAY,EAAE,IAAI;CACnB",
+    "sources": [
+        "link-text.scss",
+        "../config.scss",
+        "../colors.scss",
+        "../colors.scss"
+    ],
+    "names": [],
+    "file": "link-text.css"
+}

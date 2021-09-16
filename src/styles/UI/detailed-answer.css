@@ -1,0 +1,106 @@
+.detailed-answer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 500px;
+  margin-bottom: 20px;
+  -webkit-animation: fadeIn 2000ms;
+          animation: fadeIn 2000ms;
+}
+
+.detailed-answer .icons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.detailed-answer .icons-container .icon-show-next {
+  cursor: pointer;
+  font-size: 4rem;
+  margin-left: 10px;
+  color: #800000;
+}
+
+.detailed-answer .icons-container .break-icon {
+  cursor: pointer;
+  color: #800000;
+  font-size: 5rem;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.detailed-answer .title {
+  font-family: "MS Tahoma";
+  text-decoration: underline;
+  color: #800000;
+  margin-bottom: 5px;
+}
+
+.detailed-answer .answer-text {
+  font-family: "MS Tahoma";
+  margin-right: 10px;
+}
+
+.detailed-answer .link {
+  width: 500px;
+}
+
+.detailed-answer .link .link__anchor {
+  text-decoration: none;
+  text-align: left;
+}
+
+.detailed-answer .line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=detailed-answer.css.map */

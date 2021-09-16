@@ -1,0 +1,31 @@
+.multi-categories-no-timer {
+  width: 100vw;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff4df), color-stop(#d2691e), to(#800000));
+  background: linear-gradient(#fff4df, #d2691e, #800000);
+}
+
+.multi-categories-no-timer ul {
+  margin-top: 60px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.multi-categories-no-timer p {
+  position: relative;
+  top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: #800000;
+}
+/*# sourceMappingURL=multi-categories-no-timer.css.map */

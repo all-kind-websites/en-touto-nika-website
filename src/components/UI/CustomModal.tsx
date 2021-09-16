@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../../styles/UI/custom-modal.scss';
+import '../../styles/UI/custom-modal.css';
 
 import Button from "./Button";
 

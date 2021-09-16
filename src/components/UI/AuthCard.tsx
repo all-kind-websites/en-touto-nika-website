@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
 import colors from '../../constants/colors';
-import '../../styles/UI/auth-card.scss';
+import '../../styles/UI/auth-card.css';
 import Button from './Button';
 import Input from './Input';
 

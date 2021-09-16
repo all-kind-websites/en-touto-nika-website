@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import lottie from 'lottie-web';
-import '../styles/animations/wrong.scss';
+import '../styles/animations/wrong.css';
 const playAlert = require('alert-sound-notify');
 
 export default function WrongAnimation(props: any) {

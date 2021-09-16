@@ -1,6 +1,6 @@
 import Button from "../../components/UI/Button";
 import nav from "../../constants/nav";
-import '../../styles/game/pages/no-questions-here.scss';
+import '../../styles/game/pages/no-questions-here.css';
 
 const NoQuestionsHereScreen = (props: any) => {
   return (

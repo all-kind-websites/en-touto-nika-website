@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import TheotokosIcon from '../../components/UI/TheotokosIcon'
 import AuthCard from '../../components/UI/AuthCard'
-import '../../styles/auth.scss';
+import '../../styles/auth.css';
 import strings from '../../constants/strings';
 
 export default function Auth() {

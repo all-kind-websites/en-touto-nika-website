@@ -1,4 +1,4 @@
-import '../styles/UI/checkbox.scss';
+import '../styles/UI/checkbox.css';
 
 export interface CheckBoxProps {
   text: string,

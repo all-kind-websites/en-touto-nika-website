@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,kBAAkB,CAAC;EACjB,MAAM,EAAE,KAAK;ECEb,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,cAAc,EDJM,MAAM;EAC1B,UAAU,ECHM,0CAAqD;CDStE;;AATD,AAKE,kBALgB,CAKhB,KAAK,CAAC;EACJ,KAAK,EEgBQ,OAAO;EFfpB,aAAa,EAAE,IAAI;CACpB",
+    "sources": [
+        "no-questions-here.scss",
+        "../../config.scss",
+        "../../colors.scss",
+        "../../colors.scss"
+    ],
+    "names": [],
+    "file": "no-questions-here.css"
+}

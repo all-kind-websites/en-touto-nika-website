@@ -10,7 +10,7 @@ import cache from "../../../utils/cache";
 
 import CheckBox from "../../../components/CheckBox";
 import Button from "../../../components/UI/Button";
-import '../../../styles/game/mix/categories.scss';
+import '../../../styles/game/mix/categories.css';
 import { gameOn } from "../../../store/actions/game";
 
 const Categories = () => {

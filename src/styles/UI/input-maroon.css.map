@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,KAAK,CAAC;EC0BJ,aAAa,EAAE,IAAI;EACnB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,GAAG;EACZ,SAAS,EAAE,MAAM;EACjB,gBAAgB,ECTD,OAAO;EDUtB,KAAK,EAAE,OAAkB;EACzB,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,OAAmB;CDjChD;;AACD,AAAA,aAAa,CAAC;EACZ,KAAK,EAAE,OAAoB;EAC3B,OAAO,EAAE,CAAC;EACV,YAAY,EAAE,GAAG;CAClB",
+    "sources": [
+        "input-maroon.scss",
+        "../config.scss",
+        "../colors.scss"
+    ],
+    "names": [],
+    "file": "input-maroon.css"
+}

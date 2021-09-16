@@ -5,7 +5,7 @@ import { RootStateOrAny, useSelector } from "react-redux";
 import Button from "../../components/UI/Button";
 import Loader from "../../components/UI/Loader";
 
-import '../../styles/game/pages/game-over.scss';
+import '../../styles/game/pages/game-over.css';
 
 // import Colours from "../../constants/Colours";
 interface GameOverPageProps {

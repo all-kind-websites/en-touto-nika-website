@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,UAAU,CAAC;EACT,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,UAAU,EEmBK,OAAO;EDZtB,OAAO,EAAE,IAAI;EACb,cAAc,EDPM,MAAM;ECQ1B,eAAe,EDRa,aAAa;ECSzC,WAAW,EDTgC,MAAM;CAClD",
+    "sources": [
+        "mix-multi-game-no-timer.scss",
+        "../../config.scss",
+        "../../colors.scss",
+        "../../colors.scss"
+    ],
+    "names": [],
+    "file": "mix-multi-game-no-timer.css"
+}

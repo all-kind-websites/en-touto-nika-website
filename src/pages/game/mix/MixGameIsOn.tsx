@@ -9,7 +9,7 @@ import strings from '../../../constants/strings';
 import cache from '../../../utils/cache';
 import { removeAsyncMultiMixed, removeAsyncTrueFalseMixed } from '../../../utils/removeAsync';
 import { gameOn } from '../../../store/actions/game';
-import '../../../styles/game/mix/game-is-on.scss';
+import '../../../styles/game/mix/game-is-on.css';
 
 const MixGameIsOn = (props: any) => {
   const { history } = props;

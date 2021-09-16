@@ -1,0 +1,46 @@
+.choice-text {
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+.choice-text .choice-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-family: "MS Tahoma";
+  width: inherit;
+  padding-left: 25px;
+}
+
+.choice-text .choice-container .choice-letter {
+  color: #800000;
+  font-family: inherit;
+  width: 7%;
+}
+
+.choice-text .choice-container .choice-question {
+  font-family: inherit;
+  width: 90%;
+}
+
+.choice-text .choice-container .choice-made {
+  background-color: #fff;
+}
+
+.choice-text.disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+/*# sourceMappingURL=choice-text.css.map */

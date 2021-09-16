@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,eAAe,CAAC;EACd,MAAM,EAAE,KAAK;ECSb,OAAO,EAAE,IAAI;EACb,cAAc,EDTM,MAAM;ECU1B,eAAe,EDVa,YAAY;ECWxC,WAAW,EDX+B,MAAM;EAChD,UAAU,ECHM,0CAAqD;CDYtE;;AAZD,AAKE,eALa,CAKb,MAAM,CAAC;EACL,KAAK,EEaA,OAAO;CFZb;;AAPH,AASE,eATa,CASb,MAAM,CAAC;EACL,KAAK,EEYQ,OAAO;CFXrB",
+    "sources": [
+        "download-error.scss",
+        "../../config.scss",
+        "../../colors.scss",
+        "../../colors.scss"
+    ],
+    "names": [],
+    "file": "download-error.css"
+}

@@ -1,4 +1,4 @@
-import '../../styles/UI/line.scss';
+import '../../styles/UI/line.css';
 
 const Line = (props: any) => <div {...props.className} className='line'></div>
 

@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "multi-game-no-timer.scss",
+        "../../config.scss",
+        "../../colors.scss",
+        "../../colors.scss"
+    ],
+    "names": [],
+    "file": "multi-game-no-timer.css"
+}

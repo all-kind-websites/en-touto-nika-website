@@ -1,4 +1,4 @@
-import '../../../styles/game/multi/multi-game-no-timer.scss';
+import '../../../styles/game/multi/multi-game-no-timer.css';
 
 const MultiGameNoTimer = () => {
   return (

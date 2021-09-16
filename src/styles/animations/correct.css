@@ -1,0 +1,34 @@
+.animation {
+  position: absolute;
+  top: 10;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 10;
+  height: 200px;
+  width: 200px;
+}
+
+.animation.fade-out {
+  -webkit-animation: fadeout 1000ms;
+          animation: fadeout 1000ms;
+}
+
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=correct.css.map */

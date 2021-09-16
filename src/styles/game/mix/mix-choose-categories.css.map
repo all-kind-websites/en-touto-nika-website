@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,sBAAsB,CAAC;EACrB,MAAM,EAAE,KAAK;EACb,UAAU,ECFM,0CAAqD;EAGrE,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,cAAc,EDHM,MAAM;CAC3B",
+    "sources": [
+        "mix-choose-categories.scss",
+        "../../config.scss",
+        "../../colors.scss",
+        "../../colors.scss"
+    ],
+    "names": [],
+    "file": "mix-choose-categories.css"
+}

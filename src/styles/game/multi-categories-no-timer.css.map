@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,0BAA0B,CAAC;EACzB,KAAK,EAAE,KAAK;EACZ,UAAU,ECFM,0CAAqD;CDgBtE;;AAhBD,AAIE,0BAJwB,CAIxB,EAAE,CAAC;EACD,UAAU,EAAE,IAAI;EAChB,eAAe,EAAE,IAAI;EACrB,OAAO,EAAE,CAAC;CACX;;AARH,AAUE,0BAVwB,CAUxB,CAAC,CAAC;EACA,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,IAAI;ECTX,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,cAAc,EDOQ,GAAG;EACvB,KAAK,EEKA,OAAO;CFJb",
+    "sources": [
+        "multi-categories-no-timer.scss",
+        "../config.scss",
+        "../colors.scss",
+        "../colors.scss"
+    ],
+    "names": [],
+    "file": "multi-categories-no-timer.css"
+}

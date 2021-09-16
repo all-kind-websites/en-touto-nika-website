@@ -1,7 +1,7 @@
 import { RootStateOrAny, useSelector } from 'react-redux';
 
 import strings from '../../constants/strings';
-import '../../styles/UI/top-menu.scss';
+import '../../styles/UI/top-menu.css';
 
 interface TopMenuProps {
   categoryTitle: string,

@@ -1,4 +1,4 @@
-import '../../styles/UI/theotokos-icon.scss';
+import '../../styles/UI/theotokos-icon.css';
 import { RootStateOrAny, useSelector } from 'react-redux';
 
 const TheotokosIcon = (props: any) => {

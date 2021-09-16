@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAIG,AAAD,sBAAY,CAAC;EACX,MAAM,EAAE,KAAK;ECQf,OAAO,EAAE,IAAI;EACb,cAAc,EDRQ,MAAM;ECS5B,eAAe,EDTe,YAAY;ECU1C,WAAW,EDViC,MAAM;CACjD;;AAEA,AAAD,kBAAQ,EAOP,kBAAO,CAPC;EACP,KAAK,EEYA,OAAO;EFXZ,WAAW,EAAE,GAAG;EAChB,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,MAAM;CACnB;;AAEA,AAAD,kBAAQ,CAAC;EACP,KAAK,EEQQ,OAAO;CFNrB",
+    "sources": [
+        "game-is-on.scss",
+        "../../config.scss",
+        "../../colors.scss",
+        "../../colors.scss"
+    ],
+    "names": [],
+    "file": "game-is-on.css"
+}

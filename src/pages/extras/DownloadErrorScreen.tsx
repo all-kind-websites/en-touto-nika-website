@@ -2,7 +2,7 @@
 // import Colours from "../../constants/Colours";
 import Button from "../../components/UI/Button";
 import nav from "../../constants//nav";
-import '../../styles/game/pages/download-error.scss';
+import '../../styles/game/pages/download-error.css';
 
 const DownloadErrorScreen = ({
   loadQuestions,

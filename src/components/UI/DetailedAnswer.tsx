@@ -5,7 +5,7 @@ import Line from "../../components/UI/Line";
 import LinkText from "./LinkText";
 
 import nav from '../../constants/nav';
-import '../../styles/UI/detailed-answer.scss';
+import '../../styles/UI/detailed-answer.css';
 
 const DetailedAnswer = ({ history, selectedQuestion, onRefresh }: any) => {
   const breakHandler = () => {

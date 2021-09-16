@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,UAAU,CAAC;EACT,MAAM,EAAE,KAAK;ECSb,OAAO,EAAE,IAAI;EACb,cAAc,EDTM,MAAM;ECU1B,eAAe,EDVa,YAAY;ECWxC,WAAW,EDX+B,MAAM;EAChD,UAAU,ECHM,0CAAqD;CDsBtE;;AAtBD,AAKE,UALQ,CAKR,SAAS,CAAC;EACR,WAAW,ECPP,WAAW;EDQf,KAAK,EEYA,OAAO;CFXb;;AARH,AAUE,UAVQ,CAUR,QAAQ,CAAC;EACP,KAAK,EAAE,OAAmB;CAC3B;;AAZH,AAcE,UAdQ,CAcR,MAAM,CAAC;EACL,KAAK,EEOQ,OAAO;CFNrB;;AAhBH,AAkBE,UAlBQ,CAkBR,iBAAiB,CAAC;EAChB,KAAK,EAAE,KAA4B;EChBrC,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,cAAc,EDcQ,MAAM;CAC3B",
+    "sources": [
+        "game-over.scss",
+        "../../config.scss",
+        "../../colors.scss",
+        "../../colors.scss"
+    ],
+    "names": [],
+    "file": "game-over.css"
+}

@@ -1,0 +1,10 @@
+.line {
+  margin: 20px;
+  border-radius: 50px;
+  border-top: 6px solid #670000;
+  height: 5px;
+  width: 250px;
+  -webkit-box-shadow: 2px 2px 8px 3px #9a0000;
+          box-shadow: 2px 2px 8px 3px #9a0000;
+}
+/*# sourceMappingURL=line.css.map */

@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,iBAAiB,CAAC;ECGhB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,cAAc,EDLM,GAAG;CACxB",
+    "sources": [
+        "multi-categories.scss",
+        "../config.scss",
+        "../colors.scss",
+        "../colors.scss"
+    ],
+    "names": [],
+    "file": "multi-categories.css"
+}

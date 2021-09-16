@@ -1,4 +1,4 @@
-import '../../../styles/game/mix/mix-choose-categories.scss';
+import '../../../styles/game/mix/mix-choose-categories.css';
 import Categories from './Categories';
 
 const MixChooseCategories = () => {

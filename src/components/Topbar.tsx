@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { MdTimer, MdTimerOff } from 'react-icons/md';
 
-import "../styles/topbar.scss";
+import "../styles/topbar.css";
 import nav from '../constants/nav';
 import { timerState } from '../store/actions/game';
 

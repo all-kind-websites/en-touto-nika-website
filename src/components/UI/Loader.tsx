@@ -1,5 +1,5 @@
 
-import '../../styles/UI/loader.scss';
+import '../../styles/UI/loader.css';
 
 export default function Loader() {
   return (

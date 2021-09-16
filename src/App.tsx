@@ -13,7 +13,7 @@ import Create from "./pages/menu/Create";
 import NotFound from "./pages/NotFound";
 import Auth from './pages/Auth/Auth';
 import Topbar from './components/Topbar';
-import './styles/app.scss';
+import './styles/app.css';
 
 import strings from './constants/strings';
 import Donate from './pages/menu/Donate';

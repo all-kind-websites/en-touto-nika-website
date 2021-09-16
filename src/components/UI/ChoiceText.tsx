@@ -1,6 +1,6 @@
 import strings from '../../constants/strings';
 import colors from '../../constants/colors';
-import '../../styles/UI/choice-text.scss';
+import '../../styles/UI/choice-text.css';
 
 import cache from "../../utils/cache";
 interface ChoiceTextProps {

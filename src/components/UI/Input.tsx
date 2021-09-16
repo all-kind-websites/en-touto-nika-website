@@ -1,4 +1,4 @@
-import "../../styles/UI/input.scss";
+import "../../styles/UI/input.css";
 
 const Input = (props: any) =>
   <div className='input__container' >

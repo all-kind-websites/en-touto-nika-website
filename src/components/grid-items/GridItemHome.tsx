@@ -1,6 +1,6 @@
 import React from "react";
 
-import '../../styles/grid-items/grid-item-home.scss';
+import '../../styles/grid-items/grid-item-home.css';
 // const jesus = require("../../../assets/jesus-categories.jpg");
 const theotokos = "assets/glykofilousa-categories.jpg";
 const john = "assets/john-for-categories.jpg";

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import GAME_TYPES from '../data/game-types';
 
 import GridItemHome from '../components/grid-items/GridItemHome';
-import '../styles/home.scss';
+import '../styles/home.css';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import nav from '../constants/nav';

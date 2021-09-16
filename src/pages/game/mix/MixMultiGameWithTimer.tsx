@@ -1,4 +1,4 @@
-import '../../../styles/game/mix/mix-multi-game-with-timer.scss'
+import '../../../styles/game/mix/mix-multi-game-with-timer.css'
 
 const MixMultiGameWithTimer = () => {
   return (

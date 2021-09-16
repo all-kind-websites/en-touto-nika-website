@@ -1,4 +1,4 @@
-import '../../../styles/game/mix/mix-multi-game-no-timer.scss'
+import '../../../styles/game/mix/mix-multi-game-no-timer.css'
 
 import { useState, useEffect, useCallback } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";

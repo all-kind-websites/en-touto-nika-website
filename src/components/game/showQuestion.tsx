@@ -7,7 +7,7 @@ import { Question } from "../../models/question";
 import FakeSuspense from './FakeSuspense';
 import CorrectAnimation from '../../animations/CorrectAnimation';
 import WrongAnimation from '../../animations/WrongAnimation';
-import '../../styles/game/show-question.scss'
+import '../../styles/game/show-question.css'
 
 const showQuestion = (
   alfaIsTrue: string,

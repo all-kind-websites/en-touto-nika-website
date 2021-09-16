@@ -1,4 +1,4 @@
-import '../../styles/UI/link-text.scss';
+import '../../styles/UI/link-text.css';
 
 const LinkText = (props: any) => {
   return (

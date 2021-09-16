@@ -8,7 +8,7 @@ import CategoryGridTileNoTimer from '../../components/grid-items/CategoryGridTil
 import nav from '../../constants/nav';
 import { CATEGORIES } from '../../data/categories';
 import { gameTypeTitle } from '../../store/actions/game';
-import '../../styles/game/multi-categories-no-timer.scss'
+import '../../styles/game/multi-categories-no-timer.css'
 import getGameStatusMulti from '../../utils/getGameStatusMulti';
 import cache from '../../utils/cache';
 import strings from '../../constants/strings';

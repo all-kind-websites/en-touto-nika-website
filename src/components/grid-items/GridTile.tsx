@@ -1,4 +1,4 @@
-import '../../styles/grid-items/grid-tile.scss';
+import '../../styles/grid-items/grid-tile.css';
 
 interface Image {
   borderColor: string,
