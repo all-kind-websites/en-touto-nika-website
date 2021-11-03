@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { store } from '../../..';
 import Button from '../../../components/UI/Button';
 import nav from '../../../constants/nav';
 import strings from '../../../constants/strings';
@@ -10,6 +9,7 @@ import cache from '../../../utils/cache';
 import { removeAsyncMultiMixed, removeAsyncTrueFalseMixed } from '../../../utils/removeAsync';
 import { gameOn } from '../../../store/actions/game';
 import '../../../styles/game/mix/game-is-on.css';
+import { store } from '../../../store/configureStore';
 
 const MixGameIsOn = (props: any) => {
   const { history } = props;

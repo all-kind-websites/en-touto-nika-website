@@ -1,6 +1,6 @@
-import { store } from "../..";
 import colors from "../../constants/colors";
 import strings from "../../constants/strings";
+import { store } from "../../store/configureStore";
 
 const jesus = "assets/jesus-categories.jpg";
 

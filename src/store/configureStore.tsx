@@ -38,6 +38,7 @@ const configureStore = () => {
   return { store, persistor }
 };
 
+
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
@@ -46,5 +47,6 @@ declare global {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+export const { store, persistor } = configureStore();
 
 export default configureStore;

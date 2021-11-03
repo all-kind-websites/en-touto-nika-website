@@ -67,17 +67,17 @@ const Categories = () => {
     }
   };
 
-  // TODO: add content
-  if (!userIsLoggedIn) {
-    return (
-      <div></div>
-    );
-  }
+  // // TODO: add content
+  // if (!userIsLoggedIn) {
+  //   return (
+  //     <div></div>
+  //   );
+  // }
 
-  // TODO: add content
-  if (isLoading && userIsLoggedIn) {
-    return <div></div>
-  }
+  // // TODO: add content
+  // if (isLoading && userIsLoggedIn) {
+  //   return <div></div>
+  // }
 
   return (
     <section className='mix-categories' >

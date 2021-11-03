@@ -9,7 +9,7 @@ import configureStore from "./store/configureStore";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-export const { store, persistor } = configureStore();
+const { store, persistor } = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>

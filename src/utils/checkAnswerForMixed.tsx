@@ -1,6 +1,6 @@
 import asynNames from "../constants/strings";
-import { store } from "../index";
 import { savePoints } from "../store/actions/game";
+import { store } from "../store/configureStore";
 
 const checkAnswerForMixed = async (answerIsCorrect: boolean, totalPoints: number) => {
   try {

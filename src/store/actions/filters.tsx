@@ -1,5 +1,6 @@
 import strings from "../../constants/strings";
 import cache from "../../utils/cache";
+import { store } from "../configureStore";
 
 export const UPLOAD_CATEGORIES_FILTERS = "UPLOAD_CATEGORIES_FILTERS";
 export const DELETE_PREVIOUS_CATEGORIES_FILTERS =
@@ -89,7 +90,7 @@ export const deletePreviousCategoriesFilters = (gameType: string) => {
 export const fetchCategoriesFilters = (gameType: string) => {
   return async (dispatch: Function) => {
     try {
-      const { userId } = await cache.get(strings.userData);
+      const { userId } = store.getState().auth;
 
       const filtersResponse = await fetch(
         `https://en-touto-nika.firebaseio.com/categoriesFilters${gameType}/${userId}.json`
@@ -114,6 +115,8 @@ export const fetchCategoriesFilters = (gameType: string) => {
         strings.categoriesFilters,
         JSON.stringify({ appliedCategoriesFilters })
       );
+      console.log('filtersResData', appliedCategoriesFilters);
+
       dispatch({
         type: FETCH_CATEGORIES_FILTERS,
         appliedCategoriesFilters: appliedCategoriesFilters,

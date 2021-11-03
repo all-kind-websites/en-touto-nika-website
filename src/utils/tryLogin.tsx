@@ -1,6 +1,6 @@
-import { store } from '../';
 import * as authActions from "../store/actions/auth";
 import strings from '../constants/strings';
+import { store } from "../store/configureStore";
 
 const tryLogin = async (setError: Function) => {
   try {
