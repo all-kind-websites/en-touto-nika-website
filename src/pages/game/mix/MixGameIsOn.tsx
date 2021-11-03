@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { RootStateOrAny, useSelector } from 'react-redux';
+import { useCallback, useEffect, useState } from 'react';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Button from '../../../components/UI/Button';
@@ -9,9 +9,9 @@ import cache from '../../../utils/cache';
 import { removeAsyncMultiMixed, removeAsyncTrueFalseMixed } from '../../../utils/removeAsync';
 import { gameOn } from '../../../store/actions/game';
 import '../../../styles/game/mix/game-is-on.css';
-import { store } from '../../../store/configureStore';
 
 const MixGameIsOn = (props: any) => {
+  const dispatch = useDispatch();
   const { history } = props;
   const [hover, setHover] = useState(false);
   const [mixGameIsOn, setMixGameIsOn] = useState(false);
@@ -23,6 +23,7 @@ const MixGameIsOn = (props: any) => {
   const handleHover = () => {
     setHover(!hover)
   }
+
 
   useEffect(() => {
     if (props.location.state.mixGameIsOn) {
@@ -36,32 +37,33 @@ const MixGameIsOn = (props: any) => {
   }, [props.location.state.mixGameIsOn, props.location.state.mixGameIsOnTF])
 
 
-  async function continueSameGameHanlder() {
-    store.dispatch(gameOn(true));
-
-    if (gameType === "Multi") {
-      if (timer) {
-        await cache.set(strings.useTimerMultiMixed, true);
-        history.replace(nav.mixMultiGameWithTimer);
-      } else {
-        await cache.set(strings.useTimerMultiMixed, false);
-        history.replace(nav.mixMultiGameNoTimer);
+  const continueSameGameHanlder = useCallback(
+    async () => {
+      console.log('continueSameGameHanlder');
+      await dispatch(gameOn(true));
+      if (gameType === "Multi") {
+        if (timer) {
+          await cache.set(strings.useTimerMultiMixed, true);
+          history.replace(nav.mixMultiGameWithTimer);
+        } else {
+          await cache.set(strings.useTimerMultiMixed, false);
+          history.replace(nav.mixMultiGameNoTimer);
+        }
+      } else if (gameType === "TrueFalse") {
+        if (timer) {
+          await cache.set(strings.useTimerTrueFalseMixed, true);
+          history.replace(nav.mixTrueFalseGameWithTimer);
+        } else {
+          await cache.set(strings.useTimerTrueFalseMixed, false);
+          history.replace(nav.mixTrueFalseGameNoTimer);
+        }
       }
-    } else if (gameType === "TrueFalse") {
-      if (timer) {
-        await cache.set(strings.useTimerTrueFalseMixed, true);
-        history.replace(nav.mixTrueFalseGameWithTimer);
-      } else {
-        await cache.set(strings.useTimerTrueFalseMixed, false);
-        history.replace(nav.mixTrueFalseGameNoTimer);
-      }
-    }
-  }
+    }, [gameType, dispatch, history, timer])
 
-  async function startNewGameHandler() {
+
+  const startNewGameHandler = async () => {
     if (gameType === "TrueFalse") await removeAsyncTrueFalseMixed();
     else await removeAsyncMultiMixed();
-
     history.replace(nav.mixChooseCategories);
   }
 

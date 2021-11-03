@@ -39,15 +39,15 @@ const Categories = () => {
   // TODO: not needed anymore
   // keep this in case user 
   // comes back from the game
-  useEffect(() => {
-    dispatch(gameOn(false));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(gameOn(false));
+  // }, [dispatch]);
 
   const startMixGame = async (
     gameType: string,
     timer: boolean
   ) => {
-    dispatch(gameOn(true));
+    await dispatch(gameOn(true));
     if (gameType === "Multi") {
       if (timer) {
         await cache.set(strings.useTimerMultiMixed, true);
