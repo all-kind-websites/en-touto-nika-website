@@ -6,9 +6,12 @@ import LinkText from "./LinkText";
 
 import nav from '../../constants/nav';
 import '../../styles/UI/detailed-answer.css';
+import { removeChoicesfromAsyncStorage } from '../../utils/removeAsync';
 
 const DetailedAnswer = ({ history, selectedQuestion, onRefresh }: any) => {
-  const breakHandler = () => {
+
+  const breakHandler = async () => {
+    removeChoicesfromAsyncStorage();
     history.replace(nav.home);
   }
   return (

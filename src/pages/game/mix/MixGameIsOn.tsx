@@ -39,7 +39,6 @@ const MixGameIsOn = (props: any) => {
 
   const continueSameGameHanlder = useCallback(
     async () => {
-      console.log('continueSameGameHanlder');
       await dispatch(gameOn(true));
       if (gameType === "Multi") {
         if (timer) {
