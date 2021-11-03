@@ -3,7 +3,6 @@ import '../../styles/UI/custom-modal.css';
 
 import Button from "./Button";
 
-
 interface CustomModalProps {
   textOne: string,
   textTwo: string,
@@ -11,7 +10,7 @@ interface CustomModalProps {
   buttonTwoTitle: string,
   onClickOne: Function,
   onClickTwo: Function,
-  style: any
+  style?: any
 }
 
 const CustomModal = ({

@@ -14,7 +14,6 @@ const initialState = {
   allowEntrance: false,
   email: "",
   forgotPassword: false,
-  set: false,
   token: '',
   triedAutoLogin: false,
   userId: '',

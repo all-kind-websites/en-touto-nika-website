@@ -15,9 +15,7 @@ export default function Topbar(props: any) {
 
   const gameTitle = useSelector((state: RootStateOrAny) => state.game.gameTypeTitle);
   const gameOn = useSelector((state: RootStateOrAny) => state.game.gameOn);
-  console.log('====================================');
-  console.log(gameOn);
-  console.log('====================================');
+
   useEffect(() => {
     dispatch(timerState(timer))
   }, [dispatch, timer])

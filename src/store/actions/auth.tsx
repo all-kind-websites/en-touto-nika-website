@@ -169,9 +169,6 @@ export const logout = () => {
   return async (dispatch: Function) => {
     await localStorage.removeItem(strings.userData);
     await localStorage.removeItem(strings.refreshToken);
-
-    // await localStorage.removeItem('dataIsLoaded');
-    // clearLogoutTimer();
     dispatch({ type: LOG_OUT });
   };
 };

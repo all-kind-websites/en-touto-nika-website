@@ -1,5 +1,5 @@
 import strings from "../../constants/strings";
-import cache from "../../utils/cache";
+// import cache from "../../utils/cache";
 import { store } from "../configureStore";
 
 export const UPLOAD_CATEGORIES_FILTERS = "UPLOAD_CATEGORIES_FILTERS";
@@ -19,7 +19,7 @@ export const uploadCategoriesFilters = (gameType: string, appliedCategoriesFilte
   return async (dispatch: Function) => {
     try {
 
-      const { token, userId } = await cache.get(strings.userData);
+      const { userId, token } = store.getState().auth;
 
       const response = await fetch(
         `https://en-touto-nika.firebaseio.com//categoriesFilters${gameType}/${userId}.json?auth=${token}`,
@@ -63,15 +63,15 @@ export const uploadCategoriesFilters = (gameType: string, appliedCategoriesFilte
 export const deletePreviousCategoriesFilters = (gameType: string) => {
   return async (dispatch: Function) => {
     try {
-      const { token, userId } = await cache.get(strings.userData);
+      const { userId, token } = store.getState().auth;
 
-      // Delete active user's data from All_Users_Data
       const response = await fetch(
         `https://en-touto-nika.firebaseio.com/categoriesFilters${gameType}/${userId}.json?auth=${token}`,
         {
           method: "DELETE",
         }
       );
+
       if (!response.ok) {
         throw new Error(
           "Δυστυχώς η αλλαγή της κατάστασης της κατηγορίας δεν ήταν δυνατή! Παρακαλούμε ελέγξτε τη σύνδεσή σας."
@@ -115,7 +115,6 @@ export const fetchCategoriesFilters = (gameType: string) => {
         strings.categoriesFilters,
         JSON.stringify({ appliedCategoriesFilters })
       );
-      console.log('filtersResData', appliedCategoriesFilters);
 
       dispatch({
         type: FETCH_CATEGORIES_FILTERS,

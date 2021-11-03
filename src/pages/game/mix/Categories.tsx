@@ -12,12 +12,14 @@ import CheckBox from "../../../components/CheckBox";
 import Button from "../../../components/UI/Button";
 import '../../../styles/game/mix/categories.css';
 import { gameOn } from "../../../store/actions/game";
+import CustomModal from "../../../components/UI/CustomModal";
 
 const Categories = () => {
   const history = useHistory();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [showModal, setShowModal] = useState(false);
 
-  const userIsLoggedIn = !!localStorage.getItem(strings.userData);
+  const userIsLoggedIn = localStorage.getItem(strings.userData);
   const gameType = useSelector((state: RootStateOrAny) => state.game.id);
   const timer = useSelector((state: RootStateOrAny) => state.game.timer);
 
@@ -31,7 +33,7 @@ const Categories = () => {
     saveTwo,
     saveThree,
     saveFour,
-    isLoading,
+    // isLoading,
   } = useSaveCategory(gameType);
 
   const categoryIsChosen = oneIsTrue || twoIsTrue || threeIsTrue || fourIsTrue;
@@ -42,6 +44,12 @@ const Categories = () => {
   // useEffect(() => {
   //   dispatch(gameOn(false));
   // }, [dispatch]);
+
+  useEffect(() => {
+    if (!userIsLoggedIn) {
+      setShowModal(true)
+    }
+  }, [userIsLoggedIn])
 
   const startMixGame = async (
     gameType: string,
@@ -66,6 +74,15 @@ const Categories = () => {
       }
     }
   };
+
+  const moveToWelcome = () => {
+    setShowModal(false);
+    history.replace(nav.auth)
+  }
+
+  const hideModal = () => {
+    setShowModal(false);
+  }
 
   // // TODO: add content
   // if (!userIsLoggedIn) {
@@ -115,6 +132,14 @@ const Categories = () => {
           />
         </div>
       </div>
+      {showModal ? <CustomModal
+        textOne='Δεν έχετε κάνει εγγραφή'
+        textTwo='Προκειμένου να επιλέξετε κατηγορίες, χρειάζεται να κάνετε εγγραφή.'
+        buttonOneTitle='Εγγραφή'
+        buttonTwoTitle='Εντάξει'
+        onClickOne={moveToWelcome}
+        onClickTwo={hideModal}
+      /> : null}
     </section>
   );
 };

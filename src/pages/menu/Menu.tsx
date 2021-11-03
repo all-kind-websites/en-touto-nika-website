@@ -8,10 +8,12 @@ import { IoIosCreate } from 'react-icons/io'
 import strings from '../../constants/strings'
 import nav from '../../constants/nav'
 import '../../styles/menu/menu.css';
+import { useDispatch } from "react-redux";
+import { logout } from "../../store/actions/auth";
 
 
 export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, setMenuOpen: Function }) {
-
+  const dispatch = useDispatch()
   const userIsLoggedIn = !!localStorage.getItem(strings.userData);
 
   const menuHandler = () => {
@@ -19,8 +21,8 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
   };
 
   const logoutHandler = () => {
-    setMenuOpen(false);
-    localStorage.removeItem(strings.userData);
+    // setMenuOpen(false);
+    dispatch(logout())
   };
 
   return (
