@@ -1,15 +1,30 @@
-- Hosting URL: https://brave-pasteur-5a8c7a.netlify.app/
-  or https://en-touto-nika.herokuapp.com/
+- Hosting URL:
+- [en touto nika -in netlify](https://brave-pasteur-5a8c7a.netlify.app/)
+- [en touto nika -in heroku](https://en-touto-nika.herokuapp.com/)
 
-  NOTE: The webapp is not ready yet! It's a greek orhtodox christian quiz. And yes... it's all in greek.\
-  The UI in the addresses is off. Namely the Topbar and the sidedrawer are not visible and there is a Loader spinning on the home page.
-  I tried to host it to firebase, github-pages, netlify and heroku, with no better luck.\
-  Anyway I still need to work on it and find the bugs.\
-  Thank you for your understanding.
-  If you download the repo though and you run it in your machine it works!
-  Thanks again.
+NOTE: The webapp is not ready yet! It's a greek orthodox christian quiz.\
+And yes... it's all in greek 😊.\
+If you want to play just click the first card, and then again the fist card.\
+Then if you get the modal, don't worry, just click in one of the buttons, and then choose categories.\
+If you want just 3 questions choose only the third category. The game will finish.\
+You'll be navigated to the GameOver screen, where you can press the last word 'Επιστροφή', and be navigated to home.\
+It's very nice!\
+When you see the multiple choices just click on one of them. Then you see with animations if you're right or wrong.\
+Then you get the detailed answer, and two icons, a cup to get a break and an arrow to next question.
+If user gets a brake everything is saved and when comes back, may continue or start a new one.
 
-- Clean working time spent on the webpage: 98:13'
+Unfortunately the UI in the hosted addresses above is off.\
+Namely the `Topbar` and the `sidedrawer` are not visible and there is a `Loader` spinning on the home page.
+I tried to host it to `firebase`, `github-pages`, `netlify` and `heroku`, with no better luck.\
+Anyway I still need to work on it and find the bugs.\
+Thank you for your understanding.\
+If you download the repo though and you run it in your machine it works!\
+Ofcourse then you need the `api_key` to make requests to firebase.\
+Please ask me to send it to you.\
+
+Thanks again.
+
+- Time spent on the webpage: 98:13'
 
 TODO:
 

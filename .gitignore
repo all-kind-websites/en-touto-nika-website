@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+src/api_key.tsx
+
 # misc
 .DS_Store
 .env.local
