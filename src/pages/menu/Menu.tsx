@@ -30,7 +30,7 @@ export default function Menu({ menuOpen, setMenuOpen }: { menuOpen: boolean, set
       <h1>ΕΝ ΤΟΥΤΩ ΝΙΚΑ</h1>
       <ul>
         <li>
-          <NavLink className='link' onClick={menuHandler} to="/">
+          <NavLink className='link' onClick={menuHandler} to={nav.home}>
             <FaHome className='menu-icon' /> <p> Αρχική </p>
           </NavLink>
         </li>

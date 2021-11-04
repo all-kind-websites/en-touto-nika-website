@@ -51,6 +51,8 @@
     height: inherit;
     @include centerFlex(row);
     // margin-left: 40px;
+    /* Hide scrollbars */
+    overflow: hidden;
 
     .title {
       font-size: 3rem;

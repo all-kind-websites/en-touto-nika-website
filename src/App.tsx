@@ -86,8 +86,8 @@ function App() {
 
 
                   {/* Basic */}
-                  <Route path={nav.not_found} component={NotFound} />
                   <Route path={nav.home} exact render={() => <Home setMenuOpen={setMenuOpen} />} />
+                  <Route path={nav.not_found} component={NotFound} />
                   <Redirect to={nav.not_found} />
                 </Switch>
               </CSSTransition>

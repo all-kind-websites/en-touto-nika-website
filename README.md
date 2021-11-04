@@ -1,5 +1,9 @@
 - Hosting URL: https://en-touto-nika.web.app
 
+- Clean working time spent on the webpage: 98:13'
+
+TODO:
+
 - fix `(trueFalse_useTimer === "created")`
 - find a way to get image from pc, and set the type of img in `saveImage = (img, prevImg)`. And then store the url in Firebase.
 
