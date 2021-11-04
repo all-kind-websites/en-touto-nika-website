@@ -1,4 +1,13 @@
 - Hosting URL: https://brave-pasteur-5a8c7a.netlify.app/
+  or https://en-touto-nika.herokuapp.com/
+
+  NOTE: The webapp is not ready yet! It's a greek orhtodox christian quiz. And yes... it's all in greek.\
+  The UI in the addresses is off. Namely the Topbar and the sidedrawer are not visible and there is a Loader spinning on the home page.
+  I tried to host it to firebase, github-pages, netlify and heroku, with no better luck.\
+  Anyway I still need to work on it and find the bugs.\
+  Thank you for your understanding.
+  If you download the repo though and you run it in your machine it works!
+  Thanks again.
 
 - Clean working time spent on the webpage: 98:13'
 
