@@ -1,4 +1,4 @@
-- Hosting URL: https://en-touto-nika.web.app
+- Hosting URL: https://brave-pasteur-5a8c7a.netlify.app/
 
 - Clean working time spent on the webpage: 98:13'
 

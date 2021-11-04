@@ -1,6 +1,6 @@
 
 const nav = {
-  home: '/en-touto-nika-website',
+  home: '/',
   winners: "/winners",
   settings: "/settings",
   create: "/create",
