@@ -4,6 +4,7 @@
 .loader {
   @include centerFlex(row);
   height: 5rem;
+  overflow: hidden; /* Hide scrollbars */
 }
 
 .loader__element {

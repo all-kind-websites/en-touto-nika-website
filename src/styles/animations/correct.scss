@@ -6,6 +6,7 @@
   z-index: 10;
   height: 200px;
   width: 200px;
+  overflow: hidden; /* Hide scrollbars */
 
   &.fade-out {
     animation: fadeout 1000ms;
