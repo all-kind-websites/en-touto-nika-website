@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/en-touto-nika-website/static/css/main.cf3caf52.chunk.css",
-    "main.js": "/en-touto-nika-website/static/js/main.1d80e06d.chunk.js",
-    "main.js.map": "/en-touto-nika-website/static/js/main.1d80e06d.chunk.js.map",
-    "runtime-main.js": "/en-touto-nika-website/static/js/runtime-main.fecd6869.js",
-    "runtime-main.js.map": "/en-touto-nika-website/static/js/runtime-main.fecd6869.js.map",
-    "static/js/2.c850b751.chunk.js": "/en-touto-nika-website/static/js/2.c850b751.chunk.js",
-    "static/js/2.c850b751.chunk.js.map": "/en-touto-nika-website/static/js/2.c850b751.chunk.js.map",
-    "static/js/3.a05aef29.chunk.js": "/en-touto-nika-website/static/js/3.a05aef29.chunk.js",
-    "static/js/3.a05aef29.chunk.js.map": "/en-touto-nika-website/static/js/3.a05aef29.chunk.js.map",
-    "index.html": "/en-touto-nika-website/index.html",
-    "static/css/main.cf3caf52.chunk.css.map": "/en-touto-nika-website/static/css/main.cf3caf52.chunk.css.map",
-    "static/js/2.c850b751.chunk.js.LICENSE.txt": "/en-touto-nika-website/static/js/2.c850b751.chunk.js.LICENSE.txt"
+    "main.css": "/all-kind-websites/en-touto-nika-website/static/css/main.cf3caf52.chunk.css",
+    "main.js": "/all-kind-websites/en-touto-nika-website/static/js/main.1d80e06d.chunk.js",
+    "main.js.map": "/all-kind-websites/en-touto-nika-website/static/js/main.1d80e06d.chunk.js.map",
+    "runtime-main.js": "/all-kind-websites/en-touto-nika-website/static/js/runtime-main.320a0f2b.js",
+    "runtime-main.js.map": "/all-kind-websites/en-touto-nika-website/static/js/runtime-main.320a0f2b.js.map",
+    "static/js/2.c850b751.chunk.js": "/all-kind-websites/en-touto-nika-website/static/js/2.c850b751.chunk.js",
+    "static/js/2.c850b751.chunk.js.map": "/all-kind-websites/en-touto-nika-website/static/js/2.c850b751.chunk.js.map",
+    "static/js/3.a05aef29.chunk.js": "/all-kind-websites/en-touto-nika-website/static/js/3.a05aef29.chunk.js",
+    "static/js/3.a05aef29.chunk.js.map": "/all-kind-websites/en-touto-nika-website/static/js/3.a05aef29.chunk.js.map",
+    "index.html": "/all-kind-websites/en-touto-nika-website/index.html",
+    "static/css/main.cf3caf52.chunk.css.map": "/all-kind-websites/en-touto-nika-website/static/css/main.cf3caf52.chunk.css.map",
+    "static/js/2.c850b751.chunk.js.LICENSE.txt": "/all-kind-websites/en-touto-nika-website/static/js/2.c850b751.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.fecd6869.js",
+    "static/js/runtime-main.320a0f2b.js",
     "static/js/2.c850b751.chunk.js",
     "static/css/main.cf3caf52.chunk.css",
     "static/js/main.1d80e06d.chunk.js"
